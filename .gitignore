@@ -1,0 +1,8 @@
+*
+
+# Do not ignore these files
+!.gitignore
+!.vim/
+!.vimrc
+!.bash_profile
+!generate-ssh.sh
