@@ -2,7 +2,7 @@
 
 # Do not ignore these files
 !.gitignore
-!.vim/
+!.vim/*
 !.vimrc
 !.bash_profile
 !generate-ssh.sh
