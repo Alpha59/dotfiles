@@ -39,17 +39,26 @@ set binary
 set noeol
 
 func! DeleteTrailingWS()
-	exe "normal mz"
-	%s/\s\+$//ge
-	exe "normal `z"
+    exe "normal mz"
+    %s/\s\+$//ge
+    exe "normal `z"
 endfunc
-autocmd BufWrite * :call DeleteTrailingWS()
 
 " autocmd BufWrite * :! npm run lint && sleep 2 && refresh.scpt 0
-autocmd BufWritePost * :! sleep 1 && refresh.scpt 0
-"autocmd BufWritePost * :! refresh.scpt 0
+" autocmd BufWritePost * :! sleep 1 && refresh.scpt 0
+" autocmd BufWritePost * :! refresh.scpt 0
+" autocmd BufWrite * :call DeleteTrailingWS()
 
-map <leader>ss :setlocal spell spelllang=en_us<cr>
+
+func! GDrivePython()
+    set updatetime=500
+    let g:auto_save = 1
+    let g:auto_save_silent = 1
+    let g:auto_save_events = ["CursorHoldI", "CursorHold"]
+    set autoread
+endfunc
+
+:call GDrivePython()
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
