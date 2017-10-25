@@ -44,21 +44,19 @@ func! DeleteTrailingWS()
     exe "normal `z"
 endfunc
 
-" autocmd BufWrite * :! npm run lint && sleep 2 && refresh.scpt 0
-" autocmd BufWritePost * :! sleep 1 && refresh.scpt 0
-" autocmd BufWritePost * :! refresh.scpt 0
-" autocmd BufWrite * :call DeleteTrailingWS()
-
-
 func! GDrivePython()
-    set updatetime=500
+    set updatetime=400
     let g:auto_save = 1
-    let g:auto_save_silent = 1
-    let g:auto_save_events = ["CursorHoldI", "CursorHold"]
+    let g:auto_save_silent = 0
+    let g:auto_save_events = ["CursorHoldI"]
     set autoread
 endfunc
 
-:call GDrivePython()
+" autocmd BufWrite * :! npm run lint && sleep 2 && refresh.scpt 0
+" autocmd BufWritePost * :! sleep 1 && refresh.scpt 0
+" autocmd BufWritePost * :! refresh.scpt 0
+autocmd BufWrite * :call DeleteTrailingWS()
+":call GDrivePython()
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
@@ -66,8 +64,6 @@ autocmd BufReadPost *
      \   exe "normal! g`\"" |
      \ endif
 set suffixesadd+=.js
-set path=$PWD/**
-
-" Remember info about open buffers on close
+set path=$PWD/**" Remember info about open buffers on close
 set viminfo^=%
 
