@@ -36,7 +36,7 @@ set shiftwidth=4
 set smarttab
 
 set binary
-set noeol
+"set noeol
 
 func! DeleteTrailingWS()
     exe "normal mz"
@@ -53,7 +53,7 @@ func! GDrivePython()
 endfunc
 
 " autocmd BufWrite * :! npm run lint && sleep 2 && refresh.scpt 0
-" autocmd BufWritePost * :! sleep 1 && refresh.scpt 0
+" autocmd BufWritePost * :! sleep 2 && refresh.scpt 0
 " autocmd BufWritePost * :! refresh.scpt 0
 autocmd BufWrite * :call DeleteTrailingWS()
 ":call GDrivePython()

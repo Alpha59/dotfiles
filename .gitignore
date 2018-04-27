@@ -7,4 +7,5 @@
 !.vim/bundles/*
 !.vimrc
 !.bash_profile
+!install.sh
 !generate-ssh.sh
