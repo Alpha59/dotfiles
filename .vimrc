@@ -52,10 +52,13 @@ func! GDrivePython()
     set autoread
 endfunc
 
-" autocmd BufWrite * :! npm run lint && sleep 2 && refresh.scpt 0
+execute pathogen#infect()
+
+"autocmd BufWritePost * :! npm run lint && sleep 2 && refresh.scpt 0
 " autocmd BufWritePost * :! sleep 2 && refresh.scpt 0
 " autocmd BufWritePost * :! refresh.scpt 0
 autocmd BufWrite * :call DeleteTrailingWS()
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css " syntax highlighting for vue
 ":call GDrivePython()
 
 " Return to last edit position when opening files (You want this!)
@@ -66,4 +69,22 @@ autocmd BufReadPost *
 set suffixesadd+=.js
 set path=$PWD/**" Remember info about open buffers on close
 set viminfo^=%
+call plug#begin('~/.vim/bundle')
+Plug 'jparise/vim-graphql'
+
+let g:syntastic_enable_python_checker = 1
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_enable_html_checker = 0
+let g:syntastic_disabled_filetypes=['html']
+let g:syntastic_html_tidy_ignore_errors=["<i18n>"]
+let g:syntastic_html_tidy_quiet_messages = { "level" : "warnings" }
+let g:syntastic_javascript_eslint_exe = 'npm run lint --'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
