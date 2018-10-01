@@ -2,7 +2,7 @@ function repeat(str, nf){
     i = 1;
     rep = "";
     while(i++ < nf)
-	rep = rep str;
+    rep = rep str;
     return rep;
 }
 
@@ -22,47 +22,47 @@ BEGIN {
 
 /.*/ {
     if ( nfp == nfc ) { # sibling of previous
-	if ( nfn == nfc ) { # sibling of next
+    if ( nfn == nfc ) { # sibling of next
 
-	    print repeat("\t", nfc)",\""nfcv"\"" " : ss"; #,key : value
+        print repeat("\t", nfc)",\""nfcv"\"" " : ss"; #,key : value
 
-	} else if (nfn > nfc ) { # parent of next
+    } else if (nfn > nfc ) { # parent of next
 
-	    print repeat("\t", nfc)",\""nfcv"\"" " : sp"; #,key : value
+        print repeat("\t", nfc)",\""nfcv"\"" " : sp"; #,key : value
 
-	} else { # child of next
+    } else { # child of next
 
-	    print repeat("\t", nfc)",\""nfcv"\"" " : sc"; #,key : value
+        print repeat("\t", nfc)",\""nfcv"\"" " : sc"; #,key : value
 
-	}
+    }
     } else if ( nfp > nfc ) { # child of previous
-	if ( nfn == nfc ) { # sibling of next
+    if ( nfn == nfc ) { # sibling of next
 
-	    print repeat("\t", nfc)",\""nfcv"\"" " : cs"; #,key : value
+        print repeat("\t", nfc)",\""nfcv"\"" " : cs"; #,key : value
 
-	} else if (nfn > nfc ) { # parent of next
+    } else if (nfn > nfc ) { # parent of next
 
-	    print repeat("\t", nfc)",\""nfcv"\"" " : cp"; #,key : value
+        print repeat("\t", nfc)",\""nfcv"\"" " : cp"; #,key : value
 
-	} else { # child of next
+    } else { # child of next
 
-	    print repeat("\t", nfc)",\""nfcv"\"" " : cc"; #,key : value
+        print repeat("\t", nfc)",\""nfcv"\"" " : cc"; #,key : value
 
-	}
+    }
     } else { # parent of previous
-	if ( nfn == nfc ) { # sibling of next
+    if ( nfn == nfc ) { # sibling of next
 
-	    print repeat("\t", nfc)",\""nfcv"\"" " : ps"; #,key : value
+        print repeat("\t", nfc)",\""nfcv"\"" " : ps"; #,key : value
 
-	} else if (nfn > nfc ) { # parent of next
+    } else if (nfn > nfc ) { # parent of next
 
-	    print repeat("\t", nfc)",\""nfcv"\"" " : pp"; #,key : value
+        print repeat("\t", nfc)",\""nfcv"\"" " : pp"; #,key : value
 
-	} else { # child of next
+    } else { # child of next
 
-	    print repeat("\t", nfc)",\""nfcv"\"" " : pc"; #,key : value
+        print repeat("\t", nfc)",\""nfcv"\"" " : pc"; #,key : value
 
-	}
+    }
     }
     nfp = nfc;
     nfc = nfn;

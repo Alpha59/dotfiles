@@ -7,7 +7,12 @@ brew install node;
 node -v;
 npm -v;
 npm install n;
+brew update;
+brew tap caskroom/cask;
 brew install python;
 brew install neovim;
+brew cask install firefox;
+brew cask install hyper;
+brew cask install google-chrome;
 
 chmod +x $HOME/scripts/*

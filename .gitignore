@@ -6,6 +6,7 @@
 !.gitignore
 !.vimrc
 !.bash_profile
+!.hyper.js
 !install.sh
 !scripts/
 !scripts/*
