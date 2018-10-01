@@ -10,6 +10,7 @@ alias simpleserver='Python -m SimpleHTTPServer '
 alias clear='clear;clear;clear;clear;clear;clear;clear;clear; '
 alias lynx='lynx -accept_all_cookies '
 alias cvim='charm '
+# alias vim='nvim '
 alias keyadd='ssh-add -K ~/.ssh/ '
 alias autopep='autopep8 -i -r -a -a '
 alias mongos='mongodb --dbpath /usr/local/data/db/ '
@@ -18,7 +19,7 @@ export PS1="\t:\w>Yes Jake? >> "
 
 set -o vi
 
-export PATH=$PATH:/usr/local/opt/mongodb/bin/mongoexport:$GOPATH/bin
+export PATH=$PATH:/usr/local/opt/mongodb/bin/mongoexport:$GOPATH/bin:$HOME/scripts/
 
 export UCAT_ORACLE_SID=ATGUTL
 export UCAT_ORACLE_SERVICE=dev_mcp_phl_svc

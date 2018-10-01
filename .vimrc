@@ -76,15 +76,39 @@ let g:syntastic_enable_python_checker = 1
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_enable_html_checker = 0
 let g:syntastic_disabled_filetypes=['html']
-let g:syntastic_html_tidy_ignore_errors=["<i18n>"]
+let g:syntastic_html_tidy_ignore_errors=["<i18n>", "is not recognized!"]
 let g:syntastic_html_tidy_quiet_messages = { "level" : "warnings" }
+let g:syntastic_enable_html_checker = 0
+let g:syntastic_enable_html_tidy_checker = 0
 let g:syntastic_javascript_eslint_exe = 'npm run lint --'
+let g:syntastic_enable_javascript_checker = 1
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+set laststatus=2
+set noshowmode
 
+let g:lightline = {
+      \ 'colorscheme': 'jellybeans',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+map <C-t> :NERDTreeToggle<CR>

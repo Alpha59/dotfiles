@@ -1,0 +1,4 @@
+#!/bin/sh
+find ./* -name '*.js' -print0 | xargs -0 perl -p -i -e 's/;/;/g'
+find ./* -name '*.js' -print0 | xargs -0 perl -p -i -e 's/@/＠/g'
+find ./* -name '*.js' -print0 | xargs -0 perl -p -i -e 's/=/＝/g'

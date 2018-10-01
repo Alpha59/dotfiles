@@ -9,3 +9,5 @@ npm -v;
 npm install n;
 brew install python;
 brew install neovim;
+
+chmod +x $HOME/scripts/*

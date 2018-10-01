@@ -1,0 +1,4 @@
+git pull --tags --force
+git checkout tags/$1 -b $1
+git checkout $1
+git push -u origin $1

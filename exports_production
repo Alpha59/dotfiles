@@ -1,0 +1,5 @@
+# PRODUCTION
+export BAZAARVOICE_KEY=amtfvfkvopuye5enkpprbq3a5
+export BAZAARVOICE_URL=http://api.bazaarvoice.com/data/
+export NEW_RELIC_ENABLED=true
+export NEW_RELIC_LOGGING_PATH='some prod server path'

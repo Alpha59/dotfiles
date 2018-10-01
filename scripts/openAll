@@ -1,0 +1,41 @@
+#!/bin/sh
+# Wait for wifi to be connected
+while [[ `/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ state/ {print substr($0, index($0, $2))}'` != 'running' ]];do
+    sleep 1;
+done
+# Give time to finish connecting
+sleep 45;
+
+# Open Chrome links for Big Screen
+#/usr/bin/osascript -e "tell application \"/Applications/Google Chrome.app\"" -e "make new window" -e "activate" -e "end tell"
+/usr/bin/open -a "/Applications/Google Chrome.app" 'https://github.com/urbn/FPcom' 'https://urbnit.atlassian.net/secure/RapidBoard.jspa?rapidView=179&projectKey=FPD&view=detail&quickFilter=524' 'https://urbnit.atlassian.net/plugins/servlet/ac/timereports/timereports-report?project.key=FPD' 'http://davidchase.github.io/ramtuary/' 'https://app.contentful.com/spaces/kxqlcpo8fx1e/' 'http://docs.urbn.com/'
+/usr/local/bin/fullscreen "Google Chrome" 0
+
+# Open Chrome Dev Enviorment
+/usr/bin/osascript -e "tell application \"/Applications/Google Chrome.app\"" -e "make new window" -e "activate" -e "end tell"
+/usr/bin/open -a "/Applications/Google Chrome.app" 'http://fp.com' 'http://beta.fp.com' 'http://staging2.fp.com/' 'http://127.0.0.1:9000'
+#fp-dev.urbn.com
+/usr/local/bin/fullscreen "Google Chrome" 0
+
+# Open Firefox Dev enviorment (Never works)
+/usr/bin/open -a "/Applications/Firefox.app" 'http://127.0.0.1:9000'
+
+# Open Safari Dev Enviorment
+/usr/bin/open -a "/Applications/Safari.app" 'http://fp.com' 'http://fp-dev.urbn.com' 'http://staging2.fp.com/' 'http://127.0.0.1:9000'
+/usr/local/bin/fullscreen "Safari" 0
+
+# Open Second Chrome window for small screen
+/usr/bin/osascript -e "tell application \"/Applications/Google Chrome.app\"" -e "make new window" -e "activate" -e "end tell"
+/usr/bin/open -a "/Applications/Google Chrome.app" 'https://stackedit.io' 'https://tree.taiga.io/'
+/usr/local/bin/fullscreen "Google Chrome" 0
+/usr/local/bin/fullscreen "Terminal" 0
+
+# If not connected to work network, open the VPN Site
+if [[ `/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}'` != '1809x' ]]; then
+    # Need to open Firefox in Dev enviorment
+    /usr/local/bin/notify "Open All" "Opening a VPN connection since none appears to exist."
+    /usr/bin/open -a "/Applications/Firefox.app" 'https://vpn.urbn.com/macpulse'
+fi
+
+# Make Firefox Fullscreen.
+/usr/local/bin/fullscreen "Firefox" 0

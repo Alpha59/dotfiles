@@ -1,10 +1,21 @@
-*
+*/*
+*.*
+.*
 
 # Do not ignore these files
 !.gitignore
-!.vim/
 !.vimrc
 !.bash_profile
 !install.sh
-!generate-ssh.sh
 !scripts/
+!scripts/*
+!scripts/*/
+!scripts/*/*
+!scripts/*/*/
+!scripts/*/*/*
+!.vim/
+!.vim/*
+!.vim/*/
+!.vim/*/*
+!.vim/*/*/
+!.vim/*/*/*
