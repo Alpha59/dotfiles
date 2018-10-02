@@ -4,22 +4,22 @@ module.exports = {
     fontSize: 12,
 
     // font family with optional fallbacks
-    //fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-    //cursorColor: 'rgba(248,28,229,0.8)',
+    cursorColor: 'rgba(248,28,229,0.8)',
 
     // `BEAM` for |, `UNDERLINE` for _, `BLOCK` for █
-    //cursorShape: 'BLOCK',
+    cursorShape: 'BLOCK',
 
     // color of the text
     //foregroundColor: '#fff',
 
     // terminal background color
-    //backgroundColor: 'rgba(27,43,52, 1)'
+    backgroundColor: 'rgba(27,43,52, 0.9)',
 
     // border color (window, tabs)
-    //borderColor: '#333',
+    borderColor: '#333',
 
     // custom css to embed in the main window
     css: '',
@@ -43,7 +43,6 @@ module.exports = {
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
     // an array here instead of a color map object
-    /*
     colors: {
       black: '#000000',
       red: '#ff0000',
@@ -61,7 +60,7 @@ module.exports = {
       lightMagenta: '#cc00ff',
       lightCyan: '#00ffff',
       lightWhite: '#ffffff'
-    },*/
+    },
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
     // if left empty, your system's login shell will be used by default
@@ -76,6 +75,18 @@ module.exports = {
 
     // set to false for no bell
     bell: false,
+
+    hypercwd: {
+        initialWorkingDirectory: '~/Dev/'
+    },
+
+    hyperline: {
+        plugins: [
+            "ip",
+            "cpu",
+            "spotify"
+        ]
+    },
 
     // if true, selected text will automatically be copied to the clipboard
     copyOnSelect: false
@@ -93,12 +104,13 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
     plugins: [
-      "hyper-oceanic-next",
       "hyper-quit",
       "gitrocket",
       "space-pull",
       "hypergravity",
-      "hyper-ayu-mirage"
+      "hyperterm-spacegray",
+      "hyperline",
+      "hypercwd"
     ],
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here

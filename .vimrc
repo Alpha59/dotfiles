@@ -2,7 +2,7 @@ syntax on
 set wildmenu
 set showmatch
 set hlsearch
-nnoremap <silent> <C-n> :set relativenumber!<CR><C-n>
+nnoremap <silent> <C-k> :set relativenumber!<CR><C-k>
 nnoremap <silent> <C-m> :set invnumber!<CR><C-m>
 nnoremap <silent> <leader>cf :call writefile([], expand("<cfile>"), "t")<cr>
 nnoremap <silent> <C-l> :nohl<CR><C-l>
@@ -21,6 +21,9 @@ map k gk
 set ai
 set si
 set wrap
+set nocompatible
+set backspace=2
+set backspace=indent,eol,start
 
 let mapleadr = ","
 let g:mapleader = ","
@@ -82,11 +85,13 @@ let g:syntastic_enable_html_checker = 0
 let g:syntastic_enable_html_tidy_checker = 0
 let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 let g:syntastic_enable_javascript_checker = 1
+let g:syntastic_mode_map = { 'mode': 'passive' }
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:ale_linters = {'javascript': ['eslint']}
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
