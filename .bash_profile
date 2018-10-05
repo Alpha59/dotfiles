@@ -15,11 +15,12 @@ alias keyadd='ssh-add -K ~/.ssh/ '
 alias autopep='autopep8 -i -r -a -a '
 alias mongos='mongodb --dbpath /usr/local/data/db/ '
 alias scenario='python ./tests/unit/engines/promotion/scenarios/promotion_scenarios_tests.py '
+alias note='jrnl '
 export PS1="\t:\w>Yes Jake? >> "
 
 set -o vi
 
-export PATH=$PATH:/usr/local/opt/mongodb/bin/mongoexport:$GOPATH/bin:$HOME/scripts/
+export PATH=$PATH:/usr/local/opt/mongodb/bin/mongoexport:$GOPATH/bin:$HOME/scripts/:$HOME/git-extra-commands/bin/
 
 export UCAT_ORACLE_SID=ATGUTL
 export UCAT_ORACLE_SERVICE=dev_mcp_phl_svc

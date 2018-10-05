@@ -1,0 +1,2 @@
+# install a vim plugin from github
+vim-infect <user> <repo>

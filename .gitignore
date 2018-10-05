@@ -6,7 +6,10 @@
 !.gitignore
 !.vimrc
 !.bash_profile
+!.gitignore_global
+!.gitconfig
 !.hyper.js
+!journal.txt
 !install.sh
 !scripts/
 !scripts/*
@@ -20,3 +23,5 @@
 !.vim/*/*
 !.vim/*/*/
 !.vim/*/*/*
+!.cheat/
+!.cheat/*
