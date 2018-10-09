@@ -1,0 +1,4 @@
+netstat -vanp tcp | grep "$1"
+pid=$(netstat -vanp tcp | grep "$1" | awk '{print $9}')
+command="ps ax | grep $pid"
+eval $command

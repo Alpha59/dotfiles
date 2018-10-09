@@ -64,7 +64,7 @@ module.exports = {
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
     // if left empty, your system's login shell will be used by default
-    shell: '',
+    shell: 'bash',
 
     // for setting shell arguments (i.e. for using interactive shellArgs: ['-i'])
     // by default ['--login'] will be used
@@ -81,11 +81,7 @@ module.exports = {
     },
 
     hyperline: {
-        plugins: [
-            "ip",
-            "cpu",
-            "spotify"
-        ]
+        plugins: ["hostname", "ip", "memory", "battery", "cpu", "network", "spotify"]
     },
 
     // if true, selected text will automatically be copied to the clipboard

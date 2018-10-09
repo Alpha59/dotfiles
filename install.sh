@@ -9,7 +9,7 @@ brew -v;
 brew install node;
 node -v;
 npm -v;
-npm install n;
+npm install -g n;
 
 brew update;
 brew tap caskroom/cask;
@@ -35,3 +35,40 @@ infect-vim vim-syntastic syntastic;
 infect-vim tpope vim-fugitive;
 infect-vim terryma vim-multiple-cursors;
 infect-vim dhruvasagar vim-table-mode;
+
+git clone git@github.com:unixorn/git-extra-commands.git
+
+npm install --global trash-cli;
+
+npm install --global speed-test;
+
+npm install -g vtop;
+
+npm install --global public-ip-cli;
+
+npm install --global dev-time-cli;
+
+npm install http-server -g;
+
+npm install -g live-server;
+
+npm install --global fkill-cli;
+
+npm install --global kill-tabs;
+
+npm i -g pen;
+
+npm install gtop -g;
+
+npm install -g dockly;
+
+npm install uber-cli -g;
+
+npm install -g trashss;
+
+brew install exa;
+
+brew install fpp;
+
+pip install maybe;
+

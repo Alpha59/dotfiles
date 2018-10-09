@@ -1,5 +1,5 @@
 alias sudo='sudo '
-alias ls='ls -l '
+alias ls='exa -l '
 alias bc='bc -l '
 alias dammit='docker-compose down; docker-compose up -d '
 alias sudo=' '
@@ -16,6 +16,9 @@ alias autopep='autopep8 -i -r -a -a '
 alias mongos='mongodb --dbpath /usr/local/data/db/ '
 alias scenario='python ./tests/unit/engines/promotion/scenarios/promotion_scenarios_tests.py '
 alias note='jrnl '
+alias rm='trash '
+alias top='vtop '
+alias weather='curl wttr.in/philadelphia'
 export PS1="\t:\w>Yes Jake? >> "
 
 set -o vi
