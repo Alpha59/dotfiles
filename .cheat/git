@@ -1,0 +1,78 @@
+# Create
+
+$ git clone git@github.com:<github domain>
+
+$ git init # create a new local repo
+
+$ git ressh # Re-add github key to keychain
+
+$ git clone-subset # clones a subset of a repo
+
+# Differnces
+
+$ git status
+
+$ git diff
+
+$ git icdiff  # side-by-side diff
+
+$ git diff-last <filename>
+
+$ git divergence # show differences between local and remote branches
+# Local Changes
+
+$ git add -A
+
+$ git add -p <file> # Add only certain information from file
+
+$ git commit -m "<message"
+
+$ git recommit # add to previous commit
+
+$ git ignore # refresh .gitignore
+
+$ git local <file> # assume that a file has not changed
+
+$ git unlocal <file> # assume that a file has changed
+
+$ git comma # like git commit, but adds unknown files automatically
+
+$ git copy-branch-name
+
+$ git current-branch
+
+# Cleanup
+
+$ git delete-merged-branches
+$ git delete-local-merged
+
+$ git compact # compact a git repo to be as small as possible
+
+$ git delete-tag
+
+# Analysis
+
+$ git changes # Print list of commits by all users
+
+$ git-attic [-M] [PATH] # list deleted files of Git repositories (-M hides moved files)
+
+$ git churn <git-log-options> # show number of changes to a file
+
+$ git commit-count
+
+$ git commits-per-day
+
+$ git conflicts
+
+# Documentation
+
+$ git changelog # Generate a full changelog for the repo
+
+$ git change-author <old_email> <new_author> <new_email>  # Change an Authors Name/Email for all commits
+
+$ git release <tag> # create and push a new release tag
+
+# Hacks
+
+$ git blame-someone-else <author> <commit> # change the author of a given commit
+

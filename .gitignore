@@ -1,6 +1,8 @@
-*/*
-*.*
 .*
+*.*
+*/*
+*/*/*
+*/*/*/*
 
 # Do not ignore these files
 !.gitignore
@@ -9,6 +11,7 @@
 !.gitignore_global
 !.gitconfig
 !.hyper.js
+!.cig.yaml
 !journal.txt
 !install.sh
 !scripts/

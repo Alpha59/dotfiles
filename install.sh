@@ -72,3 +72,47 @@ brew install fpp;
 
 pip install maybe;
 
+curl https://raw.githubusercontent.com/kcrawford/dockutil/master/scripts/dockutil >> ~/scripts/dockutil;
+chmod +x ~/scripts/dockutil;
+dockutil --remove Maps;
+dockutil --remove Facetime;
+dockutil --remove FaceTime;
+dockutil --remove iTunes;
+dockutil --remove Calendar;
+dockutil --remove Launchpad;
+
+cd /Applications && curl http://www.ninjamonkeysoftware.com/slate/versions/slate-latest.tar.gz | tar -xz
+brew install badtouch;
+
+brew install chrome-cli;
+
+brew install cig;
+
+brew install ccat;
+
+brew install defaultbrowser;
+defaultbrowser chrome;
+brew install doitlive;
+
+brew install genact;
+
+brew install tmux;
+
+brew install hub;
+
+brew install icdiff;
+
+brew install kommit;
+
+brew install porti;
+
+brew install noti;
+
+brew install pipes-sh;
+
+brew install sl;
+
+brew install slackcat;
+
+npm install spoof -g;
+

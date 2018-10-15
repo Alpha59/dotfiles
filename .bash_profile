@@ -18,6 +18,7 @@ alias scenario='python ./tests/unit/engines/promotion/scenarios/promotion_scenar
 alias note='jrnl '
 alias rm='trash '
 alias top='vtop '
+alias cat='ccat '
 alias weather='curl wttr.in/philadelphia'
 export PS1="\t:\w>Yes Jake? >> "
 
