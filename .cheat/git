@@ -8,7 +8,7 @@ $ git ressh # Re-add github key to keychain
 
 $ git clone-subset # clones a subset of a repo
 
-# Differnces
+# Differences
 
 $ git status
 
@@ -19,6 +19,11 @@ $ git icdiff  # side-by-side diff
 $ git diff-last <filename>
 
 $ git divergence # show differences between local and remote branches
+
+$ git edit-conflicts
+
+
+
 # Local Changes
 
 $ git add -A
@@ -47,8 +52,14 @@ $ git delete-merged-branches
 $ git delete-local-merged
 
 $ git compact # compact a git repo to be as small as possible
+$ git flush # Another compaction script
+$ git maxpack # Pack up a git repo for compression purposes
 
 $ git delete-tag
+
+$ git history-eraser # Remove all history related to an object
+
+$ git move-commits num-commits correct-branch # moves the last n commits to correct-branch
 
 # Analysis
 
@@ -63,6 +74,14 @@ $ git commit-count
 $ git commits-per-day
 
 $ git conflicts
+
+$ git find-dirty # Find all git repos in the path
+
+$ git ignored # Show all ignored files
+
+$ git incoming # Show incoming changes from remote branch
+
+$ git neck # show latest branching point
 
 # Documentation
 

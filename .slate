@@ -1,0 +1,91 @@
+# Configs
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+config secondsBetweenRepeat 0.1
+config checkDefaultsOnLoad true
+config focusCheckWidthMax 3000
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+#config windowHintsDuration 5
+config windowHintsSpread true
+#config windowHintsOrder persist
+
+# Misc Aliases
+alias showHintsLeftHand hint AOEUIYQJKX
+alias showNormalHint hint AOEUIDHTNSYXFBPKGMCW
+alias browser 'Google Chrome'
+alias mail 'Microsoft Outlook'
+alias term 'Hyper'
+alias editor 'Vim'
+
+# Abstract positions
+alias full          move screenOriginX;screenOriginY                  screenSizeX;screenSizeY
+alias left        move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias lefthalf      move screenOriginX;screenOriginY                  screenSizeX/2;screenSizeY
+alias righthalf     move screenOriginX+screenSizeX/2;screenOriginY    screenSizeX/2;screenSizeY
+alias rightmost     move screenOriginX+screenSizeX*0.4;screenOriginY  screenSizeX*0.6;screenSizeY
+alias rightless     move screenOriginX+screenSizeX*0.6;screenOriginY  screenSizeX*0.4;screenSizeY
+alias leftmost      move screenOriginX;screenOriginY                  screenSizeX*0.6;screenSizeY
+alias leftless      move screenOriginX;screenOriginY                  screenSizeX*0.4;screenSizeY
+alias right       move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias leftbottom move screenOriginX/2;screenOriginY+screenSizeY/2    screenSizeX/2;screenSizeY/2
+alias lefttop    move screenOriginX/2;screenOriginY screenSizeX/2;screenSizeY/2
+alias rightbottom move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2    screenSizeX/2;screenSizeY/2
+alias righttop    move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY/2
+
+layout dashboard 'Slack':MAIN_FIRST                ${righttop}
+layout dashboard ${mail}:MAIN_FIRST              ${left}
+
+layout communicate 'Slack':MAIN_FIRST             ${left}
+layout communicate ${mail}:MAIN_FIRST           ${right}
+
+
+layout code ${term}:MAIN_FIRST                    ${full}
+layout codeAndBrowse ${term}:MAIN_FIRST           ${leftmost}
+layout codeAndBrowse ${browser}:MAIN_FIRST   ${rightless}
+layout codeAndRead ${term}:MAIN_FIRST             ${leftmost}
+layout codeAndMusic ${term}:MAIN_FIRST            ${leftmost}
+
+layout browse ${browser}:MAIN_FIRST          ${full}
+layout browseAndMusic ${browser}:MAIN_FIRST  ${leftmost}
+layout browseAndCommunicate ${browser}:MAIN_FIRST      ${left}
+layout browseAndCommunicate 'Slack':MAIN_FIRST      ${righttop}
+layout browseAndCommunicate ${mail}:MAIN_FIRST    ${rightbottom}
+
+# ======================================
+# The HYPER key
+# ======================================
+
+alias hyper shift,cmd
+
+bind e:${hyper} ${showHintsLeftHand}
+
+# Layout bindings
+bind 0:${hyper} sequence layout dashboard | hide all
+bind 1:${hyper} sequence layout communicate | hide all | show 'Slack',${mail}
+bind 2:${hyper} sequence layout code | hide all | show ${term}
+bind 3:${hyper} sequence layout codeAndBrowse | hide all | show ${browser},${term}
+bind 4:${hyper} sequence layout browse | hide all | show ${browser}
+bind 5:${hyper} sequence layout dashboard | show all
+
+# Location bindings
+bind a:${hyper} ${lefthalf}
+bind w:${hyper} ${full}
+bind d:${hyper} ${righthalf}
+bind s:${hyper} throw next
+
+# Resize Bindings
+#bind r:${hyper} ${leftmost}
+#bind g:${hyper} ${rightmost}
+
+# Focus Bindings
+bind right:${hyper}    focus right
+bind left:${hyper}     focus left
+bind up:${hyper}       focus up
+bind down:${hyper}     focus down
+
+# App bindings
+bind b:${hyper} focus ${browser}
+bind m:${hyper} focus ${mail}
+bind t:${hyper} focus ${term}

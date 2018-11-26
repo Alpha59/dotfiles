@@ -76,6 +76,8 @@ call plug#begin('~/.vim/bundle')
 Plug 'jparise/vim-graphql'
 
 let g:syntastic_enable_python_checker = 1
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_checker_args='--config=.flake8'
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_enable_html_checker = 0
 let g:syntastic_disabled_filetypes=['html']
@@ -91,7 +93,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:ale_linters = {'javascript': ['eslint']}
+let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8']}
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0

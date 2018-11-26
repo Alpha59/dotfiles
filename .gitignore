@@ -12,6 +12,10 @@
 !.gitconfig
 !.hyper.js
 !.cig.yaml
+!.inputrc
+!.slate
+!.vuerc
+!macos.sh
 !journal.txt
 !install.sh
 !scripts/

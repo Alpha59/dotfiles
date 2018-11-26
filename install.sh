@@ -20,6 +20,8 @@ brew install thefuck;
 brew install slack;
 brew install git-standup;
 
+pip install --upgrade pip;
+
 brew install caskroom/cask/brew-cask;
 brew cask install firefox;
 brew cask install hyper;
@@ -81,7 +83,8 @@ dockutil --remove iTunes;
 dockutil --remove Calendar;
 dockutil --remove Launchpad;
 
-cd /Applications && curl http://www.ninjamonkeysoftware.com/slate/versions/slate-latest.tar.gz | tar -xz
+cd /Applications && curl http://www.ninjamonkeysoftware.com/slate/versions/slate-latest.tar.gz | tar -xz; cd ~;
+open /Applications/Slate.app
 brew install badtouch;
 
 brew install chrome-cli;
@@ -115,4 +118,33 @@ brew install sl;
 brew install slackcat;
 
 npm install spoof -g;
+
+brew install jid;
+
+brew tap git-time-metric/gtm;
+
+brew install gtm;
+
+pip install black;
+
+
+bash ./macos.sh;
+
+brew install git bash-completion;
+
+npm install --global status-git;
+
+brew install mas;
+
+brew tap wagoodman/dive;
+
+brew install dive;
+
+wget -qO- https://get.haskellstack.org/ | sh
+
+stack install toodles;
+
+yarn global add pwmetrics;
+
+pip install howdoi;
 
