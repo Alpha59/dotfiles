@@ -88,4 +88,4 @@ bind down:${hyper}     focus down
 # App bindings
 bind b:${hyper} focus ${browser}
 bind m:${hyper} focus ${mail}
-bind t:${hyper} focus ${term}
+bind h:${hyper} focus ${term}

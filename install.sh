@@ -148,3 +148,43 @@ yarn global add pwmetrics;
 
 pip install howdoi;
 
+mkdir ~/.weechat/
+mkdir ~/.weechat/python
+mkdir ~/.weechat/python/autoload
+
+brew install weechat --with-python@2
+
+sudo /usr/local/opt/python@2/bin/pip2 install websocket_client
+
+wget https://weechat.org/files/scripts/leet.py
+mv leet.py ~/.weechat/python/autoload
+
+wget https://raw.githubusercontent.com/wee-slack/wee-slack/master/wee_slack.py
+mv wee_slack.py ~/.weechat/python/autoload
+brew install jumbo-john;
+
+brew install john-jumbo;
+
+brew install nmap;
+
+brew install bash-completion;
+
+brew install calc;
+
+
+brew install speedtest_cli;
+
+brew install darkmode;
+
+brew install dark-mode;
+
+brew install z;
+
+brew install tldr;
+
+brew install cmatrix;
+
+brew install spoof-mac;
+
+curl https://www.teleconsole.com/get.sh | sh;
+

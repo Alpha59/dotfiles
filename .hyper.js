@@ -38,7 +38,7 @@ module.exports = {
     showWindowControls: '',
 
     // custom padding (css format, i.e.: `top right bottom left`)
-    padding: '1px 1px 1px 1px',
+    padding: '1px 1px 12px 1px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
@@ -103,6 +103,12 @@ module.exports = {
       "hyper-quit",
       "gitrocket",
       "space-pull",
+      "hyper-search",
+      "hyper-pane",
+      "hyper-active-tab",
+      "hyper-savetext",
+      "hyper-dark-scrollbar",
+      "hyper-tabs-enhanced",
       "hypergravity",
       "hyperterm-spacegray",
       "hyperline",
