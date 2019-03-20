@@ -193,6 +193,7 @@ brew install ninja-dev-sync;
 brew cask install macdown;
 
 brew cask install mtmr;
+mv items.json /Users/ailor/Library/Application\ Support/MTMR/items.json; # Update the MTMR preferences file
 
 gem install teamocil;
 
