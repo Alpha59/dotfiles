@@ -29,7 +29,7 @@ sleep 45;
 /usr/local/bin/fullscreen "Google Chrome" 0
 /usr/local/bin/fullscreen "/Applicationss/Hyper.app" 0
 
-# If not connected to work network, open the VPN
+# If not connected to work network, open the VPN Site
 if [[ `/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}'` != 'wpa2' ]]; then
     # Need to open Firefox in Dev enviorment
     /usr/local/bin/notify "Open All" "Opening a VPN connection since none appears to exist."

@@ -9,24 +9,16 @@ on run argv
             repeat with the_tab in tab_list # for every tab
                 tell the_tab
                     set urlName to URL
-                    if "http://192.168" is in urlName then
+                    if "127.0.0.1" is in urlName then
                         do shell script "echo " & "URL: " & (urlName as string) & "Success"
                         set done to 0
                         reload
-                    else if "http://127.0.0.1" is in urlName then
-                        do shell script "echo " & "URL: " & (urlName as string) & "Success"
-                        set done to 0
-                        reload
-                    else if "http://localhost" is in urlName then
-                        do shell script "echo " & "URL: " & (urlName as string) & "Success"
-                        set done to 0
-                        reload
-                    else if "http://fp.local.urbn.engineering" is in urlName then
+                    else if "localhost" is in urlName then
                         do shell script "echo " & "URL: " & (urlName as string) & "Success"
                         set done to 0
                         reload
                     else
-                        #do shell script "echo " & "URL: " & (urlName as string)
+                        do shell script "echo " & "URL: " & (urlName as string)
                     end if
                 end tell
             end repeat

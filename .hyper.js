@@ -77,7 +77,7 @@ module.exports = {
     bell: false,
 
     hypercwd: {
-        initialWorkingDirectory: '~/Dev/'
+        initialWorkingDirectory: '~/Work/'
     },
 
     hyperline: {
@@ -100,19 +100,18 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
     plugins: [
-      "hyper-quit",
-      "gitrocket",
-      "space-pull",
-      "hyper-search",
-      "hyper-pane",
-      "hyper-active-tab",
-      "hyper-savetext",
-      "hyper-dark-scrollbar",
-      "hyper-tabs-enhanced",
-      "hypergravity",
-      "hyperterm-spacegray",
-      "hyperline",
-      "hypercwd"
+      "hyper-quit", // quits the application when you quit the last tab
+      "gitrocket", // Adds a tiny rocket taking off on pushes
+      "space-pull", // Adds a tiny rocket landing to pulls
+      "hyper-search", // Allow searching with cmd+f in the terminal
+      "hyper-pane", // Allow better pane management within a window
+      "hyper-active-tab", // Adds a tiny triangle (depreciated by lightning bolt)
+      "hyper-savetext", // Allows saving of text from the terminal with cmd+s
+      "hyper-dark-scrollbar", // styilizes the scrollbar
+      "hyper-tabs-enhanced", // Adds the lightning bolt, with other configurable options (colors)
+      "hyperterm-spacegray", // color theme
+      "hyperline", // the hyperline at the bottom
+      "hypercwd" // opens new tabs to same folder
     ],
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here

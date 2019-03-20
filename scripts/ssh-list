@@ -1,0 +1,1 @@
+lsof -i :22 | awk '{print $9}' | sed '1d'

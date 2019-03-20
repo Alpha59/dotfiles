@@ -1,0 +1,22 @@
+#!/usr/bin/osascript
+
+tell application "System Preferences"
+    activate
+    reveal pane "com.apple.preference.displays"
+end tell
+
+delay 0.5
+
+tell application "System Events"
+    tell process "System Preferences"
+        try --don't even consider not using a try block!
+            key down option
+            delay 0.2
+            click button "Detect Displays" of window 1
+            delay 0.2
+            key up option
+        on error --logging out is the only other way to clear these
+            key up option
+        end try
+    end tell
+end tell

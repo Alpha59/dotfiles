@@ -14,7 +14,9 @@
 !.cig.yaml
 !.inputrc
 !.slate
+!items.json
 !.vuerc
+!.tmux.config
 !macos.sh
 !journal.txt
 !install.sh
@@ -24,6 +26,7 @@
 !scripts/*/*
 !scripts/*/*/
 !scripts/*/*/*
+scripts/work/*
 !.vim/
 !.vim/*
 !.vim/*/

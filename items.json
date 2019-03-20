@@ -1,0 +1,47 @@
+[
+  { "type": "escape", "align": "left" },
+  { "type": "exitTouchbar", "title": "∊","width": 44, "align": "left" },
+  { "type": "play", "width": 44 },
+  {
+    "type": "staticButton",
+    "title": "⇾",
+    "action": "appleScript",
+    "actionAppleScript": {
+      "inline": "tell application \"Safari\"\rdo JavaScript \"javascript:document.querySelector('.ytd-compact-video-renderer img').click();\" in document 1\rend tell"
+    },
+    "width": 44,
+    "bordered": true
+  },
+  //{
+  //  "type": "staticButton",
+  //  "action":  "shellScript",
+  //  "title": "ninja", // change to emoji?
+  //  "executablePath": "ninja"
+  //},
+  {
+    "type": "staticButton",
+    "title": "⇲",
+    "action": "appleScript",
+    "actionAppleScript": {
+      "inline": "tell application \"Safari\"\rdo JavaScript \"javascript:var video = document.querySelector('video'); video.webkitSetPresentationMode(video.webkitPresentationMode === 'picture-in-picture' ? 'inline' : 'picture-in-picture');\" in document 1\rend tell"
+    },
+    "align": "left",
+    "width": 44,
+    "bordered": true
+  },
+  {
+    "type": "staticButton",
+    "title": "⇶",
+    "action": "appleScript",
+    "actionAppleScript": {
+      "inline": "tell application \"Safari\"\rdo JavaScript \"javascript:document.querySelector('.ytp-ad-skip-button-text').click();\" in document 1\rend tell"
+    },
+    "align": "left",
+    "width": 44,
+    "bordered": true
+  },
+  { "type": "mute", "width": 44, "align": "right" },
+  { "type": "battery", "align": "right", "bordered": false },
+  { "type": "timeButton", "align": "right", "bordered": false  },
+  { "type": "sleep", "width": 44, "align":  "right"}
+]

@@ -1,0 +1,4 @@
+#!/usr/bin/osascript
+tell application "Safari"
+    do JavaScript "javascript:var video = document.querySelector('video'); video.webkitSetPresentationMode(video.webkitPresentationMode === 'picture-in-picture' ? 'inline' : 'picture-in-picture');" in document 1
+end tell

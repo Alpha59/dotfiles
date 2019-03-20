@@ -12,6 +12,10 @@ osascript -e 'tell application "System Preferences" to quit'
 # Ask for the administrator password upfront
 sudo -v
 
+chmod +x startup.sh
+sudo cp ~/com.startup.plist /Library/LaunchDaemons/
+sudo launchctl load -w /Library/LaunchDaemons/com.startup.plist
+
 echo -n 'a' | sudo tee /private/var/db/.AccessibilityAPIEnabled > /dev/null 2>&1
 sudo chmod 444 /private/var/db/.AccessibilityAPIEnabled
 
@@ -214,6 +218,8 @@ defaults write com.apple.dock showhidden -bool true
 
 # Disable the Launchpad gesture (pinch with thumb and three fingers)
 defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
+
+defaults write com.apple.Safari IncludeInternalDebugMenu 1
 
 sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
 

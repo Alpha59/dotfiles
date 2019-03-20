@@ -16,8 +16,12 @@ alias showHintsLeftHand hint AOEUIYQJKX
 alias showNormalHint hint AOEUIDHTNSYXFBPKGMCW
 alias browser 'Google Chrome'
 alias mail 'Microsoft Outlook'
+alias chat 'Amazon Chime' #Slack
+alias music 'Spotify'
 alias term 'Hyper'
 alias editor 'Vim'
+alias video 'Safari'
+alias notes 'MacDown'
 
 # Abstract positions
 alias full          move screenOriginX;screenOriginY                  screenSizeX;screenSizeY
@@ -34,10 +38,10 @@ alias lefttop    move screenOriginX/2;screenOriginY screenSizeX/2;screenSizeY/2
 alias rightbottom move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2    screenSizeX/2;screenSizeY/2
 alias righttop    move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY/2
 
-layout dashboard 'Slack':MAIN_FIRST                ${righttop}
+layout dashboard ${chat}:MAIN_FIRST                ${righttop}
 layout dashboard ${mail}:MAIN_FIRST              ${left}
 
-layout communicate 'Slack':MAIN_FIRST             ${left}
+layout communicate ${chat}:MAIN_FIRST             ${left}
 layout communicate ${mail}:MAIN_FIRST           ${right}
 
 
@@ -50,7 +54,7 @@ layout codeAndMusic ${term}:MAIN_FIRST            ${leftmost}
 layout browse ${browser}:MAIN_FIRST          ${full}
 layout browseAndMusic ${browser}:MAIN_FIRST  ${leftmost}
 layout browseAndCommunicate ${browser}:MAIN_FIRST      ${left}
-layout browseAndCommunicate 'Slack':MAIN_FIRST      ${righttop}
+layout browseAndCommunicate ${chat}:MAIN_FIRST      ${righttop}
 layout browseAndCommunicate ${mail}:MAIN_FIRST    ${rightbottom}
 
 # ======================================
@@ -63,7 +67,7 @@ bind e:${hyper} ${showHintsLeftHand}
 
 # Layout bindings
 bind 0:${hyper} sequence layout dashboard | hide all
-bind 1:${hyper} sequence layout communicate | hide all | show 'Slack',${mail}
+bind 1:${hyper} sequence layout communicate | hide all | show ${chat},${mail}
 bind 2:${hyper} sequence layout code | hide all | show ${term}
 bind 3:${hyper} sequence layout codeAndBrowse | hide all | show ${browser},${term}
 bind 4:${hyper} sequence layout browse | hide all | show ${browser}
@@ -88,4 +92,8 @@ bind down:${hyper}     focus down
 # App bindings
 bind b:${hyper} focus ${browser}
 bind m:${hyper} focus ${mail}
+bind c:${hyper} focus ${chat}
 bind h:${hyper} focus ${term}
+bind p:${hyper} focus ${music}
+bind v:${hyper} focus ${video}
+bind k:${hyper} focus ${notes}

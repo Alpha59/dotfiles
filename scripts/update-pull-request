@@ -1,0 +1,1 @@
+cr --all --parent origin/mainline -r $(git log -1 --pretty=%B | tr -s '\n' | tail -n1 | awk -F"/" '{print $5}')

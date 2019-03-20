@@ -17,7 +17,6 @@ brew install python;
 brew install neovim;
 brew install vim --with-override-system-vi;
 brew install thefuck;
-brew install slack;
 brew install git-standup;
 
 pip install --upgrade pip;
@@ -27,6 +26,7 @@ brew cask install firefox;
 brew cask install hyper;
 brew cask install beardedspice;
 brew cask install google-chrome;
+brew cask install slack;
 
 infect-vim tpope vim-pathogen;
 infect-vim maralla completor.vim;
@@ -127,7 +127,6 @@ brew install gtm;
 
 pip install black;
 
-
 bash ./macos.sh;
 
 brew install git bash-completion;
@@ -171,7 +170,6 @@ brew install bash-completion;
 
 brew install calc;
 
-
 brew install speedtest_cli;
 
 brew install darkmode;
@@ -188,3 +186,30 @@ brew install spoof-mac;
 
 curl https://www.teleconsole.com/get.sh | sh;
 
+brew cask install java;
+
+brew install ninja-dev-sync;
+
+brew cask install macdown;
+
+brew cask install mtmr;
+
+gem install teamocil;
+
+brew install yes;
+
+brew install gti;
+
+brew install archey;
+
+brew install wdiff;
+
+brew install dshb;
+
+brew install tree;
+
+brew cask install caffeine;
+
+brew install wget;
+
+brew cask install ponysay;

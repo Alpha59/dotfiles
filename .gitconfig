@@ -1,5 +1,5 @@
 [user]
-	email = ailor.john.r@gmail.com
+	email = ailor@amazon.com
 	name = Jake Ailor
 [push]
 	default = current
@@ -11,4 +11,4 @@
 	required = true
 [core]
 	editor = vim
-	excludesfile = /Users/ailorj1/.gitignore_global
+	excludesfile = /Users/ailor/.gitignore_global

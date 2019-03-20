@@ -1,43 +1,0 @@
-#!/usr/bin/env bash
-# docker exec -it "urbn-mcp" "/bin/bash" -c "python manage.py test_itemmaster && python manage.py test_atgproduct";
-##
-## Make model changes
-##
-if [ "$1" == "" ]; then
-    echo "Please provide a sprint number"
-    exit 1
-fi
-if [ "$2" == "" ]; then
-    echo "Please provide a short description for this script to use"
-    exit 1
-fi
-BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
-git add -A
-git stash save $BRANCH_NAME
-rm -rf */migrations/*
-#docker exec -it urbncat bash -c "./manage.py makemigrations --noinput merchandising"
-INITIAL_MIGRATION=$(docker exec -it urbncat bash -c "./manage.py makemigrations --noinput merchandising |  grep '\d*\.py:' | sed -e 's/^[[:space:]]*//' | sed -e 's/.\{4\}$//'" | sed -e 's///')
-echo $INITIAL_MIGRATION
-mkdir -p ../sql_scripts/18-$1/
-echo "POPPING"
-git stash pop
-echo "DONE POPPING"
-MIGRATION=$(docker exec -it urbncat bash -c "./manage.py makemigrations --noinput merchandising |  grep '\d*\.py:' | sed -e 's/^[[:space:]]*//' | sed -e 's/.\{4\}$//'" | sed -e 's///')
-echo $MIGRATION
-rm ../sql_scripts/18-$1/${BRANCH_NAME}_$2.sql
-touch ../sql_scripts/18-$1/${BRANCH_NAME}_$2.sql
-docker exec -it urbncat bash -c "./manage.py sqlmigrate merchandising ${MIGRATION}" | sed -e 's///' | tee ../sql_scripts/18-$1/${BRANCH_NAME}_$2.sql
-git stash save $BRANCH_NAME
-mkdir -p ../sql_scripts_rollback/18-$1/
-MIGRATION_ROLLBACK=$(docker exec -it urbncat bash -c "./manage.py makemigrations --noinput merchandising |  grep '\d*\.py:' | sed -e 's/^[[:space:]]*//' | sed -e 's/.\{4\}$//'" | sed -e 's///')
-echo $MIGRATION_ROLLBACK
-rm ../sql_scripts_rollback/18-$1/${BRANCH_NAME}_ROLLBACK_$2.sql
-touch ../sql_scripts_rollback/18-$1/${BRANCH_NAME}_ROLLBACK_$2.sql
-docker exec -it urbncat bash -c "./manage.py sqlmigrate merchandising ${MIGRATION_ROLLBACK}" | sed -e 's///' | tee ../sql_scripts_rollback/18-$1/${BRANCH_NAME}_ROLLBACK_$2.sql
-git stash pop
-
-mkdir -p ../sql_scripts_verify/18-$1/
-touch ../sql_scripts_verify/18-$1/${BRANCH_NAME}_VERIFY_$2.sql
-rm -rf */migrations/*
-
-echo "Thank you, please manually create a Verify script"
