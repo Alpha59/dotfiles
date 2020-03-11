@@ -214,3 +214,51 @@ brew cask install caffeine;
 brew install wget;
 
 brew cask install ponysay;
+brew install gpg;
+
+gpg --default-new-key-algo rsa4096 --gen-key;
+
+brew install blackbox;
+
+brew install bat;
+
+brew install entr;
+
+brew install youtube-dl;
+
+pip install flake8;
+
+npm install eslint;
+
+npm install -g eslint;
+
+npm install eslint-config-react-app;
+
+npm install -g eslint-config-react-app;
+
+npm install -g eslint-plugin-import;
+
+npm install -g eslint-plugin-flowtype;
+
+npm install -g eslint-plugin-jsx-a11y;
+
+npm install -g eslint-plugin-react;
+
+npm install -g babel-eslint;
+
+npm install -g pretty-diff;
+
+npm install -g diff2html;
+
+npm install -g diff2html-cli;
+
+npm install -g node-giff;
+
+infect-vim mxw vim-jsx;
+
+brew install bluetoothconnector;
+
+brew install minicom;
+
+brew install postgresql;
+

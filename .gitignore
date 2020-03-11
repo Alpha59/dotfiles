@@ -27,6 +27,7 @@
 !scripts/*/*/
 !scripts/*/*/*
 scripts/work/*
+secrets
 !.vim/
 !.vim/*
 !.vim/*/
@@ -35,3 +36,7 @@ scripts/work/*
 !.vim/*/*/*
 !.cheat/
 !.cheat/*
+/.blackbox/pubring.gpg~
+/.blackbox/pubring.kbx~
+/.blackbox/secring.gpg
+Makefile

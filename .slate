@@ -66,12 +66,12 @@ alias hyper shift,cmd
 bind e:${hyper} ${showHintsLeftHand}
 
 # Layout bindings
-bind 0:${hyper} sequence layout dashboard | hide all
+#bind 0:${hyper} sequence layout dashboard | hide all
 bind 1:${hyper} sequence layout communicate | hide all | show ${chat},${mail}
-bind 2:${hyper} sequence layout code | hide all | show ${term}
-bind 3:${hyper} sequence layout codeAndBrowse | hide all | show ${browser},${term}
-bind 4:${hyper} sequence layout browse | hide all | show ${browser}
-bind 5:${hyper} sequence layout dashboard | show all
+#bind 2:${hyper} sequence layout code | hide all | show ${term}
+#bind 3:${hyper} sequence layout codeAndBrowse | hide all | show ${browser},${term}
+#bind 4:${hyper} sequence layout browse | hide all | show ${browser}
+#bind 5:${hyper} sequence layout dashboard | show all
 
 # Location bindings
 bind a:${hyper} ${lefthalf}

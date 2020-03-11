@@ -25,7 +25,7 @@ set nocompatible
 set backspace=2
 set backspace=indent,eol,start
 
-let mapleadr = ","
+let mapleader = ","
 let g:mapleader = ","
 
 set smartcase
@@ -55,8 +55,6 @@ func! GDrivePython()
     set autoread
 endfunc
 
-execute pathogen#infect()
-
 "autocmd BufWritePost * :! npm run lint && sleep 2 && refresh.scpt 0
 " autocmd BufWritePost * :! sleep 2 && refresh.scpt 0
 " autocmd BufWritePost * :! refresh.scpt 0
@@ -78,13 +76,16 @@ Plug 'jparise/vim-graphql'
 let g:syntastic_enable_python_checker = 1
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_checker_args='--config=.flake8'
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_java_checkers = ['checkstyle']
+let g:syntastic_java_checkstyle_classpath="~/Downloads/checkstyle-8.18-all.jar"
+let g:syntastic_java_checkstyle_conf_file="checkstyle-config.xml"
 let g:syntastic_enable_html_checker = 0
 let g:syntastic_disabled_filetypes=['html']
 let g:syntastic_html_tidy_ignore_errors=["<i18n>", "is not recognized!"]
 let g:syntastic_html_tidy_quiet_messages = { "level" : "warnings" }
 let g:syntastic_enable_html_checker = 0
 let g:syntastic_enable_html_tidy_checker = 0
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 let g:syntastic_enable_javascript_checker = 1
 let g:syntastic_mode_map = { 'mode': 'passive' }
@@ -93,7 +94,7 @@ set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8']}
+let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8'], 'java': 'checkstyle'}
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
@@ -123,3 +124,4 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 map <C-t> :NERDTreeToggle<CR>
 map <C-p> :TableModeToggle<CR>
 
+execute pathogen#infect()

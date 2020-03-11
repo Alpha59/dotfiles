@@ -1,0 +1,2 @@
+streamlink --player-passthrough hls https://58cc2dce193dd.streamlock.net/live/$1.stream/playlist.m3u8 best; #--player="/Applications/QuickTime\ Player.app/Contents/MacOS/QuickTime\ Player"
+#streamlink --player-passthrough hls https://58cc2dce193dd.streamlock.net/live/$1.stream/chunklist_w1789384225.m3u8 best; #--player="/Applications/QuickTime\ Player.app/Contents/MacOS/QuickTime\ Player"
