@@ -1,47 +1,115 @@
 [
-  { "type": "escape", "align": "left" },
-  { "type": "exitTouchbar", "title": "∊","width": 44, "align": "left" },
-  { "type": "play", "width": 44 },
+  {
+      "type": "escape",
+      "title": "",
+      "align": "left",
+      "width": 44,
+      "image": {
+        "filePath": "~/MTMR/escape.png"
+      }
+  },
+  {
+      "type": "exitTouchbar",
+      "title": "",
+      "align": "left",
+      "width": 44,
+      "image": {
+        "filePath": "~/MTMR/exit.png"
+      }
+  },
+  { "type": "dock", "align": "left"},
   {
     "type": "staticButton",
-    "title": "⇾",
+    "title": "",
     "action": "appleScript",
     "actionAppleScript": {
-      "inline": "tell application \"Safari\"\rdo JavaScript \"javascript:document.querySelector('.ytd-compact-video-renderer img').click();\" in document 1\rend tell"
+        "filePath": "~/MTMR/pip"
     },
+    "image": {
+        "filePath": "~/MTMR/pip.png"
+    },
+    "align": "left",
     "width": 44,
     "bordered": true
   },
-  //{
-  //  "type": "staticButton",
-  //  "action":  "shellScript",
-  //  "title": "ninja", // change to emoji?
-  //  "executablePath": "ninja"
-  //},
   {
     "type": "staticButton",
-    "title": "⇲",
+    "title": "",
     "action": "appleScript",
     "actionAppleScript": {
-      "inline": "tell application \"Safari\"\rdo JavaScript \"javascript:var video = document.querySelector('video'); video.webkitSetPresentationMode(video.webkitPresentationMode === 'picture-in-picture' ? 'inline' : 'picture-in-picture');\" in document 1\rend tell"
+        "filePath": "~/MTMR/skip"
+    },
+    "image": {
+        "filePath": "~/MTMR/skip.png"
     },
     "align": "left",
     "width": 44,
     "bordered": true
   },
   {
+      "type": "play",
+      "title": "",
+      "align": "left",
+      "width": 44,
+      "image": {
+        "filePath": "~/MTMR/play.png"
+      }
+  },
+  {
     "type": "staticButton",
-    "title": "⇶",
+    "title": "",
     "action": "appleScript",
     "actionAppleScript": {
-      "inline": "tell application \"Safari\"\rdo JavaScript \"javascript:document.querySelector('.ytp-ad-skip-button-text').click();\" in document 1\rend tell"
+        "filePath": "~/MTMR/next"
+    },
+    "image": {
+        "filePath": "~/MTMR/next.png"
     },
     "align": "left",
     "width": 44,
     "bordered": true
   },
-  { "type": "mute", "width": 44, "align": "right" },
-  { "type": "battery", "align": "right", "bordered": false },
-  { "type": "timeButton", "align": "right", "bordered": false  },
-  { "type": "sleep", "width": 44, "align":  "right"}
+  {
+    "type": "shellScriptTitledButton",
+    "title": "",
+    "refreshInterval": 1,
+    "source": {
+        "inline": "printf `osascript ~/MTMR/toggleMuteLabel`"
+    },
+    "action": "appleScript",
+    "actionAppleScript": {
+        "filePath": "~/MTMR/toggleMute"
+    },
+    "align": "right",
+    "width": 90,
+    "bordered": true,
+    "image": {
+        "filePath": "~/MTMR/microphone.png"
+    },
+    //"alternativeImages": {
+    //    "mute": {
+    //        "filePath": "~/MTMR/microphone.png"
+    //    },
+    //    "unmute": {
+    //        "filePath": "~/MTMR/muted.png"
+    //    }
+    //}
+  },
+  {
+    "type": "staticButton",
+    "title": "",
+    "action": "shellScript",
+    "executablePath": "/usr/local/bin/BluetoothConnector",
+    "shellArguments": ["94-B0-1F-B4-02-B0", "--notify"],
+    "image": {
+        "filePath": "~/MTMR/bluetooth.png"
+    },
+    "align": "right",
+    "width": 44,
+    "bordered": false
+  },
+  { "type": "mute", "align": "right", "width": 44}, // speaker
+  { "type": "battery", "align": "right"},
+  { "type": "timeButton", "align": "right"},
+  { "type": "sleep", "align":  "right"}
 ]
