@@ -262,3 +262,5 @@ brew install minicom;
 
 brew install postgresql;
 
+brew install john-jumbo;
+
