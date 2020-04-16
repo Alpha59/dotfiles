@@ -17,6 +17,7 @@
 !items.json
 !.vuerc
 !.tmux.config
+!.toodles.yaml
 !macos.sh
 !journal.txt
 !install.sh

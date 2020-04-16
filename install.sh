@@ -4,7 +4,7 @@ ln -s ${PWD##*/}/.bash_profile $HOME/.bash_profile;
 mkdir ~/Dev
 chmod +x $HOME/scripts/*
 
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)";
 brew -v;
 brew install node;
 node -v;
@@ -261,4 +261,10 @@ brew install bluetoothconnector;
 brew install minicom;
 
 brew install postgresql;
+
+curl -L https://scarf.sh/install;
+
+/Users/ailor/.scarf/bin/scarf install toodles;
+
+brew install expect;
 

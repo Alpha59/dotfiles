@@ -18,6 +18,7 @@ alias browser 'Google Chrome'
 alias mail 'Microsoft Outlook'
 alias chat 'Amazon Chime' #Slack
 alias music 'Spotify'
+alias pm 'Ora'
 alias term 'Hyper'
 alias editor 'Vim'
 alias video 'Safari'
@@ -95,5 +96,6 @@ bind m:${hyper} focus ${mail}
 bind c:${hyper} focus ${chat}
 bind h:${hyper} focus ${term}
 bind p:${hyper} focus ${music}
+bind o:${hyper} focus ${pm}
 bind v:${hyper} focus ${video}
 bind k:${hyper} focus ${notes}

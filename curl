@@ -1,0 +1,26 @@
+curl 'https://dev-dsk-ailor-2c-02d19e46.us-west-2.amazon.com:8080/api/kindledevicemappingservice/updateguidancerules' -H 'Connection: keep-alive' -H 'Accept: */*' -H 'Sec-Fetch-Dest: empty' -H 'X-Requested-With: XMLHttpRequest' -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36' -H 'Content-Type: application/json' -H 'Origin: https://dev-dsk-ailor-2c-02d19e46.us-west-2.amazon.com:8080' -H 'Sec-Fetch-Site: same-origin' -H 'Sec-Fetch-Mode: cors' -H 'Referer: https://dev-dsk-ailor-2c-02d19e46.us-west-2.amazon.com:8080/' -H 'Accept-Language: en-US,en;q=0.9' -H 'Cookie: JSESSIONID=3EA9EE4C3FDF91DF3AAE8486DC3C1FC3; rapid-debugger=e30%3D; session-id=135-0920115-2330342; i18n-prefs=USD; ia-ssn=enabled; ubid-main=133-4802318-1921057; skin=noskin; aws-priv=eyJ2IjoxLCJldSI6MCwic3QiOjB9; aws_lang=en; aws-target-static-id=1584555889396-355386; s_fid=5A4D1C0DD6F20990-3A4E29643B078403; regStatus=pre-register; aws-target-visitor-id=1584555889407-983970.28_0; aws-session-id=024-0073058-6534876; _mkto_trk=id:112-TZM-766&token:_mch-amazon.com-1585262251375-95636; aws-mkto-trk=id%3A112-TZM-766%26token%3A_mch-amazon.com-1585262251375-95636; __utma=194891197.391649299.1585262613.1585262613.1585262613.1; __utmc=194891197; __utmz=194891197.1585262613.1.1.utmccn=(referral)|utmcsr=google.com|utmcct=/|utmcmd=referral; c_m=undefinedwww.google.comSearch%20Engine; aws-session-id-time=1585671668l; _sp_id.e67c=ed876ed8-b6a6-494f-ab0e-b782f71b4936.1583792445.3.1586204922.1586199663.fcff234d-599c-4044-8c95-38af34470471; s_sq=%5B%5BB%5D%5D; aws-ubid-main=172-3810501-3026124; pN=9; s_pers=%20s_vnum%3D1588959111781%2526vn%253D1%7C1588959111781%3B%20s_invisit%3Dtrue%7C1586369391737%3B%20s_nr%3D1586367591744-Repeat%7C1594143591744%3B; s_sess=%20s_cc%3Dtrue%3B%20s_sq%3Dawsamazonprod1%252Cawsamazonallprod1%253D%252526pid%25253Dcli%2525252Flatest%2525252Freference%2525252Fchime%2525252Fcreate-bot%252526pidt%25253D1%252526oid%25253Dhttps%2525253A%2525252F%2525252Fdocs.aws.amazon.com%2525252Fgoto%2525252FWebAPI%2525252Fchime-2018-05-01%2525252FCreateBot%252526ot%25253DA%3B; s_vn=1616091889643%26vn%3D12; s_cc=true; s_dslv=1586367650556; s_nr=1586367650563-New; x-main=3rlVLVo1kQztbj1mNX8AMCgGK6K1qPPA9PEKZdQwQCTDWWwqmc0LzfuANGskXjpr; at-main=Atza|IwEBIFX8gFI7usAhaJV37-hSewjX7KMtAKUzsbvP16lZUJxe93rPA_ya8XgRrSWDzI3RsbK_B3eK_Nj-WabiL1ZVqO7RzIugeuwPBpXaatLcn2SMJRyV5ucpy6Y4pZJcB_DA8a2aNXIsDSkMPiAEhfraluMia4aV2YX5ab8d5gJmdKXqS-9y59F6fHzv_WC691gDW3AukbmNKnJ1_DTgPxXnEdIMdUBYSB2x9Bjx3KUl_gK0Q9KZXIONpKjJIxESiFHj5buFvu9hpd_qnh5q6YwWIzKXqN30BDPU4-dI4xU3TNRUJ7P1DAfMRCntHbne0zbtZW_YwJZ4e04J97gF4BOIRLMgpsWnyJRcNrMctXjbbnzGljc7j_DjNLai-x8JeCQqJnwvIDuIg6FQMKzlQAe3v67B; sess-at-main="34G8N+k976DxMi5jBBHjsNz+3+V2q8y7Vdw+SI3LHlY="; sst-main=Sst1|PQFak_g_QeJu-NeqVgBw5zf-CqVTBI9oRxyhW7gj5QPj746plpco3GJMKy4sl7_Xqx8BUQjcymudvMjSC9nhpfUJr0O2S5cAdUfHMDzHAvtic6wln-dpCql_yldQy4IF1HQac3VmCIP-aPDwEMxcZAIIyzoXUgu20oMr82NjfHry0nPMFypJfEQAgAz7ZsMr3aQoSImj_1bHy45yX8pIEGbevfHHu_UljAdERz-dfDsb2GoWJIUif64dyl-DjBM6wPHhN6BqbBAo_2a6ihYKY_msKmNCYzPmen5mWjfxyo8q7-3dj9s8MwPWAds2FYFsUya2; session-id-time=2082787201l; sp-cdn=J4F7; x-wl-uid=1xYDDMTY0fki1KdK1PHm4+N//5cn8d1oNwsItM6RDahUAl51ihuNjavxpkE1ngEYT5HBvy3VyWeyWziej1xDcEL1a66/pzlBVrvxn0YpKxQvdmHpLP1mo1MIC9U3NUGLvMj/pPM7143o=; session-token=3qPw2K1Kd8dhQ6QyNjYU8j0dgp4ku/pRCJP5cGe7ghQtxdQF1In4nA/2dJesJqCsFOzcACcrBOxSsDXRrVQNUYEijxu9V+MSg42C3AaIOnVJ16mvQC/bp3Pu1unUMnsgkVI3tpoKRJPlImdLcD2+z6cc3tWWZpFn89vgt3QyDwcAK5zAk6soHsuDTH8obQ/9UAee7e4LOVN2UuEUB/nryGTtWFALxeuUORIyKYVYfB4I3e49WInnzt2uEcPA+sqafvjbOEB7fYJHK4DwTeKtsXhjybdWrQ5O; RT="z=1&dm=amazon.com&si=6b8e624c-6bd1-4420-87c3-431ffa1931e3&ss=k8yl6yyo&sl=0&tt=0&ld=sn&ul=yy9tl&hd=yya44"; KRLUSER=Guest; aws-target-data=%7B%22mboxPage%22%3A%221586969424916-553171%22%2C%22environmentId%22%3A%22350%22%2C%22campaignId%22%3A%22329500%22%2C%22mbox%22%3A%22en_console-whole-pg%22%7D; aws-userInfo=%7B%22arn%22%3A%22arn%3Aaws%3Asts%3A%3A440313236692%3Aassumed-role%2FConduitAccessClientRole-DO-NOT-DELETE%2Failor%22%2C%22alias%22%3A%22440313236692%22%2C%22username%22%3A%22assumed-role%252FConduitAccessClientRole-DO-NOT-DELETE%252Failor%22%2C%22keybase%22%3A%221qWL12cFQtFdEh4XOz%2FyFvLB3fXvACWysq88DgQ4EsU%5Cu003d%22%2C%22issuer%22%3A%22https%3A%2F%2Faccess.amazon.com%2Faws%2Faccounts%2F%22%2C%22signinType%22%3A%22PUBLIC%22%7D' --data-binary '{
+   "guidanceRules":[
+      {
+         "deviceCode":"0JA",
+         "fcCode":"CVG2",
+         "index":1,
+         "isKET":"Y",
+         "outboundGuidance":{
+            "disposition":"BER",
+            "outboundAsin":"OUTBOUND",
+            "outboundChannel":"WHD",
+            "shipLocation":"SHIPOUT",
+            "shipMethod":"OCEAN",
+            "__type":"com.amazon.kindle.returns.common.model#OutboundGuidance"
+         },
+         "defect":{
+            "defectCode":"9999"
+         },
+         "__type":"com.amazon.kindledevicemappingservice#DefectGuidanceRule"
+      }
+   ],
+   "guidanceRuleType":"Defect",
+   "fcCode":"CVG2",
+   "userName":"Guest",
+   "updateOperation":"Insert"
+}' --compressed --insecure;

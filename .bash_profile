@@ -32,6 +32,7 @@ alias myip='curl icanhazip.com'
 alias ninja='tmux kill-session -t ninja; tmux new-session -d -s ninja "ninja-dev-sync" '
 alias checkstyle='java -jar ~/Downloads/checkstyle-8.18-all.jar -c checkstyle-config.xml '
 alias diff-pretty='diff2html --sc "enabled" -s "side" --lm words '
+alias diff-vim='git difftool --tool=vimdiff '
 alias screenshot='screencapture -ic '
 # alias pull-request='gtm commit -yes; hub pull-request -a "alpha59" --no-edit -o -p -l "team-pwa" '
 
@@ -39,11 +40,11 @@ export CLICOLOR=1
 export LSCOLORS="exfxcxdxbxegedabagacad"
 
 export PROMPT="\t:\w>Yes Jake? >> "
-export PS1="\e[1;35m\]$PROMPT\[\e[0m\]"
+export PS1="t$PROMPT"
 
 set -o vi
 
-export PATH=$PATH:/usr/local/opt/mongodb/bin/mongoexport:$GOPATH/bin:$HOME/scripts/:$HOME/.scripts/:$HOME/git-extra-commands/bin/:/usr/local/Cellar/node/11.6.0/bin/
+export PATH=$PATH:/usr/local/opt/mongodb/bin/mongoexport:$GOPATH/bin:$HOME/scripts/:$HOME/.scripts/:$HOME/git-extra-commands/bin/:/usr/local/Cellar/node/11.6.0/bin/:$HOME/.scarf/bin/
 
 # Pyenv
 #export PYENV_ROOT="$HOME/.pyenv"
