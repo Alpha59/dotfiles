@@ -1,0 +1,222 @@
+Your task is to implement a simplified version of a banking system.
+
+Initially, the banking system does not contain any accounts, so implement operations to allow accounts creation as well as making deposits.
+
+Operations:
+    * CREATE_ACCOUNT <accountId>
+        * Should create a new account with the given identifier if it doesn't already exist.
+        * Returns "true" if an account was successfully created,
+        * Returns "false" if an account with accountId already exists.
+
+    * DEPOSIT <accountId> <amount>
+        * Should deposit the given amount of money to the specified account accountId
+        * Returns the total amount of money in the account after the query has been processed.
+        * If the specified account doesn't exist, it should return -1.
+
+Example: These inputs are provided as an example of how the input data can be structured, you may select any of these formats or come up with your own one.
+
+On your existing implementation, please implement a new functionality that would support transferring of funds from one account to another.
+Operation:
+    * TRANSFER <fromId> <toId> <amount>
+        * This should transfer the given amount of money from account with fromId to account with toId.
+        * Returns the balance of fromId if the transfer was successful, or -1 otherwise.
+        * Returns -1 if fromId or toId doesn't exist.
+        * Returns -1 if fromId and toId are the same.
+        * Returns -1 if funds on the account fromId are insufficient to perform the transfer.
+
+Example: These inputs are provided as an example of how the input data can be structured, you may select any of these formats or come up with your own one. Note: these operations below are in addition to those in Level 1
+
+
+On your existing implementation, please implement a new functionality that would allow a user to identify the top N accounts with the most overall activity.
+Operation:
+    * TOP_ACTIVITY <n>
+        * This should return the identifiers of n most active accounts in descending order of financial activity indicator, In case of a tie, sorted alphabetically by accountId in ascending order.
+        * The returned value should be an array of identifiers in the format
+        * <accountId_1>(<activity_indicator_1>),
+        * <accountId_2>(<activity_indicator_2>), ...,
+        * <accoundId_n>(<activity_indicator_n>)
+        * Financial activity indicator is defined as the sum of all transactions for an account including the money deposited and/or successfully transferred. Unsuccessful transactions are not included.
+        * If less than n accounts exist in the system, then return all their identifiers (in the described format).
+
+Example: These inputs are provided as an example of how the input data can be structured, you may select any of these formats or come up with your own one. Note: these operations below are in addition to those in Level 2
+
+Array
+operations = [
+  ...
+]
+
+-----------------------------------------------------------
+
+class Bank():
+    accounts = None
+
+    def __constructor():
+        accounts = {}
+
+    def get_account(account_id)
+        if ( not account[account_id] )
+            return -1
+        return account[account_id]
+
+    def add_account(account):
+        if (accounts[account_id):
+            return -1
+        accounts[account.get_id()] = account;
+        return 1
+
+    def create_account(account_id):
+        if ( not this.get_account(account_id) == -1 ):
+            return false
+        account = new BankAccount(account_id)
+        account_added = this.add_account(account)
+        if (account_added == 1 and bank.get_account(account_id)):
+            return true
+
+    def deposit(account_id, amount):
+        account = this.get_account(account_id)
+        if ( account == -1 ):
+            return -1
+
+        account.deposit(amount)
+        return account.get_total()
+
+    def transfer(from, to, amount):
+        if ( amount < 0 ):
+            return -1
+        from_account = this.get_account(from)
+        to_account = this.get_account(to)
+        if ( from_account == -1 or to_account == -1 or from_account.account_id == to_account.account_id):
+            # One of the accounts doesn't exist
+            return -1
+        if ( amount > from_account.get_total())
+            # insuffient funds
+            return -1
+
+        withdrawn_amount = from_account.withdrawl(amount)
+        to_account.deposit(withdrawn_amount)
+        return from_account.get_total()
+
+    def top_activity(n):
+        top_accounts = []
+        lowest_top_amount = 0
+        for account in account:
+            if ( account.get_total() > lowest_top_amount or len(top_accounts) < n):
+                for (t_account in range(len(top_account)):
+                    if (t_account.get_total() > account.get_total())
+        return top_accounts;
+
+class BankAccount():
+    amount = 0
+    account_id = None;
+    num_transactions = 0
+    dollar_amount_of_transactions = 0
+
+    def __constructor(account_id, amount=0):
+        this.account_id = account_id
+        this.amount = amount
+
+    def get_id():
+        return account_id
+
+    def deposit(amount):
+        if ( amount > 0 ):
+            this.amount += amount
+            num_transactions += 1
+            dollar_amount_of_transactions += amount
+
+    def withdrawl(amount):
+        current_total = this.get_total() # 2700 2500
+        if ( amount > 0 and amount =< this.amount): # 2700 2500
+            this.amount -= amount
+        actual_amount = current_total - this.get_total() # (2500-200) 400
+
+        num_transactions += 1
+        dollar_amount_of_transactions += actual_amount
+
+        return actual_amount
+
+    def get_total():
+        return this.amount
+
+    def get_num_transactions():
+        return num_transactions
+
+    def get_dollar_amount_of_transactions():
+        return dollar_amount_of_transactions
+
+def process_operations_array(operations):
+    bank = new Bank()
+    for operation in operations:
+        if ( len(operation) < 2 ):
+            throw new InvalidInput("Need at least 2 args):
+        if ( len(operation) == 2 and operation[0] is "CREATE_ACCOUNT" ):
+            bank.create_account(operation[1])
+        elif (len(operation) == 3 and operation[0] is "DEPOSIT" ) :
+            bank.deposit(operation[1], operation[2]
+
+------------------------------------------------------------
+operations = [
+  ["CREATE_ACCOUNT", "account1"],
+  ["CREATE_ACCOUNT", "account1"],
+  ["CREATE_ACCOUNT", "account2"],
+  ["DEPOSIT", "non-existing", "2700"],
+  ["DEPOSIT", "account1", "2700"],
+  ["TRANSFER", "account1", "account2", "2701"],
+  ["TRANSFER", "account1", "account2", "200"]
+  ["TRANSFER", "account1", "account2", "2500"],
+  ["DEPOSIT", "account2", "300"],
+  ["CREATE_ACCOUNT", "account3"],
+  ["DEPOSIT", "account3", "4000"],
+  ["TOP_ACTIVITY", "3"],
+  ["DEPOSIT", "account2", "1000"],
+  ["TOP_ACTIVITY", "2"],
+  ["TOP_ACTIVITY", "5"]
+]
+
+JSON
+{
+  "operations": [
+    {
+      "operation": "CREATE_ACCOUNT",
+      "account_id": "account1"
+    },
+    {
+      "operation": "CREATE_ACCOUNT",
+      "account_id": "account1"
+    },
+    {
+      "operation": "CREATE_ACCOUNT",
+      "account_id": "account2"
+    },
+    {
+      "operation": "DEPOSIT",
+      "account_id": "non-existing",
+      "amount": 2700
+    },
+    {
+      "operation": "DEPOSIT",
+      "account_id": "account1",
+      "amount": 2700
+    }
+  ]
+}
+
+CSV
+CREATE_ACCOUNT,account1
+CREATE_ACCOUNT,account1
+CREATE_ACCOUNT,account2
+DEPOSIT,non-existing,2700
+DEPOSIT,account1,2700
+The output should be
+true
+false
+true
+-1
+2700
+
+
+=========================================================================================================
+
+
+
+
