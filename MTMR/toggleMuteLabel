@@ -1,6 +1,5 @@
+set label to "\\e[32m!muted"
 if input volume of (get volume settings) = 0 then
     set label to "\\e[31mmuted"
-else
-    set label to "\\e[32m!muted"
 end if
 return label
