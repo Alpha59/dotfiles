@@ -268,3 +268,39 @@ curl -L https://scarf.sh/install;
 
 brew install expect;
 
+brew install autoexpect;
+
+brew install expect;
+
+pip install python-yubico;
+
+sudo port install libusb;
+
+port install libusb;
+
+brew install libusb;
+
+brew install libusb-compat;
+
+pip install PyUSB;
+
+pip install pyusb;
+
+mas install 1003160018;
+
+mas install 1340501510;
+
+mas install 803453959;
+
+brew install wifi-password;
+
+brew install calc;
+
+brew install jq;
+
+sudo -H pip install -U oletools;
+
+brew install pandoc;
+
+brew install bash-completion;
+

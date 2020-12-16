@@ -23,8 +23,9 @@ alias find='locate_ffp '
 alias weather='curl wttr.in/seattle'
 alias bb='brazil-build '
 alias grep='grep -Is '
-# alias python='python3.7 '
-alias pip='python -m pip '
+alias python='/usr/local/Cellar/python/3.7.7/bin/python3 '
+#alias python='/usr/local/bin/python3 '
+alias pip='pip3 '
 alias ta='tmux a '
 alias vpn='/opt/cisco/anyconnect/bin/vpn connect "Automatic Selection (Route53)"'
 alias vpn_bin='/opt/cisco/anyconnect/bin/vpn '
@@ -63,6 +64,10 @@ fi
 if command -v brew >/dev/null 2>&1; then
     # Load rupa's z if installed
     [ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
+fi
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
 fi
 
 source gtm-plugin.sh

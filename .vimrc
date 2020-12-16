@@ -1,4 +1,4 @@
-syntax on
+syntax enable
 set wildmenu
 set showmatch
 set hlsearch
@@ -62,16 +62,19 @@ autocmd BufWrite * :call DeleteTrailingWS()
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css " syntax highlighting for vue
 ":call GDrivePython()
 
+let g:syntastic_shell = "/bin/bash"
+let g:syntastic_debug = 0
+set shell=/bin/bash
+
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
      \ endif
 set suffixesadd+=.js
+set suffixesadd+=.tsx
 set path=$PWD/**" Remember info about open buffers on close
 set viminfo^=%
-call plug#begin('~/.vim/bundle')
-Plug 'jparise/vim-graphql'
 
 let g:syntastic_enable_python_checker = 1
 let g:syntastic_python_checkers = ['flake8']
@@ -85,20 +88,25 @@ let g:syntastic_html_tidy_ignore_errors=["<i18n>", "is not recognized!"]
 let g:syntastic_html_tidy_quiet_messages = { "level" : "warnings" }
 let g:syntastic_enable_html_checker = 0
 let g:syntastic_enable_html_tidy_checker = 0
+let g:syntastic_typescript_checkers = ['eslint']
+let g:syntastic_typescript_eslint_exe = 'npm run lint --'
+let g:syntastic_enable_typescript_checker = 1
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = 'npm run lint --'
+let g:syntastic_javascript_eslint_exe = 'npm run eslint --'
+" let g:syntastic_javascript_eslint_exec = 'eslint_d'
 let g:syntastic_enable_javascript_checker = 1
 let g:syntastic_mode_map = { 'mode': 'passive' }
+highlight SyntasticError guibg=#2f0000
 
 set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8'], 'java': 'checkstyle'}
+let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8'], 'java': 'checkstyle', 'typescript': ['eslint']}
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
 
 let g:multi_cursor_select_all_word_key = '<C-m>'
 set laststatus=2
@@ -124,4 +132,5 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 map <C-t> :NERDTreeToggle<CR>
 map <C-p> :TableModeToggle<CR>
 
-execute pathogen#infect()
+com! FormatJSON .!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), indent=4)"
+
