@@ -67,3 +67,5 @@ export OPENAI_API_KEY="$(cat "$HOME/.gogpt")"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 alias timeout=gtimeout;
 alias shuf=gshuf;
+source gtm-plugin.sh
+#source ~/codechecker/venv/bin/activate
