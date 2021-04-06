@@ -71,4 +71,4 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 source gtm-plugin.sh
-export PATH=$HOME/bin:$HOME/.toolbox/bin:$PATH
+#source ~/codechecker/venv/bin/activate
