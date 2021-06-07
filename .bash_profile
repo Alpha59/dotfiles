@@ -23,8 +23,9 @@ alias find='locate_ffp '
 alias weather='curl wttr.in/seattle'
 alias bb='brazil-build '
 alias grep='grep -Is '
-# alias python='python3.7 '
-alias pip='python -m pip '
+alias python='/usr/local/Cellar/python/3.7.7/bin/python3 '
+#alias python='/usr/local/bin/python3 '
+alias pip='pip3 '
 alias ta='tmux a '
 alias vpn='/opt/cisco/anyconnect/bin/vpn connect "Automatic Selection (Route53)"'
 alias vpn_bin='/opt/cisco/anyconnect/bin/vpn '
@@ -32,6 +33,7 @@ alias myip='curl icanhazip.com'
 alias ninja='tmux kill-session -t ninja; tmux new-session -d -s ninja "ninja-dev-sync" '
 alias checkstyle='java -jar ~/Downloads/checkstyle-8.18-all.jar -c checkstyle-config.xml '
 alias diff-pretty='diff2html --sc "enabled" -s "side" --lm words '
+alias diff-vim='git difftool --tool=vimdiff '
 alias screenshot='screencapture -ic '
 # alias pull-request='gtm commit -yes; hub pull-request -a "alpha59" --no-edit -o -p -l "team-pwa" '
 
@@ -43,7 +45,7 @@ export PS1="$PROMPT"
 
 set -o vi
 
-export PATH=$PATH:/usr/local/opt/mongodb/bin/mongoexport:$GOPATH/bin:$HOME/scripts/:$HOME/.scripts/:$HOME/git-extra-commands/bin/:/usr/local/Cellar/node/11.6.0/bin/
+export PATH=$PATH:/usr/local/opt/mongodb/bin/mongoexport:$GOPATH/bin:$HOME/scripts/:$HOME/.scripts/:$HOME/git-extra-commands/bin/:/usr/local/Cellar/node/11.6.0/bin/:$HOME/.scarf/bin/
 
 # Pyenv
 #export PYENV_ROOT="$HOME/.pyenv"
@@ -64,5 +66,9 @@ if command -v brew >/dev/null 2>&1; then
     [ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
 fi
 
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
+fi
+
 source gtm-plugin.sh
-export PATH=$HOME/bin:$HOME/.toolbox/bin:$PATH
+#source ~/codechecker/venv/bin/activate
