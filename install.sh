@@ -5,6 +5,10 @@ mkdir ~/Dev
 chmod +x $HOME/scripts/*
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
+
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
+
 brew -v;
 brew install node;
 node -v;
@@ -13,9 +17,10 @@ npm install -g n;
 
 brew update;
 brew tap caskroom/cask;
+brew tap homebrew/cask-cask;
 brew install python;
 brew install neovim;
-brew install vim --with-override-system-vi;
+brew install vim;
 brew install thefuck;
 brew install git-standup;
 
@@ -107,7 +112,7 @@ brew install icdiff;
 
 brew install kommit;
 
-brew install porti;
+#brew install porti;
 
 brew install noti;
 
@@ -160,7 +165,7 @@ mv leet.py ~/.weechat/python/autoload
 
 wget https://raw.githubusercontent.com/wee-slack/wee-slack/master/wee_slack.py
 mv wee_slack.py ~/.weechat/python/autoload
-brew install jumbo-john;
+#brew install jumbo-john;
 
 brew install john-jumbo;
 
@@ -172,7 +177,7 @@ brew install calc;
 
 brew install speedtest_cli;
 
-brew install darkmode;
+#brew install darkmode;
 
 brew install dark-mode;
 
@@ -188,16 +193,14 @@ curl https://www.teleconsole.com/get.sh | sh;
 
 brew cask install java;
 
-brew install ninja-dev-sync;
+#brew install ninja-dev-sync;
 
 brew cask install macdown;
 
 brew cask install mtmr;
 mv items.json /Users/ailor/Library/Application\ Support/MTMR/items.json; # Update the MTMR preferences file
 
-gem install teamocil;
-
-brew install yes;
+#brew install yes;
 
 brew install gti;
 
@@ -213,7 +216,7 @@ brew cask install caffeine;
 
 brew install wget;
 
-brew cask install ponysay;
+#brew cask install ponysay;
 brew install gpg;
 
 gpg --default-new-key-algo rsa4096 --gen-key;
@@ -263,4 +266,31 @@ brew install minicom;
 brew install postgresql;
 
 brew install john-jumbo;
+
+gem install teamocil;
+
+source .bash_profile;
+
+exec -l $SHELL;
+brew install aspell;
+
+brew cask install docker;
+
+brew install docker;
+
+softwareupdate --install-rosetta;
+
+npm install nunjucks;
+
+brew install xelatex;
+
+npm install nunjucks-cli -g;
+
+brew install texlive-xetex;
+
+brew install pandoc basictex xelatex;
+
+brew install pandoc;
+
+brew install basictex;
 

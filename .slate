@@ -16,6 +16,7 @@ alias showHintsLeftHand hint AOEUIYQJKX
 alias showNormalHint hint AOEUIDHTNSYXFBPKGMCW
 alias browser 'Google Chrome'
 alias mail 'Microsoft Outlook'
+alias pm 'Ora'
 alias chat 'Amazon Chime' #Slack
 alias music 'Spotify'
 alias term 'Hyper'
@@ -95,5 +96,6 @@ bind m:${hyper} focus ${mail}
 bind c:${hyper} focus ${chat}
 bind h:${hyper} focus ${term}
 bind p:${hyper} focus ${music}
+bind o:${hyper} focus ${pm}
 bind v:${hyper} focus ${video}
 bind k:${hyper} focus ${notes}

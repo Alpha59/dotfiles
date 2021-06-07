@@ -1,4 +1,4 @@
-source ~/.bash_profile_work
+#source ~/.bash_profile_work
 alias ls='exa -l '
 alias bc='bc -l '
 alias dammit='docker-compose down; docker-compose up -d '
@@ -39,7 +39,7 @@ export CLICOLOR=1
 export LSCOLORS="exfxcxdxbxegedabagacad"
 
 export PROMPT="\t:\w>Yes Jake? >> "
-export PS1="\e[1;35m\]$PROMPT\[\e[0m\]"
+export PS1="$PROMPT"
 
 set -o vi
 
