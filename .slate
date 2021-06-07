@@ -19,6 +19,7 @@ alias mail 'Microsoft Outlook'
 alias pm 'Ora'
 alias chat 'Amazon Chime' #Slack
 alias music 'Spotify'
+alias pm 'Ora'
 alias term 'Hyper'
 alias editor 'Vim'
 alias video 'Safari'

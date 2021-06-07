@@ -1,14 +1,24 @@
 [user]
-	email = ailor@amazon.com
-	name = Jake Ailor
+    email = ailor@amazon.com
+    name = Jake Ailor
 [push]
-	default = current
+    default = current
 [diff]
-	tool = icdiff
+    tool = icdiff
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+    required = true
 [core]
-	editor = vim
-	excludesfile = /Users/ailor/.gitignore_global
+    editor = vim
+    excludesfile = /Users/ailor/.gitignore_global
+[commit]
+    template = ~/crTemplate.md
+[alias]
+    tree = log --graph --oneline --decorate --all
+    tree-long = log --graph --decorate --all
+    last = log -p -1
+    search = !git log --oneline | grep
+    uncommit = reset --soft HEAD~1
+    cleanout = !git clean -df && git checkout -- .
+
