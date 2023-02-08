@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+verbose=0;
+
+warn() {
+    yellow=`tput setaf 3`
+    reset=`tput sgr0`
+    echo "${yellow}${*}${reset}"
+}
+
+print() {
+    if [[ $verbose -gt 0 ]]; then
+        echo "${*}"
+    fi
+}
+
+info() {
+    if [[ $verbose -gt 0 ]]; then
+        blue=`tput setaf 4`
+        reset=`tput sgr0`
+        echo "${blue}${*}${reset}"
+    fi
+}
+
+debug() {
+    if [[ $verbose -gt 1 ]]; then
+        magenta=`tput setaf 5`
+        reset=`tput sgr0`
+        echo "${magenta}${*}${reset}"
+    fi
+}
+
+pass() {
+    green=`tput setaf 2`
+    reset=`tput sgr0`
+    echo "${green}${*}${reset}"
+}
+
+error() {
+    red=`tput setaf 1`;
+    reset=`tput sgr0`;
+    echo "${red}${*}${reset}";
+}
+

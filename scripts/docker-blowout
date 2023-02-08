@@ -1,14 +1,23 @@
+test -z "$(docker ps -q 2>/dev/null)" && osascript -e 'quit app "Docker"'
+docker ps -q | xargs -L1 docker stop
+killall com.docker.osx.hyperkit.linux
+
+# Re-open docker
+open --background -a Docker &&
+    while ! docker system info > /dev/null 2>&1; do sleep 1; done
+
 rm ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
 docker-compose down;
 docker rm -f $(docker ps -aq);
 docker rmi -f $(docker images -q);
 docker rmi $(docker images -q -f dangling=true);
-docker run --rm --privileged urbncat df -h
-docker run --rm --privileged urbncat df -h -i
 docker ps -q -a -f status=exited | xargs -n 100 docker rm -v
 docker images -q --filter "dangling=true" | xargs -n 100 docker rmi
 docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes
 docker-compose rm -fva;
 docker-compose pull;
-docker-compose up --force-recreate --build --remove-orphans -d;
+#docker-compose up --force-recreate --build --remove-orphans -d;
 docker stop $(docker ps -q);
+killall Docker;
+killall docker;
+open /Applications/Docker.app/;

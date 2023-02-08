@@ -1,0 +1,5 @@
+cd ~ &&
+git clone ssh://git.amazon.com/pkg/MacOSEncryptedVolumeTools &&
+MacOSEncryptedVolumeTools/bin/create-encrypted-apfs-volume $1 &&
+ln -s /Volumes/$1 ~/$2 &&
+rm -rf MacOSEncryptedVolumeTools  # optional

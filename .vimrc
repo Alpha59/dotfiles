@@ -2,10 +2,10 @@ syntax enable
 set wildmenu
 set showmatch
 set hlsearch
-nnoremap <silent> <C-k> :set relativenumber!<CR><C-k>
-nnoremap <silent> <C-m> :set invnumber!<CR><C-m>
+nnoremap <silent> <C-k> :set relativenumber!<CR> :set invnumber<CR><C-k>
 nnoremap <silent> <leader>cf :call writefile([], expand("<cfile>"), "t")<cr>
 nnoremap <silent> <C-l> :nohl<CR><C-l>
+nnoremap <silent> <C-c> :%!awk '{print length}'<CR><C-c>
 set ruler
 set history=700
 set noerrorbells
@@ -125,6 +125,7 @@ let g:lightline = {
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
