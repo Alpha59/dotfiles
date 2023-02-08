@@ -1,0 +1,5 @@
+#!/bin/bash
+/usr/bin/osascript -e "display notification \"$2\" with title \"$1\" sound name \"$3\"";
+/usr/bin/osascript -e "tell application \"Messages\" to send \"$1\" to buddy \"4843549199\"";
+
+

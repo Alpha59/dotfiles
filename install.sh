@@ -18,6 +18,7 @@ npm install -g n;
 brew update;
 brew tap caskroom/cask;
 brew tap homebrew/cask-cask;
+brew tap caskroom/cask
 brew install python;
 brew install neovim;
 brew install vim;
@@ -27,11 +28,11 @@ brew install git-standup;
 pip install --upgrade pip;
 
 brew install caskroom/cask/brew-cask;
-brew cask install firefox;
-brew cask install hyper;
-brew cask install beardedspice;
-brew cask install google-chrome;
-brew cask install slack;
+brew install --cask firefox;
+brew install --cask hyper;
+brew install --cask beardedspice;
+brew install --cask google-chrome;
+brew install --cask slack;
 
 infect-vim tpope vim-pathogen;
 infect-vim maralla completor.vim;
@@ -191,13 +192,13 @@ brew install spoof-mac;
 
 curl https://www.teleconsole.com/get.sh | sh;
 
-brew cask install java;
+brew install --cask java;
 
 #brew install ninja-dev-sync;
 
-brew cask install macdown;
+brew install --cask macdown;
 
-brew cask install mtmr;
+brew install --cask mtmr;
 mv items.json /Users/ailor/Library/Application\ Support/MTMR/items.json; # Update the MTMR preferences file
 
 #brew install yes;
@@ -212,11 +213,12 @@ brew install dshb;
 
 brew install tree;
 
-brew cask install caffeine;
+brew install --cask caffeine;
 
 brew install wget;
 
 #brew cask install ponysay;
+brew install --cask ponysay;
 brew install gpg;
 
 gpg --default-new-key-algo rsa4096 --gen-key;
@@ -318,11 +320,23 @@ pip install PyUSB;
 
 pip install pyusb;
 
-mas install 1003160018;
+mas signin;
 
-mas install 1340501510;
+mas upgrade;
+mas install 1003160018 # Quip (7.73.0);
+mas install 1474276998 # HP Smart (12.7.1)
+mas install 405399194 # Kindle (1.31.0)
+mas install 1340501510 # Ora (3.1.7)
+mas install 937984704 # Amphetamine (5.2.2)
+# mas install 408981434 # iMovie (10.2.4)
+mas install 409201541 # Pages (11.1)
+# mas install 682658836 # GarageBand (10.3.5)
+mas install 409183694 # Keynote (11.1)
+mas install 803453959 # Slack (4.17.0)
+mas install 1497527363 # Blurred (1.2.0)
+mas install 409203825 # Numbers (11.1)
+mas install 1534275760  #LanguageTool - Grammar Checker (1.2.3)
 
-mas install 803453959;
 
 brew install wifi-password;
 
@@ -336,3 +350,48 @@ brew install pandoc;
 
 brew install bash-completion;
 
+brew install pmd;
+
+brew install spotbugs;
+
+brew install graphviz;
+
+npm install -g cdk-dia;
+
+npm i -g trash-cli;
+
+brew install testdisk;
+
+brew install dos2unix;
+
+brew install flake8;
+
+brew install clang-format;
+
+brew install pre-commit;
+
+brew install ykman;
+
+brew install diff2html;
+
+npm -g install diff2html;
+
+npm install -g diff2html-cli;
+
+brew install aws-sam-cli-beta-cdk;
+
+brew install rlwrap;
+
+npm i newman;
+
+npm i -g newman;
+
+brew install libfido2;
+
+brew install libusb;
+
+pip3 install onlykey;
+
+brew install ddcctl;
+
+open https://github.com/pqrs-org/Karabiner-Elements/releases/download/v14.11.0/Karabiner-Elements-14.11.0.dmg;

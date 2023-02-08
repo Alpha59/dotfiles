@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+csv=$(csv2md.jq $@)
+echo "$csv" | jq -c '.[0]' | sed 's/"//g' | sed 's/,/ | /g' | sed 's/]/ | /g' | sed 's/\[/ | /g';
+echo "$csv" | jq -c '.[0]' | sed 's/"//g' | sed 's/,/ | /g' | sed 's/]/ | /g' | sed 's/\[/ | /g' | sed -E 's/\|[^\|]+/\|---/g';
+echo "$csv" | jq '.[1:]' | jq -c '.[]' | sed 's/"//g' | sed 's/,/ | /g' | sed 's/]/ | /g' | sed 's/\[/ | /g';

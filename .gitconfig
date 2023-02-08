@@ -12,8 +12,9 @@
 [core]
     editor = vim
     excludesfile = /Users/ailor/.gitignore_global
+	attributesfile = /Users/ailor/.config/git/attributes
 [commit]
-    template = ~/crTemplate.md
+	template = /Users/ailor/.gitmessage
 [alias]
     tree = log --graph --oneline --decorate --all
     tree-long = log --graph --decorate --all

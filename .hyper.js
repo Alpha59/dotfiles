@@ -106,10 +106,10 @@ module.exports = {
       "hyper-search", // Allow searching with cmd+f in the terminal
       "hyper-pane", // Allow better pane management within a window
       "hyper-active-tab", // Adds a tiny triangle (depreciated by lightning bolt)
-      "hyper-savetext", // Allows saving of text from the terminal with cmd+s
+      //"hyper-savetext", // Allows saving of text from the terminal with cmd+s
       "hyper-dark-scrollbar", // styilizes the scrollbar
       //"hyper-always-on-top", // Allows hyper to always appear on top of other windows
-      "hyper-tabs-enhanced", // Adds the lightning bolt, with other configurable options (colors)
+      //"hyper-tabs-enhanced", // Adds the lightning bolt, with other configurable options (colors)
       "hyperterm-spacegray", // color theme
       "hyperline", // the hyperline at the bottom
       "hypercwd" // opens new tabs to same folder

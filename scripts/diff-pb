@@ -1,0 +1,1 @@
+pbpaste | git icdiff --no-index --color-words=. -- - $@

@@ -5,3 +5,6 @@
 /.gtm/
 .idea/
 build/
+build
+$*
+dist/
