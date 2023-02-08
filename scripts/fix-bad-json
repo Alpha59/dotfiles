@@ -1,0 +1,39 @@
+#!/usr/local/bin/node
+
+
+const x = process.argv[2];
+const x_replaced = x
+        // Replace A Wierd one-off I saw once
+        .replace(/ID\"?:\"?/, 'ID')
+        // Replace Zulu TimeStamps
+        .replace(/(\d):(\d)/g, '$1@colon@$2')
+        // Replace a weird unicode character I saw once
+        .replace(/xc1 4753/g, '')
+        // Replace and fix Comma's inside of a string...?
+        .replace(/,(\s)/g, '@comma@$1')
+        // Replace null.string which I think is a Java thing
+        .replace(/null.string/g, 'null')
+        // Replace ":" with "@colon@" if it's between double-quotes
+        //.replace(/([^'"]*)\:/g, '@colon@$1')
+        // Add double-quotes around any tokens before the remaining ":"
+        .replace(/(['"])?([^\]\[":,}{]+)(['"])?/g, '"$2"')
+        // fix if there is a missing value for the key
+        .replace(/:,/g, ':"",')
+        // Turn "@colon@" back into ":"
+        .replace(/@colon@/g, ':')
+        // Turn "@comma@" back into ","
+        .replace(/@comma@/g, ',')
+        // Fix commas at the end of an array with no values
+        // Need to do this multiple times in case there are multiple examples of it
+        .replace(/,]/g, ']')
+        .replace(/,]/g, ']')
+        .replace(/,]/g, ']')
+
+let x_parsed = x_replaced;
+try {
+    x_parsed = JSON.parse(x_replaced);
+    console.log(JSON.stringify(x_parsed));
+} catch (e) {
+    //x_parsed = JSON.parse(JSON.stringify(x_replaced));
+    console.log(x_parsed);
+}

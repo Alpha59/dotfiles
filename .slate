@@ -17,7 +17,7 @@ alias showNormalHint hint AOEUIDHTNSYXFBPKGMCW
 alias browser 'Google Chrome'
 alias mail 'Microsoft Outlook'
 alias pm 'Ora'
-alias chat 'Amazon Chime' #Slack
+alias chat 'Slack' #Amazon Chime
 alias music 'Spotify'
 alias pm 'Ora'
 alias term 'Hyper'
@@ -30,6 +30,11 @@ alias full          move screenOriginX;screenOriginY                  screenSize
 alias left        move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
 alias lefthalf      move screenOriginX;screenOriginY                  screenSizeX/2;screenSizeY
 alias righthalf     move screenOriginX+screenSizeX/2;screenOriginY    screenSizeX/2;screenSizeY
+
+alias leftthird     move screenOriginX;screenOriginY  screenSizeX*.333;screenSizeY
+alias centerthird     move screenOriginX+screenSizeX*.333;screenOriginY  screenSizeX*.333;screenSizeY
+alias rightthird     move screenOriginX+screenSizeX*.666;screenOriginY  screenSizeX*.333;screenSizeY
+
 alias rightmost     move screenOriginX+screenSizeX*0.4;screenOriginY  screenSizeX*0.6;screenSizeY
 alias rightless     move screenOriginX+screenSizeX*0.6;screenOriginY  screenSizeX*0.4;screenSizeY
 alias leftmost      move screenOriginX;screenOriginY                  screenSizeX*0.6;screenSizeY
@@ -65,11 +70,11 @@ layout browseAndCommunicate ${mail}:MAIN_FIRST    ${rightbottom}
 
 alias hyper shift,cmd
 
-bind e:${hyper} ${showHintsLeftHand}
+bind .:${hyper} ${showHintsLeftHand}
 
 # Layout bindings
 #bind 0:${hyper} sequence layout dashboard | hide all
-bind 1:${hyper} sequence layout communicate | hide all | show ${chat},${mail}
+#bind 1:${hyper} sequence layout communicate | hide all | show ${chat},${mail}
 #bind 2:${hyper} sequence layout code | hide all | show ${term}
 #bind 3:${hyper} sequence layout codeAndBrowse | hide all | show ${browser},${term}
 #bind 4:${hyper} sequence layout browse | hide all | show ${browser}
@@ -80,6 +85,10 @@ bind a:${hyper} ${lefthalf}
 bind w:${hyper} ${full}
 bind d:${hyper} ${righthalf}
 bind s:${hyper} throw next
+
+bind q:${hyper} ${leftthird}
+bind e:${hyper} ${centerthird}
+bind r:${hyper} ${rightthird}
 
 # Resize Bindings
 #bind r:${hyper} ${leftmost}
@@ -96,7 +105,7 @@ bind b:${hyper} focus ${browser}
 bind m:${hyper} focus ${mail}
 bind c:${hyper} focus ${chat}
 bind h:${hyper} focus ${term}
-bind p:${hyper} focus ${music}
+#bind p:${hyper} focus ${music}
 bind o:${hyper} focus ${pm}
 bind v:${hyper} focus ${video}
 bind k:${hyper} focus ${notes}

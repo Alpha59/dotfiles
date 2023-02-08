@@ -1,4 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/Users/ailorj1/Dev/PricingService-Tests/tests'
-let g:netrw_dirhist_2='/Users/ailorj1/source'
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/Volumes/Work/Dharma22/DRD/src/DeviceReturnsDomainCDK'

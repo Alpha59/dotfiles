@@ -1,0 +1,12 @@
+#!/usr/bin/env osascript
+
+on run argv
+    tell application "System Events"
+        set textBuffer to item 1 of argv
+        delay .01
+        repeat with i from 1 to count characters of textBuffer
+            keystroke (character i of textBuffer)
+            delay 0.01
+        end repeat
+    end tell
+end run

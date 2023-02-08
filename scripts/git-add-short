@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#
+# Adds the unstages files without the addition
+# of the whitespace only changes. Useful if
+# package has been modified in an IDE with poor
+# whitespacing rules and you do not want to make
+# major modifications
+#
+
+git diff -U0 -w --no-color | git apply --cached --ignore-whitespace --unidiff-zero -;

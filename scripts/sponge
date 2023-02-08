@@ -1,0 +1,16 @@
+#!/bin/bash
+
+function maybeupdate {
+    local f="$1"
+    cmp -s "$f" "$f.tmp"
+    if [ $? = 0 ] ; then
+      rm $f.tmp
+    else
+      mv "$f.tmp" "$f"
+    fi
+}
+
+f=$1;
+shift;
+while read x; do echo $x >> "$f.tmp"; done;
+maybeupdate "$f"

@@ -22,6 +22,10 @@
 !journal.txt
 !install.sh
 !items.json
+!git-extra-commands/
+!git-extra-commands/*/
+!git-extra-commands/*/*/
+!git-extra-commands/bin/*
 !scripts/
 !scripts/*
 !scripts/*/
@@ -35,6 +39,8 @@ secrets
 !MTMR/*/*
 !MTMR/*/*/*
 !.vim/
+!.aws-sam/
+!.aws-sam/*
 !.vim/*
 !.vim/*/
 !.vim/*/*
