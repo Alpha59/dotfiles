@@ -1,0 +1,6 @@
+sudo route flush;
+rde stack stop;
+rde env clean;
+rde env setup ecr;
+rde stack provision;
+rde wflow run;

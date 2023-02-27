@@ -1,0 +1,33 @@
+#!/bin/bash
+
+if [ $# -ne 2 ]
+then
+    echo "Usage: $0 <versionset>"
+    exit 1;
+fi;
+
+packages=$(brazil vs print -vs $1 | grep -A1 "TARGETS" | grep -o '^\w*[^\-]' | grep -v '^\s*$' | tail -n +2)
+packages_array=( $packages )
+
+notify ${packages_array[0]} "Begin Processing ${packages_array[0]}" "Frog";
+if [[ ! -d ${packages_array[0]} ]]; then
+    rm -rf ${packages_array[0]};
+    brazil ws create --name ${packages_array[0]} --versionSet $1;
+    cd ${packages_array[0]};
+else
+    cd ${packages_array[0]};
+    echo "PROCESSING-EXISTING"
+fi
+
+echo "PROCESSING"
+for var in "${packages_array[@]}"
+do
+    echo "Adding $var to the Workspace";
+    brazil ws use -p ${var};
+done
+
+brazil ws use --platform AL2_x86_64;
+echo "PLATFORM OVERRIDE SET"
+
+cd ./src/${packages_array[0]};
+git all status;

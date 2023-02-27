@@ -1,10 +1,28 @@
 ln -s ${PWD##*/}/.vimrc $HOME/.vimrc;
 ln -s ${PWD##*/}/.bash_profile $HOME/.bash_profile;
 
+
+xcode-select --install;
+
 mkdir ~/Dev
 chmod +x $HOME/scripts/*
 
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
+echo "ENTER COMPUTER PASSWORD";
+read PASSWORD
+security add-generic-password -a $USER -s amzn_mac -w $PASSWORD -U
+
+echo "ENTER TOKEN KEY";
+read PASSWORD
+security add-generic-password -a $USER -s amzn_vpn -w $PASSWORD -U
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/ailor/.bash_profile;
+
+eval "$(/opt/homebrew/bin/brew shellenv)";
+
+echo "wait until homebrew install complete";
+read;
 
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python get-pip.py
@@ -88,8 +106,9 @@ dockutil --remove FaceTime;
 dockutil --remove iTunes;
 dockutil --remove Calendar;
 dockutil --remove Launchpad;
-
 cd /Applications && curl http://www.ninjamonkeysoftware.com/slate/versions/slate-latest.tar.gz | tar -xz; cd ~;
+
+open https://github.com/jigish/slate/raw/master/build/Release/Slate.dmg;
 open /Applications/Slate.app
 brew install badtouch;
 
@@ -199,7 +218,7 @@ brew install --cask java;
 brew install --cask macdown;
 
 brew install --cask mtmr;
-mv items.json /Users/ailor/Library/Application\ Support/MTMR/items.json; # Update the MTMR preferences file
+mv ~/MTMR/items.json /Users/ailor/Library/Application\ Support/MTMR/items.json; # Update the MTMR preferences file
 
 #brew install yes;
 
@@ -395,3 +414,37 @@ pip3 install onlykey;
 brew install ddcctl;
 
 open https://github.com/pqrs-org/Karabiner-Elements/releases/download/v14.11.0/Karabiner-Elements-14.11.0.dmg;
+
+defaults write com.apple.Finder AppleShowAllFiles true;
+
+killall Finder;
+
+rm /Users/ailor/Remote;
+
+ln -sh /Users/ailor/Library/CloudStorage/WorkDocsDrive-Documents/ /Users/ailor/Remote;
+
+brew install ykman;
+fzf;
+
+brew install cheat;
+
+!;
+
+portable !;
+
+!;
+
+brew install jq;
+
+pip install xlsx2csv;
+
+brew install gnumeric;
+
+brew install ssconvert;
+
+brew install aws;
+
+curl https://awscli.amazonaws.com/AWSCLIV2.pkg -o AWSCLIV2.pkg;
+
+brew install watch;
+

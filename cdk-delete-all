@@ -1,0 +1,3 @@
+#!/bin/bash
+
+/Users/ailor/.scripts/cdk-doctor/env/CDKPipelineDoctor-1.0-CDKPipelineDoctor-development/bin/darwin_amd64/cdk-pipeline-doctor cleanup-pipeline "$@"

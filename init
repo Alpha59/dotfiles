@@ -1,0 +1,58 @@
+#!/usr/bin/env expect -f
+
+# security add-generic-password -a $USER -s amzn_mac -w <YOUR PASSWORD> -U
+set my_user "$env(USER)"
+set my_service amzn_vpn
+set my_mac amzn_mac
+set my_endpoint "orca.amazon.com"
+set my_password [exec security find-generic-password -a $my_user -s $my_service -w]
+set my_pwd [exec security find-generic-password -a $my_user -s $my_mac -w]
+set vpn  [lindex $argv 0]
+set my_yubikey  [lindex $argv 1]
+
+if {$vpn == "true"} {
+
+    set timeout 30
+    spawn /opt/cisco/anyconnect/bin/vpn connect $my_endpoint
+    match_max 2000
+    expect -exact "Group: \[Orca\] "
+    send -- "orca-AmazonMacs\r"
+    expect -exact "Username: "
+    send -- "$my_user\r"
+    expect -exact "Password: "
+    send -- "$my_password$my_yubikey\r"
+    expect eof
+
+}
+
+set timeout 10
+match_max 2000
+
+spawn mwinit -o -s --aea
+expect -re "PIN for $my_user:"
+send -- "$my_password\r"
+
+if {$vpn == "true"} {
+    interact
+} else {
+    expect -re "Press the button on your YubiKey.*\."
+    send -- "$my_yubikey\r"
+}
+
+spawn kinit -f;
+expect -re "$my_user@ANT.AMAZON.COM's password:"
+send -- "$my_pwd\r"
+
+expect eof
+
+spawn ssh $env(DESK) "mwinit -o -s --aea"
+expect -re "PIN for $my_user:"
+send -- "$my_password\r"
+
+interact
+
+spawn ssh $env(DESK) "kinit -f"
+expect -re "Password for $my_user@ANT.AMAZON.COM:"
+send -- "$my_pwd\r\n"
+
+expect eof

@@ -1,4 +1,4 @@
-#source ~/.bash_profile_work
+source ~/.bash_profile_work
 alias ls='exa -l '
 alias bc='bc -l '
 alias dammit='docker-compose down; docker-compose up -d '
@@ -58,6 +58,8 @@ export PATH=$PATH:/usr/local/opt/mongodb/bin/mongoexport:$GOPATH/bin:$HOME/scrip
 #export PATH="$PYENV_ROOT/bin:$PATH:$HOME/scripts/"
 #eval "$(pyenv init -)"
 
+export CHEAT_USE_FZF=true;
+
 eval $(thefuck --alias)
 complete -W "$(teamocil --list)" teamocil
 stty erase '^?'
@@ -78,3 +80,9 @@ fi
 
 source gtm-plugin.sh
 #source ~/codechecker/venv/bin/activate
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"

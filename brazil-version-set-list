@@ -1,0 +1,1 @@
+brazil ws show | grep "Version" | awk '{print $3}' | xargs -n1 bash -c 'echo "${0//@[0-9]*/}"'

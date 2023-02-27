@@ -99,7 +99,7 @@ let g:syntastic_mode_map = { 'mode': 'passive' }
 highlight SyntasticError guibg=#2f0000
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8'], 'java': 'checkstyle', 'typescript': ['eslint']}

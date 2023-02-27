@@ -1,0 +1,54 @@
+#!/bin/bash
+
+brazil-package-cache stop;
+
+echo "Removing Spotlight";
+mdutil -i off /Volumes/Work
+mdutil -i off /Volumes/Dev
+mdutil -E /Volumes/Dev
+mdutil -E /Volumes/Dev
+
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+
+echo "Deleting Work";
+rm -rf /Volumes/Work/*/*/build
+rm -rf /Volumes/Work/*/*/env
+rm -rf /Volumes/Work/*/*/src/*/dist
+rm -rf /Volumes/Work/*/*/src/*/node_modules
+rm -rf /Volumes/Work/*/*/src/*/build
+rm -rf /Volumes/Work/*/build
+rm -rf /Volumes/Work/*/env
+rm -rf /Volumes/Work/*/src/*/dist
+rm -rf /Volumes/Work/*/src/*/node_modules
+rm -rf /Volumes/Work/*/src/*/build
+rm -rf /Volumes/Work/.TemporaryItems
+rm -rf /Volumes/Work/.Trashes
+rm -rf /Volumes/Work/.Spotlight-V100
+rm -rf /Volumes/Work/brazil-pkg-cache
+
+echo "Deleting Dev";
+rm -rf /Volumes/Dev/*/*/build
+rm -rf /Volumes/Dev/*/*/env
+rm -rf /Volumes/Dev/*/*/src/*/dist
+rm -rf /Volumes/Dev/*/*/src/*/node_modules
+rm -rf /Volumes/Dev/*/*/src/*/build
+rm -rf /Volumes/Dev/*/build
+rm -rf /Volumes/Dev/*/env
+rm -rf /Volumes/Dev/*/src/*/dist
+rm -rf /Volumes/Dev/*/src/*/node_modules
+rm -rf /Volumes/Dev/*/src/*/build
+rm -rf /Volumes/Dev/.TemporaryItems
+rm -rf /Volumes/Dev/.Trashes
+rm -rf /Volumes/Dev/.Spotlight-V100
+rm -rf /Volumes/Dev/brazil-pkg-cache
+
+echo "Purging RAM";
+purge
+
+echo "Deleting Trash";
+rm -rf ~/.Trash
+
+
+echo "Cleaning Cache";
+brazil-package-cache clean;
+brazil-package-cache start;

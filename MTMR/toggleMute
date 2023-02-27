@@ -1,3 +1,5 @@
+#!/usr/bin/env osascript
+
 if input volume of (get volume settings) = 0 then
     set level to 90
     set label to {"title", "unmute"}
