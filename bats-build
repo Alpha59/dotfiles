@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+package=${PWD##*/};
+#bats cache --clear-cache
+brazil-build;
+bats transform -x DockerImage-1.0 -t $package-1.0 -p $package-1.0;

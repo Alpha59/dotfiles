@@ -1,0 +1,25 @@
+#!/bin/bash
+
+source ~/scripts/print-functions
+
+if [[ -n "$CDK_DEFAULT_ACCOUNT" && $CDK_DEFAULT_ACCOUNT =~ ^[0-9]*$ ]]; then
+    echo "This deployment will happen as a Personal Deployment to account: $CDK_DEFAULT_ACCOUNT"
+else
+    warn "This deployment will go to Beta/Prod accounts. This is most likely not the intended behavior;"
+    echo "Enter a Personal Account ID, or Press enter to continue";
+    read CDK_DEFAULT_ACCOUNT;
+    export CDK_DEFAULT_ACCOUNT=$CDK_DEFAULT_ACCOUNT;
+
+    if [[ -n "$CDK_DEFAULT_ACCOUNT" && $CDK_DEFAULT_ACCOUNT =~ ^[0-9]*$ ]]; then
+        export CDK_DEFAULT_ACCOUNT=$CDK_DEFAULT_ACCOUNT;
+        export AWS_PROFILE="personal";
+    else
+        export AWS_PROFILE="default";
+    fi
+fi
+
+STACK=$1;
+if [[ -n $STACK && $STACK == '.' ]]; then
+    STACK="${USER}-us-east-1-${PWD##*/}";
+    STACK="${STACK%%CDK}";
+fi

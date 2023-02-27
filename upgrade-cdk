@@ -1,0 +1,83 @@
+#!/bin/bash
+
+pass() {
+    green=`tput setaf 2`
+    reset=`tput sgr0`
+    echo "${green}${*}${reset}"
+}
+
+pass "Setting up git workspace $(brazil-version-set-list)";
+
+#git clean -dfx;
+#git checkout mainline;
+#git pull;
+#git add -A;
+#git stash;
+#git branch -D ailor/KRL-13079;
+#git checkout -b ailor/KRL-13079;
+
+#pass "Running A Complete Rebuild on new branch";
+#gk-fix-mv-conflicts && brazil ws merge clean;
+brazil ws sync --md;
+brazil ws merge;
+brazil-package-cache clean;
+brazil ws clean;
+brazil ws sync --md;
+#brazil-recursive-cmd --allPackages brazil-build && brazil-build clean && brazil-build;
+
+pass "Update package.json"
+
+rm package-lock.json;
+replace 'monocdk*' '"aws-cdk-lib": "^2.14.0",/\
+"constructs": "^10.0.79",';
+replace '.*cdk-bones.*' '';
+replace '.*\"@amzn\/brazil\":.*' '';
+replace '\"@amzn\/device-returns-constructs\":.*,' '"@amzn\/device-returns-constructs": "*",';
+replace '\"typescript": \"^4.2.4\":.*\(,?\)' '"typescript": "^4.2.4"\1';
+
+pass "Updating Config File";
+
+replace "DeviceReturnsConstructs.*;" "DeviceReturnsConstructs = 2.0;";
+replace "CDKBuild.*;" "CDKBuild = 4.x;";
+
+pass "Find and Replace in Files";
+
+replace "monocdk.core" "aws-cdk-lib";
+replace "monocdk" "aws-cdk-lib";
+
+pass "Updating Code config";
+
+../../env/NpmPrettyMuch-1.0/runtime/bin/npm-pretty-much-real install prettier eslint husky webpack --save-dev;
+../../env/NpmPrettyMuch-1.0/runtime/bin/npm-pretty-much-real update --save;
+eslint \"./{lib,test}/**/*.ts\" --fix;
+prettier --write lib/*;
+replace "Vpc" "IVpc"
+replace "Cluster" "ICluster"
+grep "vpc" lib/* -Ri;
+
+# Replace Stack with Construct
+replace '\(class.*extends\) Stack' '\1 Construct';
+# Change the Parent to Scope
+replace 'constructor(parent: App' 'constructor(scope: Stack';
+# Replace the import of App with an import of Stack
+replace '\(import.*{.*\)App\([^}]*}.*from\)' '\1 Stack\2';
+
+replace "import \(.*\)Construct,?\(.*\)" "import { Construct } from "constructs";\
+import \1\2";
+# Update Constructor
+replace 'super(parent,\([^,]*\),})' 'super(scope, \1);'
+# Remove Pipeline imports
+replace 'import.*@amzn/pipelines.*;' '';
+replace 'env:.*env.*$' '';
+
+git add -A;
+git commit -m "Upgrade to CDK 2.0";
+open https://build.amazon.com/
+read
+gk-fix-mv-conflicts && brazil ws merge clean;
+brazil ws sync --md;
+brazil ws merge;
+brazil-package-cache clean;
+brazil ws clean;
+brazil ws sync --md;
+brazil-recursive-cmd --allPackages brazil-build && brazil-build clean && brazil-build;

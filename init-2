@@ -1,0 +1,19 @@
+#!/usr/bin/env expect -f
+
+# InfoSec consultation: https://t.corp.amazon.com/P33840651
+# https://w.amazon.com/bin/view/ClientEng/Bravehearts/MacCheatCodes/
+# USAGE: $vpn-onetouch $YUBIKEY_OTP
+# "Automatic Selection (Route53)"
+
+# security add-generic-password -a $USER -s amzn_vpn -w <YOUR PASSWORD>
+
+set my_user "$env(USER)"
+set my_cloud amzn_mac
+set my_pwd [exec security find-generic-password -a $my_user -s $my_cloud -w]
+set timeout -1
+
+spawn kinit -f;
+expect -re "$my_user@ANT.AMAZON.COM's password:"
+send -- "$my_pwd\r"
+
+expect eof

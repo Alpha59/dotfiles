@@ -1,0 +1,44 @@
+#!/bin/bash
+
+source ~/.scripts/cdk-functions
+
+if [[ -n $STACK ]]; then
+    pass "Using $STACK";
+    DELETE_SKIPPED=$(aws cloudformation list-stack-resources --region $REGION --stack-name "$STACK" | jq '.StackResourceSummaries[] | select(.ResourceStatus | contains("DELETE_SKIPPED")) | "\(.ResourceType): \(.PhysicalResourceId)"');
+else
+    warn "Operating on all Stacks in CDK";
+    warn "This is may not the intended behavior;"
+    DELETE_SKIPPED=$(ls build/cdk.out/ | awk -F . -v STACK="$STACK" '/template.json/{print STACK}' | cut -f 1 -d '.' | xargs -n1 -I{} aws cloudformation list-stack-resources --stack-name {} | jq '.StackResourceSummaries[] | select(.ResourceStatus | contains("DELETE_SKIPPED")) | "\(.ResourceType): \(.PhysicalResourceId)"');
+fi
+
+echo "The following resources were not properly deleted, and need to be cleaned"
+echo "$DELETE_SKIPPED";
+
+if [[ -n $DELETE_SKIPPED ]]; then
+    echo "Would you like to continue (y/n)";
+    read CONTINUE_DELETE;
+    if [[ "$CONTINUE_DELETE" == 'Y' || "$CONTINUE_DELETE" == 'y' ]]; then
+        for run in {1..2}; do
+            pass "Emptying Bucket";
+            echo "$DELETE_SKIPPED" | cut -d'"' -f 2 | awk -F': ' -v STACK="$STACK" '/S3::Bucket/{print $2}' | xargs -n1 bash -c 'aws s3 rm s3://$0 --recursive';
+            pass "Deleting Resource";
+            TOKENS_RAW=$(echo "$DELETE_SKIPPED" | cut -d'"' -f 2 | awk -F': ' '{print $1,"\n",$2}' | xargs -n2 bash -c 'aws cloudcontrol delete-resource --type-name "$0" --identifier "$1"');
+            warn $TOKENS_RAW;
+            TOKENS=$(echo "$TOKENS_RAW" | jq -n '[inputs | .ProgressEvent.RequestToken]');
+            sleep 2;
+            pass "Showing Status";
+            warn $TOKENS;
+            status=$(echo "$TOKENS" | jq '.[]' | xargs -n1 aws cloudcontrol get-resource-request-status --request-token | jq -n '[inputs]')
+        done
+        echo "$status" | jq -n '[inputs]' | jq '.[].ProgressEvent | select(.OperationStatus | contains("SUCCESS") | not) | .' | jq -n '[inputs]' | jq '.[] | select(.ErrorCode | contains("NotFound") | not) | .'
+        if [[ -n $STACK ]]; then
+            aws cloudformation update-termination-protection  --region $REGION --no-enable-termination-protection --stack-name $STACK;
+            brazil-build cdk destroy $STACK;
+        else
+            ls build/cdk.out/ | awk -F . '/template.json/{print $STACK}' | xargs -n1 aws cloudformation update-termination-protection --no-enable-termination-protection --stack-name
+            brazil-build cdk destroy --all;
+        fi
+    fi
+else
+    echo "No Failures detected";
+fi

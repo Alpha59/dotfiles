@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+if [ "$#" -lt 1 ]; then
+  echo "";
+  echo "usage: $0 [-p] SprintID_new SprintID_old" >&2;
+  echo "";
+  echo "";
+  echo "OPTIONS:";
+  echo "        -p Will set planning to pre-planning mode" >&2;
+  echo "";
+  echo "";
+  echo "https://sim.amazon.com/sprints/current";
+  exit 1;
+fi
+pre=false;
+for var in "$@"
+do
+    if [[ "$var" == "-p" ]]; then
+        pre="true";
+        shift;
+    fi
+done
+echo $pre;
+
+/usr/bin/osascript -e "tell application \"/Applications/Google Chrome.app\"" -e "make new window" -e "activate" -e "end tell";
+fullscreen "/Applications/Google Chrome.app"
+
+if [[ "$pre" == "true" ]]; then
+    echo "Create next Sprint";
+    /usr/bin/open -a "/Applications/Google Chrome.app" "https://sim.amazon.com/sprints/create";
+fi
+
+if [[ "$pre" == "true" ]]; then
+    echo "Assign On-calls";
+    /usr/bin/open -a "/Applications/Google Chrome.app" "https://oncall.corp.amazon.com/#/view/kindle-rl-dev-primary/schedule";
+
+    #echo "Create On-Call Ticket 1";
+    #/usr/bin/open -a "/Applications/Google Chrome.app" "https://sim.amazon.com/issues/create?assignedFolder=642918a1-79eb-4712-89aa-678c53598927&title=On-Call%20Week%201&description=Placeholder%20for%20On-call%20Week%201&extensions=effort%5D%5BhighLevelEffortEstimated%5D%5Beffort%5D=4&extensions%5Beffort%5D%5BhighLevelEffortEstimated%5D%5Bunit%5D=Points&labels%5B0%5D%5Bid%5D=$1";
+
+    #echo "Create On-Call Ticket 2";
+    #/usr/bin/open -a "/Applications/Google Chrome.app" "https://sim.amazon.com/issues/create?assignedFolder=642918a1-79eb-4712-89aa-678c53598927&title=On-Call%20Week%202&description=Placeholder%20for%20On-call%20Week%202&extensions=effort%5D%5BhighLevelEffortEstimated%5D%5Beffort%5D=4&extensions%5Beffort%5D%5BhighLevelEffortEstimated%5D%5Bunit%5D=Points&labels%5B0%5D%5Bid%5D=$1";
+else
+    echo "Create Poker Room";
+    /usr/bin/open -a "/Applications/Google Chrome.app" "https://poker.corp.amazon.com/";
+    echo "Fill In Burned & Completed";
+    /usr/bin/open -a "/Applications/Google Chrome.app" "https://quip-amazon.com/WmKnAUqC7YIy#aYE9CALElbc";
+    echo "Collect Sprint Estimates";
+    /usr/bin/open -a "/Applications/Google Chrome.app" "https://quip-amazon.com/YrnIArBmZLtl/Sprint-Capacities#EaJ9CAFrwrq";
+fi
+
+echo 'Move stories over';
+/usr/bin/open -a "/Applications/Google Chrome.app" "https://sim.amazon.com/issues/search?q=status%3A(Open)+label%3A($2)+-label%3A($1)+-title%3A(on-call)&sort=lastUpdatedConversationDate+desc"
+
+echo 'Sprint Planning Screen';
+/usr/bin/open -a "/Applications/Google Chrome.app" "https://sim.amazon.com/issues/search?q=status%3A(Open)+isInSprint%3A(false)+containingFolder%3A(5e559510-e4fe-4061-a2ef-df67ceac7882)+label%3A(dd66c986-c1e0-4d18-acd6-21fa87053ead)+blocked%3A(False)+isInSprint%3A(False)&sort=extensions.backlog.rank+asc&selectedSprint=$1";
+
+sleep 10;
+/usr/bin/osascript -e "tell application \"/Applications/Google Chrome.app\" to set active tab index to 1";
