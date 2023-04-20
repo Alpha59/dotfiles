@@ -36,12 +36,12 @@ cat <<EOF
             The next command advances execution to the next line in the current stack frame.
 EOF
 
-debug_port=$(ps -fu ${USER} | grep dt_socket | grep -v docker | sed 's/.*address=localhost:\([0-9]*\).*/\1/' | sort -u | grep -v grep | head -n1);
+debug_port=$(ps -fu "${USER}" | grep dt_socket | grep -v docker | sed 's/.*address=localhost:\([0-9]*\).*/\1/' | sort -u | grep -v grep | head -n1);
 
 echo "Debug Port: $debug_port";
 
 if [[ -n $debug_port ]]; then
-    rlwrap -c -i -I jdb -attach $debug_port;
+    rlwrap -c -i -I jdb -attach "$debug_port";
 else
     rlwrap -c -i -I jdb -listen 9999;
 fi

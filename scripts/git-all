@@ -15,7 +15,9 @@ for git_dir in */.git; do \
     if [ -d $git_dir ]; then
         work_tree=`dirname $git_dir`
         echo "\x1B[1m\x1B[36m$work_tree\x1B[0m"
-        git --git-dir=$git_dir --work-tree=$work_tree "$@"
+        if [ "$#" -gt 0 ]; then
+            git --git-dir=$git_dir --work-tree=$work_tree "$@"
+        fi
         echo "\x1B[1m\x1B[36m-------------------------------------\x1B[0m"
     fi
 done
@@ -27,7 +29,9 @@ for src_dir in */src; do
         if [ -d $git_dir ]; then
             work_tree=`dirname $git_dir`;
             echo "\x1B[1m\x1B[36m$work_tree\x1B[0m [$(pwd)/$work_tree]";
-            git --git-dir=$git_dir --work-tree=$work_tree "$@";
+            if [ "$#" -gt 0 ]; then
+                git --git-dir=$git_dir --work-tree=$work_tree "$@";
+            fi
             echo "\x1B[1m\x1B[36m===================================================\x1B[0m";
         fi
     done

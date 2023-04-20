@@ -1,4 +1,5 @@
 syntax enable
+execute pathogen#infect()
 set wildmenu
 set showmatch
 set hlsearch
@@ -62,8 +63,6 @@ autocmd BufWrite * :call DeleteTrailingWS()
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css " syntax highlighting for vue
 ":call GDrivePython()
 
-let g:syntastic_shell = "/bin/bash"
-let g:syntastic_debug = 0
 set shell=/bin/bash
 
 " Return to last edit position when opening files (You want this!)
@@ -76,18 +75,32 @@ set suffixesadd+=.tsx
 set path=$PWD/**" Remember info about open buffers on close
 set viminfo^=%
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8'], 'java': 'checkstyle', 'typescript': ['eslint']}
+let g:syntastic_shell = "/bin/bash"
+let g:syntastic_debug = 0
+let g:syntastic_enable_sh_checker = 1
+
 let g:syntastic_enable_python_checker = 1
+let g:syntastic_sh_checkers = ['shellcheck']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_checker_args='--config=.flake8'
+
+let g:syntastic_enable_java_checkers = 1
 let g:syntastic_java_checkers = ['checkstyle']
 let g:syntastic_java_checkstyle_classpath="~/Downloads/checkstyle-8.18-all.jar"
 let g:syntastic_java_checkstyle_conf_file="checkstyle-config.xml"
+
 let g:syntastic_enable_html_checker = 0
 let g:syntastic_disabled_filetypes=['html']
 let g:syntastic_html_tidy_ignore_errors=["<i18n>", "is not recognized!"]
 let g:syntastic_html_tidy_quiet_messages = { "level" : "warnings" }
 let g:syntastic_enable_html_checker = 0
 let g:syntastic_enable_html_tidy_checker = 0
+
 let g:syntastic_typescript_checkers = ['eslint']
 let g:syntastic_typescript_eslint_exe = 'npm run lint --'
 let g:syntastic_enable_typescript_checker = 1
@@ -95,18 +108,15 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = 'npm run eslint --'
 " let g:syntastic_javascript_eslint_exec = 'eslint_d'
 let g:syntastic_enable_javascript_checker = 1
-let g:syntastic_mode_map = { 'mode': 'passive' }
+" let g:syntastic_mode_map = { 'mode': 'passive' }
 highlight SyntasticError guibg=#2f0000
 
-set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8'], 'java': 'checkstyle', 'typescript': ['eslint']}
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
+silent! nmap <F6> :SyntasticToggleMode<CR>
 
 let g:multi_cursor_select_all_word_key = '<C-m>'
 set laststatus=2
@@ -123,13 +133,19 @@ let g:lightline = {
       \ },
       \ }
 
+let g:completor_shell#shell_commands = {
+\   'swift': ["grep '^${token}' /foo/bar/dict/${filetype}.dict"],
+\ }
+
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+autocmd FileType * execute 'setlocal dictionary='.expand($HOME.'/.vim/dict/'.&filetype.'.dict')
 
+map <C-f> :!aspell -c %<CR>
 map <C-t> :NERDTreeToggle<CR>
 map <C-p> :TableModeToggle<CR>
 

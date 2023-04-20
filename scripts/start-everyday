@@ -1,0 +1,290 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC1091
+#
+# Copyright 2023 Jake Ailor
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#==============================================================================
+#title           :
+#description     :
+#author          : AILOR, JAKE
+#email           : jakeailor@gmail.com
+#date            :
+#version         : 1.0.0
+#notes           :
+#==============================================================================
+
+#set -e
+#set -o pipefail
+
+############################################################
+# CHECK INSTALLED PROGRAMS                                 #
+############################################################
+# TODO: List the required Programs as strings:
+# Get the print functions that we need
+if [[ -e $HOME/helpers/check-installs ]]; then
+    # shellcheck source=$HOME/helpers/check-installs
+    "$HOME/helpers/check-installs" gum; # list of required programs as strings
+fi
+############################################################
+# PRE-PROCESS ARGS                                         #
+############################################################
+# Pre-process the args to split them
+# from -xyz to -x -y -z
+# and --output=file.txt to --output file.txt
+# TODO: MAKES $STDIN available
+if [[ -e $HOME/helpers/pre-process ]]; then
+    # shellcheck source=$HOME/helpers/pre-process
+    source "$HOME/helpers/pre-process";
+fi
+
+if [[ $0 =~ "add-bash-header" ]]; then
+    PROGRAM_NAME="$(basename "$1")";
+else
+    PROGRAM_NAME="$(basename "$0")";
+fi
+############################################################
+# GET CONFIG FILE (yaml)                                         #
+############################################################
+# Pre-process the args to split them
+# from -xyz to -x -y -z
+# and --output=file.txt to --output file.txt
+if [[ -e $HOME/helpers/config ]]; then
+    # shellcheck source=$HOME/helpers/config
+    source "$HOME/helpers/config";
+fi
+############################################################
+# CREATES ALL OF THE PRINT FUNCTIONS                       #
+############################################################
+# Get the print functions that we need
+if [[ -e $HOME/helpers/print-functions ]]; then
+    # shellcheck source="$HOME/helpers/print-functions"
+    source "$HOME/helpers/print-functions";
+fi
+############################################################
+# Help SET VERSION AND USAGE Vars HERE                     #
+############################################################
+if [[ -f "$HOME/.cheat/$PROGRAM_NAME" ]]; then
+    EXAMPLES="$(cat "$HOME/.cheat/$PROGRAM_NAME")";
+else
+    EXAMPLES="";
+fi
+############################################################
+
+# TODO: Variables that need to be set should be added here:
+VERSION="1.0.0"
+USAGE="
+$PROGRAM_NAME is a program designed to help add defaults and functions to my bash scripts.
+If you are seeing this message, it means that the HELP has not been updated
+properly.
+
+usage: $PROGRAM_NAME [-v][-v][--help][--version]
+
+    OPTIONS:
+        no known options
+";
+
+POSITIONAL_NUMBER_MIN=0;
+if [[ -e $HOME/helpers/help ]]; then
+    source "$HOME/helpers/help";
+fi
+
+############################################################
+# Add interactive functionality (default)                  #
+############################################################
+DEFAULT="true";
+INTERACTIVE="false";
+if [[ -e $HOME/helpers/interactive ]]; then
+    # shellcheck source=$HOME/helpers/traps
+    source "$HOME/helpers/interactive";
+fi
+
+# interact accepts all gum options with the difference of "default" being the second option.
+#
+#usage: interact_prompt "Default" "Choose one of the following options:"
+#usage: tst=$(interact choose "Default" "Default" "Test" "Test1" "Test2");
+#pass "Test Result = $tst";
+
+############################################################
+# Catch interuptions and request abortion                  #
+############################################################
+if [[ -e $HOME/helpers/traps ]]; then
+    # shellcheck source=$HOME/helpers/traps
+    source "$HOME/helpers/traps";
+fi
+# Uncomment to force a double Ctrl-C on exit
+#trap on_interrupt INT
+# Uncoment to foce Ctrl-C to continue
+trap : INT
+# Uncomment to force root
+#assert_root
+# TODO: CLIPBOARD_OUTPUT should be set when appropraite
+############################################################
+# Process the input options. Add options as needed.        #
+############################################################
+# Get the options
+
+POSITIONAL_ARGS=()
+
+# TODO: Variables that need to be set are here:
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --arg-test)
+        ARG_TEST="$2"
+        shift # past argument
+        shift # past value
+        ;;
+     \?) # Invaid option
+        error "Error: Invalid option"
+        Help;
+        exit 1;
+        ;;
+    -*)
+        error "Unknown option $1"
+        exit 1
+        ;;
+    *)
+        POSITIONAL_ARGS+=("$1") # save positional arg
+        shift # past argument
+        ;;
+  esac
+done
+
+set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
+
+if [ $# -lt $POSITIONAL_NUMBER_MIN ]; then
+    error "Please specify $POSITIONAL_NUMBER_MIN positional argument ($# were specified)";
+    exit 1;
+fi
+if [[ -n "$ARG_TEST" ]]; then
+    echo "ARGUMENT TEST: $ARG_TEST";
+    echo "DEFAULT: $DEFAULT";
+    echo "INTERACTIVE: $INTERACTIVE";
+    echo "VERSION: $VERSION";
+    echo "USAGE: $USAGE";
+    echo "EXAMPLES: $EXAMPLES";
+fi
+############################################################
+############################################################
+# Main program                                             #
+############################################################
+
+
+cd "$HOME" || return;
+/usr/bin/open /Applications/Slate.app/;
+/usr/bin/open /Applications/Amphetamine.app/;
+/usr/bin/open /Applications/Blurred.app/;
+#/usr/bin/open /Applications/Docker.app/;
+/usr/bin/open /Applications/Alfred\ 5.app/;
+/usr/bin/open /Applications/Warp.app/;
+
+# Check for Local updates
+clear;
+
+clockin="$(moro report | grep "Clock in" | awk '{print $5}')";
+if [[ -n "$clockin" ]]; then
+    moro hi "$clockin";
+else
+    moro hi;
+fi
+echo "Checking for software updates:";
+brew update;
+brew info;
+mprocs "bastet" "brew upgrade" "echo $(security find-generic-password -a "$USER" -s amzn_mac -w) | fucking softwareupdate --force --verbose --agree-to-license -R -i -a --stdinpass"
+#brew upgrade;
+#softwareupdate -i -r;
+sleep 2;
+activate-tab "minImpact";
+sl -a;
+review-tabs -1;
+
+toilet --filter border --filter crop --metal -t " Good Morning, Jake ";
+# Display System information
+archey;
+echo "Connected to Wifi: $(wifi-name)";
+
+pmset -g stats;
+pmset -g therm;
+pmset -g sched;
+pmset -g adapter;
+battery-status;
+echo "";
+cowsay -f "$(cowsay -l | shuf -n1 | head -n1 | cut -d " " -f1)" "Hello Jake,$(fortune)";
+BluetoothConnector 2> >(awk '/[0-9]+-.*/{printf ""$0" ---- ",system("timeout 2s BluetoothConnector --status "$1)}';)
+sleep 2;
+echo "";
+echo "Completed looking up BluetoothConnectors";
+
+# Local Weather
+readesc INPUT "Hit enter/esc to continue to view Weather Reports";
+clear;
+
+echo "Testing Internet Speed:"
+timeout 10s fast --upload;
+curl wttr.in/philadelphia?uF;
+curl wttr.in/moon?F;
+
+if [ "$(date +%u)" -eq 5 ]; then
+    warn "Sending Standup Message from Kyle";
+    slack-standup "Happy FriYAY - McKylej@";
+fi
+
+readesc INPUT "Hit enter/esc to view today's calendar";
+ncal -3;
+icalBuddy eventsToday;
+
+# World News
+readesc INPUT "Hit enter/esc to continue to the stocks and news";
+ticker;
+clear;
+toilet --filter border -t --metal "$(date)";
+echo "aka: $(ddate)";
+echo "What happened yesterday?";
+curl us.getnews.tech/n=5;
+readesc INPUT "Hit enter/esc to continue to the newsroom";
+command newsroom -o ~/.newsroom.opml "$(grep -o "title=\"[^\"]*" ~/.newsroom.opml | cut -c 8- | shuf -n1)" 15;
+
+clear;
+# Work from Yesterday
+echo "Display information on modified git Repos and Tasks:"
+cig;
+git standup -m 5 -s -d 2 -F;
+moro report;
+activate-tab "Board";
+if [ "$(date +%u)" -eq 1 ]; then #
+    task end:-3d completed
+else
+    task end:-1d completed
+fi
+
+echo "-------------------------------------------------------------------------------------------";
+echo "What do you need to do today?";
+task calendar;
+task list;
+
+# Burn down and Work Tasks
+readesc INPUT "Hit enter/esc to continue to burndown";
+task burndown;
+echo "Hit enter to continue to todays tasks";
+readesc INPUT "Remember to add any upcoming tasks. Check messages and email first.";
+vit;
+review-tabs;
+gtop;
+genact --exit-after-modules 3;
+echo ":q will quite youtube";
+if [ "$(date +%u)" -eq 1 ]; then #
+    youtube-viewer "(ColbertLateShow|LateNightSeth|TheDailyShow) -interview" --autoplay --min-seconds=60 --skip-watched --within=5d --get-captions --auto-captions -rp --best;
+else #
+    youtube-viewer "(ColbertLateShow|LateNightSeth|TheDailyShow) -interview" --autoplay --min-seconds=60 --skip-watched --within=1d --get-captions --auto-captions -rp --best;
+fi #

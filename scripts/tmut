@@ -1,3 +1,0 @@
-tmux kill-session -t $1;
-tmux new-session -d -s $1 "teamocil $1";
-tmux a -t $1;

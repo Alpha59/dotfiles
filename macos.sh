@@ -1,12 +1,5 @@
-# Sets reasonable macOS defaults.
-#
-# Or, in other words, set shit how I like in macOS.
-#
-# The original idea (and a couple settings) were grabbed from:
-#   https://github.com/mathiasbynens/dotfiles/blob/master/.macos
-
 # Close any open System Preferences panes, to prevent them from overriding
-# settings we’re about to change
+# # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
 
 # Ask for the administrator password upfront
@@ -143,7 +136,7 @@ defaults write com.apple.screencapture location -string "${HOME}/Desktop/Screens
 defaults write com.apple.screencapture type -string "png"
 
 # Finder: show hidden files by default
-#defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool true
 
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true

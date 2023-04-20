@@ -9,6 +9,7 @@
 !.gitignore
 !.vimrc
 !.bash_profile
+!.bash_functions
 !.gitignore_global
 !.gitconfig
 !.hyper.js
@@ -43,10 +44,6 @@ secrets
 !.aws-sam/
 !.aws-sam/*
 !.vim/*
-!.vim/*/
-!.vim/*/*
-!.vim/*/*/
-!.vim/*/*/*
 !.cheat/
 !.cheat/*
 /.blackbox/pubring.gpg~

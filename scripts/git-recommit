@@ -1,4 +1,0 @@
-git branch -u origin/mainline;
-git add -A;
-git commit --amend --no-edit;
-gtm commit -yes;

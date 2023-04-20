@@ -1,1 +1,0 @@
-lsof -i :22 | tail -n3 | awk '{print $2}' | xargs kill
