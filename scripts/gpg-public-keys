@@ -1,1 +1,0 @@
-gpg --armor --export $(gpg --list-secret-keys --keyid-format LONG | awk '/sec/{print $2}' | awk '{print $2}' FS='/' | xargs)

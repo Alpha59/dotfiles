@@ -18,6 +18,7 @@ alias browser 'Google Chrome'
 alias mail 'Microsoft Outlook'
 alias pm 'Ora'
 alias chat 'Slack' #Amazon Chime
+alias chime 'Amazon Chime'
 alias music 'Spotify'
 alias pm 'Ora'
 alias term 'Hyper'
@@ -45,9 +46,6 @@ alias lefttop    move screenOriginX/2;screenOriginY screenSizeX/2;screenSizeY/2
 alias rightbottom move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2    screenSizeX/2;screenSizeY/2
 alias righttop    move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY/2
 
-layout dashboard ${chat}:MAIN_FIRST                ${righttop}
-layout dashboard ${mail}:MAIN_FIRST              ${left}
-
 layout communicate ${chat}:MAIN_FIRST             ${left}
 layout communicate ${mail}:MAIN_FIRST           ${right}
 
@@ -72,13 +70,41 @@ alias hyper shift,cmd
 
 bind .:${hyper} ${showHintsLeftHand}
 
+layout dashboard3 ${term} ${righthalf} 0
+layout dashboard3 'MySQLWorkbench' ${lefthalf} 0
+layout dashboard3 'Warp' ${lefthalf} 0
+layout dashboard3 ${chat} ${full} 1
+layout dashboard3 'Messages' ${lefthalf} 1
+layout dashboard3 ${browser}:MAIN_FIRST ${righthalf} 2
+layout dashboard3 ${browser}:MAIN_FIRST ${lefthalf} 0
+layout dashboard3 ${browser}:MAIN_FIRST ${full} 2
+layout dashboard3 ${mail}:SORT_TITLE ${centerthird} 2
+layout dashboard3 ${mail}:SORT_TITLE ${leftthird} 2
+layout dashboard3 ${chime}:MAIN_LAST ${full} 1
+layout dashboard3 ${chime}:MAIN_LAST ${full} 1
+layout dashboard3 ${chime}:MAIN_LAST ${rightthird} 2
+
+default dashboard3 count:3
+
+layout dashboard2 ${term} ${full} 0
+layout dashboard2 ${chat} ${full} 0
+layout dashboard2 ${browser}:MAIN_FIRST ${full} 1
+layout dashboard2 ${mail}:SORT_TITLE ${centerthird} 1
+layout dashboard2 ${mail}:SORT_TITLE ${leftthird} 1
+layout dashboard2 ${chime}:MAIN_LAST ${full} 1
+layout dashboard2 ${chime}:MAIN_LAST ${full} 1
+layout dashboard2 ${chime}:MAIN_LAST ${rightthird} 1
+
+default dashboard2 count:2
+
 # Layout bindings
-#bind 0:${hyper} sequence layout dashboard | hide all
+bind 1:${hyper} sequence layout dashboard3 | show all | show ${browser},${term},${mail},${chime},${chat}
+bind 1:${hyper} sequence layout dashboard2 | show all | show ${browser},${term},${mail},${chime},${chat}
 #bind 1:${hyper} sequence layout communicate | hide all | show ${chat},${mail}
 #bind 2:${hyper} sequence layout code | hide all | show ${term}
 #bind 3:${hyper} sequence layout codeAndBrowse | hide all | show ${browser},${term}
 #bind 4:${hyper} sequence layout browse | hide all | show ${browser}
-#bind 5:${hyper} sequence layout dashboard | show all
+#bind 5:${hyper} sequence layout dashboard3 | show all
 
 # Location bindings
 bind a:${hyper} ${lefthalf}

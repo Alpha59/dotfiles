@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "$(notes ls | grep -i "$3" | head -n1)";

@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-ccat "$(which $1)";

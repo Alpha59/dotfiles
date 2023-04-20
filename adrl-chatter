@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-curl -X POST "https://hooks.slack.com/workflows/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" -H "Content-Type:application/json" --data "{\"message\": \"$1\"}"

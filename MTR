@@ -1,0 +1,21 @@
+In March or 2023 the team saw an increase in the total number of opened tickets. There were 7 high severity tickets opened, all of which were addressed within SLA. For low severity tickets, 171 tickets were opened, and 167 were resolved. The team is taking a proactive stance in reducing the number of "noisy" alarms, and resolving 8 outstanding workflow items that have caused a sever ticket backup. This will reduce the number of out of SLA tickets, currently 40 of which exist. The Team plans to complete this work in April.
+
+
+
+BTS2 PEDIGREE is down [V860379957, D75752339]: Both of these high severity tickets were caused during the BTS2 launch of Offline. BTS2 processing was limited during this time due to a UI bug which prevent page navigation. The team was able rollback and resolve these changes within an hour. Deployments were rolled back within 10 minutes. Deployments took about 50 minutes to complete.
+
+LEX1 Pedigree Error - Pedigree not allowing us to receive Kaine TV's [V866383924]: This error was caused by an ASIN configuration error. The team was able to utilize an existing known resolution to resolve this issue within 90 minutes.
+
+[Certificate Expiration Risk] Immediate Action Required [V859785805,V850097143,V854262156]: This ticket is from a Redfort certificate expiration. Redfort certificates are intended to auto-rotate when nearing expiration. It is unknown why this certificate did not auto-rotate. The team will take no immediate action to mitigate this risk in the future, the Redfort certificates will be replaced by AWS Certificate Manager Signed Certificates after the N-AWS migration. This issue is expected to become more prevalent while resources are moved away from MAWS teams and MAWS services.
+
+
+
+Low:
+
+Device has no order number [V869432330,V853951551,V863721947,V855861112]: This is caused by a conflicting return event which was created against a different RMA. This issue is presently created by the use of multiple scans at inbound, which prevents the automatic resolution of RMA to Order Number. The team must manually close the old return in order to continue processing against the new RMA. The team is researching why there is a surge in these tickets at this time.
+
+Cannot AddIN device on pedigree [V847322416,V851167253,V847322416,V852524648]: This issue is caused when a device or return has not closed in the previous return center. This issue is being addressed by a new change, but will continue to surface until the team pushes a change to handle graceful failures.
+
+In March 2023, the team saw a stagnation in the number of SAS risks addressed. This stagnation was primarily caused by the high number of production launches, and limited focus on OE work. The team's plan to resolve remaining SAS risks has not changed. Operations to remove the highest-risk dependencies from the VersionSets will continue in April. The team previously set an SAS goal of resolving all recommendations by the end of 2022. The team is working to determine a similar goal for 2023.
+
+The team has had a COE Requested by BI team to address missing data in Pedigree tables in March. A second COE has been requested to address GTM support not complete prior to Kayla Street date. Both COEs are currently in their initial.

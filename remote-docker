@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-package=${PWD##*/};
-tmux kill-session -t ninja;
-tmux new-session -d -s "ninja ninja-dev-sync";
-ssh $DESK -t "zsh -c  "cd $(PWD | awk '{print "~/"$5"/"$6"/"$7}' FS='/'); brazil-build && bats transform -x DockerImage-1.0 -t $package-1.0 -p $package-1.0; docker-compose up --build"";

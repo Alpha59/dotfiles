@@ -4,7 +4,13 @@ weasels="many|various|very|fairly|several|extremely\
 |exceedingly|quite|remarkably|few|surprisingly\
 |mostly|largely|huge|tiny|((are|is) a number)\
 |excellent|interestingly|significantly\
-|substantially|clearly|vast|relatively|completely"
+|substantially|clearly|vast|relatively|completely\
+|really|very|that|just|then|totally|absolutely|litterally\
+|definitely|certainly|probably|actually|basically|virtually\
+|start|begin|began|begun|rather|quite|somewhat|somehow|said\
+|replied|asked|wonder|ponder|think|thought|feel|felt|understand\
+|realize|breath|breathe|inhale|exhale|shrug|nod|reach|thing|as|armed\
+|brief|then|next|sometimes|something|someone|somewhere|somewhat|somebody"
 
 wordfile=""
 
@@ -30,10 +36,10 @@ fi
 
 
 if [ "$1" = "" ]; then
- echo "usage: `basename $0`  ..."
+ echo "usage: `basename $0` ..."
  exit
 fi
 
-egrep -i -n --color "\\b($weasels)\\b" $*
+egrep -i -n --color "\\b($weasels)\\b" $*;
 
 exit $?

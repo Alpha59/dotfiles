@@ -1,0 +1,70 @@
+DOT Language
+Abstract grammar for defining Graphviz nodes, edges, graphs, subgraphs, and clusters.
+Terminals are shown in bold font and nonterminals in italics. Literal characters are given in single quotes. Parentheses ( and ) indicate grouping when needed. Square brackets [ and ] enclose optional items. Vertical bars | separate alternatives.
+
+graph	:	[ strict ] (graph | digraph) [ ID ] '{' stmt_list '}'
+stmt_list	:	[ stmt [ ';' ] stmt_list ]
+stmt	:	node_stmt
+|	edge_stmt
+|	attr_stmt
+|	ID '=' ID
+|	subgraph
+attr_stmt	:	(graph | node | edge) attr_list
+attr_list	:	'[' [ a_list ] ']' [ attr_list ]
+a_list	:	ID '=' ID [ (';' | ',') ] [ a_list ]
+edge_stmt	:	(node_id | subgraph) edgeRHS [ attr_list ]
+edgeRHS	:	edgeop (node_id | subgraph) [ edgeRHS ]
+node_stmt	:	node_id [ attr_list ]
+node_id	:	ID [ port ]
+port	:	':' ID [ ':' compass_pt ]
+|	':' compass_pt
+subgraph	:	[ subgraph [ ID ] ] '{' stmt_list '}'
+compass_pt	:	(n | ne | e | se | s | sw | w | nw | c | _)
+The keywords node, edge, graph, digraph, subgraph, and strict are case-independent. Note also that the allowed compass point values are not keywords, so these strings can be used elsewhere as ordinary identifiers and, conversely, the parser will actually accept any identifier.
+
+An ID is one of the following:
+
+Any string of alphabetic ([a-zA-Z\200-\377]) characters, underscores ('_') or digits([0-9]), not beginning with a digit;
+a numeral [-]?(.[0-9]⁺ | [0-9]⁺(.[0-9]*)? );
+any double-quoted string ("...") possibly containing escaped quotes (\")¹;
+an HTML string (<...>).
+An ID is just a string; the lack of quote characters in the first two forms is just for simplicity. There is no semantic difference between abc_2 and "abc_2", or between 2.34 and "2.34". Obviously, to use a keyword as an ID, it must be quoted. Note that, in HTML strings, angle brackets must occur in matched pairs, and newlines and other formatting whitespace characters are allowed. In addition, the content must be legal XML, so that the special XML escape sequences for ", &, <, and > may be necessary in order to embed these characters in attribute values or raw text. As an ID, an HTML string can be any legal XML string. However, if used as a label attribute, it is interpreted specially and must follow the syntax for HTML-like labels.
+
+Both quoted strings and HTML strings are scanned as a unit, so any embedded comments will be treated as part of the strings.
+
+An edgeop is -> in directed graphs and -- in undirected graphs.
+
+The language supports C++-style comments: /* */ and //. In addition, a line beginning with a '#' character is considered a line output from a C preprocessor (e.g., # 34 to indicate line 34 ) and discarded.
+
+Semicolons and commas aid readability but are not required. Also, any amount of whitespace may be inserted between terminals.
+
+As another aid for readability, dot allows double-quoted strings to span multiple physical lines using the standard C convention of a backslash immediately preceding a newline character². In addition, double-quoted strings can be concatenated using a '+' operator. As HTML strings can contain newline characters, which are used solely for formatting, the language does not allow escaped newlines or concatenation operators to be used within them.
+
+Subgraphs and Clusters
+Subgraphs play three roles in Graphviz. First, a subgraph can be used to represent graph structure, indicating that certain nodes and edges should be grouped together. This is the usual role for subgraphs and typically specifies semantic information about the graph components. It can also provide a convenient shorthand for edges. An edge statement allows a subgraph on both the left and right sides of the edge operator. When this occurs, an edge is created from every node on the left to every node on the right. For example, the specification
+
+  A -> {B C}
+is equivalent to
+
+  A -> B
+  A -> C
+In the second role, a subgraph can provide a context for setting attributes. For example, a subgraph could specify that blue is the default color for all nodes defined in it. In the context of graph drawing, a more interesting example is:
+
+subgraph {
+  rank = same; A; B; C;
+}
+This (anonymous) subgraph specifies that the nodes A, B and C should all be placed on the same rank if drawn using dot.
+
+The third role for subgraphs directly involves how the graph will be laid out by certain layout engines. If the name of the subgraph begins with cluster, Graphviz notes the subgraph as a special cluster subgraph. If supported, the layout engine will do the layout so that the nodes belonging to the cluster are drawn together, with the entire drawing of the cluster contained within a bounding rectangle. Note that, for good and bad, cluster subgraphs are not part of the DOT language, but solely a syntactic convention adhered to by certain of the layout engines.
+
+Lexical and Semantic Notes
+A graph must be specified as either a digraph or a graph. Semantically, this indicates whether or not there is a natural direction from one of the edge's nodes to the other. Lexically, a digraph must specify an edge using the edge operator -> while a undirected graph must use --. Operationally, the distinction is used to define different default rendering attributes. For example, edges in a digraph will be drawn, by default, with an arrowhead pointing to the head node. For ordinary graphs, edges are drawn without any arrowheads by default.
+
+A graph may also be described as strict. This forbids the creation of multi-edges, i.e., there can be at most one edge with a given tail node and head node in the directed case. For undirected graphs, there can be at most one edge connected to the same two nodes. Subsequent edge statements using the same two nodes will identify the edge with the previously defined one and apply any attributes given in the edge statement. For example, the graph
+
+strict graph {
+  a -- b
+  a -- b
+  b -- a [color=blue]
+}
+will have a single edge connecting nodes a and b, whose color is blue.

@@ -1,0 +1,18 @@
+---
+syntax: bash
+tags: [bash, personal]
+version: 1.0.0
+default: true
+---
+
+        
+    EXAMPLES:
+# Prints version information
+start-everday --version;
+# Runs script in verbose mode
+start-everday -v;
+# Runs script in quiet mode
+start-everday -q;
+# pipes output into a file
+start-everday -o file.txt;
+

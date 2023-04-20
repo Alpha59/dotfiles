@@ -1,2 +1,0 @@
-wget https://weechat.org/files/scripts/$1;
-mv $1 ~/.weechat/python/autoload/

@@ -1,0 +1,115 @@
+#!/bin/bash
+
+IN="$(mktemp)" || { echo "Failed to create temp file"; exit 1; }
+OUT1="$(mktemp)" || { echo "Failed to create temp file"; exit 1; }
+OUT2="$(mktemp)" || { echo "Failed to create temp file"; exit 1; }
+
+# trap ctrl-c and call ctrl_c()
+trap ctrl_c INT
+quit=false;
+function ctrl_c() {
+    quit=true;
+    exit 0;
+}
+if [[ -f "$1" ]]; then
+    cat "$1" > "$OUT1";
+    cat "$1" > "$IN";
+else
+    echo "$@" > "$OUT1";
+    echo "$@" > "$IN";
+fi
+cat "$OUT1";
+gum confirm "Is this the expected text?" --default=true --affirmative "Continue" --negative "Quit" && quit=false || quit=true;
+if [[ "$quit" == "true" ]]; then
+    exit 1;
+fi
+height=$(wc -c "$OUT1" | grep -o '\d*' | xargs -I{} bc -e '{}/90' | head -n1);
+if [[ "$height" -le 1 ]]; then
+    height=2;
+fi
+
+function allow_changes(){
+    echo "";
+    echo "Edit the text below, Hit CTRL-D to submit changes";
+    :> "$OUT2";
+    while [[ ! (-s "$OUT2") ]]; do
+        gum write --width=120 --height="$height" --char-limit 0 --value "$(cat "$OUT1")" > "$OUT2";
+    done
+    echo "";
+}
+
+allow_changes;
+
+function fix(){
+    local repeat=true;
+    echo "$1";
+    while [ "$repeat" = "true" ]; do
+        if [[ "$quit" == "false" ]]; then
+            #clear;
+            echo "";
+            #output="";
+            if [[ "$1" == "languagetool" ]]; then
+                $@ | jq '.matches[] | .sentence,.message,.replacements[:3]';
+            else
+                # This obscures the text coloring for weasel.
+                #output="$($@)";
+                $@;
+            fi
+
+            # It would be nice if we could consistently skip editing values with poor output
+            #if [[ -z "$output" || "$output" =~ ".*no issues found.*" || "$output" =~ ".*No Violations Found.*" ]]; then
+            #    repeat=false;
+            #    continue;
+            #else
+                #echo "$output";
+                allow_changes;
+                repeat=false;
+                #gum confirm "Continue?" --default=false --affirmative "Next" --negative "Repeat" && repeat=false || repeat=true;
+                echo "Proceed? <entr> to continue, r to repeat;";
+                read -r INPUT;
+                if [[ "$INPUT" == "r" ]]; then
+                    repeat=true;
+                fi
+                cat "$OUT2" > "$OUT1";
+            #fi
+        else
+            repeat=false;
+        fi
+    done;
+}
+
+repeat=true;
+while [ "$repeat" = "true" ]; do
+    aspell -c "$OUT1";
+    fix weasel "$OUT1";
+    fix passive "$OUT1";
+
+    # This is causing issues here because it's
+    # resubmitting the same string twice:
+    fix doc-bar-raise.js "$(cat "$OUT1")";
+    fix proselint "$OUT1";
+    fix alex "$OUT1";
+    disable='WHITESPACE_RULE,DB_43438';
+    fix languagetool --language en-US --disable "$disable" --json "$OUT1";
+
+    # Do this outside any loops
+    echo "curl LanguageTool"
+    text=$(cat "$OUT1");
+    curl -X POST --header 'Content-Type: application/x-www-form-urlencoded' --silent --header 'Accept: application/json' -d "language=en-US&username=jakeailor%40gmail.com&apiKey=pit-4EjnDzDjVQAk&enabledOnly=false&level=picky&disabledRules=$disable&text=$text" 'https://api.languagetoolplus.com/v2/check' | jq '.matches[] | .sentence,.message,.replacements[:3]';
+    allow_changes;
+
+    gum confirm "Continue to fully re-process?" --default=false --affirmative "Nope." --negative "Repeat" && repeat=false || repeat=true;
+    cat "$OUT2" > "$OUT1";
+done;
+
+git diff --color-words "$IN" "$OUT2";
+gum confirm "Accept All changes??" --default=true --affirmative "Yes" --negative "No" && accept=true || accept=false;
+
+if [ "$accept" = "true" ]; then
+    cat "$OUT2";
+    if [[ -f "$1" ]]; then
+        cat "$OUT2" > "$1";
+    fi
+else
+    cat "$OUT2";
+fi
