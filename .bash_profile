@@ -54,7 +54,20 @@ source gtm-plugin.sh;
 
 eval "$(/opt/homebrew/bin/brew shellenv)";
 source ~/.bash_functions;
-source ~/.bash_functions_strings;
 source ~/.bash_profile_work;
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 # eval "$(starship init bash)";
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"

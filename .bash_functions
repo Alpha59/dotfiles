@@ -1,7 +1,8 @@
 #!/bin/bash
-activate-tab{
+activate-tab (){
     find-tab "$@" | xargs -n1 chrome-cli activate -t
 }
+
 declare -fx activate-tab
 announce ()
 {

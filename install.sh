@@ -1,6 +1,6 @@
 #!/bin/bash;
 
-shellcheck -x;
+#shellcheck -x;
 
 # Broken or Removed
     #brew install ninja-dev-sync;
@@ -34,6 +34,8 @@ shellcheck -x;
 # # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
 
+toolbox;
+
 # Ask for the administrator password upfront
 sudo -v
 
@@ -45,16 +47,29 @@ echo "ENTER COMPUTER PASSWORD";
 read -r PASSWORD;
 security add-generic-password -a "$USER" -s amzn_mac -w "$PASSWORD" -U
 echo "ENTER TOKEN KEY";
+
 read -r PASSWORD;
 security add-generic-password -a "$USER" -s amzn_vpn -w "$PASSWORD" -U;
+sudo chown -R $USER ~/.ssh;
+chmod 700 ~/.ssh;
+brew install --cask macvim;
+brew install python;
+git config --global user.email "$USER@amazon.com";
 
+ssh-keygen -t ecdsa -C "$USER@amazon.com";
+kinit && mwinit -k ~/.ssh/id_ecdsa.pub;
+kinit -f && mwinit -s -o --aea;
 # Install Homebrew if it isn't working
-curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh;
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)";
 (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> "$HOME/.bash_profile";
 eval "$(/opt/homebrew/bin/brew shellenv)";
 echo "wait until homebrew install complete";
 read -r;
 rm "$HOME/Remote";
+
+brew tap amazon/homebrew-amazon ssh://git.amazon.com/pkg/HomebrewAmazon;
+brew analytics off;
+brew install ruby;
 
 # Make my scripts executable
 chmod +x "$HOME"/scripts/*;
@@ -491,7 +506,9 @@ brew update;
 
 # Infect VIM
     # Install Pathogen
-    curl -LSso ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim;
+    mkdir -p ~/.vim/autoload ~/.vim/bundle &&;
+    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+    #curl -LSso ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim;
     # Infects vim with pathogen
     infect-vim tpope vim-pathogen;
     # Creates tables as you type <C-p>
@@ -528,6 +545,12 @@ brew update;
 ln -s "${PWD##*/}/.bash_profile" "$HOME/.bash_profile";
 ln -s "${PWD##*/}/.vimrc" "$HOME/.vimrc";
 ln -sh "$HOME/Library/CloudStorage/WorkDocsDrive-Documents/" "$HOME/Remote";
+ln -sh "$HOME/Library/CloudStorage/WorkDocsDrive-Documents/Hidden/.scripts" "$HOME/.scripts";
+ln -sh "$HOME/Library/CloudStorage/WorkDocsDrive-Documents/Hidden/.bash_profile_work" "$HOME/.bash_profile_work";
+ln -sh "$HOME/Library/CloudStorage/WorkDocsDrive-Documents/Hidden/.gitmessage" "$HOME/.gitmessage";
+rm -rf "$HOME/Downloads";
+ln -sh "$HOME/Library/CloudStorage/WorkDocsDrive-Documents/Downloads" "$HOME/Downloads";
+
 
 # command line postman!
 npm install -g newman;
@@ -772,7 +795,7 @@ sudo softwareupdate -i -a;
 # csrutil disable
 # Run tccutil commands
 # then turn off recovery mode.
-sudo pmset repeat wake MTWRF 09:00:00;
+fucking pmset repeat wake MTWRF 09:00:00;
 
 source "$HOME/.bash_profile";
 exec -l "$SHELL";
@@ -892,3 +915,18 @@ brew install rename;
 
 brew install bastet;
 
+# Install amazon specific dependencies
+brew install clang-format;
+brew install aspell;
+brew install flake8;
+brew install black;
+brew install pre-commit;
+brew install pmd;
+VERSION="0.0.6"
+wget https://github.com/inclusivelint/inclusivelint/releases/download/${VERSION}/inclusivelint -O- | tr -d '\r' >inclusivelint
+wget https://github.com/inclusivelint/inclusivelint/releases/download/${VERSION}/outputRelation.txt -O- | tr -d '\r' >outputRelation.txt
+mv outputRelation.txt ~/.inclusivelint
+git config --global core.pager less -FMRiX;
+git config --global color.ui auto;
+git config --global alias.dag log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)%an <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order;
+toolbox list | awk '{print $1}' | grep -v -e Run -e === -e --- -e Tool -e ^$ | xargs -n1 toolbox install
