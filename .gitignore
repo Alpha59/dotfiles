@@ -20,6 +20,7 @@
 !.vuerc
 !.tmux.config
 !.toodles.yaml
+!.icalBuddyConfig.plist
 !macos.sh
 !journal.txt
 !install.sh

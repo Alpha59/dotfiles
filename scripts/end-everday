@@ -229,8 +229,9 @@ if [[ "$CONFIRM" != "n" ]]; then
 else
     warn "Slack message not sent";
 fi
-moro bye;
-moro report --all;
+timew stop;
+timew day;
+timew week;
 readesc INPUT "Hit enter/esc to continue to Youtube. :q will quit youtube";
 if [ "$(date +%u)" -eq 1 ]; then #
     youtube-viewer "(ColbertLateShow|LateNightSeth|TheDailyShow) -interview" --autoplay --min-seconds=60 --skip-watched --within=5d --get-captions --auto-captions -rp --best;

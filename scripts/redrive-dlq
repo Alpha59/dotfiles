@@ -25,8 +25,8 @@
 #notes           :
 #==============================================================================
 
-#set -e
-#set -o pipefail
+set -e
+set -o pipefail
 
 ############################################################
 # CHECK INSTALLED PROGRAMS                                 #
@@ -85,17 +85,16 @@ fi
 # TODO: Variables that need to be set should be added here:
 VERSION="1.0.0"
 USAGE="
-$PROGRAM_NAME is a program designed to help add defaults and functions to my bash scripts.
-If you are seeing this message, it means that the HELP has not been updated
-properly.
+$PROGRAM_NAME re-runs the DLQ messages into the main queue. The DLQ and Queue names are required.
 
-usage: $PROGRAM_NAME [-v][-v][--help][--version]
+usage: $PROGRAM_NAME [-v][-v][--help][--version] <account> <DLQ> <queue> [-r][-p]
 
     OPTIONS:
-        no known options
+        -p,--purge force purge of the DLQ
+        -r,--region defaults to us-east-1
 ";
 
-POSITIONAL_NUMBER_MIN=0;
+POSITIONAL_NUMBER_MIN=3;
 if [[ -e $HOME/helpers/help ]]; then
     source "$HOME/helpers/help";
 fi
@@ -134,13 +133,18 @@ fi
 # Get the options
 
 POSITIONAL_ARGS=()
-FACILITATOR=false;
+region="us-east-1";
 # TODO: Variables that need to be set are here:
 while [[ $# -gt 0 ]]; do
   case $1 in
-    -r|--running)
-        FACILITATOR=true;
+    -p|--purge)
+        PURGE="y"
         shift
+        ;;
+    -r|--region)
+        region="$2"
+        shift # past argument
+        shift # past value
         ;;
     --arg-test)
         ARG_TEST="$2"
@@ -184,100 +188,41 @@ fi
 # Main program                                             #
 ############################################################
 
-clear;
-cd ~ || exit;
-debug "$(pwd)";
-toilet --filter border -t "$(date)";
-notify "Standup" "Standup is starting."
 
-git standup -m 5 -F -s -d 2;
-debug "task end.after:-3d completed";
-task end.after:-3d completed;
-debug "task calendar";
-task calendar;
+# KRSS.EU.screening-return-event-messages.QueueSize
+aws-credentials $1 $region;
+DLQ="https://sqs.$region.amazonaws.com/$1/$2";
+Queue="https://sqs.$region.amazonaws.com/$1/$3";
+echo "Running $Queue into $DLQ";
 
-commits="$(git standup -F -m 5 -s -d 2 -a "$USER" | sed 's/^\/.*\/src\///g' | sed 's/^[^-]* //g' | sed 's/[(<].*[)>]//g' | sed 's/\\n//g')"
-echo "$commits";
-
-print_yellow "What did you accomplish yesterday for our milestones?";
-yesterday="$(gum input)";
-print_green "$yesterday";
-
-print_yellow "What do you plan to accomplish today for our milestones?";
-today="$(gum input)";
-print_green "$today";
-
-if [[ -n "$yesterday" || -n "$today" ]]; then
-    print_green "Printing standup update";
-    slack-standup-update "$yesterday" "$today";
-else
-    print_red "No Update posted";
-fi
-
-if [[ "$FACILITATOR" != "true" ]]; then
-    vit;
-    exit 0;
-fi
-
-dim "Curling random question generator"
-echo "QOTD: $(curl -s https://story-shack-cdn-v2.glitch.me/generators/random-question-generator | jq '.data.name')";
-sleep 15;
-
-/usr/bin/osascript -e "tell application \"/Applications/Google Chrome.app\"" -e "make new window" -e "activate" -e "end tell";
-#/usr/bin/osascript -e "tell application \"Stickies\" to activate"
-#fullscreen "/Applications/Google Chrome.app"
-
-dim "Opening window";
-window="$(chrome-cli list windows | head -n1 | awk -F'[][]' '{print $2}')";
-dim "Opening On-call Queue";
-/usr/bin/open -a "/Applications/Google Chrome.app" 'https://sim.amazon.com/issues/search?q=status%3A(Open)+containingFolder%3A(89d90969-5262-4d75-adf0-b0e852be7d99+OR+27b80177-973d-4e04-836e-7edcd7b0ff08)&sort=createDate+desc';
-dim "Current Sprint";
-/usr/bin/open -a "/Applications/Google Chrome.app" 'https://sim.amazon.com/sprints/current';
-dim "CR On-call Schedule";
-/usr/bin/open -a "/Applications/Google Chrome.app" 'https://oncall.corp.amazon.com/#/view/kindle-rl-dev-cr/schedule';
-dim "Pipelines";
-/usr/bin/open -a "/Applications/Google Chrome.app" 'https://pipelines.amazon.com/';
-dim "SAS";
-/usr/bin/open -a "/Applications/Google Chrome.app" 'https://sas.corp.amazon.com/v2/summary/all/rwdowne?campaignId=all';
-
-tmpfile=$(mktemp /tmp/standup.XXXXXX);
-echo """
-# On-call Updates
-* Blockers From Team
-* QOTD
-* Updates
-
-### Team Updates
-
-for member in team:
-* Yesterday
-* Today
-* Blockers
-* Ambiguity
-* QOTD
-
-**Read Standup Channel updates when appropriate**
-
-### Manager Updates
-
-* Burn-down
-* QOTD
-
-## Unassigned Stories
-
-* Questions
-* Priority
-
-## Pipelines
-
-## CR on-call
-
-## SAS
-""" > "$tmpfile";
-glow "$tmpfile";
-
-#sleep 10;
-#review-tabs;
-echo "Hit enter to finish standup";
-read -r
-chrome-cli close -w "$window";
+while true; do
+    aws sqs get-queue-attributes --attribute-names All --queue-url $DLQ;
+    aws sqs get-queue-attributes --attribute-names All --queue-url $Queue;
+    msg_raw="$(aws sqs receive-message --queue-url $DLQ --max-number-of-messages 1 --wait-time-seconds 19 --attribute-names All --message-attribute-names All)";
+    debug "Found message Raw: $msg_raw";
+    msg="$(echo "$msg_raw" | jq '.Messages[].Body' | sed 's/\\*"/"/g' | sed 's/\\n//g' | sed 's/"{/{/g' | sed 's/}"/}/g')";
+    debug "Found message: $msg";
+    if [[ -z "$msg" ]]; then
+        pass "No more messages Found $msg";
+        debug "Waiting 2 minutes";
+        sleep 120;
+        aws sqs get-queue-attributes --attribute-names All --queue-url $DLQ;
+        aws sqs get-queue-attributes --attribute-names All --queue-url $Queue;
+        if [[ "$PURGE" != "y" ]]; then
+            print "Should we purge the queue? (y/n)";
+            read PURGE;
+        fi
+        if [[ "$PURGE" == "y" ]]; then
+            aws sqs purge-queue --queue-url $DLQ;
+            debug "Waiting 2 minutes";
+            sleep 120;
+            aws sqs get-queue-attributes --attribute-names All --queue-url $DLQ;
+            aws sqs get-queue-attributes --attribute-names All --queue-url $Queue;
+        fi
+        exit 0;
+    fi
+    echo "$msg" | jq;
+    aws sqs send-message --queue-url $Queue --message-body $msg;
+    debug "Sent message $msg";
+done;
+error "This is outside of the above while True loop";

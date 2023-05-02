@@ -28,8 +28,8 @@ fi
 
 aspell -c "$OUT1";
 mprocs "doc-bar-raise.js \"$(cat "$OUT1")\"" "vim "$OUT1"";
-mprocs "weasel "$OUT1"" "passive "$OUT1"" "proselint "$OUT1"" "alex "$OUT1"" "languagetool --language en-US --disable "$disable" --json "$OUT1" | tee /dev/stderr | jq '.matches[] | .sentence,.message,.replacements[:3]';" "vim "$OUT1"";
-mprocs "curl -X POST --header 'Content-Type: application/x-www-form-urlencoded' --silent --header 'Accept: application/json' -d \"language=en-US&username=jakeailor%40gmail.com&apiKey=pit-4EjnDzDjVQAk&enabledOnly=false&level=picky&disabledRules=WHITESPACE_RULE,DB_43438&text=$(cat $OUT1)\" 'https://api.languagetoolplus.com/v2/check' | jq '.matches[] | .sentence,.message,.replacements[:3]'" "vim "$OUT1"";
+mprocs "weasel "$OUT1"" "passive "$OUT1"" "proselint "$OUT1"" "alex "$OUT1"" "languagetool --language en-US --disable "$disable" --json "$OUT1"" "vim "$OUT1"";
+mprocs "curl -X POST --header 'Content-Type: application/x-www-form-urlencoded' --silent --header 'Accept: application/json' -d \"language=en-US&username=jakeailor%40gmail.com&apiKey=pit-4EjnDzDjVQAk&enabledOnly=false&level=picky&disabledRules=WHITESPACE_RULE,DB_43438&text=$(cat $OUT1)\" 'https://api.languagetoolplus.com/v2/check' | jq '.matches[] | .sentence,.message,.replacements[:3]'" "curl -X POST --header 'Content-Type: application/x-www-form-urlencoded' --silent --header 'Accept: application/json' -d \"language=en-US&username=jakeailor%40gmail.com&apiKey=pit-4EjnDzDjVQAk&enabledOnly=false&level=picky&disabledRules=WHITESPACE_RULE,DB_43438&text=$(cat $OUT1)\" 'https://api.languagetoolplus.com/v2/check'" "vim "$OUT1"";
 
 git diff --color-words "$IN" "$OUT1";
 gum confirm "Accept All changes??" --default=true --affirmative "Yes" --negative "No" && accept=true || accept=false;

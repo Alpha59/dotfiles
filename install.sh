@@ -118,7 +118,7 @@ mas install 409183694 # Keynote (11.1)
 mas install 409201541 # Pages (11.1)
 mas install 409203825 # Numbers (11.1)
 mas install 803453959 # Slack (4.17.0)
-mas install 1003160018 # Quip (7.73.0);
+#mas install 1003160018 # Quip (7.73.0);
 
 # Install Amphetamine, a program to keep your
 # computer awake while connected to VPN
@@ -930,3 +930,16 @@ git config --global core.pager less -FMRiX;
 git config --global color.ui auto;
 git config --global alias.dag log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)%an <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order;
 toolbox list | awk '{print $1}' | grep -v -e Run -e === -e --- -e Tool -e ^$ | xargs -n1 toolbox install
+brew install timewarrior;
+sudo chown $USER .config/homebrew;
+sudo chmod 777 .config/homebrew;
+sudo chown $USER .config/homebrew/*;
+sudo chmod 777 .config/homebrew/*;
+brew tap jakehilborn/jakehilborn;
+    
+brew install displayplacer;
+    
+brew install dos2nix;
+    
+brew install dos2unix;
+    

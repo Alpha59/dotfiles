@@ -1197,3 +1197,8 @@ work-search ()
     open "https://refresh.sage.amazon.dev/search?q=$*" "$@"
 }
 declare -fx work-search
+
+fix-monitors-home (){
+    displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1512x982 hz:120 color_depth:8 scaling:on origin:(0,0) degree:0" "id:E05A7F94-084C-4894-AE2C-6F7AB2053B8A res:2560x1440 hz:60 color_depth:8 scaling:off origin:(1512,-361) degree:0" "id:F41D2BEA-BAE0-4EB6-8C3A-489979873DB5 res:2560x1080 hz:75 color_depth:8 scaling:off origin:(-2560,-239) degree:0";
+}
+declare -fx fix-monitors-home;

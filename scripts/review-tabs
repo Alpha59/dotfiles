@@ -10,11 +10,13 @@ fi
 
 echo "Chrome Version:";
 chrome-cli chrome version;
-for tab in $tabs; do # Iterate tabs
+#for tab in $tabs; do # Iterate tabs not working...?
+while read tab; do
     tabId=$(echo "$tab" | awk -F'[][]' '{print $2}');
     url=$(chrome-cli info -t "$tabId" | grep -o "^Url:.*" | cut -c 6-);
     title=$(chrome-cli info -t "$tabId" | grep -o "^Title:.*" | cut -c 8-);
     if [[ -z "$tabId" ]]; then # Ghost Tab
+        echo "Ghost Tab";
         continue;
     else #
         info=$(chrome-cli info -t "$tabId");
@@ -33,7 +35,7 @@ for tab in $tabs; do # Iterate tabs
     while true; do # Continue iterating the same tab
         echo "Enter to continue review";
         #chrome-cli info -t $tabId && exit 1
-        read -r ACTION;
+        read -r ACTION  </dev/tty;
         if [[ "$ACTION" == "x" ]]; then # Close
             chrome-cli close -t "$tabId";
             break;
@@ -67,4 +69,4 @@ for tab in $tabs; do # Iterate tabs
             break;
         fi #
     done #
-done
+done <<< "$tabs";
