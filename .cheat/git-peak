@@ -1,1 +1,0 @@
-git peek $(git remote -v | grep origin | awk '/fetch/{print $2}')

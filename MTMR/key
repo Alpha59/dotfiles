@@ -1,4 +1,0 @@
-#!/bin/bash
-
-~/scripts/notify "Entering Key";
-~/scripts/keyboard-type $(security find-generic-password -a ailor -s amzn_vpn -w);
