@@ -1,0 +1,27 @@
+#!/usr/bin/bc
+
+withdraw=66695.36+596.90; # Cash value
+assets=14862.93; # physical assets
+repurchase=15000;
+madigan=100+716.7+1980+1870+853+2035+1485+2200+5640+1578.86;
+katrina=2500+1190.75+2500+5343.94+6917.50+4512.5+200+1789.99+110+422.50;
+loanrepayment=900*36; # settlement loan repayment
+king=27.49+27.49+320+201.96+60.94+1280.26+729.23; # court fees
+direct=2471+25000+73; # settlement
+spousal=(1530*6)+(2844.19*4); # spousal support + rent
+car=(343.4*17)+217.72; # payments + registration
+john=6500+3400+86  +5000; # Bail
+treasury=3729+795; # Tax + accountant
+danielle=(1500*5)+6000;
+other=665+794.76+88.06+28+210+45;
+print "Lawyers:"
+print katrina+danielle+madigan;
+print "\n=========\n";
+print "Losses:"
+print spousal+direct+assets+withdraw+car+loanrepayment+settlement;
+print "\n=========\n";
+print "Total:";
+total=(withdraw+assets+repurchase+madigan+katrina+loanrepayment+king+direct+spousal+car+john+treasury+danielle+other);
+print total;
+print "\n=========\n";
+#quit();

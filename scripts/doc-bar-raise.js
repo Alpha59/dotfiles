@@ -1,0 +1,441 @@
+#!/usr/bin/env node
+const fs = require("fs");
+
+const AVERAGE_WORDS_READ_PER_MINUTE = 238
+const unconscious_bias = {
+            "abort": "stop",
+            "aborted": "stopped",
+            "aborting": "stopping",
+            "barman": "bartender",
+            "barwoman": "bartender",
+            "birth defect": "congenital disability",
+            "black day": "blocked day",
+            "black days": "blocked days",
+            "black hat": "bad actor",
+            "black hat tactic": "bad actor tactics",
+            "black list": "block list, deny list, exclusion list, or unapproved list",
+            "black lists": "block lists, deny lists, exclusion lists, or unapproved lists",
+            "blackday": "blocked day",
+            "black-day": "blocked day",
+            "blackdays": "blocked days",
+            "black-days": "blocked-days",
+            "black-hat": "bad-actor",
+            "black-hat tactic": "bad actor tactics",
+            "blacklist": "block list, deny list, exclusion list, or unapproved list",
+            "black-list": "block-list, deny-list, exclusion-list, or unapproved-list",
+            "blacklists": "block lists, deny lists, exclusion lists, or unapproved lists",
+            "black-lists": "block-lists, deny-lists, exclusion-lists, or unapproved-lists",
+            "blackout": "service outage, blocked",
+            "blind as a ": "blind, low vision, visually impaired",
+            "brain damage": "has a brain injury",
+            "brain damaged": "has a brain injury",
+            "broken windows": "paper cuts, trade-offs, or rough edges",
+            "brown bag": "Lunch and Learn, Tech Talk, Learning Session, Office Hours, Learn About Customers, or Info Session",
+            "brown-bag": "Lunch and Learn, Tech Talk, Learning Session, Office Hours, Learn About Customers, or Info Session",
+            "burn victim": "burn survivor",
+            "businessman": "business person",
+            "businesswoman": "business person",
+            "cake walk": "easy, a breeze, simple, or trivial",
+            "cake walks": "easy, a breeze, simple, or trivial",
+            "caucasian": "white",
+            "chairman": "chair person",
+            "chairwoman": "chair person",
+            "challenged": "disability, disabled",
+            "circle the wagon": "huddle, sync-up, discussion, or regroup",
+            "circle the wagons": "huddle, sync-up, discussion, or regroup",
+            "circled the wagon": "huddle, sync-up, discussion, or regroup",
+            "circled the wagons": "huddle, sync-up, discussion, or regroup",
+            "confined to a wheelchair": "uses a wheelchair, wheelchair user",
+            "congressmen": "congress person",
+            "congresswoman": "congress person",
+            "councilman": "concil member",
+            "councilwoman": "concil member",
+            "crazy": "psychiatric disability, mental illness, mental health issues",
+            "crip": "person with spinal cord injury, mobility impairment ",
+            "cripple": "person with spinal cord injury, mobility impairment",
+            "crippled": "person with spinal cord injury, mobility impairment",
+            "deaf and dumb": "deaf, hard of hearing",
+            "deaf-mute": "deaf, hard of hearing",
+            "differently abled": "people with disabilities, the disability community, disabled people",
+            "disable": "turn off, deactivate, stop",
+            "disabled": "turned off, deactivated, stopped",
+            "the disabled": "people with disabilities, the disability community, disabled people ",
+            "disabled restroom": "accessible restroom",
+            "disabling": "turning off, deactivating, stpping",
+            "diverse employees": "women employees, black employees, people with disabilities, and more (be specific)",
+            "diverse employee": "women employees, black employees, people with disabilities, and more (be specific)",
+            "diversity": "gender diversity, racial diversity, neurodiversity, and more (be specific)",
+            "drank the cool aid": "blind acceptance",
+            "drank the coolaid": "blind acceptance",
+            "drank the cool-aid": "blind acceptance",
+            "drank the kool aid": "blind acceptance",
+            "drank the koolaid": "blind acceptance",
+            "drank the kool-aid": "blind acceptance",
+            "drink the cool aid": "blind acceptance",
+            "drink the coolaid": "blind acceptance",
+            "drink the cool-aid": "blind acceptance",
+            "drink the kool aid": "blind acceptance",
+            "drink the koolaid" : "blind acceptance",
+            "drink the kool-aid": "blind acceptance",
+            "dumb": "non-verbal (for people with developmental disabilities, or that have not developed language)",
+            "dwarf": "person of short stature, little person",
+            "enable": "turn on, activate, start",
+            "enabled": "turned on, activated, started",
+            "enabling": "turning on, activating, starting",
+            "execute": "start, run",
+            "executed": "ran",
+            "executing": "running",
+            "female":"woman",
+            "fireman": "fire fighter",
+            "firewoman": "fire fighter",
+            "flesh": "beige, brown, black, pink, and more",
+            "flesh tone": "beige, brown, black, pink, and more",
+            "flesh-tone": "beige, brown, black, pink, and more",
+            "freshman": "newcomer, novice, initiate",
+            "gimp": "mobility impairment, amputee, has limb loss, limb difference",
+            "girlfriend test": "user test",
+            "grandfather": "exempt or legacy",
+            "hey guys": "everyone, folks, all, friends, team, you all, people",
+            "hi guys": "everyone, folks, all, friends, team, you all, people",
+            "guru":"expert, mentor, leader, authority",
+            "gypped": "defraud, swindle, or cheat",
+            "handicapable": "people with disabilities, the disability community, disabled people",
+            "handicapped": "people with disabilities, the disability community, disabled people",
+            "handicapped parking": "accessible parking",
+            "hang": "no response",
+            "hanged": "no response",
+            "hanging": "not responding",
+            "housekeeping": "maintenance, cleanup",
+            "hung": "no response",
+            "identify as male":"man",
+            "identify as a man":"man",
+            "identify as men":"men",
+            "identify as female":"woman",
+            "identify as a woman":"woman",
+            "identify as women":"women",
+            "invalid": "not valid",
+            "kill": "end, stop",
+            "killed": "ended, stopped",
+            "killing": "ending, stopping",
+            "lame": "boring, uninteresting, monotonous, mobility impairment, amputee, has limb loss, limb difference",
+            "ladies and gentlemen": "everyone, folks, all, friends, team, you all, people",
+            "mailman": "mail carrier",
+            "mailwoman": "mail carrier",
+            "male":"man",
+            "man hour": "person hour, hours of effort, labor, or work",
+            "man hours": "person hour, hours of effort, labor, or work",
+            "man-hour": "person hour, hours of effort, labor, or work",
+            "man-hours": "person hour, hours of effort, labor, or work",
+            "maniac": "psychiatric disability, mental illness, mental health issues",
+            "manic": "excited, happy",
+            "mankind": "people, person kind",
+            "man-made": "people made",
+            "man made": "people made",
+            "master": "primary, central, active, coordinator, leader, main, or mainline",
+            "masters": "primary, central, active, coordinator, leader, main, or mainline",
+            "master-slave": "main-sub, primary-secondary, leader-follower",
+            "master-slaves": "main-sub, primary-secondary, leader-follower",
+            "master account": "management account",
+            "mental retardation": "intellectual disability",
+            "men and women": "everyone, folks, all, friends, team, you all, people",
+            "midget": "person of short stature, little person",
+            "minorities": "marginalized groups, underrepresented groups",
+            "mom test": "user test",
+            "non-verbal": "nonspeaking (for autistic adults who do not speak), non-vocal (for people who are deaf and don’t use their voice)",
+            "nude": "beige, brown, black, pink, and more",
+            "off the reservation": "go rogue",
+            "open the kimono": "open the books, provide insight into, and more",
+            "oriental": "Asian",
+            "orientals": "Asian",
+            "piece of cake": "easy, a breeze, simple, or trivial",
+            "peanut gallery": "heckler",
+            "policeman": "police officer",
+            "policewoman": "police officer",
+            "postman": "post officer",
+            "postwoman": "post officer",
+            "powwow": "meeting, huddle, discussion, or regroup",
+            "powwows": "meeting, huddle, discussion, or regroup",
+            "preferred pronouns":"pronouns",
+            "primitive": "primitive data type, primitive type",
+            "psycho": "psychiatric disability, mental illness, mental health issues",
+            "red line": "review, correct, check, verify, validate, make notes, markup, specs, design specs, design specifications, revisions, new version",
+            "red lines": "reviews, corrections, checks, verifications, validations, notes, markups, specs, design specifications, revisions, new versions",
+            "red lining": "reviewing, correcting, checking, verifying, validating, noting, marking up, speccing, design speccing, revising, versioning",
+            "redline": "review, correct, check, verify, validate, make notes, markup, specs, design specs, design specifications, revisions, new version",
+            "red-line": "review, correct, check, verify, validate, make notes, markup, specs, design specs, design specifications, revisions, new version",
+            "redlines": "reviews, corrections, checks, verifications, validations, notes, markups, specs, design specs, design specifications, revisions, new versions",
+            "red-lines": "reviews, corrections, checks, verifications, validations, markups, specs, design specs, design specifications, revisions, new versions",
+            "redlining": "reviewing, correcting, checking, verifying, validating, noting, marking up, speccing, design speccing, revising, versioning",
+            "red-lining": "reviewing, correcting, checking, verifying, validating, noting, marking up, speccing, design speccing, revising, versioning",
+            "retarded": "people with disabilities, the disability community, disabled people, learning disability, intellectual disability, non-verbal",
+            "salesman": "sales person",
+            "saleswoman": "sales person",
+            "schizo": "psychiatric disability, mental illness, mental health issues",
+            "seeing eye dog": "service animal or dog, guide dog",
+            "sherpa": "onboarding buddy, guide, mentor, point of contact",
+            "sign language": "American Sign Language (ASL), British Sign Language (BSL), sign languages (global)",
+            "slave": "replica, peripheral, sub, passive, secondary, worker, or follower",
+            "slaves": "replicas, peripherals, subs, passives, secondaries workers, or followers",
+            "slow-learner": "has a learning disability",
+            "sold down the river": "betray, cheat",
+            "special needs": "functional needs, educational needs (Use special needs only in the context of public-school programs.)",
+            "spirit animal": "muse or inspiration",
+            "spirit animals": "muses or inspirations",
+            "standup": "huddle, sync-up",
+            "stand-up": "huddle, sync-up",
+            "steward": "flight attendant",
+            "stewardess": "flight attendant",
+            "stroke victim": "stroke survivor ",
+            "suffers from polio": "post-polio syndrome",
+            "takes the cake": "easy, a breeze, simple, or trivial",
+            "tribal knowledge": "institutional knowledge, group understanding, unwritten rules",
+            "trigger": "initiate, invoke, launch, start",
+            "triggered": "initiated, invoked, launched, started",
+            "triggering": "initiating, invoking, launching, starting",
+            "uppity": "arrogant, conceited",
+            "visually handicapped": "blind, low vision, visually impaired",
+            "waiter": "wait staff",
+            "waitress": "wait staff",
+            "wheelchair-bound": "uses a wheelchair, wheelchair user",
+            "white day": "open day",
+            "white days": "open day",
+            "white list": "accept list, allow list, safe list, approved list, or inclusion list",
+            "white lists": "accept list, allow list, safe list, approved list, or inclusion list",
+            "white paper": "paper",
+            "whiteday": "open day",
+            "white-day": "open day",
+            "whitedays": "open day",
+            "white-days": "open day",
+            "whitelist": "accept list, allow list, safe list, approved list, or inclusion list",
+            "whitelists": "accept list, allow list, safe list, approved list, or inclusion list",
+            "women and men": "everyone, folks, all, friends, team, you all, people",
+            "womxn":"women"
+}
+
+let results = [];
+let total = 0;
+let outputBody;
+function commentResults(el, inline) {
+    total += results.length;
+    if ( results.length > 0 ) {
+        console.log(results, inline ? el : "");
+    }
+}
+
+/* Comment Results at top of Page */
+const pageLimit = (text) => {
+    const ESTIMATED_WORDS_IN_ONE_PAGE = 400
+    results.push(`Document is an estimated ${(text.split(" ").length / ESTIMATED_WORDS_IN_ONE_PAGE)} pages`);
+}
+
+/* Comment Results at top of Page */
+const readabilityStatistics = (text) => {
+    text += "."
+    text = text.replace("/  /g", "/ /g")
+    text = text.replace("/\n\n/g", "/\n/g");
+    var averageCharactersPerWord = text.split(" ").reduce((a, b, i, arr) => a + b.length / arr.length, 0)
+    var totalWords = text.split(" ").length;
+    var averageWordsPerSentence = totalWords / text.match( /[^.!?\r\n]+[.!?\r\n]/g ).length;
+    var readTime = totalWords / AVERAGE_WORDS_READ_PER_MINUTE;
+    var readMinutes = Math.floor(Math.abs(readTime));
+    var readSeconds = ('0' + Math.floor((Math.abs(readTime) * 60) % 60)).slice(-2);
+
+    results.push(`Time to read estimate (mm:ss): ${readMinutes}:${readSeconds}`);
+    results.push(`Average characters per word: ${averageCharactersPerWord.toFixed(0)}`);
+    results.push(`Average words per sentence: ${averageWordsPerSentence.toFixed(0)}`);
+    if (averageWordsPerSentence > 20) {
+        results.push(`Try to shorten your sentences.`);
+    }
+}
+
+/* Comment Results at top of Page */
+const documentPurpose = (text) => {
+    text += "."
+    const purpose_statements = ["basis", "determination", "drive", "goal", "intent", "intention", "justification", "motivation", "motive", "overview", "plan", "point", "propose", "purpose","reason"]
+    var sentences = text.match( /[^.!?\r\n]+[.!?\r\n]/g ); // Split text into sentences
+    var message = `Could not detect an explicit document purpose in the first 10 sentences of your document. Explicitly state your document purpose.`;
+    var documentPurposeStated = false;
+    sentences.forEach(function(sentence, index) {
+        if (index <=10){
+            for (var statement of purpose_statements) {
+                if (sentence.indexOf(statement) >= 0) {
+                    documentPurposeStated = true;
+                    break;
+                }
+            };
+        };
+    });
+    if (!documentPurposeStated) {
+        results.push(message);
+    }
+}
+/********************************************************/
+/* Look for words and comment inline */
+function findWords(text, words, searchName) {
+    text += "."
+    var sentences = text.match( /[^.!?\r\n]+[.!?\r\n]/g ); // Split text into sentences
+    words.forEach(function(word) {
+        sentences.forEach(function(sentence, index) {
+            if (index === sentences.length -1) {
+                sentence = sentence.slice(0, -1)
+            }
+            if (word === 'ed' || word ==='ing') {
+                var myPattern = new RegExp('\\w*'+ word +'\\b','gi')
+            } else {
+                var myPattern = new RegExp('\\b'+ word +'\\b','gi')
+            }
+            if (sentence.match(myPattern)) {
+                results.push({sentence, violation: `${searchName} filter found the word '${word}'`});
+                console.log(`\x1b[34m${searchName}\x1b[0m:`, sentence.replace(myPattern, `\x1b[31m${word}\x1b[0m`))
+                outputBody = outputBody.replace(myPattern, `\x1b[31m${word}\x1b[0m`)
+            }
+        });
+    });
+}
+
+/* Comment inline */
+const unconsciousBias = (text) => {
+    text += "."
+    var sentences = text.match( /[^.!?\r\n]+[.!?\r\n]/g ); // Split text into sentences
+    for (var biasedWord in unconscious_bias) {
+        sentences.forEach(function(sentence, index) {
+            if (index === sentences.length -1) {
+                sentence = sentence.slice(0, -1)
+            }
+            var myPattern = new RegExp('\\b'+biasedWord+'\\b','gi')
+            if (sentence.match(myPattern)) {
+                results.push({sentence, violation: `The sentence contains the word or phrase ${biasedWord}`,
+                alternatives: unconscious_bias[biasedWord]});
+                outputBody = outputBody.replace(myPattern, `\x1b[41m${biasedWord}\x1b[0m \x1b[32m${unconscious_bias[biasedWord].split(',')[0]}\x1b[0m`);
+
+            }
+        })
+    }
+}
+
+/* Comment inline */
+const sentenceLength = (text) => {
+    text += "."
+    var sentences = text.match( /[^.!?\r\n]+[.!?\r\n]/g ); // Split text into sentences
+    sentences.forEach(function(sentence, index) {
+        if (index === sentences.length -1) {
+            sentence = sentence.slice(0, -1)
+        }
+        if ((sentence.split(/\s+/)).length > 25) {
+            results.push({sentence, violation: `The sentence is longer than the 25 word recommendation`});
+            outputBody = outputBody.replace(sentence, `\x1b[4m${sentence}\x1b[0m`);
+        }
+    });
+}
+
+/* Everything Below just calls find Words */
+const weaselWords = (text) => {
+    const weasel_words = ["a bit", "a lot", "a number of", "a while", "about", "almost", "always", "around", "awhile", "best", "better", "bigger", "could", "complex", "considerable", "considerably", "costly", "disproportionate", "disproportionately", "easier", "easy", "enough", "ever", "far", "fast", "faster", "few", "fewer", "frequent", "frequently", "further", "full", "for the most part", "generally", "greater", "hard", "harder", "higher", "in a sense", "in a way", "lower", "many", "might", "more", "most", "nearly", "often", "overwhelming", "planning", "probably", "proven", "relative", "relatively", "roughly", "several", "should", "significant", "significantly", "slow", "slower", "small", "smaller", "some", "somehow", "soon", "sort of", "tiny", "lots", "usually", "varied", "various", "vast", "very", "well", "worse", "worst"]
+    return findWords(text, weasel_words, "Vague Language")
+}
+
+const fillerWords = (text) => {
+    const filler_words = ["again", "already", "anyway", "appeared", "back", "be able to", "began", "believed", "considered", "decided", "due to the fact that", "for the purpose of", "for the purposes of", "heard", "idea", "in order to", "just", "knew", "like", "lacked the ability to", "looked", "noticed", "only", "own", "partnered with", "partnering with", "rather", "real", "recognized", "realized", "saw", "seemed", "smelled", "started", "still", "supposed", "thing", "thought", "touched", "understood", "until such time as", "watched", "with the exception of", "with the possible exception of", "wondered"]
+    return findWords(text, filler_words, "Filler Language")
+}
+
+const directness = (text) => {
+    const indirect_words = ["believe", "can", "could", "generally", "hope", "if we were to", "in general","like", "may", "maybe", "might", "need to", "planning on", "planning to", "possible", "possibly", "seem", "seems", "should", "there is", "think", "thinks", "tries", "try", "want to", "wanted to", "was", "wasn’t", "would"]
+    return findWords(text, indirect_words, "Indirect Language")
+}
+
+const emotion = (text) => {
+    const emotional_words=["accurate", "adaptable", "advantage", "advantageous", "aggravate", "aggressive", "agitated", "agony", "alarmed", "alienated", "aligned", "amazing", "anger", "angry", "antagonistic", "anxious", "appalled", "approval", "approving", "argumentative", "astonishing", "astounded", "astounding", "atrocious", "authentic", "authoritative", "award", "awarded", "awesome", "awkward", "balanced", "bliss", "blissful", "calm", "capable", "centered", "certain", "certainly", "cheerful", "clarity", "clear", "compulsive", "concern", "concerned", "condemning", "condescending", "confidence", "confident", "conscientious", "contrary", "controlling", "cooperative", "corrupting", "cowardly", "critical", "damaging", "definitely", "dejected", "delight", "delighted", "delightful", "deplorable", "depressed", "desperate", "despicable", "disadvantages", "disastrous", "disdainful", "disgusted", "dishonest", "disillusioned", "disoriented", "dispair", "distracted", "distraught", "distress", "distressed", "distrustful", "doomed", "doubt", "doubtful", "dread", "dreadful", "dynamic", "ecstatic", "effective", "efficient", "elated", "elation", "eliminate", "embarrassed", "embarrassing", "embarrassment", "empowered", "enraged", "enthusiastic", "euphoric", "exasperated", "excellence", "excellent", "excited", "excitement", "exhilarated", "exhilaration", "exuberant", "fabulous", "fantastic", "fear", "felt", "festive", "focused", "forgiving", "fortunate", "frustrated", "frustration", "fulfilled", "fun-loving", "furious", "genuine", "glad", "gleeful", "glorious", "gratified", "grounded", "guaranteed", "happy", "harmful", "harsh", "helpless", "hesitant", "hesitate", "honest", "honored", "hope", "hoped", "hopeless", "impatient", "incapable", "incapacitated", "incompetent", "inconsiderate", "indecisive", "inferior", "infuriated", "inthezone", "invest", "investment", "jealous", "jovial", "joy", "joyful", "joyous", "jubilant", "judgmental", "liberated", "lighthearted", "magical", "magnificent", "malicious",
+    "manipulative", "miracle", "miraculous", "mirth", "misgiving", "nervous", "offensive", "off-kilter", "optimistic", "ordeal", "outrageous", "overjoyed", "overwhelmed", "panic", "panicked", "pathetic", "perplexed", "perplexing", "pessimistic", "pleased", "poisonous", "powerless", "presumably", "privileged", "productive", "proven", "provoke", "quarrelsome", "rebellious", "reliable", "relief", "relieved", "remarkable", "reprimanding", "repulsed", "repulsive", "resentful", "responsible", "responsive", "retaliation", "revenge", "revolutionary", "safe", "safety", "sarcastic", "satisfied", "save", "scandal", "scared", "scornful", "secure", "self-sufficient", "sensational", "severe", "shameful", "shock", "shocking", "sincere", "solid", "sorrow", "spiteful", "stability", "stable", "startling", "steady", "stressed", "sunny", "superb", "superior", "supported", "supportive", "sure", "surprised", "suspicious", "tenacious", "tense", "terrible", "terrific", "terrified", "thankful", "threatened", "thrilled", "tickedoff", "tragic", "transparency", "trapped", "tremendous", "true", "truly", "trust", "trustworthy", "truth", "truthful", "unassuming", "unburdened", "uncaring", "uncertain", "uncomfortable", "unfortunately", "uninterested", "unique", "unjustified", "unreliable", "unresponsive", "unstable", "unsure", "uplifted", "upset", "venomous", "vindictive", "violate", "violation", "violent", "vulnerable", "wicked", "wished", "wonderful", "worried", "worry", "worthwhile"]
+    return findWords(text, emotional_words, "Emotion")
+}
+
+const passiveVoice = (text) => {
+    const passive_voice_checks = ["had", "it is agreed", "it was", "proven", "were to", "were", "weren't", "will be", "would like"]
+    return findWords(text, passive_voice_checks, "Passive Voice")
+}
+
+const multipleIdeas = (text) => {
+    const multiple_idea_checks = ["also", "even", "since", "so"];
+    return findWords(text, multiple_idea_checks, "Multiple Ideas Per Sentence")
+}
+
+const wordsEndingInEd = (text) => {
+    const words_to_find = ["ed"];
+    return findWords(text, words_to_find, "Words that end in ed")
+}
+
+const wordsEndingInIng = (text) => {
+    const words_to_find = ["ing"];
+    return findWords(text, words_to_find, "Words that end in ing")
+}
+
+const firstPersonPluralPronouns = (text) => {
+    const words_to_find = ["we", "us", "our"];
+    return findWords(text, words_to_find, "First Person Plural Pronouns")
+}
+
+const firstPersonSingularPronouns = (text) => {
+    const words_to_find = ["I", "me", "myself"];
+    return findWords(text, words_to_find, "First Person Singular Pronouns")
+}
+
+const genderedPronouns = (text) => {
+    const words_to_find = ["she", "her", "hers", "herself", "he", "him", "his", "himself"];
+    return findWords(text, words_to_find, "Gender Pronouns")
+}
+
+const latinPhrases = (text) => {
+    const words_to_find = ["ad hoc", "ad nauseum", "de facto", "e.g.", "eg", "ergo", "etc", "i.e.", "ie", "viz.", "vs"];
+    return findWords(text, words_to_find, "Latin Phrases")
+}
+
+const negativeTone = (text) => {
+    const words_to_find = ["not"]
+    return findWords(text, words_to_find, "Negative Tone")
+}
+
+const runAnalysis = function() {
+    total = 0;
+    const body = process.argv.slice(2).join(' ');
+    const fullText = body.replace("\n", " ");
+    documentPurpose(fullText);
+    readabilityStatistics(fullText);
+    pageLimit(fullText);
+    commentResults("", false);
+    outputBody = body;
+    body.split("\n").forEach((text) => {
+        //const text = node.innerText;
+        if ( text.length > 4 ) {
+            //el = el;
+            // el.style.backgroundColor = something;
+            results = [];
+            unconsciousBias(text)
+            sentenceLength(text);
+            weaselWords(text);
+            fillerWords(text);
+            directness(text);
+            emotion(text);
+            passiveVoice(text);
+            negativeTone(text);
+            multipleIdeas(text);
+            //wordsEndingInEd(text);
+            //wordsEndingInIng(text);
+            firstPersonPluralPronouns(text);
+            firstPersonSingularPronouns(text);
+            genderedPronouns(text);
+            latinPhrases(text);
+        }
+    });
+    if (results.length > 0){
+        console.log("Total Violations Found:", results.length);
+        console.log(results);
+    } else {
+        console.log("No Violations Found");
+    }
+    console.log("---------------------------------");
+    console.log(outputBody);
+    console.log("---------------------------------");
+}
+
+runAnalysis();

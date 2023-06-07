@@ -1,0 +1,45 @@
+#!/bin/bash
+
+weasels="many|various|very|fairly|several|extremely\
+|exceedingly|quite|remarkably|few|surprisingly\
+|mostly|largely|huge|tiny|((are|is) a number)\
+|excellent|interestingly|significantly\
+|substantially|clearly|vast|relatively|completely\
+|really|very|that|just|then|totally|absolutely|litterally\
+|definitely|certainly|probably|actually|basically|virtually\
+|start|begin|began|begun|rather|quite|somewhat|somehow|said\
+|replied|asked|wonder|ponder|think|thought|feel|felt|understand\
+|realize|breath|breathe|inhale|exhale|shrug|nod|reach|thing|as|armed\
+|brief|then|next|sometimes|something|someone|somewhere|somewhat|somebody"
+
+wordfile=""
+
+# Check for an alternate weasel file
+if [ -f $HOME/etc/words/weasels ]; then
+    wordfile="$HOME/etc/words/weasels"
+fi
+
+if [ -f $WORDSDIR/weasels ]; then
+    wordfile="$WORDSDIR/weasels"
+fi
+
+if [ -f words/weasels ]; then
+    wordfile="words/weasels"
+fi
+
+if [ ! "$wordfile" = "" ]; then
+    weasels="xyzabc123";
+    for w in `cat $wordfile`; do
+        weasels="$weasels|$w"
+    done
+fi
+
+
+if [ "$1" = "" ]; then
+ echo "usage: `basename $0` ..."
+ exit
+fi
+
+egrep -i -n --color "\\b($weasels)\\b" $*;
+
+exit $?

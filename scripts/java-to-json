@@ -1,0 +1,94 @@
+#!/usr/local/bin/node
+
+
+const x = process.argv[2];
+const x_replaced = x
+        // replace with colon and add line breaks (for readabilityi)
+        .replace(/=/g,':')
+        .replace(/,/g,',\n')
+        // parenthsis with square brackets
+        .replace(/\(/g, ": {\n")
+        .replace(/\)/g, "\n}")
+        // colon with quoted colon
+        //.replace(/:/g, "\" : \"")
+        // fix if there is a missing value for the key
+        .replace(/:,/mg, ': "",')
+        // remove double colon and replace with replacement string
+        .replace(/::/mg, "@double_colon@")
+        // quotes around colons
+        .replace(/(['"])?([^\]\[":,}{]+)(['"])?/g, '"$2"')
+        // start of line gets a quote
+        .replace(/^(\s*)([^}{])/mg, '$1"$2')
+        .replace(/^(\s*)([a-zA-Z])/mg, '$1"$2')
+        // double quotes next to text
+        .replace(/[a-zA-Z]""/mg, '"')
+        // brackets at the end of the line get a comma
+        .replace(/^}$/mg, "},")
+        // commas at the end of the line don't need a quote
+        .replace(/,"$/mg, ",")
+    //.replace(/"?concat$/gm, '"concat",')
+        // extra quotes
+        .replace(/^"+(.)/mg, '"$1')
+        // fix extra quotes
+        .replace(/^(\s*)"+([^:]*)"+$/mg, '$1"$2')
+
+        .replace(/([a-zA-Z0-9][^"])$/mg, '$1"')
+        // Add space
+        .replace(/":"/g, '" : "')
+        .replace(/":{/g, '" : {')
+
+        // Fix Date:
+        .replace(/(\d*)" : "(\d*)" : "(\d* UTC \d*)/g, "$1:$2:$3")
+
+        // brackets pre/post-pended with a quote
+        .replace(/}"+/mg, "}")
+        .replace(/{"+/mg, "{")
+        .replace(/"+{/mg, "{")
+        .replace(/"+}/mg, "}")
+
+        //.replace(/]"+/g, "]")
+        //.replace(/]"/g, "]")
+        //.replace(/\"[/g, "[")
+
+        // remove qualifiers (chained/attributes)
+        //.replace(/" : "chained@double_colon@"\["/g, '" : [')
+        //.replace(/" : "attributes@double_colon@"\["/g, '" : [')
+        // re-insert double colon
+        .replace(/@double_colon@([^[])/g, "::$1")
+        .replace(/""+/g, '"')
+        // square brackets pre/post-pended with a quote
+        .replace(/"?]"?/g, "]")
+
+        // parenthsis with square brackets
+        .replace(/"\[/g, "[")
+        .replace(/" {/g, "{")
+        // Wrap the whole thing in brackets
+        .replace(/^([^{])/, "{$1")
+        .replace(/([^{])"?$/, "$1}")
+
+        // Fix Nested
+        .replace(/(" : ")([^":]*" : {)/g, ".$2")
+        // Object inside array...
+        .replace(/\[(".*") :/g, "$1 : [")
+
+        // fix missing comma's in concats
+        /*.replace(/^\s*"[^"]*"[^:\],]*[^,:]*$[^\]]*"/gm,
+            (x) => x.replace('" "', '"\s"')
+                    .split('\n')
+                    .filter(x => x != '')
+                    .join(',\n')
+                    .replace('"\s"', '" "'))*/
+
+        // fix quoted brackets
+        //.replace(/@double_colon@/g, "::")
+        //.replace(/^(\s*)([^}{])/mg, '$1"$2')
+        // Add double-quotes around any tokens before the remaining ":"
+
+let x_parsed = x_replaced;
+try {
+    x_parsed = JSON.parse(x_replaced);
+    console.log(JSON.stringify(x_parsed));
+} catch (e) {
+    //x_parsed = JSON.parse(JSON.stringify(x_replaced));
+    console.log(x_parsed);
+}
