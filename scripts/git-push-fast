@@ -1,0 +1,11 @@
+git rebase-fast $1;
+branch="$(git current-branch)";
+master=$1;
+if [ -z "${master}" ]; then
+    master="mainline";
+fi
+echo "Rebase Complete"
+echo "Verify rebase and then Press any key to continue"
+read; # Wait for user to verify change
+echo "Pushing ${branch} in relation to ${master}";
+git checkout ${master}; git merge ${branch}; git push;

@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+# add-function
+if [[ "$0" == "$1" ]]; then
+    echo "Can not edit this file into function";
+    exit 1;
+fi
+if [[ "$#" -gt 1 ]]; then
+    echo "Found $# args"
+    function_name="$1";
+    shift;
+    function_body="$*";
+elif [[ -f $1 ]]; then
+    echo "Found File name";
+    function_name="$(basename "$1")";
+    function_body="$(cat "$1" | grep -v "#.*bash")";
+else
+    echo "No file found";
+    exit 1;
+fi
+
+if [[ "$(echo "$function_body" | wc -l | tr -d ' ')" -gt 5 ]]; then
+    echo "File too long to make a function";
+    exit 1;
+else
+    echo "File Length: $(echo "$function_body" | wc -l | tr -d ' ')";
+fi
+
+if [[ "$function_body" =~ "\$@" ]]; then
+    echo "Will not append \$@";
+else
+    function_body+=" \"\$@\"";
+fi
+
+re=";$"
+if [[ "$function_body" =~  $re ]]; then
+    echo "Will not append ;";
+else
+    function_body+=";";
+fi
+
+echo "Function Name: $function_name";
+echo "Function Body:";
+echo "$function_body" | bat -;
+
+echo "Continue?"
+read -r;
+
+function="
+
+# $function_name
+function $function_name (){
+    $function_body
+}
+export -f $function_name;
+";
+echo "$function" >> "$HOME/.bash_functions";
+
+rm $1;
+
+#pipes
+#function pipes() {
+#    pipes.sh -t 0 -t 1 -t 2 -t 3 -t 4 -t 5 -t 6 -t 7 -t 8 -t 9  "$@";
+#}
+#export -f pipes

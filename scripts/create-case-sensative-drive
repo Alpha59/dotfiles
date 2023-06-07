@@ -1,0 +1,9 @@
+git clone ssh://git.amazon.com/pkg/MacOSEncryptedVolumeTools;
+MacOSEncryptedVolumeTools/bin/create-encrypted-apfs-volume Work;
+MacOSEncryptedVolumeTools/bin/create-encrypted-apfs-volume brazil-pkg-cache;
+brazil-package-cache stop;
+brazil prefs --global --key packagecache.cacheRoot --value /Volumes/brazil-pkg-cache/;
+brazil-package-cache start;
+ln -s /Volumes/Work ~/;
+MacOSEncryptedVolumeTools/bin/find-unencrypted-volumes;
+rm -rf MacOSEncryptedVolumeTools;

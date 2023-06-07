@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+echo "Getting Carrier Scan message";
+URL='https://sqs.eu-west-1.amazonaws.com/079531299327/creturns-shipment-status-broadcast'
+
+aws-credentials
+aws sqs receive-message --queue-url $URL | jq '.Messages[0]' | jq -r . | jq '{Records: [.]}'

@@ -1,0 +1,1 @@
+jq -f "$HOME/scripts/unmarshal_dynamo" "$@";
