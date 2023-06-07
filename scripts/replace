@@ -1,7 +1,0 @@
-#!/bin/bash
-
-echo "Starting with $1";
-grepable_raw=${1//\\(/};
-grepable=${grepable_raw//\\)/};
-echo "Replacing $grepable with $2";
-grep "$grepable" ./* -lR | xargs sed -i '' "s/$1/$2/g";

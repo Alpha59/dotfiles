@@ -1,7 +1,0 @@
-#!/bin/bash
-
-notes="$(notes ls | grep -i "$3")";
-echo "$notes";
-note="$(notes ls | grep -i "$3" | head -n1)";
-
-glow "$note";
