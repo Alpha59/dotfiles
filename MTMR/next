@@ -1,0 +1,3 @@
+tell Application "Safari"
+    do Javascript "javascript:document.querySelector('.ytd-compact-video-renderer img').click();" in document 1
+end tell

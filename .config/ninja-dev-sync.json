@@ -1,0 +1,49 @@
+{
+  "Version": 3,
+  "DefaultHost": "dev-dsk-ailor-2c-087d1f22.us-west-2.amazon.com",
+  "DefaultWorkspaceRoot": "/home/ailor",
+  "LocalWorkspaceRoot": "",
+  "ShouldRespectUserSshConfig": false,
+  "RsyncFlags": [],
+  "WatchFlags": [],
+  "Exclude": [
+    "/.ninja-dev-sync-target",
+    "/*/build",
+    "*.iml",
+    ".DS_Store"
+  ],
+  "Workspaces": [
+    {
+      "LocalSync": "/Users/ailor/Dev/KindleDeviceMappingService/src",
+      "RemoteHost": "dev-dsk-ailor-2c-087d1f22.us-west-2.amazon.com",
+      "RemoteSync": "/home/ailor/KindleDeviceMappingService/src",
+      "LocalPkgInfo": "/Users/ailor/Dev/KindleDeviceMappingService/packageInfo",
+      "RemotePkgInfo": "/home/ailor/KindleDeviceMappingService/packageInfo",
+      "Exclude": []
+    },
+    {
+      "LocalSync": "/Users/ailor/Work/DRIBS/src",
+      "RemoteHost": "dev-dsk-ailor-2c-087d1f22.us-west-2.amazon.com",
+      "RemoteSync": "/home/ailor/DRIBS/src",
+      "LocalPkgInfo": "/Users/ailor/Work/DRIBS/packageInfo",
+      "RemotePkgInfo": "/home/ailor/DRIBS/packageInfo",
+      "Exclude": []
+    },
+    {
+      "LocalSync": "/Users/ailor/Work/DRBS/src",
+      "RemoteHost": "dev-dsk-ailor-2c-087d1f22.us-west-2.amazon.com",
+      "RemoteSync": "/home/ailor/DRBS/src",
+      "LocalPkgInfo": "/Users/ailor/Work/DRBS/packageInfo",
+      "RemotePkgInfo": "/home/ailor/DRBS/packageInfo",
+      "Exclude": []
+    },
+    {
+      "LocalSync": "/Users/ailor/CORTEX/src",
+      "RemoteHost": "dev-dsk-ailor-2c-087d1f22.us-west-2.amazon.com",
+      "RemoteSync": "/home/ailor/CORTEX/src",
+      "LocalPkgInfo": "/Users/ailor/CORTEX/packageInfo",
+      "RemotePkgInfo": "/home/ailor/CORTEX/packageInfo",
+      "Exclude": []
+    }
+  ]
+}

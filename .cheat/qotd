@@ -1,0 +1,18 @@
+---
+syntax: bash
+tags: [bash, personal]
+version: 1.0.0
+default: true
+---
+
+        
+    EXAMPLES:
+# Prints version information
+qotd --version;
+# Runs script in verbose mode
+qotd -v;
+# Runs script in quiet mode
+qotd -q;
+# pipes output into a file
+qotd -o file.txt;
+

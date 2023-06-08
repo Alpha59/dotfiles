@@ -1,0 +1,3 @@
+tell Application "Safari"
+    do Javascript "javascript:document.querySelector('.ytp-ad-skip-button-text').click();" in document 1
+end tell

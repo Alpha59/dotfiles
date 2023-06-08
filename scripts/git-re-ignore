@@ -1,0 +1,3 @@
+git ls-files -ic --exclude-standard | xargs -L1 git rm --cached
+#git ls-files -io --exclude-standard | xargs -L1 git rm --cached
+git add .;

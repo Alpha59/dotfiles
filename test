@@ -1,0 +1,161 @@
+--------------------------------------------------------------------------------
+DSN: G8M0XG12220305CH
++----------------------------------+---------+----------------+-------------------+------------------+--------+
+| return_event_id                  | fc_code | inbound_status | return_event_type | dsn              | rma_id |
++----------------------------------+---------+----------------+-------------------+------------------+--------+
+| 776c22b3781e4b38b2d5aea15699b79e | LEX1    | Received       | Offline           | G8M0XG12220305CH | <null> |
++----------------------------------+---------+----------------+-------------------+------------------+--------+
+[32mReturn Event ID: 776c22b3781e4b38b2d5aea15699b79e
+Screening Status:
+Using Default Region
+Getting Credentials for 544696535578 in us-east-1
+      Name                    Value             Type    Location
+      ----                    -----             ----    --------
+   profile                 personal              env    ['AWS_PROFILE', 'AWS_DEFAULT_PROFILE']
+access_key     ****************2IVP              env    
+secret_key     ****************L9jz              env    
+    region                us-east-1              env    ['AWS_REGION', 'AWS_DEFAULT_REGION']
+{
+  "Items": [
+    {
+      "version": {
+        "N": "3"
+      },
+      "CreationDate": {
+        "S": "2023-04-18T16:00:18.085Z"
+      },
+      "ReturnEventId": {
+        "S": "776c22b3781e4b38b2d5aea15699b79e"
+      },
+      "LastStationId": {
+        "S": "LEX1GATE2"
+      },
+      "ServiceLevel": {
+        "S": "Standard"
+      },
+      "ReturnEventType": {
+        "S": "Offline"
+      },
+      "PartnerScreeningData": {
+        "M": {
+          "cosmeticGrading": {
+            "M": {}
+          },
+          "disposition": {
+            "S": "BER"
+          },
+          "isOpened": {
+            "S": "Opened"
+          },
+          "defectCodes": {
+            "L": [
+              {
+                "S": "9025"
+              }
+            ]
+          }
+        }
+      },
+      "LicensePlateNumber": {
+        "S": "LPNRRFO1056037"
+      },
+      "StationExitTime": {
+        "S": "2023-04-18T16:02:31.843Z"
+      },
+      "ScreeningId": {
+        "S": "37a338a8419345be831c38ff1306c330"
+      },
+      "ScannableContainerId": {
+        "S": "tsSRTS174399"
+      },
+      "FcCode": {
+        "S": "LEX1"
+      },
+      "StationType": {
+        "S": "ADRL_INBOUND"
+      },
+      "InScreening": {
+        "S": "true"
+      },
+      "Asin": {
+        "S": "B07PDHSHPB"
+      },
+      "LastUpdatedDate": {
+        "S": "2023-04-18T16:02:32.818Z"
+      },
+      "LastUserId": {
+        "S": "greenc"
+      },
+      "CReturnedDate": {
+        "S": "2023-04-18T16:02:32Z"
+      },
+      "ScreeningStatus": {
+        "S": "Receiving"
+      },
+      "StationName": {
+        "S": "LEX1GATE2"
+      },
+      "DSN": {
+        "S": "G8M0XG12220305CH"
+      }
+    }
+  ],
+  "Count": 1,
+  "ScannedCount": 1,
+  "ConsumedCapacity": null
+}
+Outbound Status:
+Using Default Region
+Getting Credentials for 295151941590 in us-east-1
+      Name                    Value             Type    Location
+      ----                    -----             ----    --------
+   profile                 personal              env    ['AWS_PROFILE', 'AWS_DEFAULT_PROFILE']
+access_key     ****************3UKG              env    
+secret_key     ****************aUqB              env    
+    region                us-east-1              env    ['AWS_REGION', 'AWS_DEFAULT_REGION']
+{
+  "Items": [
+    {
+      "lastUpdatedDate": {
+        "S": "2023-04-18T16:00:15.566Z"
+      },
+      "returnEventId": {
+        "S": "776c22b3781e4b38b2d5aea15699b79e"
+      },
+      "createdDate": {
+        "S": "2023-04-18T16:00:15.566Z"
+      },
+      "deviceType": {
+        "S": "A1RABVCI4QCIKC"
+      },
+      "deviceCode": {
+        "S": "0XG"
+      },
+      "returnEventType": {
+        "S": "Offline"
+      },
+      "fcCode": {
+        "S": "LEX1"
+      },
+      "versionNumber": {
+        "N": "1"
+      },
+      "internalName": {
+        "S": "Crumpet   BLACK"
+      },
+      "userId": {
+        "S": "greenc"
+      },
+      "outboundStatus": {
+        "S": "WaitingForScreening"
+      },
+      "dsn": {
+        "S": "G8M0XG12220305CH"
+      }
+    }
+  ],
+  "Count": 1,
+  "ScannedCount": 1,
+  "ConsumedCapacity": null
+}
+--------------------------------------------------------------------------------

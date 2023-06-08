@@ -1,0 +1,4 @@
+- alias: ''
+  command: 'ls -la '
+  description: Show all files in long form (including hidden)
+  group: ''

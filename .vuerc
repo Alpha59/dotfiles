@@ -1,0 +1,37 @@
+{
+  "packageManager": "npm",
+  "useTaobaoRegistry": false,
+  "presets": {
+    "l1": {
+      "useConfigFiles": true,
+      "plugins": {
+        "@vue/cli-plugin-babel": {},
+        "@vue/cli-plugin-eslint": {
+          "config": "airbnb",
+          "lintOn": [
+            "save"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "useConfigFiles": true,
+      "plugins": {
+        "@vue/cli-plugin-babel": {},
+        "@vue/cli-plugin-pwa": {},
+        "@vue/cli-plugin-eslint": {
+          "config": "airbnb",
+          "lintOn": [
+            "save",
+            "commit"
+          ]
+        },
+        "@vue/cli-plugin-unit-jest": {}
+      },
+      "router": true,
+      "routerHistoryMode": true,
+      "vuex": true,
+      "cssPreprocessor": "sass"
+    }
+  }
+}
