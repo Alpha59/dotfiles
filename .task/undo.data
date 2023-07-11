@@ -795,3 +795,10 @@ new [description:"Re-test offline in EU" end:"1686147749" entry:"1685974526" mod
 time 1686173250
 new [description:"Send Jennifer an outbound record that has no inbound record - look for cancelled SUS or RaCS device" entry:"1686173250" modified:"1686173250" status:"pending" uuid:"1fc85248-5f69-43df-8b15-04d648a6a61f"]
 ---
+time 1686244562
+new [description:"Summarize second discussion on the sim" entry:"1686244562" modified:"1686244562" status:"pending" uuid:"1a86fa04-e13c-4e50-baf7-6c5c934356de"]
+---
+time 1686244614
+old [description:"Summarize second discussion on the sim" entry:"1686244562" modified:"1686244562" status:"pending" uuid:"1a86fa04-e13c-4e50-baf7-6c5c934356de"]
+new [annotation_1686244614:"include concessions CTI" description:"Summarize second discussion on the sim" entry:"1686244562" modified:"1686244614" status:"pending" uuid:"1a86fa04-e13c-4e50-baf7-6c5c934356de"]
+---

@@ -3,7 +3,14 @@
 */*
 */*/*
 */*/*/*
-
+.toolbox
+.toolbox/
+.toolbox/*
+.toolbox/**
+.tldrc
+.tldrc/
+.tldrc/*
+.tldrc/**
 # Do not ignore these files
 !.gitignore
 !.vimrc
@@ -56,6 +63,7 @@ Makefile
 !.config/youtube-viewer/youtube-viewer.conf
 !.config/gogpt
 !.gitmessage
+!.gitmodules
 !.gogpt
 !.hyper_plugins/package.json
 !.inclusivelint/
@@ -71,11 +79,6 @@ Makefile
 !.taskrc
 !.timewarrior/
 !.timewarrior/**
-!.tldrc/
-!.tldrc/**
-!.toolbox/
-!.toolbox/*
-!.toolbox/**
 !.vim/autoload/
 !.vim/autoload/**
 !.vim/plugin/

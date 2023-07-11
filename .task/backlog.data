@@ -217,3 +217,5 @@
 {"description":"OE Scorecard","due":"20230707T040000Z","entry":"20230607T142204Z","imask":2,"modified":"20230607T142223Z","parent":"ff19be3d-09c1-4566-bd56-a5fe380e7872","recur":"monthly","rtype":"periodic","status":"pending","uuid":"2c6f3890-6c91-4aab-95ce-40ab5c898ff5","wait":"20230628T142223Z"}
 {"description":"Re-test offline in EU","end":"20230607T142229Z","entry":"20230605T141526Z","modified":"20230607T142229Z","status":"completed","uuid":"8029728e-cb0b-4c49-84fb-40131613a3c8"}
 {"description":"Send Jennifer an outbound record that has no inbound record - look for cancelled SUS or RaCS device","entry":"20230607T212730Z","modified":"20230607T212730Z","status":"pending","uuid":"1fc85248-5f69-43df-8b15-04d648a6a61f"}
+{"description":"Summarize second discussion on the sim","entry":"20230608T171602Z","modified":"20230608T171602Z","status":"pending","uuid":"1a86fa04-e13c-4e50-baf7-6c5c934356de"}
+{"description":"Summarize second discussion on the sim","entry":"20230608T171602Z","modified":"20230608T171654Z","status":"pending","uuid":"1a86fa04-e13c-4e50-baf7-6c5c934356de","annotations":[{"entry":"20230608T171654Z","description":"include concessions CTI"}]}

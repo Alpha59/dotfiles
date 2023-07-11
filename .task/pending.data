@@ -10,3 +10,4 @@
 [description:"Write WBR Updates" due:"1686628800" entry:"1686061709" imask:"6" modified:"1686069920" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"ab0c4e85-99b9-462c-a7f5-26f90b142c0f" wait:"1686501920"]
 [description:"OE Scorecard" due:"1688702400" entry:"1686147724" imask:"2" modified:"1686147743" parent:"ff19be3d-09c1-4566-bd56-a5fe380e7872" recur:"monthly" rtype:"periodic" status:"pending" uuid:"2c6f3890-6c91-4aab-95ce-40ab5c898ff5" wait:"1687962143"]
 [description:"Send Jennifer an outbound record that has no inbound record - look for cancelled SUS or RaCS device" entry:"1686173250" modified:"1686173250" status:"pending" uuid:"1fc85248-5f69-43df-8b15-04d648a6a61f"]
+[annotation_1686244614:"include concessions CTI" description:"Summarize second discussion on the sim" entry:"1686244562" modified:"1686244614" status:"pending" uuid:"1a86fa04-e13c-4e50-baf7-6c5c934356de"]

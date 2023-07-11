@@ -11,27 +11,33 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/tool
+~MSle0~/toolbox
 
 # Last Substitute Search Pattern:
-~MSle0&\n *\([A-z]\)
+~MSle0&\t
 
 # Last Substitute String:
 $
 
 # Command Line History (newest to oldest):
-:wq
-|2,0,1686233201,,"wq"
 :q
-|2,0,1686159225,,"q"
+|2,0,1686252876,,"q"
+:wq
+|2,0,1686252754,,"wq"
+:w
+|2,0,1686246395,,"w"
+:wq!
+|2,0,1686240273,,"wq!"
+:w!
+|2,0,1686240231,,"w!"
+:%s/\t/    /g
+|2,0,1686236674,,"%s/\\t/    /g"
 :q!
 |2,0,1686157300,,"q!"
 :Q
 |2,0,1686157298,,"Q"
 :1
 |2,0,1686154864,,"1"
-:w
-|2,0,1686147514,,"w"
 :%s/\n//g
 |2,0,1686084120,,"%s/\\n//g"
 :%s/"/\\"/g
@@ -114,20 +120,54 @@ $
 |2,0,1685045748,,"%s/\\([\\[{,]\\)/\\1\\r/g | %s/\\([\\]}]\\)/\\r\\1/g"
 :%s/\([\[,]\)/\1\r/g | %s/\([\]}]\)/\r\1/g
 |2,0,1685045467,,"%s/\\([\\[,]\\)/\\1\\r/g | %s/\\([\\]}]\\)/\\r\\1/g"
-:%s/\([\[,]\)/\1\r/g | %s/\([\]}\)/\r\1/g | 
-|2,0,1685045433,,"%s/\\([\\[,]\\)/\\1\\r/g | %s/\\([\\]}\\)/\\r\\1/g | "
-:%s/\([,]\)/\1\r/g | %s/}/\r}/g
-|2,0,1685045358,,"%s/\\([,]\\)/\\1\\r/g | %s/}/\\r}/g"
-:%s/\([,{]\)/\1\r/g | %s/}/\r}/g
-|2,0,1685045287,,"%s/\\([,{]\\)/\\1\\r/g | %s/}/\\r}/g"
 
 # Search String History (newest to oldest):
-? \s\+$
-|2,1,1686233201,,"\\s\\+$"
-?/tool
-|2,1,1686233193,47,"tool"
 ?/toolbox
-|2,1,1686167583,47,"toolbox"
+|2,1,1686252814,47,"toolbox"
+? \s\+$
+|2,1,1686252754,,"\\s\\+$"
+?/AWSJavaClientRuntime
+|2,1,1686252000,47,"AWSJavaClientRuntime"
+?/Jackson
+|2,1,1686251989,47,"Jackson"
+?/Jacsks
+|2,1,1686251987,47,"Jacsks"
+?/CurlSource
+|2,1,1686245279,47,"CurlSource"
+?/Tomcat
+|2,1,1686243249,47,"Tomcat"
+? \<TomcatSSOFilter\>
+|2,1,1686242280,,"\\<TomcatSSOFilter\\>"
+?/.toolbox
+|2,1,1686239293,47,".toolbox"
+?/completor-neosnippet
+|2,1,1686239096,47,"completor-neosnippet"
+?/.gitmodules
+|2,1,1686236830,47,".gitmodules"
+?/che
+|2,1,1686236743,47,"che"
+? \t
+|2,1,1686236674,,"\\t"
+?/tool
+|2,1,1686236640,47,"tool"
+?/setup
+|2,1,1686236553,47,"setup"
+?/sso-
+|2,1,1686236512,47,"sso-"
+?/SpringWeb
+|2,1,1686236572,47,"SpringWeb"
+?/NimbusJOSEJWT
+|2,1,1686236228,47,"NimbusJOSEJWT"
+?/PCELegacyInterface
+|2,1,1686233819,47,"PCELegacyInterface"
+?/AWSJavaSDKExternalRelease
+|2,1,1686233794,47,"AWSJavaSDKExternalRelease"
+?/Jackson-mapper
+|2,1,1686233478,47,"Jackson-mapper"
+?/Jackson-Mma
+|2,1,1686233471,47,"Jackson-Mma"
+?/Lab126
+|2,1,1686233467,47,"Lab126"
 ?/cloud
 |2,1,1686160524,47,"cloud"
 ?/\ccloud
@@ -182,46 +222,6 @@ $
 |2,1,1685727069,,"[^m]*m"
 ? \<return_event_id\>
 |2,1,1685724401,,"\\<return_event_id\\>"
-? \<RETURN_EVENTS_INBOUND\>
-|2,1,1685724398,,"\\<RETURN_EVENTS_INBOUND\\>"
-? \<return_event_type\>
-|2,1,1685724386,,"\\<return_event_type\\>"
-?/tail
-|2,1,1685724149,47,"tail"
-? [\[3.m//g
-|2,1,1685723890,,"[\\[3.m//g"
-? ^\[\[3.m
-|2,1,1685723872,,"^\\[\\[3.m"
-? \[3.m
-|2,1,1685723854,,"\\[3.m"
-? [3.m//g
-|2,1,1685723842,,"[3.m//g"
-?/[3.m
-|2,1,1685723831,47,"[3.m"
-?/Is the Return
-|2,1,1685723737,47,"Is the Return"
-? \<echo\>
-|2,1,1685723722,,"\\<echo\\>"
-? \<credentials\>
-|2,1,1685721371,,"\\<credentials\\>"
-? \<inbound_record\>
-|2,1,1685720877,,"\\<inbound_record\\>"
-?/\<reset\>
-|2,1,1685720597,47,"\\<reset\\>"
-? \<reset\>
-|2,1,1685720590,,"\\<reset\\>"
-? \<ReturnEventId\>
-|2,1,1685719846,,"\\<ReturnEventId\\>"
-? \<region\>
-|2,1,1685719556,,"\\<region\\>"
-?/dynamodb
-|2,1,1685719433,47,"dynamodb"
-?/dynamo
-|2,1,1685719399,47,"dynamo"
-? \<mycli\>
-|2,1,1685719291,,"\\<mycli\\>"
-? \t
-|2,1,1685647363,,"\\t"
 
 # Expression History (newest to oldest):
 
@@ -230,46 +230,36 @@ $
 # Debug Line History (newest to oldest):
 
 # Registers:
-""0	LINE	0
-	.toolbox/
-|3,1,0,1,1,0,1686167589,".toolbox/"
-"1	LINE	0
-	git rm -r --cached .;
-|3,0,1,1,1,0,1686156729,"git rm -r --cached .;"
+"0	LINE	0
+	.tldrc/*
+|3,0,0,1,1,0,1686246429,".tldrc/*"
+""1	LINE	0
+	git rm -r --cached .
+|3,1,1,1,1,0,1686252742,"git rm -r --cached ."
 "2	LINE	0
-	git ls-files -i --exclude-standard | xargs -L1 git rm --cached
-|3,0,2,1,1,0,1686156622,"git ls-files -i --exclude-standard | xargs -L1 git rm --cached"
+	.toolbox/*
+|3,0,2,1,1,0,1686246414,".toolbox/*"
 "3	LINE	0
-	!scripts/
-	!scripts/*
-	!scripts/**
-|3,0,3,1,3,0,1686156411,"!scripts/","!scripts/*","!scripts/**"
+	!.tldrc/**
+|3,0,3,1,1,0,1686239299,"!.tldrc/**"
 "4	LINE	0
-	
-|3,0,4,1,1,0,1686147273,""
+	!.tldrc/
+|3,0,4,1,1,0,1686239299,"!.tldrc/"
 "5	LINE	0
-	echo "If the component is 'xSourceToStagingCopyActivity', the error message is connection time out. Then the problem is data pipeline could not connect to our database (RDS KRIBS or KDMS). To fix it:
-	1. Go to KRIBS or KDMS AWS account, depends which one was failed (you can tell from the data pipeline name).
-	2. Go to RDS service, find out the available zone (AZ) of the RDS reader.
-	3. Select EC2 service, go to Network Interfaces.
-	4. Find out the IP address, which Description is 'RDSNetork...', and AZ matches the RDS reader.
-	5. Go to Load Balancing > Target Groups. Find out the one has no registered target at Targets tab.
-	6. Click Edit, click The + button, input the IP address found above; the port number is 8192 by default, leave as it is.
-	7. Click Register. After a couple of minutes you should see the Heathy? column becomes yes.";
-|3,0,5,1,8,0,1686147087,"echo \"If the component is 'xSourceToStagingCopyActivity', the error message is connection time out. Then the problem is data pipeline could not connect to our database (RDS KRIBS or KDMS). To fix it:","1. Go to KRIBS or KDMS AWS account, depends which one was failed (you can tell from the data pipeline name).","2. Go to RDS service, find out the available zone (AZ) of the RDS reader.",>50
-|<"3. Select EC2 service, go to Network Interfaces.","4. Find out the IP address, which Description is 'RDSNetork...', and AZ matches the RDS reader.","5. Go to Load Balancing > Target Groups. Find out the one has no registered target at Targets tab.","6. Click Edit, click The + button, input the IP address found above; the port number is 8192 by default, leave as it is.","7. Click Register. After a couple of minutes you should see the Heathy? column becomes yes.\";"
+	!.toolbox/**
+|3,0,5,1,1,0,1686239297,"!.toolbox/**"
 "6	LINE	0
-	
-|3,0,6,1,1,0,1686146936,""
+	!.toolbox/*
+|3,0,6,1,1,0,1686239296,"!.toolbox/*"
 "7	LINE	0
-	
-|3,0,7,1,1,0,1686146935,""
+	!.toolbox/
+|3,0,7,1,1,0,1686239296,"!.toolbox/"
 "8	LINE	0
-	
-|3,0,8,1,1,0,1686146934,""
+		url = https://github.com/cheat/cheatsheets/community.git
+|3,0,8,1,1,0,1686236654,"	url = https://github.com/cheat/cheatsheets/community.git"
 "9	LINE	0
-	
-|3,0,9,1,1,0,1686146934,""
+	            PCELegacyInterface = 1.2;
+|3,0,9,1,1,0,1686233861,"            PCELegacyInterface = 1.2;"
 "a	LINE	0
 	
 	import com.amazon.coralx.exception.ExceptionTranslation;
@@ -317,254 +307,413 @@ $
 |<"import com.amazon.kindle.returns.common.model.PostInboundGuidanceValue;","import com.amazon.kindle.returns.common.model.ReturnEventNotFoundException;","import com.amazon.kindle.returns.common.model.ReturnEventType;","import com.amazon.kindle.returns.common.model.ScreeningEntry;","import com.amazon.kindle.returns.common.model.ServiceException;","import com.amazon.kindle.returns.common.model.StationTouch;","import com.amazon.kindle.returns.dashboard.DeviceStatus;",>58
 |<"import com.amazon.kindle.returns.dashboard.ReturnDevice;","import com.amazon.kindle.returns.dis.facades.DeviceIngestionServiceFacade;","import com.amazon.kindle.returns.screening.IdNotFoundException;","import com.amazon.kindle.returns.screening.ScreeningDetails;","import com.amazonaws.http.HttpMethodName;","import com.google.common.collect.ImmutableSet;"
 "-	CHAR	0
-	      "outboundStatus": "WaitingForScreening",
-|3,0,36,0,1,0,1685732259,"      \"outboundStatus\": \"WaitingForScreening\","
+	1.3;
+|3,0,36,0,1,0,1686240223,"1.3;"
 
 # File marks:
-'0  78  0  ~/.gitignore
-|4,48,78,0,1686233201,"~/.gitignore"
-'1  77  9  ~/.gitignore
-|4,49,77,9,1686167592,"~/.gitignore"
-'2  77  9  ~/.gitignore
-|4,50,77,9,1686167592,"~/.gitignore"
-'3  335  22  ~/.scripts/on-call
-|4,51,335,22,1686165354,"~/.scripts/on-call"
-'4  247  0  ~/.scripts/on-call
-|4,52,247,0,1686160525,"~/.scripts/on-call"
-'5  246  0  ~/.scripts/on-call
-|4,53,246,0,1686160525,"~/.scripts/on-call"
-'6  181  0  ~/scripts/stand-up
-|4,54,181,0,1686159225,"~/scripts/stand-up"
-'7  33  0  ~/.scripts/on-call
-|4,55,33,0,1686159151,"~/.scripts/on-call"
-'8  33  0  ~/.scripts/on-call
-|4,56,33,0,1686159151,"~/.scripts/on-call"
-'9  33  0  ~/.scripts/on-call
-|4,57,33,0,1686159151,"~/.scripts/on-call"
+'0  2  62  ~/scripts/git-re-ignore
+|4,48,2,62,1686252876,"~/scripts/git-re-ignore"
+'1  6  7  ~/.gitignore
+|4,49,6,7,1686252821,"~/.gitignore"
+'2  2  0  ~/scripts/git-re-ignore
+|4,50,2,0,1686252786,"~/scripts/git-re-ignore"
+'3  1  0  ~/scripts/git-re-ignore
+|4,51,1,0,1686252754,"~/scripts/git-re-ignore"
+'4  1  0  ~/scripts/git-re-ignore
+|4,52,1,0,1686252754,"~/scripts/git-re-ignore"
+'5  1  0  ~/scripts/git-re-ignore
+|4,53,1,0,1686252754,"~/scripts/git-re-ignore"
+'6  1  0  ~/scripts/git-re-ignore
+|4,54,1,0,1686252754,"~/scripts/git-re-ignore"
+'7  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo
+|4,55,1,0,1686252149,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo"
+'8  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,56,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+'9  11  6  ~/.gitignore
+|4,57,11,6,1686246434,"~/.gitignore"
 
 # Jumplist (newest first):
--'  78  0  ~/.gitignore
-|4,39,78,0,1686233201,"~/.gitignore"
--'  77  9  ~/.gitignore
-|4,39,77,9,1686233193,"~/.gitignore"
--'  77  9  ~/.gitignore
-|4,39,77,9,1686167592,"~/.gitignore"
--'  73  0  ~/.gitignore
-|4,39,73,0,1686167583,"~/.gitignore"
--'  73  0  ~/.gitignore
-|4,39,73,0,1686167583,"~/.gitignore"
--'  335  22  ~/.scripts/on-call
-|4,39,335,22,1686165354,"~/.scripts/on-call"
--'  335  22  ~/.scripts/on-call
-|4,39,335,22,1686165354,"~/.scripts/on-call"
--'  335  22  ~/.scripts/on-call
-|4,39,335,22,1686165354,"~/.scripts/on-call"
--'  335  22  ~/.scripts/on-call
-|4,39,335,22,1686165354,"~/.scripts/on-call"
--'  247  0  ~/.scripts/on-call
-|4,39,247,0,1686165310,"~/.scripts/on-call"
--'  247  0  ~/.scripts/on-call
-|4,39,247,0,1686165310,"~/.scripts/on-call"
--'  247  0  ~/.scripts/on-call
-|4,39,247,0,1686165310,"~/.scripts/on-call"
--'  247  0  ~/.scripts/on-call
-|4,39,247,0,1686165310,"~/.scripts/on-call"
--'  246  0  ~/.scripts/on-call
-|4,39,246,0,1686160525,"~/.scripts/on-call"
--'  246  0  ~/.scripts/on-call
-|4,39,246,0,1686160525,"~/.scripts/on-call"
--'  246  0  ~/.scripts/on-call
-|4,39,246,0,1686160525,"~/.scripts/on-call"
--'  246  0  ~/.scripts/on-call
-|4,39,246,0,1686160525,"~/.scripts/on-call"
--'  33  0  ~/.scripts/on-call
-|4,39,33,0,1686160224,"~/.scripts/on-call"
--'  33  0  ~/.scripts/on-call
-|4,39,33,0,1686160224,"~/.scripts/on-call"
--'  33  0  ~/.scripts/on-call
-|4,39,33,0,1686160224,"~/.scripts/on-call"
--'  33  0  ~/.scripts/on-call
-|4,39,33,0,1686160224,"~/.scripts/on-call"
--'  33  0  ~/.scripts/on-call
-|4,39,33,0,1686160224,"~/.scripts/on-call"
--'  33  0  ~/.scripts/on-call
-|4,39,33,0,1686160224,"~/.scripts/on-call"
--'  33  0  ~/.scripts/on-call
-|4,39,33,0,1686160224,"~/.scripts/on-call"
--'  33  0  ~/.scripts/on-call
-|4,39,33,0,1686160224,"~/.scripts/on-call"
--'  181  0  ~/scripts/stand-up
-|4,39,181,0,1686159225,"~/scripts/stand-up"
--'  181  0  ~/scripts/stand-up
-|4,39,181,0,1686159225,"~/scripts/stand-up"
--'  181  0  ~/scripts/stand-up
-|4,39,181,0,1686159225,"~/scripts/stand-up"
--'  181  0  ~/scripts/stand-up
-|4,39,181,0,1686159225,"~/scripts/stand-up"
--'  181  0  ~/scripts/stand-up
-|4,39,181,0,1686159225,"~/scripts/stand-up"
--'  181  0  ~/scripts/stand-up
-|4,39,181,0,1686159225,"~/scripts/stand-up"
--'  181  0  ~/scripts/stand-up
-|4,39,181,0,1686159225,"~/scripts/stand-up"
--'  181  0  ~/scripts/stand-up
-|4,39,181,0,1686159225,"~/scripts/stand-up"
--'  181  0  ~/scripts/stand-up
-|4,39,181,0,1686159225,"~/scripts/stand-up"
--'  181  0  ~/scripts/stand-up
-|4,39,181,0,1686159225,"~/scripts/stand-up"
--'  181  0  ~/scripts/stand-up
-|4,39,181,0,1686159225,"~/scripts/stand-up"
--'  181  0  ~/scripts/stand-up
-|4,39,181,0,1686159225,"~/scripts/stand-up"
--'  181  0  ~/scripts/stand-up
-|4,39,181,0,1686159225,"~/scripts/stand-up"
--'  181  0  ~/scripts/stand-up
-|4,39,181,0,1686159225,"~/scripts/stand-up"
--'  181  0  ~/scripts/stand-up
-|4,39,181,0,1686159225,"~/scripts/stand-up"
--'  181  0  ~/scripts/stand-up
-|4,39,181,0,1686159225,"~/scripts/stand-up"
--'  279  1  ~/scripts/stand-up
-|4,39,279,1,1686159161,"~/scripts/stand-up"
--'  279  1  ~/scripts/stand-up
-|4,39,279,1,1686159161,"~/scripts/stand-up"
--'  279  1  ~/scripts/stand-up
-|4,39,279,1,1686159161,"~/scripts/stand-up"
--'  279  1  ~/scripts/stand-up
-|4,39,279,1,1686159161,"~/scripts/stand-up"
--'  279  1  ~/scripts/stand-up
-|4,39,279,1,1686159161,"~/scripts/stand-up"
--'  279  1  ~/scripts/stand-up
-|4,39,279,1,1686159161,"~/scripts/stand-up"
--'  279  1  ~/scripts/stand-up
-|4,39,279,1,1686159161,"~/scripts/stand-up"
--'  279  1  ~/scripts/stand-up
-|4,39,279,1,1686159161,"~/scripts/stand-up"
--'  279  1  ~/scripts/stand-up
-|4,39,279,1,1686159161,"~/scripts/stand-up"
--'  279  1  ~/scripts/stand-up
-|4,39,279,1,1686159161,"~/scripts/stand-up"
--'  279  1  ~/scripts/stand-up
-|4,39,279,1,1686159161,"~/scripts/stand-up"
--'  279  1  ~/scripts/stand-up
-|4,39,279,1,1686159161,"~/scripts/stand-up"
--'  279  1  ~/scripts/stand-up
-|4,39,279,1,1686159161,"~/scripts/stand-up"
--'  279  1  ~/scripts/stand-up
-|4,39,279,1,1686159161,"~/scripts/stand-up"
--'  279  1  ~/scripts/stand-up
-|4,39,279,1,1686159161,"~/scripts/stand-up"
--'  279  1  ~/scripts/stand-up
-|4,39,279,1,1686159161,"~/scripts/stand-up"
--'  224  7  ~/scripts/stand-up
-|4,39,224,7,1686159160,"~/scripts/stand-up"
--'  224  7  ~/scripts/stand-up
-|4,39,224,7,1686159160,"~/scripts/stand-up"
--'  224  7  ~/scripts/stand-up
-|4,39,224,7,1686159160,"~/scripts/stand-up"
--'  224  7  ~/scripts/stand-up
-|4,39,224,7,1686159160,"~/scripts/stand-up"
--'  224  7  ~/scripts/stand-up
-|4,39,224,7,1686159160,"~/scripts/stand-up"
--'  224  7  ~/scripts/stand-up
-|4,39,224,7,1686159160,"~/scripts/stand-up"
--'  224  7  ~/scripts/stand-up
-|4,39,224,7,1686159160,"~/scripts/stand-up"
--'  224  7  ~/scripts/stand-up
-|4,39,224,7,1686159160,"~/scripts/stand-up"
--'  224  7  ~/scripts/stand-up
-|4,39,224,7,1686159160,"~/scripts/stand-up"
--'  224  7  ~/scripts/stand-up
-|4,39,224,7,1686159160,"~/scripts/stand-up"
--'  224  7  ~/scripts/stand-up
-|4,39,224,7,1686159160,"~/scripts/stand-up"
--'  224  7  ~/scripts/stand-up
-|4,39,224,7,1686159160,"~/scripts/stand-up"
--'  224  7  ~/scripts/stand-up
-|4,39,224,7,1686159160,"~/scripts/stand-up"
--'  224  7  ~/scripts/stand-up
-|4,39,224,7,1686159160,"~/scripts/stand-up"
--'  224  7  ~/scripts/stand-up
-|4,39,224,7,1686159160,"~/scripts/stand-up"
--'  224  7  ~/scripts/stand-up
-|4,39,224,7,1686159160,"~/scripts/stand-up"
--'  212  4  ~/scripts/stand-up
-|4,39,212,4,1686159158,"~/scripts/stand-up"
--'  212  4  ~/scripts/stand-up
-|4,39,212,4,1686159158,"~/scripts/stand-up"
--'  212  4  ~/scripts/stand-up
-|4,39,212,4,1686159158,"~/scripts/stand-up"
--'  212  4  ~/scripts/stand-up
-|4,39,212,4,1686159158,"~/scripts/stand-up"
--'  212  4  ~/scripts/stand-up
-|4,39,212,4,1686159158,"~/scripts/stand-up"
--'  212  4  ~/scripts/stand-up
-|4,39,212,4,1686159158,"~/scripts/stand-up"
--'  212  4  ~/scripts/stand-up
-|4,39,212,4,1686159158,"~/scripts/stand-up"
--'  212  4  ~/scripts/stand-up
-|4,39,212,4,1686159158,"~/scripts/stand-up"
--'  212  4  ~/scripts/stand-up
-|4,39,212,4,1686159158,"~/scripts/stand-up"
--'  212  4  ~/scripts/stand-up
-|4,39,212,4,1686159158,"~/scripts/stand-up"
--'  212  4  ~/scripts/stand-up
-|4,39,212,4,1686159158,"~/scripts/stand-up"
--'  212  4  ~/scripts/stand-up
-|4,39,212,4,1686159158,"~/scripts/stand-up"
--'  212  4  ~/scripts/stand-up
-|4,39,212,4,1686159158,"~/scripts/stand-up"
--'  212  4  ~/scripts/stand-up
-|4,39,212,4,1686159158,"~/scripts/stand-up"
--'  212  4  ~/scripts/stand-up
-|4,39,212,4,1686159158,"~/scripts/stand-up"
--'  212  4  ~/scripts/stand-up
-|4,39,212,4,1686159158,"~/scripts/stand-up"
--'  33  0  ~/.scripts/on-call
-|4,39,33,0,1686159151,"~/.scripts/on-call"
--'  33  0  ~/.scripts/on-call
-|4,39,33,0,1686159151,"~/.scripts/on-call"
--'  33  0  ~/.scripts/on-call
-|4,39,33,0,1686159151,"~/.scripts/on-call"
--'  33  0  ~/.scripts/on-call
-|4,39,33,0,1686159151,"~/.scripts/on-call"
--'  33  0  ~/.scripts/on-call
-|4,39,33,0,1686159151,"~/.scripts/on-call"
--'  33  0  ~/.scripts/on-call
-|4,39,33,0,1686159151,"~/.scripts/on-call"
--'  33  0  ~/.scripts/on-call
-|4,39,33,0,1686159151,"~/.scripts/on-call"
--'  33  0  ~/.scripts/on-call
-|4,39,33,0,1686159151,"~/.scripts/on-call"
--'  31  125  ~/.scripts/on-call
-|4,39,31,125,1686159150,"~/.scripts/on-call"
--'  31  125  ~/.scripts/on-call
-|4,39,31,125,1686159150,"~/.scripts/on-call"
--'  31  125  ~/.scripts/on-call
-|4,39,31,125,1686159150,"~/.scripts/on-call"
+-'  2  62  ~/scripts/git-re-ignore
+|4,39,2,62,1686252876,"~/scripts/git-re-ignore"
+-'  6  7  ~/.gitignore
+|4,39,6,7,1686252821,"~/.gitignore"
+-'  6  7  ~/.gitignore
+|4,39,6,7,1686252821,"~/.gitignore"
+-'  9  1  ~/.gitignore
+|4,39,9,1,1686252816,"~/.gitignore"
+-'  8  1  ~/.gitignore
+|4,39,8,1,1686252816,"~/.gitignore"
+-'  7  1  ~/.gitignore
+|4,39,7,1,1686252816,"~/.gitignore"
+-'  9  1  ~/.gitignore
+|4,39,9,1,1686252816,"~/.gitignore"
+-'  8  1  ~/.gitignore
+|4,39,8,1,1686252816,"~/.gitignore"
+-'  7  1  ~/.gitignore
+|4,39,7,1,1686252816,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686252814,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686252814,"~/.gitignore"
+-'  2  0  ~/scripts/git-re-ignore
+|4,39,2,0,1686252786,"~/scripts/git-re-ignore"
+-'  2  0  ~/scripts/git-re-ignore
+|4,39,2,0,1686252786,"~/scripts/git-re-ignore"
+-'  1  0  ~/scripts/git-re-ignore
+|4,39,1,0,1686252785,"~/scripts/git-re-ignore"
+-'  1  0  ~/scripts/git-re-ignore
+|4,39,1,0,1686252785,"~/scripts/git-re-ignore"
+-'  1  0  ~/scripts/git-re-ignore
+|4,39,1,0,1686252785,"~/scripts/git-re-ignore"
+-'  1  0  ~/scripts/git-re-ignore
+|4,39,1,0,1686252754,"~/scripts/git-re-ignore"
+-'  1  0  ~/scripts/git-re-ignore
+|4,39,1,0,1686252754,"~/scripts/git-re-ignore"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo
+|4,39,1,0,1686252149,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo
+|4,39,1,0,1686252149,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo
+|4,39,1,0,1686252149,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo
+|4,39,1,0,1686252149,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo
+|4,39,1,0,1686252149,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo
+|4,39,1,0,1686252149,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo
+|4,39,1,0,1686252149,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo
+|4,39,1,0,1686252149,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo
+|4,39,1,0,1686252149,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo
+|4,39,1,0,1686252149,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo
+|4,39,1,0,1686252149,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo
+|4,39,1,0,1686252149,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo
+|4,39,1,0,1686252149,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo
+|4,39,1,0,1686252149,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo
+|4,39,1,0,1686252149,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo
+|4,39,1,0,1686252149,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  1  0  ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+|4,39,1,0,1686252024,"~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  11  6  ~/.gitignore
+|4,39,11,6,1686246434,"~/.gitignore"
+-'  10  5  ~/.gitignore
+|4,39,10,5,1686246405,"~/.gitignore"
+-'  10  5  ~/.gitignore
+|4,39,10,5,1686246405,"~/.gitignore"
 
 # Buffer list:
-%~/.gitignore	78	0
+%~/scripts/git-re-ignore	2	62
 
 # History of marks within files (newest to oldest):
 
+> ~/scripts/git-re-ignore
+	*	1686252874	0
+	"	2	62
+	^	1	0
+	.	2	0
+	+	4	9
+	+	1	20
+	+	6	62
+	+	6	0
+	+	1	15
+	+	2	15
+	+	1	0
+	+	2	0
+	+	5	16
+	+	1	0
+	+	3	0
+	+	1	0
+	+	2	0
+	z	1	0
+
 > ~/.gitignore
-	*	1686233201	0
-	"	78	0
-	^	78	1
-	.	78	0
-	+	29	9
-	+	67	10
-	+	29	0
-	+	114	0
-	+	76	0
-	+	78	0
-	+	77	9
-	+	76	0
-	+	77	0
-	+	78	0
-	z	78	0
+	*	1686252820	0
+	"	6	7
+	^	11	7
+	.	11	7
+	+	36	9
+	+	75	10
+	+	36	0
+	+	117	0
+	+	82	0
+	+	82	9
+	+	82	0
+	+	66	0
+	+	82	0
+	+	6	7
+	+	10	5
+	+	11	9
+	+	11	0
+	+	7	0
+	+	8	11
+	+	9	10
+	+	8	10
+	+	7	9
+	+	12	0
+	+	13	8
+	+	11	7
+	z	11	6
+
+> ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/.git/rebase-merge/git-rebase-todo
+	*	1686252149	0
+	"	1	0
+	z	1	0
+
+> ~/Dev/CommitMessageAnalyzer/CommitMessageAnalyzer/src/CommitMessageAnalyzer/Config
+	*	1686252024	0
+	"	1	0
+	z	1	0
+
+> ~/Dev/KindleReturnsFATSWebsite/KindleReturnsFATSWebsite/src/KindleReturnsFATSWebsite/.git/rebase-merge/git-rebase-todo
+	*	1686245372	0
+	"	1	0
+	z	1	0
+
+> ~/Dev/KindleReturnsFATSWebsite/KindleReturnsFATSWebsite/src/KindleReturnsFATSWebsite/Config
+	*	1686245321	0
+	"	60	0
+	z	60	0
+
+> ~/Dev/KindleReplacementInfoWebsite/KindleReplacementInfoWebsite/src/KindleReplacementInfoWebsite/Config
+	*	1686243251	0
+	"	98	13
+	^	98	36
+	.	98	0
+	+	98	0
+	z	98	13
+
+> ~/Dev/KindleReturnsInboundService/KindleReturnsInboundService/src/KindleReturnsInboundService/.git/rebase-merge/git-rebase-todo
+	*	1686243036	0
+	"	1	0
+	z	1	0
+
+> ~/Dev/KindleReturnsInboundService/KindleReturnsInboundService/src/KindleReturnsInboundService/Config
+	*	1686243023	0
+	"	1	0
+	z	1	0
+
+> ~/Dev/KindleRLPortalReact/KindleRLPortalReact/src/KindleRLPortalReact/Config
+	*	1686242281	0
+	"	73	12
+	^	73	34
+	.	73	0
+	+	73	0
+	z	73	12
+
+> ~/scripts/git-recommit
+	*	1686239328	0
+	"	1	0
+
+> ~/.gitmodules
+	*	1686239098	0
+	"	43	24
+	^	52	23
+	.	52	22
+	+	46	0
+	+	47	42
+	+	46	46
+	+	48	25
+	+	49	19
+	+	50	15
+	+	53	0
+	+	50	4
+	+	48	4
+	+	47	4
+	+	2	0
+	+	49	0
+	+	51	23
+	+	52	22
+	z	52	22
+
+> ~/Dev/KindleReplacementInfoWebsite/src/KindleReplacementInfoWebsite/build.xml
+	*	1686236583	0
+	"	97	42
+
+> ~/Dev/KindleReturnsOutboundService/KindleReturnsOutboundService/src/KindleReturnsOutboundService/.git/rebase-merge/git-rebase-todo
+	*	1686234999	0
+	"	1	0
+	z	1	0
+
+> ~/.git/COMMIT_EDITMSG
+	*	1686234926	0
+	"	1	19
+	^	1	20
+	.	1	19
+	+	6	16
+	+	5	1
+	+	1	14
+	+	3	34
+	+	1	19
+	z	1	19
+
+> ~/Dev/KindleReturnsOutboundService/KindleReturnsOutboundService/src/KindleReturnsOutboundService/Config
+	*	1686234508	0
+	"	1	0
+	z	1	0
+
+> ~/Dev/KindleDeviceMappingService/KindleDeviceMappingService/src/KindleDeviceMappingService/Config
+	*	1686233883	0
+	"	63	12
+	^	129	26
+	.	129	25
+	+	63	37
+	+	64	0
+	+	63	0
+	+	128	25
+	+	135	36
+	+	130	0
+	+	129	25
+	z	63	12
+
+> ~/Dev/versionsets_sas.txt
+	*	1686233351	0
+	"	9	0
+	.	9	0
+	+	10	0
+	+	3	0
+	+	10	0
+	+	4	0
+	+	10	0
+	+	6	0
+	+	10	0
+	+	7	0
+	+	10	0
+	+	1	0
+	+	9	0
+	z	9	0
 
 > ~/.scripts/on-call
 	*	1686165354	0
@@ -639,46 +788,9 @@ $
 	+	212	46
 	z	212	4
 
-> ~/scripts/git-re-ignore
-	*	1686156835	0
-	"	2	0
-	^	2	1
-	.	2	0
-	+	3	9
-	+	1	20
-	+	4	62
-	+	4	0
-	+	1	15
-	+	2	15
-	+	1	0
-	+	2	0
-	z	2	0
-
 > ~/scripts/git-rebase-authors
 	*	1686156644	0
 	"	1	0
-
-> ~/.gitmodules
-	*	1686155911	0
-	"	48	24
-	^	48	25
-	.	48	25
-	+	46	0
-	+	47	42
-	+	46	46
-	+	48	25
-	z	48	24
-
-> ~/.git/COMMIT_EDITMSG
-	*	1686155799	0
-	"	3	34
-	^	3	35
-	.	3	34
-	+	6	16
-	+	5	1
-	+	1	14
-	+	3	34
-	z	3	34
 
 > ~/Library/CloudStorage/WorkDocsDrive-Documents/oncall_scripts/fixpackage
 	*	1686154738	0
@@ -1940,201 +2052,3 @@ $
 	+	6	53
 	+	4	0
 	z	6	53
-
-> ~/Work/DRBS/src/DeviceReturnsBorderService/src/com/amazon/devicereturnsborderservice/guice/DependencyModule.java
-	*	1684245764	0
-	"	114	22
-	^	114	23
-	.	114	31
-	+	114	31
-	z	114	22
-
-> ~/Work/DRBS/src/DeviceReturnsInventoryInterface/.git/COMMIT_EDITMSG
-	*	1684244465	0
-	"	9	38
-	^	9	39
-	.	28	0
-	+	6	3
-	+	3	45
-	+	4	0
-	+	9	38
-	+	28	0
-	z	9	38
-
-> ~/Dev/qotd.txt
-	*	1684243656	0
-	"	1	99
-	.	1	0
-	+	1	0
-	z	1	99
-
-> ~/scripts/qotd
-	*	1684243631	0
-	"	98	22
-	^	98	23
-	.	98	22
-	+	1	115
-	+	182	4
-	+	98	22
-	z	98	22
-
-> ~/helpers/help
-	*	1684243567	0
-	"	22	8
-
-> ~/helpers/pre-process
-	*	1684243543	0
-	"	1	0
-
-> ~/helpers/check-installs
-	*	1684243531	0
-	"	1	0
-
-> ~/helpers/traps
-	*	1684243517	0
-	"	1	0
-
-> ~/.scripts/init
-	*	1684243316	0
-	"	1	0
-
-> ~/install.sh
-	*	1684171445	0
-	"	947	0
-	.	939	0
-	+	946	0
-	+	947	0
-	+	946	0
-	+	948	0
-	+	939	0
-	z	947	0
-
-> ~/.gogpt
-	*	1684170686	0
-	"	1	0
-
-> ~/.config/gogpt/config.yaml
-	*	1684170675	0
-	"	3	0
-
-> ~/Library/CloudStorage/WorkDocsDrive-Documents/Notes/OOO.md
-	*	1684170264	0
-	"	24	88
-	^	24	89
-	.	24	88
-	+	7	3
-	+	8	3
-	+	9	3
-	+	10	125
-	+	7	132
-	+	8	105
-	+	24	1
-	+	24	88
-	z	24	88
-
-> ~/.ticker.yaml
-	*	1683901917	0
-	"	98	21
-	^	98	22
-	.	68	0
-	+	57	16
-	+	57	21
-	+	60	11
-	+	61	0
-	+	57	0
-	+	102	0
-	+	60	0
-	+	102	0
-	+	29	0
-	+	12	0
-	+	13	0
-	+	12	6
-	+	13	6
-	+	15	5
-	+	14	3
-	+	15	3
-	+	62	0
-	+	63	19
-	+	102	0
-	+	58	15
-	+	102	0
-	+	66	0
-	+	70	0
-	+	74	0
-	+	78	0
-	+	82	0
-	+	86	0
-	+	90	0
-	+	94	0
-	+	98	0
-	+	71	19
-	+	75	19
-	+	79	19
-	+	83	18
-	+	87	20
-	+	91	20
-	+	95	20
-	+	99	20
-	+	62	0
-	+	66	0
-	+	62	0
-	+	63	18
-	+	67	18
-	+	71	18
-	+	75	18
-	+	79	19
-	+	83	19
-	+	87	20
-	+	91	20
-	+	99	20
-	+	95	20
-	+	65	13
-	+	69	18
-	+	72	0
-	+	77	18
-	+	81	15
-	+	85	18
-	+	89	21
-	+	93	18
-	+	97	0
-	+	101	0
-	+	97	15
-	+	101	18
-	+	62	0
-	+	33	0
-	+	32	0
-	+	33	0
-	+	32	17
-	+	36	11
-	+	40	14
-	+	44	17
-	+	48	17
-	+	52	17
-	+	56	17
-	+	27	7
-	+	19	0
-	+	16	0
-	+	17	0
-	+	18	0
-	+	13	0
-	+	64	26
-	+	73	0
-	+	68	27
-	+	78	0
-	+	76	27
-	+	80	0
-	+	84	0
-	+	88	0
-	+	92	0
-	+	96	0
-	+	100	0
-	+	80	0
-	+	92	26
-	+	84	27
-	+	92	18
-	+	88	18
-	+	92	26
-	+	96	26
-	+	100	25
-	+	68	0
-	z	98	21
