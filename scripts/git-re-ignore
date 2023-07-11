@@ -1,0 +1,5 @@
+git ls-files -ic --exclude-standard | xargs -L1 git rm --cached
+git ls-files -io --exclude-standard | xargs -L1 git rm --cached
+git rm -r --cached .
+git add .;
+git ls-tree HEAD;

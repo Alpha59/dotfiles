@@ -43,3 +43,7 @@
 [submodule ".vim/bundle/completor-neosnippet"]
 	path = .vim/bundle/completor-neosnippet
 	url = https://github.com/maralla/completor-neosnippet.git
+[submodule ".toolbox"]
+    	path = .toolbox
+[submodule ".tldrc/tldr/"]
+    	path = .tldrc/tldr/

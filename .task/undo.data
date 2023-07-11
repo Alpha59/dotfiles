@@ -1,0 +1,804 @@
+time 1682365595
+new [description:"Find missing Cross Docs" entry:"1682365595" modified:"1682365595" status:"pending" uuid:"969f6299-a222-4d1d-9d6b-4e7af801b416"]
+---
+time 1682365689
+new [description:"Re-run all of the accounting records" entry:"1682365689" modified:"1682365689" status:"pending" uuid:"ac954001-7d3a-479e-bad1-a6ff13909410"]
+---
+time 1682427944
+new [description:"Figure out if we send cost info" entry:"1682427944" modified:"1682427944" status:"pending" uuid:"74b69a9e-6fd3-4b85-b03e-31ba199021f4"]
+---
+time 1682428081
+new [description:"figure out how to roll-back SLIM Matcher MCM" entry:"1682428081" modified:"1682428081" status:"pending" uuid:"ac2fc26f-a9e6-4826-82e0-babc1ba58963"]
+---
+time 1682428995
+new [description:"Ask about the SLIM Matcher reports that happen downstream" entry:"1682428995" modified:"1682428995" status:"pending" uuid:"d74aba3c-3cb5-4e5c-a0e7-1e7ae29c2640"]
+---
+time 1682432624
+new [description:"Fix Moro (or replace)" entry:"1682432624" modified:"1682432624" status:"pending" uuid:"b1ce3a63-b869-4fd1-8781-895e8a9076ac"]
+---
+time 1682432630
+new [description:"Fix Tickr Config" entry:"1682432630" modified:"1682432630" status:"pending" uuid:"8cc51399-71ba-4606-83d9-50fb78f55f8a"]
+---
+time 1682432642
+new [description:"Fix iCalBuddy Config" entry:"1682432642" modified:"1682432642" status:"pending" uuid:"4a4c72d5-9bfa-4dfb-9118-85c3d8200ece"]
+---
+time 1682432741
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" modified:"1682432741" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1682432742
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432742" imask:"0" modified:"1682432741" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"2523ab84-4401-46a6-b104-19689cefa032"]
+---
+time 1682432742
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" modified:"1682432741" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"-" modified:"1682432742" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1682432808
+new [description:"Update MTR" due:"1682913600" entry:"1682432808" modified:"1682432808" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ca5e2282-3b05-420e-973c-a8a368d06b26"]
+---
+time 1682432809
+new [description:"Update MTR" due:"1682913600" entry:"1682432809" imask:"0" modified:"1682432808" parent:"ca5e2282-3b05-420e-973c-a8a368d06b26" recur:"monthly" rtype:"periodic" status:"pending" uuid:"6f2a55af-9bd0-44b4-88fd-1ef13b330734"]
+---
+time 1682432809
+old [description:"Update MTR" due:"1682913600" entry:"1682432808" modified:"1682432808" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ca5e2282-3b05-420e-973c-a8a368d06b26"]
+new [description:"Update MTR" due:"1682913600" entry:"1682432808" mask:"-" modified:"1682432809" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ca5e2282-3b05-420e-973c-a8a368d06b26"]
+---
+time 1682432854
+new [description:"OE Scorecard" due:"1683432000" entry:"1682432854" modified:"1682432854" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+---
+time 1682432854
+new [description:"OE Scorecard" due:"1683432000" entry:"1682432854" imask:"0" modified:"1682432854" parent:"ff19be3d-09c1-4566-bd56-a5fe380e7872" recur:"monthly" rtype:"periodic" status:"pending" uuid:"96bd3060-80e4-46da-b1c1-f51cf77cf0b2"]
+---
+time 1682432854
+old [description:"OE Scorecard" due:"1683432000" entry:"1682432854" modified:"1682432854" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+new [description:"OE Scorecard" due:"1683432000" entry:"1682432854" mask:"-" modified:"1682432854" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+---
+time 1682434344
+new [description:"Re-organize Backlog to be use-able" entry:"1682434344" modified:"1682434344" status:"pending" uuid:"b27d130c-ab4d-4c11-bd8d-422ffe1df594"]
+---
+time 1682434355
+new [description:"Incorrect Warranty Write-up (1-pager)" entry:"1682434355" modified:"1682434355" status:"pending" uuid:"3b708e33-5cc3-4408-bce6-245e47abae98"]
+---
+time 1682434365
+new [description:"SLIM Matcher Write-up 1 pager for Kevin" entry:"1682434365" modified:"1682434365" status:"pending" uuid:"90fe7223-3fd9-408d-8841-fb92162957e6"]
+---
+time 1682434402
+new [description:"Fix Repair guidance" due:"1682395200" entry:"1682434402" modified:"1682434402" status:"pending" uuid:"f56b6dd2-f664-49f5-972a-a110b60091b4"]
+---
+time 1682453448
+new [description:"Think about on-call hand-off meeting agenda" entry:"1682453448" modified:"1682453448" status:"pending" uuid:"9c068475-5125-4740-9f91-1e60e3e2c00f"]
+---
+time 1682459902
+old [description:"Find missing Cross Docs" entry:"1682365595" modified:"1682365595" status:"pending" uuid:"969f6299-a222-4d1d-9d6b-4e7af801b416"]
+new [description:"Find missing Cross Docs" end:"1682459902" entry:"1682365595" modified:"1682459902" status:"completed" uuid:"969f6299-a222-4d1d-9d6b-4e7af801b416"]
+---
+time 1682459906
+old [description:"Figure out if we send cost info" entry:"1682427944" modified:"1682427944" status:"pending" uuid:"74b69a9e-6fd3-4b85-b03e-31ba199021f4"]
+new [description:"Figure out if we send cost info" end:"1682459906" entry:"1682427944" modified:"1682459906" status:"completed" uuid:"74b69a9e-6fd3-4b85-b03e-31ba199021f4"]
+---
+time 1682459913
+old [description:"figure out how to roll-back SLIM Matcher MCM" entry:"1682428081" modified:"1682428081" status:"pending" uuid:"ac2fc26f-a9e6-4826-82e0-babc1ba58963"]
+new [description:"figure out how to roll-back SLIM Matcher MCM" end:"1682459913" entry:"1682428081" modified:"1682459913" status:"completed" uuid:"ac2fc26f-a9e6-4826-82e0-babc1ba58963"]
+---
+time 1682459915
+old [description:"Ask about the SLIM Matcher reports that happen downstream" entry:"1682428995" modified:"1682428995" status:"pending" uuid:"d74aba3c-3cb5-4e5c-a0e7-1e7ae29c2640"]
+new [description:"Ask about the SLIM Matcher reports that happen downstream" end:"1682459915" entry:"1682428995" modified:"1682459915" status:"completed" uuid:"d74aba3c-3cb5-4e5c-a0e7-1e7ae29c2640"]
+---
+time 1682459936
+new [description:"Get Levi to rollback the slim matcher stuff (set match to null)" entry:"1682459936" modified:"1682459936" status:"pending" uuid:"005c1fa7-48ed-4629-bb45-93a172c7f110"]
+---
+time 1682459967
+old [description:"Fix Repair guidance" due:"1682395200" entry:"1682434402" modified:"1682434402" status:"pending" uuid:"f56b6dd2-f664-49f5-972a-a110b60091b4"]
+new [description:"Fix Repair guidance Document" due:"1682395200" entry:"1682434402" modified:"1682459967" status:"pending" uuid:"f56b6dd2-f664-49f5-972a-a110b60091b4"]
+---
+time 1682459977
+old [description:"Fix Moro (or replace)" entry:"1682432624" modified:"1682432624" status:"pending" uuid:"b1ce3a63-b869-4fd1-8781-895e8a9076ac"]
+new [description:"Fix Moro (or replace)" entry:"1682432624" modified:"1682459977" status:"pending" uuid:"b1ce3a63-b869-4fd1-8781-895e8a9076ac" wait:"1682546377"]
+---
+time 1682459980
+old [description:"Fix Tickr Config" entry:"1682432630" modified:"1682432630" status:"pending" uuid:"8cc51399-71ba-4606-83d9-50fb78f55f8a"]
+new [description:"Fix Tickr Config" entry:"1682432630" modified:"1682459980" status:"pending" uuid:"8cc51399-71ba-4606-83d9-50fb78f55f8a" wait:"1682546380"]
+---
+time 1682459982
+old [description:"Fix iCalBuddy Config" entry:"1682432642" modified:"1682432642" status:"pending" uuid:"4a4c72d5-9bfa-4dfb-9118-85c3d8200ece"]
+new [description:"Fix iCalBuddy Config" entry:"1682432642" modified:"1682459982" status:"pending" uuid:"4a4c72d5-9bfa-4dfb-9118-85c3d8200ece" wait:"1682546382"]
+---
+time 1682459989
+old [description:"Re-organize Backlog to be use-able" entry:"1682434344" modified:"1682434344" status:"pending" uuid:"b27d130c-ab4d-4c11-bd8d-422ffe1df594"]
+new [description:"Re-organize Backlog to be use-able" entry:"1682434344" modified:"1682459989" status:"pending" uuid:"b27d130c-ab4d-4c11-bd8d-422ffe1df594" wait:"1682546389"]
+---
+time 1682460001
+old [description:"Think about on-call hand-off meeting agenda" entry:"1682453448" modified:"1682453448" status:"pending" uuid:"9c068475-5125-4740-9f91-1e60e3e2c00f"]
+new [description:"Think about on-call hand-off meeting agenda" entry:"1682453448" modified:"1682460001" status:"pending" uuid:"9c068475-5125-4740-9f91-1e60e3e2c00f" wait:"1682892001"]
+---
+time 1682460015
+new [description:"Look up single DSN record in KRDS: | 235 |" entry:"1682460015" modified:"1682460015" status:"pending" uuid:"acd07ab4-beed-4ea2-8db4-1fb42159dded"]
+---
+time 1682460029
+old [description:"Look up single DSN record in KRDS: | 235 |" entry:"1682460015" modified:"1682460015" status:"pending" uuid:"acd07ab4-beed-4ea2-8db4-1fb42159dded"]
+new [description:"Look up single DSN record in KRDS: | 235 |" end:"1682460029" entry:"1682460015" modified:"1682460029" status:"deleted" uuid:"acd07ab4-beed-4ea2-8db4-1fb42159dded"]
+---
+time 1682460044
+new [description:"Lookup single DSN record in KRDS: G9V1DV02136400QN" entry:"1682460044" modified:"1682460044" status:"pending" uuid:"77886441-3b2b-43ce-8c42-d2b54a8e4732"]
+---
+time 1682519551
+old [description:"Lookup single DSN record in KRDS: G9V1DV02136400QN" entry:"1682460044" modified:"1682460044" status:"pending" uuid:"77886441-3b2b-43ce-8c42-d2b54a8e4732"]
+new [description:"Lookup single DSN record in KRDS: G9V1DV02136400QN" end:"1682519551" entry:"1682460044" modified:"1682519551" status:"completed" uuid:"77886441-3b2b-43ce-8c42-d2b54a8e4732"]
+---
+time 1682526073
+new [description:"Re-install grease monkey scripts. Save grease monkey scripts outside of browser" entry:"1682526073" modified:"1682526073" status:"pending" uuid:"1b7ee9e2-bf21-4d87-a2e2-edd824160281"]
+---
+time 1682528280
+old [description:"Re-install grease monkey scripts. Save grease monkey scripts outside of browser" entry:"1682526073" modified:"1682526073" status:"pending" uuid:"1b7ee9e2-bf21-4d87-a2e2-edd824160281"]
+new [description:"Re-install grease monkey scripts. Save grease monkey scripts outside of browser" end:"1682528280" entry:"1682526073" modified:"1682528280" status:"completed" uuid:"1b7ee9e2-bf21-4d87-a2e2-edd824160281"]
+---
+time 1682530255
+new [description:"fix find .\/.config\/homebrew: Permission denied" entry:"1682530255" modified:"1682530255" status:"pending" uuid:"9b27e9d2-2a60-4386-ad61-37dc3c818cd2"]
+---
+time 1682538159
+old [description:"fix find .\/.config\/homebrew: Permission denied" entry:"1682530255" modified:"1682530255" status:"pending" uuid:"9b27e9d2-2a60-4386-ad61-37dc3c818cd2"]
+new [description:"fix find .\/.config\/homebrew: Permission denied" end:"1682538159" entry:"1682530255" modified:"1682538159" status:"completed" uuid:"9b27e9d2-2a60-4386-ad61-37dc3c818cd2"]
+---
+time 1682538174
+new [description:"Find what records can be added to the Accounting Report" entry:"1682538174" modified:"1682538174" status:"pending" uuid:"b6ab66a9-eb71-41eb-b47a-3f40eb845891"]
+---
+time 1682543159
+new [description:"Are we moving forward with the Account off-boarding" entry:"1682543159" modified:"1682543159" status:"pending" uuid:"dfaa9073-4ee2-4a00-8aac-8c76d5945f11"]
+---
+time 1682543378
+new [description:"Remove matchset from flare config by setting something to `null`" entry:"1682543378" modified:"1682543378" status:"pending" uuid:"be849153-a10e-4fef-be02-bfc4c590cc85"]
+---
+time 1682543487
+new [description:"Create MCM on 05\/05" entry:"1682543487" modified:"1682543487" status:"pending" uuid:"36156d8e-e2db-4003-8d6b-8b0a7c00e68e"]
+---
+time 1682543571
+old [description:"Remove matchset from flare config by setting something to `null`" entry:"1682543378" modified:"1682543378" status:"pending" uuid:"be849153-a10e-4fef-be02-bfc4c590cc85"]
+new [annotation_1682543571:"Named Table Mapping Element" description:"Remove matchset from flare config by setting something to `null`" entry:"1682543378" modified:"1682543571" status:"pending" uuid:"be849153-a10e-4fef-be02-bfc4c590cc85"]
+---
+time 1682549539
+old [description:"Fix Moro (or replace)" entry:"1682432624" modified:"1682459977" status:"pending" uuid:"b1ce3a63-b869-4fd1-8781-895e8a9076ac" wait:"1682546377"]
+new [description:"Fix Moro (or replace)" end:"1682549539" entry:"1682432624" modified:"1682549539" status:"completed" uuid:"b1ce3a63-b869-4fd1-8781-895e8a9076ac" wait:"1682546377"]
+---
+time 1682549541
+old [description:"Fix iCalBuddy Config" entry:"1682432642" modified:"1682459982" status:"pending" uuid:"4a4c72d5-9bfa-4dfb-9118-85c3d8200ece" wait:"1682546382"]
+new [description:"Fix iCalBuddy Config" end:"1682549541" entry:"1682432642" modified:"1682549541" status:"completed" uuid:"4a4c72d5-9bfa-4dfb-9118-85c3d8200ece" wait:"1682546382"]
+---
+time 1682549553
+old [description:"Get Levi to rollback the slim matcher stuff (set match to null)" entry:"1682459936" modified:"1682459936" status:"pending" uuid:"005c1fa7-48ed-4629-bb45-93a172c7f110"]
+new [description:"Get Levi to rollback the slim matcher stuff (set match to null)" end:"1682549553" entry:"1682459936" modified:"1682549553" status:"completed" uuid:"005c1fa7-48ed-4629-bb45-93a172c7f110"]
+---
+time 1682549562
+old [description:"Find what records can be added to the Accounting Report" entry:"1682538174" modified:"1682538174" status:"pending" uuid:"b6ab66a9-eb71-41eb-b47a-3f40eb845891"]
+new [description:"Find what records can be added to the Accounting Report" end:"1682549562" entry:"1682538174" modified:"1682549562" status:"completed" uuid:"b6ab66a9-eb71-41eb-b47a-3f40eb845891"]
+---
+time 1682549565
+old [description:"Are we moving forward with the Account off-boarding" entry:"1682543159" modified:"1682543159" status:"pending" uuid:"dfaa9073-4ee2-4a00-8aac-8c76d5945f11"]
+new [description:"Are we moving forward with the Account off-boarding" end:"1682549565" entry:"1682543159" modified:"1682549565" status:"completed" uuid:"dfaa9073-4ee2-4a00-8aac-8c76d5945f11"]
+---
+time 1682611382
+old [annotation_1682543571:"Named Table Mapping Element" description:"Remove matchset from flare config by setting something to `null`" entry:"1682543378" modified:"1682543571" status:"pending" uuid:"be849153-a10e-4fef-be02-bfc4c590cc85"]
+new [annotation_1682543571:"Named Table Mapping Element" description:"Remove matchset from flare config by setting something to `null`" end:"1682611382" entry:"1682543378" modified:"1682611382" status:"completed" uuid:"be849153-a10e-4fef-be02-bfc4c590cc85"]
+---
+time 1682614273
+new [description:"Cancel city Fitness" entry:"1682614273" modified:"1682614273" status:"pending" uuid:"e67d7164-948b-4000-b3a7-4c2aa8034b81"]
+---
+time 1682704984
+new [description:"Fix newsroom by adding .opml file with feeds: `.newsroom.opml`" entry:"1682704984" modified:"1682704984" status:"pending" uuid:"4bc99b1a-2cf8-4fdf-83a1-521076f13eef"]
+---
+time 1682706185
+new [description:"Customer Device Receive Automation" entry:"1682706185" modified:"1682706185" status:"pending" uuid:"6bb3dc20-c038-4baf-a2b7-7686a1962300"]
+---
+time 1682711304
+new [description:"Needs to happen by 05\/09" entry:"1682711304" modified:"1682711304" status:"pending" uuid:"1c3d8336-7d6f-471f-b3bb-cedacc57df24"]
+---
+time 1682713538
+new [description:"Re-run UAT records for FLARE... ugh" entry:"1682713538" modified:"1682713538" status:"pending" uuid:"299f51e4-11de-4aa1-90f1-ab5d5904d289"]
+---
+time 1682714310
+new [description:"Create ticket for Cost request Record" entry:"1682714310" modified:"1682714310" status:"pending" uuid:"c78176b2-c3eb-4149-8c49-99c99f16174f"]
+---
+time 1682953777
+new [description:"Update MTR" due:"1685592000" entry:"1682953777" imask:"1" modified:"1682432809" parent:"ca5e2282-3b05-420e-973c-a8a368d06b26" recur:"monthly" rtype:"periodic" status:"pending" uuid:"24ac0df1-393e-4cb5-b3e7-3f7bf14009f8"]
+---
+time 1682953777
+old [description:"Update MTR" due:"1682913600" entry:"1682432808" mask:"-" modified:"1682432809" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ca5e2282-3b05-420e-973c-a8a368d06b26"]
+new [description:"Update MTR" due:"1682913600" entry:"1682432808" mask:"--" modified:"1682953777" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ca5e2282-3b05-420e-973c-a8a368d06b26"]
+---
+time 1682962288
+new [description:"Register new pager" entry:"1682962288" modified:"1682962288" status:"pending" uuid:"1056fa94-516d-4ca6-888f-bed50c0bf64d"]
+---
+time 1682962443
+new [description:"Find sprint names for I in the channel or send a poll." entry:"1682962443" modified:"1682962443" status:"pending" uuid:"fb56a9f3-68fa-42d6-93af-bb879f7069f7"]
+---
+time 1682962783
+old [description:"Find sprint names for I in the channel or send a poll." entry:"1682962443" modified:"1682962443" status:"pending" uuid:"fb56a9f3-68fa-42d6-93af-bb879f7069f7"]
+new [description:"Find sprint names for I in the channel or send a poll." end:"1682962783" entry:"1682962443" modified:"1682962783" status:"completed" uuid:"fb56a9f3-68fa-42d6-93af-bb879f7069f7"]
+---
+time 1682963429
+old [description:"Register new pager" entry:"1682962288" modified:"1682962288" status:"pending" uuid:"1056fa94-516d-4ca6-888f-bed50c0bf64d"]
+new [description:"Register new pager" end:"1682963429" entry:"1682962288" modified:"1682963429" status:"completed" uuid:"1056fa94-516d-4ca6-888f-bed50c0bf64d"]
+---
+time 1682978313
+new [description:"Book Grooming appointments \/ Monthly" entry:"1682978313" modified:"1682978313" status:"pending" uuid:"c5d65a06-c526-45b5-82e4-4d1bef85c51f"]
+---
+time 1682978645
+old [description:"Customer Device Receive Automation" entry:"1682706185" modified:"1682706185" status:"pending" uuid:"6bb3dc20-c038-4baf-a2b7-7686a1962300"]
+new [description:"Customer Device Receive Automation" end:"1682978645" entry:"1682706185" modified:"1682978645" status:"completed" uuid:"6bb3dc20-c038-4baf-a2b7-7686a1962300"]
+---
+time 1682978656
+new [description:"Finish Customer Receive Automation FAQ" entry:"1682978656" modified:"1682978656" status:"pending" uuid:"5e34c18b-efd5-4226-a93a-a680564f3038"]
+---
+time 1682978681
+old [description:"Needs to happen by 05\/09" entry:"1682711304" modified:"1682711304" status:"pending" uuid:"1c3d8336-7d6f-471f-b3bb-cedacc57df24"]
+new [description:"Needs to happen by 05\/09" end:"1682978681" entry:"1682711304" modified:"1682978681" status:"deleted" uuid:"1c3d8336-7d6f-471f-b3bb-cedacc57df24"]
+---
+time 1682978687
+old [description:"Re-run UAT records for FLARE... ugh" entry:"1682713538" modified:"1682713538" status:"pending" uuid:"299f51e4-11de-4aa1-90f1-ab5d5904d289"]
+new [annotation_1682978687:"Needs to happen by 05\/09" description:"Re-run UAT records for FLARE... ugh" entry:"1682713538" modified:"1682978687" status:"pending" uuid:"299f51e4-11de-4aa1-90f1-ab5d5904d289"]
+---
+time 1682978701
+old [description:"Re-run all of the accounting records" entry:"1682365689" modified:"1682365689" status:"pending" uuid:"ac954001-7d3a-479e-bad1-a6ff13909410"]
+new [annotation_1682978701:"Needs to happen by 05\/09" description:"Re-run all of the accounting records" entry:"1682365689" modified:"1682978701" status:"pending" uuid:"ac954001-7d3a-479e-bad1-a6ff13909410"]
+---
+time 1682978719
+old [description:"Fix Tickr Config" entry:"1682432630" modified:"1682459980" status:"pending" uuid:"8cc51399-71ba-4606-83d9-50fb78f55f8a" wait:"1682546380"]
+new [description:"Fix Tickr Config" entry:"1682432630" modified:"1682978719" status:"pending" uuid:"8cc51399-71ba-4606-83d9-50fb78f55f8a" wait:"1683151519"]
+---
+time 1682980211
+old [description:"Think about on-call hand-off meeting agenda" entry:"1682453448" modified:"1682460001" status:"pending" uuid:"9c068475-5125-4740-9f91-1e60e3e2c00f" wait:"1682892001"]
+new [description:"Think about on-call hand-off meeting agenda" end:"1682980211" entry:"1682453448" modified:"1682980211" status:"completed" uuid:"9c068475-5125-4740-9f91-1e60e3e2c00f" wait:"1682892001"]
+---
+time 1683041551
+new [description:"Write WBR Updates" due:"1683604800" entry:"1683041551" imask:"1" modified:"1682432742" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"79605d81-ee46-42ae-a022-38c59de31ec2"]
+---
+time 1683041551
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"-" modified:"1682432742" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"--" modified:"1683041551" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1683121192
+old [description:"Create ticket for Cost request Record" entry:"1682714310" modified:"1682714310" status:"pending" uuid:"c78176b2-c3eb-4149-8c49-99c99f16174f"]
+new [description:"Create ticket for Cost request Record" end:"1683121192" entry:"1682714310" modified:"1683121192" status:"completed" uuid:"c78176b2-c3eb-4149-8c49-99c99f16174f"]
+---
+time 1683121749
+new [description:"Finish Inventory of Storage section" entry:"1683121749" modified:"1683121749" project:"personal" status:"pending" uuid:"9295ffed-cf17-4e09-972c-105402b2b49e"]
+---
+time 1683148691
+new [description:"Ticket to set-up DRMS API Gateway for clients to migrate" entry:"1683148691" modified:"1683148691" status:"pending" uuid:"6d739abc-8fd6-4dc1-8c03-ca83c4c7bb48"]
+---
+time 1683148795
+old [description:"Ticket to set-up DRMS API Gateway for clients to migrate" entry:"1683148691" modified:"1683148691" status:"pending" uuid:"6d739abc-8fd6-4dc1-8c03-ca83c4c7bb48"]
+new [annotation_1683148795:"New account DeviceReturns" description:"Ticket to set-up DRMS API Gateway for clients to migrate" entry:"1683148691" modified:"1683148795" status:"pending" uuid:"6d739abc-8fd6-4dc1-8c03-ca83c4c7bb48"]
+---
+time 1683220319
+new [description:"Talk to Craig about problem shelf thing...?" entry:"1683220319" modified:"1683220319" status:"pending" uuid:"3008218e-84c3-4305-8ab4-deab13dda5a3"]
+---
+time 1683220371
+old [description:"Talk to Craig about problem shelf thing...?" entry:"1683220319" modified:"1683220319" status:"pending" uuid:"3008218e-84c3-4305-8ab4-deab13dda5a3"]
+new [annotation_1683220371:"Email out today" description:"Talk to Craig about problem shelf thing...?" entry:"1683220319" modified:"1683220371" status:"pending" uuid:"3008218e-84c3-4305-8ab4-deab13dda5a3"]
+---
+time 1683220759
+new [description:"Sync with Justin on DE ticket" entry:"1683220759" modified:"1683220759" status:"pending" uuid:"c8c5a017-65f1-4fb4-98ff-4ba2c185977d"]
+---
+time 1683229188
+new [description:"Talk to Alex About Problem Shelf operations" entry:"1683229188" modified:"1683229188" status:"pending" uuid:"c121bd77-a138-4a1e-9bf2-4573cc1df733"]
+---
+time 1683240492
+old [description:"Fix Tickr Config" entry:"1682432630" modified:"1682978719" status:"pending" uuid:"8cc51399-71ba-4606-83d9-50fb78f55f8a" wait:"1683151519"]
+new [description:"Fix Tickr Config" entry:"1682432630" modified:"1683240492" status:"pending" uuid:"8cc51399-71ba-4606-83d9-50fb78f55f8a" wait:"1683586092"]
+---
+time 1683240499
+old [description:"Re-organize Backlog to be use-able" entry:"1682434344" modified:"1682459989" status:"pending" uuid:"b27d130c-ab4d-4c11-bd8d-422ffe1df594" wait:"1682546389"]
+new [description:"Re-organize Backlog to be use-able" entry:"1682434344" modified:"1683240499" status:"pending" uuid:"b27d130c-ab4d-4c11-bd8d-422ffe1df594" wait:"1683586099"]
+---
+time 1683240503
+old [description:"Incorrect Warranty Write-up (1-pager)" entry:"1682434355" modified:"1682434355" status:"pending" uuid:"3b708e33-5cc3-4408-bce6-245e47abae98"]
+new [description:"Incorrect Warranty Write-up (1-pager)" entry:"1682434355" modified:"1683240503" status:"pending" uuid:"3b708e33-5cc3-4408-bce6-245e47abae98" wait:"1683586103"]
+---
+time 1683240506
+old [description:"SLIM Matcher Write-up 1 pager for Kevin" entry:"1682434365" modified:"1682434365" status:"pending" uuid:"90fe7223-3fd9-408d-8841-fb92162957e6"]
+new [description:"SLIM Matcher Write-up 1 pager for Kevin" entry:"1682434365" modified:"1683240506" status:"pending" uuid:"90fe7223-3fd9-408d-8841-fb92162957e6" wait:"1683586106"]
+---
+time 1683240512
+old [description:"Create MCM on 05\/05" entry:"1682543487" modified:"1682543487" status:"pending" uuid:"36156d8e-e2db-4003-8d6b-8b0a7c00e68e"]
+new [description:"Create MCM on 05\/05" entry:"1682543487" modified:"1683240512" status:"pending" uuid:"36156d8e-e2db-4003-8d6b-8b0a7c00e68e" wait:"1683413312"]
+---
+time 1683240516
+old [description:"Fix newsroom by adding .opml file with feeds: `.newsroom.opml`" entry:"1682704984" modified:"1682704984" status:"pending" uuid:"4bc99b1a-2cf8-4fdf-83a1-521076f13eef"]
+new [description:"Fix newsroom by adding .opml file with feeds: `.newsroom.opml`" entry:"1682704984" modified:"1683240516" status:"pending" uuid:"4bc99b1a-2cf8-4fdf-83a1-521076f13eef" wait:"1683672516"]
+---
+time 1683240592
+old [description:"Finish Inventory of Storage section" entry:"1683121749" modified:"1683121749" project:"personal" status:"pending" uuid:"9295ffed-cf17-4e09-972c-105402b2b49e"]
+new [description:"Finish Inventory of Storage section" end:"1683240592" entry:"1683121749" modified:"1683240592" project:"personal" status:"completed" uuid:"9295ffed-cf17-4e09-972c-105402b2b49e"]
+---
+time 1683240596
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"--" modified:"1683041551" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"-+" modified:"1683240596" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1683240596
+old [description:"Write WBR Updates" due:"1683604800" entry:"1683041551" imask:"1" modified:"1682432742" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"79605d81-ee46-42ae-a022-38c59de31ec2"]
+new [description:"Write WBR Updates" due:"1683604800" end:"1683240596" entry:"1683041551" imask:"1" modified:"1683240596" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"completed" uuid:"79605d81-ee46-42ae-a022-38c59de31ec2"]
+---
+time 1683240602
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"-+" modified:"1683240596" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"++" modified:"1683240602" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1683240602
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432742" imask:"0" modified:"1682432741" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"2523ab84-4401-46a6-b104-19689cefa032"]
+new [description:"Write WBR Updates" due:"1683000000" end:"1683240602" entry:"1682432742" imask:"0" modified:"1683240602" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"completed" uuid:"2523ab84-4401-46a6-b104-19689cefa032"]
+---
+time 1683240603
+old [description:"Update MTR" due:"1682913600" entry:"1682432808" mask:"--" modified:"1682953777" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ca5e2282-3b05-420e-973c-a8a368d06b26"]
+new [description:"Update MTR" due:"1682913600" entry:"1682432808" mask:"+-" modified:"1683240603" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ca5e2282-3b05-420e-973c-a8a368d06b26"]
+---
+time 1683240603
+old [description:"Update MTR" due:"1682913600" entry:"1682432809" imask:"0" modified:"1682432808" parent:"ca5e2282-3b05-420e-973c-a8a368d06b26" recur:"monthly" rtype:"periodic" status:"pending" uuid:"6f2a55af-9bd0-44b4-88fd-1ef13b330734"]
+new [description:"Update MTR" due:"1682913600" end:"1683240603" entry:"1682432809" imask:"0" modified:"1683240603" parent:"ca5e2282-3b05-420e-973c-a8a368d06b26" recur:"monthly" rtype:"periodic" status:"completed" uuid:"6f2a55af-9bd0-44b4-88fd-1ef13b330734"]
+---
+time 1683240941
+old [description:"Book Grooming appointments \/ Monthly" entry:"1682978313" modified:"1682978313" status:"pending" uuid:"c5d65a06-c526-45b5-82e4-4d1bef85c51f"]
+new [description:"Book Grooming appointments \/ Monthly" end:"1683240941" entry:"1682978313" modified:"1683240941" status:"completed" uuid:"c5d65a06-c526-45b5-82e4-4d1bef85c51f"]
+---
+time 1683240944
+old [description:"Cancel city Fitness" entry:"1682614273" modified:"1682614273" status:"pending" uuid:"e67d7164-948b-4000-b3a7-4c2aa8034b81"]
+new [description:"Cancel city Fitness" end:"1683240944" entry:"1682614273" modified:"1683240944" status:"completed" uuid:"e67d7164-948b-4000-b3a7-4c2aa8034b81"]
+---
+time 1683240958
+old [annotation_1682978687:"Needs to happen by 05\/09" description:"Re-run UAT records for FLARE... ugh" entry:"1682713538" modified:"1682978687" status:"pending" uuid:"299f51e4-11de-4aa1-90f1-ab5d5904d289"]
+new [annotation_1682978687:"Needs to happen by 05\/09" description:"Re-run UAT records for FLARE... ugh" end:"1683240958" entry:"1682713538" modified:"1683240958" status:"completed" uuid:"299f51e4-11de-4aa1-90f1-ab5d5904d289"]
+---
+time 1683240964
+old [description:"Update MTR" due:"1682913600" entry:"1682432808" mask:"+-" modified:"1683240603" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ca5e2282-3b05-420e-973c-a8a368d06b26"]
+new [description:"Update MTR" due:"1682913600" entry:"1682432808" mask:"+W" modified:"1683240964" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ca5e2282-3b05-420e-973c-a8a368d06b26"]
+---
+time 1683240964
+old [description:"Update MTR" due:"1685592000" entry:"1682953777" imask:"1" modified:"1682432809" parent:"ca5e2282-3b05-420e-973c-a8a368d06b26" recur:"monthly" rtype:"periodic" status:"pending" uuid:"24ac0df1-393e-4cb5-b3e7-3f7bf14009f8"]
+new [description:"Update MTR" due:"1685592000" entry:"1682953777" imask:"1" modified:"1683240964" parent:"ca5e2282-3b05-420e-973c-a8a368d06b26" recur:"monthly" rtype:"periodic" status:"pending" uuid:"24ac0df1-393e-4cb5-b3e7-3f7bf14009f8" wait:"1685055364"]
+---
+time 1683302499
+new [description:"Create UAT task" entry:"1683302499" modified:"1683302499" status:"pending" uuid:"fd0efaab-c3e5-4e8b-80e7-b44d4b30a140"]
+---
+time 1683304867
+new [description:"Ticket to Create CS Fats Proxty" entry:"1683304867" modified:"1683304867" status:"pending" uuid:"6219fd48-cf4e-479c-bf64-5cff2cacf686"]
+---
+time 1683321311
+old [description:"Talk to Alex About Problem Shelf operations" entry:"1683229188" modified:"1683229188" status:"pending" uuid:"c121bd77-a138-4a1e-9bf2-4573cc1df733"]
+new [description:"Talk to Alex About Problem Shelf operations" entry:"1683229188" modified:"1683321311" status:"pending" uuid:"c121bd77-a138-4a1e-9bf2-4573cc1df733" wait:"1683407711"]
+---
+time 1683321368
+old [description:"Sync with Justin on DE ticket" entry:"1683220759" modified:"1683220759" status:"pending" uuid:"c8c5a017-65f1-4fb4-98ff-4ba2c185977d"]
+new [description:"Sync with Justin on DE ticket" entry:"1683220759" modified:"1683321368" status:"pending" uuid:"c8c5a017-65f1-4fb4-98ff-4ba2c185977d" wait:"1683407768"]
+---
+time 1683321381
+old [description:"Ticket to Create CS Fats Proxty" entry:"1683304867" modified:"1683304867" status:"pending" uuid:"6219fd48-cf4e-479c-bf64-5cff2cacf686"]
+new [description:"Ticket to Create CS Fats Proxty" entry:"1683304867" modified:"1683321381" status:"pending" uuid:"6219fd48-cf4e-479c-bf64-5cff2cacf686" wait:"1683580581"]
+---
+time 1683321390
+old [annotation_1683148795:"New account DeviceReturns" description:"Ticket to set-up DRMS API Gateway for clients to migrate" entry:"1683148691" modified:"1683148795" status:"pending" uuid:"6d739abc-8fd6-4dc1-8c03-ca83c4c7bb48"]
+new [annotation_1683148795:"New account DeviceReturns" description:"Ticket to set-up DRMS API Gateway for clients to migrate" entry:"1683148691" modified:"1683321390" status:"pending" uuid:"6d739abc-8fd6-4dc1-8c03-ca83c4c7bb48" wait:"1683666990"]
+---
+time 1683321410
+old [annotation_1682978701:"Needs to happen by 05\/09" description:"Re-run all of the accounting records" entry:"1682365689" modified:"1682978701" status:"pending" uuid:"ac954001-7d3a-479e-bad1-a6ff13909410"]
+new [annotation_1682978701:"Needs to happen by 05\/09" annotation_1683321410:"Met with CORTEX who wants us to run via UFO - need to connect with UFO team about that." description:"Re-run all of the accounting records" entry:"1682365689" modified:"1683321410" status:"pending" uuid:"ac954001-7d3a-479e-bad1-a6ff13909410"]
+---
+time 1683555303
+new [description:"OE Scorecard" due:"1686110400" entry:"1683555303" imask:"1" modified:"1682432854" parent:"ff19be3d-09c1-4566-bd56-a5fe380e7872" recur:"monthly" rtype:"periodic" status:"pending" uuid:"b87a5e54-c9d8-4519-8d20-379a2b87afef"]
+---
+time 1683555303
+old [description:"OE Scorecard" due:"1683432000" entry:"1682432854" mask:"-" modified:"1682432854" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+new [description:"OE Scorecard" due:"1683432000" entry:"1682432854" mask:"--" modified:"1683555303" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+---
+time 1683555417
+old [description:"Sync with Justin on DE ticket" entry:"1683220759" modified:"1683321368" status:"pending" uuid:"c8c5a017-65f1-4fb4-98ff-4ba2c185977d" wait:"1683407768"]
+new [description:"Sync with Justin on DE ticket" end:"1683555417" entry:"1683220759" modified:"1683555417" status:"completed" uuid:"c8c5a017-65f1-4fb4-98ff-4ba2c185977d" wait:"1683407768"]
+---
+time 1683555418
+old [description:"Talk to Alex About Problem Shelf operations" entry:"1683229188" modified:"1683321311" status:"pending" uuid:"c121bd77-a138-4a1e-9bf2-4573cc1df733" wait:"1683407711"]
+new [description:"Talk to Alex About Problem Shelf operations" end:"1683555418" entry:"1683229188" modified:"1683555418" status:"completed" uuid:"c121bd77-a138-4a1e-9bf2-4573cc1df733" wait:"1683407711"]
+---
+time 1683555472
+old [description:"OE Scorecard" due:"1683432000" entry:"1682432854" mask:"--" modified:"1683555303" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+new [description:"OE Scorecard" due:"1683432000" entry:"1682432854" mask:"-W" modified:"1683555472" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+---
+time 1683555472
+old [description:"OE Scorecard" due:"1686110400" entry:"1683555303" imask:"1" modified:"1682432854" parent:"ff19be3d-09c1-4566-bd56-a5fe380e7872" recur:"monthly" rtype:"periodic" status:"pending" uuid:"b87a5e54-c9d8-4519-8d20-379a2b87afef"]
+new [description:"OE Scorecard" due:"1686110400" entry:"1683555303" imask:"1" modified:"1683555472" parent:"ff19be3d-09c1-4566-bd56-a5fe380e7872" recur:"monthly" rtype:"periodic" status:"pending" uuid:"b87a5e54-c9d8-4519-8d20-379a2b87afef" wait:"1685369872"]
+---
+time 1683571807
+new [description:"Need to add Idempotence ID to somewhere so that BI team has access" entry:"1683571807" modified:"1683571807" project:"Unplanned" status:"pending" uuid:"3881be12-c484-4675-bc20-98791030deb3"]
+---
+time 1683643331
+new [description:"Write WBR Updates" due:"1684209600" entry:"1683643331" imask:"2" modified:"1683240602" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"a6bbb30f-fd80-4fc4-b13a-a3a7d85c99d8"]
+---
+time 1683643331
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"++" modified:"1683240602" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"++-" modified:"1683643331" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1683653033
+old [description:"Create MCM on 05\/05" entry:"1682543487" modified:"1683240512" status:"pending" uuid:"36156d8e-e2db-4003-8d6b-8b0a7c00e68e" wait:"1683413312"]
+new [description:"Create MCM on 05\/05" end:"1683653033" entry:"1682543487" modified:"1683653033" status:"completed" uuid:"36156d8e-e2db-4003-8d6b-8b0a7c00e68e" wait:"1683413312"]
+---
+time 1683653039
+old [description:"Create UAT task" entry:"1683302499" modified:"1683302499" status:"pending" uuid:"fd0efaab-c3e5-4e8b-80e7-b44d4b30a140"]
+new [description:"Create UAT task" end:"1683653039" entry:"1683302499" modified:"1683653039" status:"completed" uuid:"fd0efaab-c3e5-4e8b-80e7-b44d4b30a140"]
+---
+time 1683653041
+old [description:"Ticket to Create CS Fats Proxty" entry:"1683304867" modified:"1683321381" status:"pending" uuid:"6219fd48-cf4e-479c-bf64-5cff2cacf686" wait:"1683580581"]
+new [description:"Ticket to Create CS Fats Proxty" end:"1683653041" entry:"1683304867" modified:"1683653041" status:"completed" uuid:"6219fd48-cf4e-479c-bf64-5cff2cacf686" wait:"1683580581"]
+---
+time 1683653077
+old [description:"OE Scorecard" due:"1683432000" entry:"1682432854" mask:"-W" modified:"1683555472" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+new [description:"OE Scorecard" due:"1683432000" entry:"1682432854" mask:"WW" modified:"1683653077" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+---
+time 1683653077
+old [description:"OE Scorecard" due:"1683432000" entry:"1682432854" imask:"0" modified:"1682432854" parent:"ff19be3d-09c1-4566-bd56-a5fe380e7872" recur:"monthly" rtype:"periodic" status:"pending" uuid:"96bd3060-80e4-46da-b1c1-f51cf77cf0b2"]
+new [description:"OE Scorecard" due:"1683432000" entry:"1682432854" imask:"0" modified:"1683653077" parent:"ff19be3d-09c1-4566-bd56-a5fe380e7872" recur:"monthly" rtype:"periodic" status:"pending" uuid:"96bd3060-80e4-46da-b1c1-f51cf77cf0b2" wait:"1683725077"]
+---
+time 1683653099
+old [description:"Fix Repair guidance Document" due:"1682395200" entry:"1682434402" modified:"1682459967" status:"pending" uuid:"f56b6dd2-f664-49f5-972a-a110b60091b4"]
+new [description:"Fix Repair guidance Document" due:"1682395200" end:"1683653099" entry:"1682434402" modified:"1683653099" status:"completed" uuid:"f56b6dd2-f664-49f5-972a-a110b60091b4"]
+---
+time 1683653126
+old [annotation_1683220371:"Email out today" description:"Talk to Craig about problem shelf thing...?" entry:"1683220319" modified:"1683220371" status:"pending" uuid:"3008218e-84c3-4305-8ab4-deab13dda5a3"]
+new [annotation_1683220371:"Email out today" description:"Talk to Craig about problem shelf thing...?" end:"1683653126" entry:"1683220319" modified:"1683653126" status:"completed" uuid:"3008218e-84c3-4305-8ab4-deab13dda5a3"]
+---
+time 1683653475
+old [description:"Need to add Idempotence ID to somewhere so that BI team has access" entry:"1683571807" modified:"1683571807" project:"Unplanned" status:"pending" uuid:"3881be12-c484-4675-bc20-98791030deb3"]
+new [description:"Need to add Idempotence ID to somewhere so that BI team has access" end:"1683653475" entry:"1683571807" modified:"1683653475" project:"Unplanned" status:"deleted" uuid:"3881be12-c484-4675-bc20-98791030deb3"]
+---
+time 1683653983
+new [description:"Slack Ahmad \/ Allison" entry:"1683653983" modified:"1683653983" status:"pending" uuid:"33d101ec-a26f-499f-91e6-c051f93a8ca2"]
+---
+time 1683656236
+old [description:"Slack Ahmad \/ Allison" entry:"1683653983" modified:"1683653983" status:"pending" uuid:"33d101ec-a26f-499f-91e6-c051f93a8ca2"]
+new [description:"Slack Ahmad \/ Allison" end:"1683656236" entry:"1683653983" modified:"1683656236" status:"completed" uuid:"33d101ec-a26f-499f-91e6-c051f93a8ca2"]
+---
+time 1683656673
+new [description:"Get someone to switch on-call with me." entry:"1683656673" modified:"1683656673" status:"pending" uuid:"92a782f4-7972-48f6-b76e-45055ef8bdb7"]
+---
+time 1683746086
+new [description:"Notify Sally when quip is updated with transactions" entry:"1683746086" modified:"1683746086" status:"pending" uuid:"393b8248-7e32-44de-8af2-3676207cf845"]
+---
+time 1683746265
+new [description:"Checkin with Craig to ensure he is actually working on UAT" entry:"1683746265" modified:"1683746265" status:"pending" uuid:"902233b0-7a45-46bf-82fd-86550a8e9d2a"]
+---
+time 1683814142
+old [description:"Fix newsroom by adding .opml file with feeds: `.newsroom.opml`" entry:"1682704984" modified:"1683240516" status:"pending" uuid:"4bc99b1a-2cf8-4fdf-83a1-521076f13eef" wait:"1683672516"]
+new [description:"Fix newsroom by adding .opml file with feeds: `.newsroom.opml`" end:"1683814142" entry:"1682704984" modified:"1683814142" status:"completed" uuid:"4bc99b1a-2cf8-4fdf-83a1-521076f13eef" wait:"1683672516"]
+---
+time 1683821363
+new [description:"Notify all that EU\/NA testing is ready by EOD." entry:"1683821363" modified:"1683821363" status:"pending" uuid:"e991ac11-a6fa-4659-96e8-76390c804a15"]
+---
+time 1683850502
+old [description:"Checkin with Craig to ensure he is actually working on UAT" entry:"1683746265" modified:"1683746265" status:"pending" uuid:"902233b0-7a45-46bf-82fd-86550a8e9d2a"]
+new [description:"Checkin with Craig to ensure he is actually working on UAT" end:"1683850502" entry:"1683746265" modified:"1683850502" status:"completed" uuid:"902233b0-7a45-46bf-82fd-86550a8e9d2a"]
+---
+time 1683900019
+old [description:"Notify all that EU\/NA testing is ready by EOD." entry:"1683821363" modified:"1683821363" status:"pending" uuid:"e991ac11-a6fa-4659-96e8-76390c804a15"]
+new [description:"Notify all that EU\/NA testing is ready by EOD." end:"1683900019" entry:"1683821363" modified:"1683900019" status:"completed" uuid:"e991ac11-a6fa-4659-96e8-76390c804a15"]
+---
+time 1683902015
+old [description:"Fix Tickr Config" entry:"1682432630" modified:"1683240492" status:"pending" uuid:"8cc51399-71ba-4606-83d9-50fb78f55f8a" wait:"1683586092"]
+new [description:"Fix Tickr Config" end:"1683902015" entry:"1682432630" modified:"1683902015" status:"completed" uuid:"8cc51399-71ba-4606-83d9-50fb78f55f8a" wait:"1683586092"]
+---
+time 1683904482
+new [description:"Started Outline of 1-pager" entry:"1683904482" modified:"1683904482" status:"pending" uuid:"cc68510a-4e17-4546-a227-15cbc005fd1c"]
+---
+time 1683904489
+old [description:"Started Outline of 1-pager" entry:"1683904482" modified:"1683904482" status:"pending" uuid:"cc68510a-4e17-4546-a227-15cbc005fd1c"]
+new [description:"Started Outline of 1-pager" end:"1683904489" entry:"1683904482" modified:"1683904489" status:"deleted" uuid:"cc68510a-4e17-4546-a227-15cbc005fd1c"]
+---
+time 1683904497
+old [description:"Incorrect Warranty Write-up (1-pager)" entry:"1682434355" modified:"1683240503" status:"pending" uuid:"3b708e33-5cc3-4408-bce6-245e47abae98" wait:"1683586103"]
+new [annotation_1683904497:"started outline of 1-pager" description:"Incorrect Warranty Write-up (1-pager)" entry:"1682434355" modified:"1683904497" status:"pending" uuid:"3b708e33-5cc3-4408-bce6-245e47abae98" wait:"1683586103"]
+---
+time 1683905157
+old [description:"SLIM Matcher Write-up 1 pager for Kevin" entry:"1682434365" modified:"1683240506" status:"pending" uuid:"90fe7223-3fd9-408d-8841-fb92162957e6" wait:"1683586106"]
+new [annotation_1683905157:"Copied document and wrote a summary" description:"SLIM Matcher Write-up 1 pager for Kevin" entry:"1682434365" modified:"1683905157" status:"pending" uuid:"90fe7223-3fd9-408d-8841-fb92162957e6" wait:"1683586106"]
+---
+time 1683906164
+old [description:"Finish Customer Receive Automation FAQ" entry:"1682978656" modified:"1682978656" status:"pending" uuid:"5e34c18b-efd5-4226-a93a-a680564f3038"]
+new [annotation_1683906164:"Added additional context\/notes to document" description:"Finish Customer Receive Automation FAQ" entry:"1682978656" modified:"1683906164" status:"pending" uuid:"5e34c18b-efd5-4226-a93a-a680564f3038"]
+---
+time 1683924649
+new [description:"For Handoff Report - Break data into 2 sections, RMA level and Unit Level" entry:"1683924649" modified:"1683924649" status:"pending" uuid:"07b62379-b0bc-4b9d-b84d-f6882fb17a0a"]
+---
+time 1683925352
+old [description:"For Handoff Report - Break data into 2 sections, RMA level and Unit Level" entry:"1683924649" modified:"1683924649" status:"pending" uuid:"07b62379-b0bc-4b9d-b84d-f6882fb17a0a"]
+new [annotation_1683925352:"Attach Updated version to ticket" description:"For Handoff Report - Break data into 2 sections, RMA level and Unit Level" entry:"1683924649" modified:"1683925352" status:"pending" uuid:"07b62379-b0bc-4b9d-b84d-f6882fb17a0a"]
+---
+time 1684161444
+old [description:"Notify Sally when quip is updated with transactions" entry:"1683746086" modified:"1683746086" status:"pending" uuid:"393b8248-7e32-44de-8af2-3676207cf845"]
+new [description:"Notify Sally when quip is updated with transactions" end:"1684161444" entry:"1683746086" modified:"1684161444" status:"completed" uuid:"393b8248-7e32-44de-8af2-3676207cf845"]
+---
+time 1684186910
+old [description:"Get someone to switch on-call with me." entry:"1683656673" modified:"1683656673" status:"pending" uuid:"92a782f4-7972-48f6-b76e-45055ef8bdb7"]
+new [description:"Get someone to switch on-call with me." end:"1684186910" entry:"1683656673" modified:"1684186910" status:"completed" uuid:"92a782f4-7972-48f6-b76e-45055ef8bdb7"]
+---
+time 1684186920
+old [annotation_1683925352:"Attach Updated version to ticket" description:"For Handoff Report - Break data into 2 sections, RMA level and Unit Level" entry:"1683924649" modified:"1683925352" status:"pending" uuid:"07b62379-b0bc-4b9d-b84d-f6882fb17a0a"]
+new [annotation_1683925352:"Attach Updated version to ticket" description:"For Handoff Report - Break data into 2 sections, RMA level and Unit Level" end:"1684186920" entry:"1683924649" modified:"1684186920" status:"completed" uuid:"07b62379-b0bc-4b9d-b84d-f6882fb17a0a"]
+---
+time 1684186933
+old [description:"OE Scorecard" due:"1683432000" entry:"1682432854" mask:"WW" modified:"1683653077" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+new [description:"OE Scorecard" due:"1683432000" entry:"1682432854" mask:"+W" modified:"1684186933" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+---
+time 1684186933
+old [description:"OE Scorecard" due:"1683432000" entry:"1682432854" imask:"0" modified:"1683653077" parent:"ff19be3d-09c1-4566-bd56-a5fe380e7872" recur:"monthly" rtype:"periodic" status:"pending" uuid:"96bd3060-80e4-46da-b1c1-f51cf77cf0b2" wait:"1683725077"]
+new [description:"OE Scorecard" due:"1683432000" end:"1684186933" entry:"1682432854" imask:"0" modified:"1684186933" parent:"ff19be3d-09c1-4566-bd56-a5fe380e7872" recur:"monthly" rtype:"periodic" status:"completed" uuid:"96bd3060-80e4-46da-b1c1-f51cf77cf0b2" wait:"1683725077"]
+---
+time 1684246235
+new [description:"Write WBR Updates" due:"1684814400" entry:"1684246235" imask:"3" modified:"1683643331" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"92fb2c39-31be-4d40-8fe2-88a278a35e45"]
+---
+time 1684246235
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"++-" modified:"1683643331" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"++--" modified:"1684246235" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1684246258
+old [annotation_1682978701:"Needs to happen by 05\/09" annotation_1683321410:"Met with CORTEX who wants us to run via UFO - need to connect with UFO team about that." description:"Re-run all of the accounting records" entry:"1682365689" modified:"1683321410" status:"pending" uuid:"ac954001-7d3a-479e-bad1-a6ff13909410"]
+new [annotation_1682978701:"Needs to happen by 05\/09" annotation_1683321410:"Met with CORTEX who wants us to run via UFO - need to connect with UFO team about that." description:"Re-run all of the accounting records" end:"1684246258" entry:"1682365689" modified:"1684246258" status:"completed" uuid:"ac954001-7d3a-479e-bad1-a6ff13909410"]
+---
+time 1684246264
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"++--" modified:"1684246235" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"++-W" modified:"1684246264" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1684246264
+old [description:"Write WBR Updates" due:"1684814400" entry:"1684246235" imask:"3" modified:"1683643331" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"92fb2c39-31be-4d40-8fe2-88a278a35e45"]
+new [description:"Write WBR Updates" due:"1684814400" entry:"1684246235" imask:"3" modified:"1684246264" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"92fb2c39-31be-4d40-8fe2-88a278a35e45" wait:"1684678264"]
+---
+time 1684252011
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"++-W" modified:"1684246264" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"+++W" modified:"1684252011" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1684252011
+old [description:"Write WBR Updates" due:"1684209600" entry:"1683643331" imask:"2" modified:"1683240602" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"a6bbb30f-fd80-4fc4-b13a-a3a7d85c99d8"]
+new [description:"Write WBR Updates" due:"1684209600" end:"1684252011" entry:"1683643331" imask:"2" modified:"1684252011" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"completed" uuid:"a6bbb30f-fd80-4fc4-b13a-a3a7d85c99d8"]
+---
+time 1684264667
+new [description:"Document why the FN SKU is different in the USL records" entry:"1684264667" modified:"1684264667" status:"pending" uuid:"90f96e1d-64e9-4dc8-9950-8f5434b1f110"]
+---
+time 1684264673
+old [description:"Document why the FN SKU is different in the USL records" entry:"1684264667" modified:"1684264667" status:"pending" uuid:"90f96e1d-64e9-4dc8-9950-8f5434b1f110"]
+new [annotation_1684264673:"For Sally" description:"Document why the FN SKU is different in the USL records" entry:"1684264667" modified:"1684264673" status:"pending" uuid:"90f96e1d-64e9-4dc8-9950-8f5434b1f110"]
+---
+time 1684267622
+new [description:"Find a working ASIN\/RMA combination by examining the DSNs in the quip" entry:"1684267622" modified:"1684267622" status:"pending" uuid:"652931fd-5831-4393-b6f2-37333ebd2b55"]
+---
+time 1684437464
+old [annotation_1683905157:"Copied document and wrote a summary" description:"SLIM Matcher Write-up 1 pager for Kevin" entry:"1682434365" modified:"1683905157" status:"pending" uuid:"90fe7223-3fd9-408d-8841-fb92162957e6" wait:"1683586106"]
+new [annotation_1683905157:"Copied document and wrote a summary" annotation_1684437464:"https:\/\/quip-amazon.com\/8PfuAlYMlAwb\/The-Issue-with-SLIM-Match-Sets-for-Transshipments" description:"SLIM Matcher Write-up 1 pager for Kevin" entry:"1682434365" modified:"1684437464" status:"pending" uuid:"90fe7223-3fd9-408d-8841-fb92162957e6" wait:"1683586106"]
+---
+time 1684437466
+old [annotation_1683905157:"Copied document and wrote a summary" annotation_1684437464:"https:\/\/quip-amazon.com\/8PfuAlYMlAwb\/The-Issue-with-SLIM-Match-Sets-for-Transshipments" description:"SLIM Matcher Write-up 1 pager for Kevin" entry:"1682434365" modified:"1684437464" status:"pending" uuid:"90fe7223-3fd9-408d-8841-fb92162957e6" wait:"1683586106"]
+new [annotation_1683905157:"Copied document and wrote a summary" annotation_1684437464:"https:\/\/quip-amazon.com\/8PfuAlYMlAwb\/The-Issue-with-SLIM-Match-Sets-for-Transshipments" description:"SLIM Matcher Write-up 1 pager for Kevin" end:"1684437466" entry:"1682434365" modified:"1684437466" status:"completed" uuid:"90fe7223-3fd9-408d-8841-fb92162957e6" wait:"1683586106"]
+---
+time 1684447761
+old [annotation_1683906164:"Added additional context\/notes to document" description:"Finish Customer Receive Automation FAQ" entry:"1682978656" modified:"1683906164" status:"pending" uuid:"5e34c18b-efd5-4226-a93a-a680564f3038"]
+new [annotation_1683906164:"Added additional context\/notes to document" description:"Finish Customer Receive Automation FAQ" end:"1684447761" entry:"1682978656" modified:"1684447761" status:"completed" uuid:"5e34c18b-efd5-4226-a93a-a680564f3038"]
+---
+time 1684447777
+old [description:"Find a working ASIN\/RMA combination by examining the DSNs in the quip" entry:"1684267622" modified:"1684267622" status:"pending" uuid:"652931fd-5831-4393-b6f2-37333ebd2b55"]
+new [description:"Find a working ASIN\/RMA combination by examining the DSNs in the quip" end:"1684447777" entry:"1684267622" modified:"1684447777" status:"completed" uuid:"652931fd-5831-4393-b6f2-37333ebd2b55"]
+---
+time 1684854527
+new [description:"Write WBR Updates" due:"1685419200" entry:"1684854527" imask:"4" modified:"1684252011" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"bd238b64-b1d0-4b48-8e0f-39fa6ee9a1ce"]
+---
+time 1684854527
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"+++W" modified:"1684252011" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"+++W-" modified:"1684854527" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1684878296
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"+++W-" modified:"1684854527" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"++++-" modified:"1684878296" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1684878296
+old [description:"Write WBR Updates" due:"1684814400" entry:"1684246235" imask:"3" modified:"1684246264" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"92fb2c39-31be-4d40-8fe2-88a278a35e45" wait:"1684678264"]
+new [description:"Write WBR Updates" due:"1684814400" end:"1684878296" entry:"1684246235" imask:"3" modified:"1684878296" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"completed" uuid:"92fb2c39-31be-4d40-8fe2-88a278a35e45" wait:"1684678264"]
+---
+time 1684878300
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"++++-" modified:"1684878296" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"++++W" modified:"1684878300" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1684878300
+old [description:"Write WBR Updates" due:"1685419200" entry:"1684854527" imask:"4" modified:"1684252011" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"bd238b64-b1d0-4b48-8e0f-39fa6ee9a1ce"]
+new [description:"Write WBR Updates" due:"1685419200" entry:"1684854527" imask:"4" modified:"1684878300" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"bd238b64-b1d0-4b48-8e0f-39fa6ee9a1ce" wait:"1685310300"]
+---
+time 1685123857
+new [description:"Get back to Jennifer with mapping tables" entry:"1685123857" modified:"1685123857" status:"pending" uuid:"e62e1d4a-a6bf-4b1a-9a33-9dc9df202c54"]
+---
+time 1685123869
+new [description:"Add FAQs from meeting" entry:"1685123869" modified:"1685123869" status:"pending" uuid:"c207f01e-320c-4825-a7a4-b30b137de970"]
+---
+time 1685464238
+new [description:"Write WBR Updates" due:"1686024000" entry:"1685464238" imask:"5" modified:"1684878300" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"15a66436-d936-47ff-9313-b3261f6887f2"]
+---
+time 1685464238
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"++++W" modified:"1684878300" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"++++W-" modified:"1685464238" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1685467125
+old [description:"Update MTR" due:"1682913600" entry:"1682432808" mask:"+W" modified:"1683240964" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ca5e2282-3b05-420e-973c-a8a368d06b26"]
+new [description:"Update MTR" due:"1682913600" entry:"1682432808" mask:"++" modified:"1685467125" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ca5e2282-3b05-420e-973c-a8a368d06b26"]
+---
+time 1685467125
+old [description:"Update MTR" due:"1685592000" entry:"1682953777" imask:"1" modified:"1683240964" parent:"ca5e2282-3b05-420e-973c-a8a368d06b26" recur:"monthly" rtype:"periodic" status:"pending" uuid:"24ac0df1-393e-4cb5-b3e7-3f7bf14009f8" wait:"1685055364"]
+new [description:"Update MTR" due:"1685592000" end:"1685467125" entry:"1682953777" imask:"1" modified:"1685467125" parent:"ca5e2282-3b05-420e-973c-a8a368d06b26" recur:"monthly" rtype:"periodic" status:"completed" uuid:"24ac0df1-393e-4cb5-b3e7-3f7bf14009f8" wait:"1685055364"]
+---
+time 1685467131
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"++++W-" modified:"1685464238" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"++++WW" modified:"1685467131" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1685467131
+old [description:"Write WBR Updates" due:"1686024000" entry:"1685464238" imask:"5" modified:"1684878300" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"15a66436-d936-47ff-9313-b3261f6887f2"]
+new [description:"Write WBR Updates" due:"1686024000" entry:"1685464238" imask:"5" modified:"1685467131" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"15a66436-d936-47ff-9313-b3261f6887f2" wait:"1685899131"]
+---
+time 1685467139
+old [description:"Add FAQs from meeting" entry:"1685123869" modified:"1685123869" status:"pending" uuid:"c207f01e-320c-4825-a7a4-b30b137de970"]
+new [description:"Add FAQs from meeting" end:"1685467139" entry:"1685123869" modified:"1685467139" status:"completed" uuid:"c207f01e-320c-4825-a7a4-b30b137de970"]
+---
+time 1685468747
+new [description:"Write a ticket to review BI validations on Isley-Offline-Data-Validation quip" entry:"1685468747" modified:"1685468747" status:"pending" uuid:"ece52eb4-842b-45d8-9124-67321a219256"]
+---
+time 1685560903
+new [description:"Document why Source Warehouse can not be updated in existing broken records" entry:"1685560903" modified:"1685560903" status:"pending" uuid:"6bc6dae7-79c5-4596-9981-9d268d73b43d"]
+---
+time 1685562326
+old [description:"Get back to Jennifer with mapping tables" entry:"1685123857" modified:"1685123857" status:"pending" uuid:"e62e1d4a-a6bf-4b1a-9a33-9dc9df202c54"]
+new [description:"Get back to Jennifer with mapping tables" end:"1685562326" entry:"1685123857" modified:"1685562326" status:"completed" uuid:"e62e1d4a-a6bf-4b1a-9a33-9dc9df202c54"]
+---
+time 1685562328
+old [description:"Write a ticket to review BI validations on Isley-Offline-Data-Validation quip" entry:"1685468747" modified:"1685468747" status:"pending" uuid:"ece52eb4-842b-45d8-9124-67321a219256"]
+new [description:"Write a ticket to review BI validations on Isley-Offline-Data-Validation quip" end:"1685562328" entry:"1685468747" modified:"1685562328" status:"completed" uuid:"ece52eb4-842b-45d8-9124-67321a219256"]
+---
+time 1685573004
+old [description:"OE Scorecard" due:"1686110400" entry:"1683555303" imask:"1" modified:"1683555472" parent:"ff19be3d-09c1-4566-bd56-a5fe380e7872" recur:"monthly" rtype:"periodic" status:"pending" uuid:"b87a5e54-c9d8-4519-8d20-379a2b87afef" wait:"1685369872"]
+new [description:"OE Scorecard" due:"1686110400" entry:"1683555303" imask:"1" modified:"1685573004" parent:"ff19be3d-09c1-4566-bd56-a5fe380e7872" recur:"monthly" rtype:"periodic" status:"pending" uuid:"b87a5e54-c9d8-4519-8d20-379a2b87afef" wait:"1685918604"]
+---
+time 1685573008
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"++++WW" modified:"1685467131" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"+++++W" modified:"1685573008" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1685573008
+old [description:"Write WBR Updates" due:"1685419200" entry:"1684854527" imask:"4" modified:"1684878300" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"bd238b64-b1d0-4b48-8e0f-39fa6ee9a1ce" wait:"1685310300"]
+new [description:"Write WBR Updates" due:"1685419200" end:"1685573008" entry:"1684854527" imask:"4" modified:"1685573008" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"completed" uuid:"bd238b64-b1d0-4b48-8e0f-39fa6ee9a1ce" wait:"1685310300"]
+---
+time 1685574119
+old [description:"Document why Source Warehouse can not be updated in existing broken records" entry:"1685560903" modified:"1685560903" status:"pending" uuid:"6bc6dae7-79c5-4596-9981-9d268d73b43d"]
+new [description:"Document why Source Warehouse can not be updated in existing broken records" end:"1685574119" entry:"1685560903" modified:"1685574119" status:"completed" uuid:"6bc6dae7-79c5-4596-9981-9d268d73b43d"]
+---
+time 1685574121
+old [annotation_1684264673:"For Sally" description:"Document why the FN SKU is different in the USL records" entry:"1684264667" modified:"1684264673" status:"pending" uuid:"90f96e1d-64e9-4dc8-9950-8f5434b1f110"]
+new [annotation_1684264673:"For Sally" description:"Document why the FN SKU is different in the USL records" end:"1685574121" entry:"1684264667" modified:"1685574121" status:"completed" uuid:"90f96e1d-64e9-4dc8-9950-8f5434b1f110"]
+---
+time 1685628304
+new [description:"Update MTR" due:"1688184000" entry:"1685628304" imask:"2" modified:"1685467125" parent:"ca5e2282-3b05-420e-973c-a8a368d06b26" recur:"monthly" rtype:"periodic" status:"pending" uuid:"b00673e2-f2df-4bc6-89b6-a9d124450862"]
+---
+time 1685628304
+old [description:"Update MTR" due:"1682913600" entry:"1682432808" mask:"++" modified:"1685467125" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ca5e2282-3b05-420e-973c-a8a368d06b26"]
+new [description:"Update MTR" due:"1682913600" entry:"1682432808" mask:"++-" modified:"1685628304" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ca5e2282-3b05-420e-973c-a8a368d06b26"]
+---
+time 1685642380
+new [description:"Write-up for Angie on how to System Handoff Report is being created from Pedigree\/Data" entry:"1685642380" modified:"1685642380" status:"pending" uuid:"bbf4aacf-ddb4-4747-be4c-6dc02adca29f"]
+---
+time 1685646223
+old [annotation_1683148795:"New account DeviceReturns" description:"Ticket to set-up DRMS API Gateway for clients to migrate" entry:"1683148691" modified:"1683321390" status:"pending" uuid:"6d739abc-8fd6-4dc1-8c03-ca83c4c7bb48" wait:"1683666990"]
+new [annotation_1683148795:"New account DeviceReturns" description:"Ticket to set-up DRMS API Gateway for clients to migrate" end:"1685646223" entry:"1683148691" modified:"1685646223" status:"completed" uuid:"6d739abc-8fd6-4dc1-8c03-ca83c4c7bb48" wait:"1683666990"]
+---
+time 1685646232
+old [description:"Update MTR" due:"1682913600" entry:"1682432808" mask:"++-" modified:"1685628304" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ca5e2282-3b05-420e-973c-a8a368d06b26"]
+new [description:"Update MTR" due:"1682913600" entry:"1682432808" mask:"++W" modified:"1685646232" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ca5e2282-3b05-420e-973c-a8a368d06b26"]
+---
+time 1685646232
+old [description:"Update MTR" due:"1688184000" entry:"1685628304" imask:"2" modified:"1685467125" parent:"ca5e2282-3b05-420e-973c-a8a368d06b26" recur:"monthly" rtype:"periodic" status:"pending" uuid:"b00673e2-f2df-4bc6-89b6-a9d124450862"]
+new [description:"Update MTR" due:"1688184000" entry:"1685628304" imask:"2" modified:"1685646232" parent:"ca5e2282-3b05-420e-973c-a8a368d06b26" recur:"monthly" rtype:"periodic" status:"pending" uuid:"b00673e2-f2df-4bc6-89b6-a9d124450862" wait:"1687460632"]
+---
+time 1685713470
+new [description:"SOP on Problem Shelf" entry:"1685713470" modified:"1685713470" status:"pending" uuid:"70e55e51-1e4d-43cc-9b33-cb468a81a1d3"]
+---
+time 1685713524
+old [description:"SOP on Problem Shelf" entry:"1685713470" modified:"1685713470" status:"pending" uuid:"70e55e51-1e4d-43cc-9b33-cb468a81a1d3"]
+new [annotation_1685713524:"Ask Allison and Ahmad for the current SOP on Problem Shelf" description:"SOP on Problem Shelf" entry:"1685713470" modified:"1685713524" status:"pending" uuid:"70e55e51-1e4d-43cc-9b33-cb468a81a1d3"]
+---
+time 1685713600
+old [annotation_1685713524:"Ask Allison and Ahmad for the current SOP on Problem Shelf" description:"SOP on Problem Shelf" entry:"1685713470" modified:"1685713524" status:"pending" uuid:"70e55e51-1e4d-43cc-9b33-cb468a81a1d3"]
+new [annotation_1685713524:"Ask Allison and Ahmad for the current SOP on Problem Shelf" annotation_1685713600:"Ranjit sent on Slack the existing SOP" description:"SOP on Problem Shelf" entry:"1685713470" modified:"1685713600" status:"pending" uuid:"70e55e51-1e4d-43cc-9b33-cb468a81a1d3"]
+---
+time 1685716152
+old [annotation_1683904497:"started outline of 1-pager" description:"Incorrect Warranty Write-up (1-pager)" entry:"1682434355" modified:"1683904497" status:"pending" uuid:"3b708e33-5cc3-4408-bce6-245e47abae98" wait:"1683586103"]
+new [annotation_1683904497:"started outline of 1-pager" description:"Incorrect Warranty Write-up (1-pager)" entry:"1682434355" modified:"1685716152" status:"pending" uuid:"3b708e33-5cc3-4408-bce6-245e47abae98" wait:"1686925752"]
+---
+time 1685974526
+new [description:"Re-test offline in EU" entry:"1685974526" modified:"1685974526" status:"pending" uuid:"8029728e-cb0b-4c49-84fb-40131613a3c8"]
+---
+time 1685974554
+new [description:"Edit Business Proposal and oppurunities for Patricia" entry:"1685974554" modified:"1685974554" status:"pending" uuid:"42b09758-a1a6-4021-a6aa-77cf09341e1d"]
+---
+time 1685974606
+new [description:"Contact Jennifer about report data" entry:"1685974606" modified:"1685974606" status:"pending" uuid:"345d27a2-e1e1-47cc-9042-6c28ca602ea4"]
+---
+time 1685989725
+new [description:"Cancelled Return Events should not have an outbound record" entry:"1685989725" modified:"1685989725" status:"pending" uuid:"95d2fecb-2f86-4dcb-92cf-c06bfab4bb83"]
+---
+time 1685989809
+new [description:"Ask Ops to screen\/outbound the test DSNs" entry:"1685989809" modified:"1685989809" status:"pending" uuid:"a4a2731f-7cf3-4b18-9c94-0340cd892ad0"]
+---
+time 1685993115
+old [description:"Ask Ops to screen\/outbound the test DSNs" entry:"1685989809" modified:"1685989809" status:"pending" uuid:"a4a2731f-7cf3-4b18-9c94-0340cd892ad0"]
+new [description:"Ask Ops to screen\/outbound the test DSNs" end:"1685993115" entry:"1685989809" modified:"1685993115" status:"completed" uuid:"a4a2731f-7cf3-4b18-9c94-0340cd892ad0"]
+---
+time 1685993117
+old [description:"Cancelled Return Events should not have an outbound record" entry:"1685989725" modified:"1685989725" status:"pending" uuid:"95d2fecb-2f86-4dcb-92cf-c06bfab4bb83"]
+new [description:"Cancelled Return Events should not have an outbound record" end:"1685993117" entry:"1685989725" modified:"1685993117" status:"completed" uuid:"95d2fecb-2f86-4dcb-92cf-c06bfab4bb83"]
+---
+time 1685993121
+old [description:"Contact Jennifer about report data" entry:"1685974606" modified:"1685974606" status:"pending" uuid:"345d27a2-e1e1-47cc-9042-6c28ca602ea4"]
+new [description:"Contact Jennifer about report data" end:"1685993121" entry:"1685974606" modified:"1685993121" status:"completed" uuid:"345d27a2-e1e1-47cc-9042-6c28ca602ea4"]
+---
+time 1685999334
+new [description:"Set-up meeting about ZPL" entry:"1685999334" modified:"1685999334" status:"pending" uuid:"b4073366-e48f-44cc-aab7-a21f9609953b"]
+---
+time 1686000307
+new [description:"send Kevin a Goodbye note" entry:"1686000307" modified:"1686000307" status:"pending" uuid:"03d82efc-daa0-42da-81b7-cb330d6fa427"]
+---
+time 1686061709
+new [description:"Write WBR Updates" due:"1686628800" entry:"1686061709" imask:"6" modified:"1685573008" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"ab0c4e85-99b9-462c-a7f5-26f90b142c0f"]
+---
+time 1686061709
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"+++++W" modified:"1685573008" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"+++++W-" modified:"1686061709" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1686069906
+old [description:"Set-up meeting about ZPL" entry:"1685999334" modified:"1685999334" status:"pending" uuid:"b4073366-e48f-44cc-aab7-a21f9609953b"]
+new [description:"Set-up meeting about ZPL" end:"1686069906" entry:"1685999334" modified:"1686069906" status:"completed" uuid:"b4073366-e48f-44cc-aab7-a21f9609953b"]
+---
+time 1686069910
+old [description:"Write-up for Angie on how to System Handoff Report is being created from Pedigree\/Data" entry:"1685642380" modified:"1685642380" status:"pending" uuid:"bbf4aacf-ddb4-4747-be4c-6dc02adca29f"]
+new [description:"Write-up for Angie on how to System Handoff Report is being created from Pedigree\/Data" end:"1686069910" entry:"1685642380" modified:"1686069910" status:"completed" uuid:"bbf4aacf-ddb4-4747-be4c-6dc02adca29f"]
+---
+time 1686069920
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"+++++W-" modified:"1686061709" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"+++++WW" modified:"1686069920" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1686069920
+old [description:"Write WBR Updates" due:"1686628800" entry:"1686061709" imask:"6" modified:"1685573008" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"ab0c4e85-99b9-462c-a7f5-26f90b142c0f"]
+new [description:"Write WBR Updates" due:"1686628800" entry:"1686061709" imask:"6" modified:"1686069920" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"ab0c4e85-99b9-462c-a7f5-26f90b142c0f" wait:"1686501920"]
+---
+time 1686069922
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"+++++WW" modified:"1686069920" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"++++++W" modified:"1686069922" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1686069922
+old [description:"Write WBR Updates" due:"1686024000" entry:"1685464238" imask:"5" modified:"1685467131" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"15a66436-d936-47ff-9313-b3261f6887f2" wait:"1685899131"]
+new [description:"Write WBR Updates" due:"1686024000" end:"1686069922" entry:"1685464238" imask:"5" modified:"1686069922" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"completed" uuid:"15a66436-d936-47ff-9313-b3261f6887f2" wait:"1685899131"]
+---
+time 1686147724
+new [description:"OE Scorecard" due:"1688702400" entry:"1686147724" imask:"2" modified:"1684186933" parent:"ff19be3d-09c1-4566-bd56-a5fe380e7872" recur:"monthly" rtype:"periodic" status:"pending" uuid:"2c6f3890-6c91-4aab-95ce-40ab5c898ff5"]
+---
+time 1686147724
+old [description:"OE Scorecard" due:"1683432000" entry:"1682432854" mask:"+W" modified:"1684186933" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+new [description:"OE Scorecard" due:"1683432000" entry:"1682432854" mask:"+W-" modified:"1686147724" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+---
+time 1686147732
+old [description:"send Kevin a Goodbye note" entry:"1686000307" modified:"1686000307" status:"pending" uuid:"03d82efc-daa0-42da-81b7-cb330d6fa427"]
+new [description:"send Kevin a Goodbye note" end:"1686147732" entry:"1686000307" modified:"1686147732" status:"completed" uuid:"03d82efc-daa0-42da-81b7-cb330d6fa427"]
+---
+time 1686147743
+old [description:"OE Scorecard" due:"1683432000" entry:"1682432854" mask:"+W-" modified:"1686147724" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+new [description:"OE Scorecard" due:"1683432000" entry:"1682432854" mask:"+WW" modified:"1686147743" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+---
+time 1686147743
+old [description:"OE Scorecard" due:"1688702400" entry:"1686147724" imask:"2" modified:"1684186933" parent:"ff19be3d-09c1-4566-bd56-a5fe380e7872" recur:"monthly" rtype:"periodic" status:"pending" uuid:"2c6f3890-6c91-4aab-95ce-40ab5c898ff5"]
+new [description:"OE Scorecard" due:"1688702400" entry:"1686147724" imask:"2" modified:"1686147743" parent:"ff19be3d-09c1-4566-bd56-a5fe380e7872" recur:"monthly" rtype:"periodic" status:"pending" uuid:"2c6f3890-6c91-4aab-95ce-40ab5c898ff5" wait:"1687962143"]
+---
+time 1686147749
+old [description:"Re-test offline in EU" entry:"1685974526" modified:"1685974526" status:"pending" uuid:"8029728e-cb0b-4c49-84fb-40131613a3c8"]
+new [description:"Re-test offline in EU" end:"1686147749" entry:"1685974526" modified:"1686147749" status:"completed" uuid:"8029728e-cb0b-4c49-84fb-40131613a3c8"]
+---
+time 1686173250
+new [description:"Send Jennifer an outbound record that has no inbound record - look for cancelled SUS or RaCS device" entry:"1686173250" modified:"1686173250" status:"pending" uuid:"1fc85248-5f69-43df-8b15-04d648a6a61f"]
+---
+time 1686244562
+new [description:"Summarize second discussion on the sim" entry:"1686244562" modified:"1686244562" status:"pending" uuid:"1a86fa04-e13c-4e50-baf7-6c5c934356de"]
+---
+time 1686244614
+old [description:"Summarize second discussion on the sim" entry:"1686244562" modified:"1686244562" status:"pending" uuid:"1a86fa04-e13c-4e50-baf7-6c5c934356de"]
+new [annotation_1686244614:"include concessions CTI" description:"Summarize second discussion on the sim" entry:"1686244562" modified:"1686244614" status:"pending" uuid:"1a86fa04-e13c-4e50-baf7-6c5c934356de"]
+---
