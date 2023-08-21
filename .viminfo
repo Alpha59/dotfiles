@@ -11,7 +11,7 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/close
+~MSle0~/task
 
 # Last Substitute Search Pattern:
 ~MSle0&$
@@ -21,9 +21,9 @@ $
 
 # Command Line History (newest to oldest):
 :wq
-|2,0,1692404807,,"wq"
+|2,0,1692624710,,"wq"
 :q
-|2,0,1692404694,,"q"
+|2,0,1692624699,,"q"
 :39
 |2,0,1692404692,,"39"
 :q!
@@ -123,7 +123,9 @@ $
 
 # Search String History (newest to oldest):
 ? \s\+$
-|2,1,1692404807,,"\\s\\+$"
+|2,1,1692624710,,"\\s\\+$"
+?/task
+|2,1,1692624706,47,"task"
 ?/close
 |2,1,1692404771,47,"close"
 ?/re
@@ -220,8 +222,6 @@ $
 |2,1,1691773398,,"\\<deviceModelOptional\\>"
 ? \<itemInfo\>
 |2,1,1691771872,,"\\<itemInfo\\>"
-? \<productName\>
-|2,1,1691771771,,"\\<productName\\>"
 
 # Expression History (newest to oldest):
 
@@ -230,12 +230,12 @@ $
 # Debug Line History (newest to oldest):
 
 # Registers:
-"0	LINE	0
-	            chrome-cli close -t "$tabId";
-|3,0,0,1,1,0,1692404773,"            chrome-cli close -t \"$tabId\";"
-""1	LINE	0
+""0	LINE	0
+	!.task/
+|3,1,0,1,1,0,1692624707,"!.task/"
+"1	LINE	0
 	        echo "wait";
-|3,1,1,1,1,0,1692404782,"        echo \"wait\";"
+|3,0,1,1,1,0,1692404782,"        echo \"wait\";"
 "2	LINE	0
 	        chrome-cli
 |3,0,2,1,1,0,1692404777,"        chrome-cli"
@@ -276,34 +276,138 @@ $
 |3,0,36,0,1,0,1692404673,"-t \"$tabId\";"
 
 # File marks:
-'0  44  15  ~/scripts/run-on-all-tabs
-|4,48,44,15,1692404807,"~/scripts/run-on-all-tabs"
-'1  64  23  ~/scripts/review-tabs
-|4,49,64,23,1692404774,"~/scripts/review-tabs"
-'2  45  17  ~/scripts/run-on-all-tabs
-|4,50,45,17,1692404763,"~/scripts/run-on-all-tabs"
-'3  37  17  ~/scripts/run-on-all-tabs
-|4,51,37,17,1692404763,"~/scripts/run-on-all-tabs"
-'4  46  13  ~/scripts/run-on-all-tabs
-|4,52,46,13,1692404711,"~/scripts/run-on-all-tabs"
-'5  45  13  ~/scripts/run-on-all-tabs
-|4,53,45,13,1692404711,"~/scripts/run-on-all-tabs"
-'6  40  13  ~/scripts/run-on-all-tabs
-|4,54,40,13,1692404711,"~/scripts/run-on-all-tabs"
-'7  39  13  ~/scripts/run-on-all-tabs
-|4,55,39,13,1692404711,"~/scripts/run-on-all-tabs"
-'8  46  13  ~/scripts/run-on-all-tabs
-|4,56,46,13,1692404694,"~/scripts/run-on-all-tabs"
-'9  45  13  ~/scripts/run-on-all-tabs
-|4,57,45,13,1692404694,"~/scripts/run-on-all-tabs"
+'0  78  12  ~/.gitignore
+|4,48,78,12,1692624710,"~/.gitignore"
+'1  1  0  ~/Work/.gitignore
+|4,49,1,0,1692624699,"~/Work/.gitignore"
+'2  6  14  ~/.git/COMMIT_EDITMSG
+|4,50,6,14,1692624686,"~/.git/COMMIT_EDITMSG"
+'3  44  15  ~/scripts/run-on-all-tabs
+|4,51,44,15,1692404807,"~/scripts/run-on-all-tabs"
+'4  64  23  ~/scripts/review-tabs
+|4,52,64,23,1692404774,"~/scripts/review-tabs"
+'5  45  17  ~/scripts/run-on-all-tabs
+|4,53,45,17,1692404763,"~/scripts/run-on-all-tabs"
+'6  37  17  ~/scripts/run-on-all-tabs
+|4,54,37,17,1692404763,"~/scripts/run-on-all-tabs"
+'7  46  13  ~/scripts/run-on-all-tabs
+|4,55,46,13,1692404711,"~/scripts/run-on-all-tabs"
+'8  45  13  ~/scripts/run-on-all-tabs
+|4,56,45,13,1692404711,"~/scripts/run-on-all-tabs"
+'9  40  13  ~/scripts/run-on-all-tabs
+|4,57,40,13,1692404711,"~/scripts/run-on-all-tabs"
 
 # Jumplist (newest first):
+-'  78  12  ~/.gitignore
+|4,39,78,12,1692624710,"~/.gitignore"
+-'  54  0  ~/.gitignore
+|4,39,54,0,1692624706,"~/.gitignore"
+-'  1  0  ~/.gitignore
+|4,39,1,0,1692624703,"~/.gitignore"
+-'  1  0  ~/Work/.gitignore
+|4,39,1,0,1692624699,"~/Work/.gitignore"
+-'  1  0  ~/Work/.gitignore
+|4,39,1,0,1692624699,"~/Work/.gitignore"
+-'  6  14  ~/.git/COMMIT_EDITMSG
+|4,39,6,14,1692624686,"~/.git/COMMIT_EDITMSG"
+-'  8239  0  ~/.git/COMMIT_EDITMSG
+|4,39,8239,0,1692624686,"~/.git/COMMIT_EDITMSG"
+-'  6  14  ~/.git/COMMIT_EDITMSG
+|4,39,6,14,1692624686,"~/.git/COMMIT_EDITMSG"
+-'  8239  0  ~/.git/COMMIT_EDITMSG
+|4,39,8239,0,1692624686,"~/.git/COMMIT_EDITMSG"
+-'  6  14  ~/.git/COMMIT_EDITMSG
+|4,39,6,14,1692624686,"~/.git/COMMIT_EDITMSG"
+-'  8239  0  ~/.git/COMMIT_EDITMSG
+|4,39,8239,0,1692624686,"~/.git/COMMIT_EDITMSG"
+-'  6  14  ~/.git/COMMIT_EDITMSG
+|4,39,6,14,1692624686,"~/.git/COMMIT_EDITMSG"
+-'  8239  0  ~/.git/COMMIT_EDITMSG
+|4,39,8239,0,1692624686,"~/.git/COMMIT_EDITMSG"
+-'  8243  0  ~/.git/COMMIT_EDITMSG
+|4,39,8243,0,1692624624,"~/.git/COMMIT_EDITMSG"
+-'  8243  0  ~/.git/COMMIT_EDITMSG
+|4,39,8243,0,1692624624,"~/.git/COMMIT_EDITMSG"
+-'  8243  0  ~/.git/COMMIT_EDITMSG
+|4,39,8243,0,1692624624,"~/.git/COMMIT_EDITMSG"
+-'  8243  0  ~/.git/COMMIT_EDITMSG
+|4,39,8243,0,1692624624,"~/.git/COMMIT_EDITMSG"
+-'  44  15  ~/scripts/run-on-all-tabs
+|4,39,44,15,1692404807,"~/scripts/run-on-all-tabs"
+-'  38  0  ~/scripts/run-on-all-tabs
+|4,39,38,0,1692404807,"~/scripts/run-on-all-tabs"
+-'  44  15  ~/scripts/run-on-all-tabs
+|4,39,44,15,1692404807,"~/scripts/run-on-all-tabs"
+-'  38  0  ~/scripts/run-on-all-tabs
+|4,39,38,0,1692404807,"~/scripts/run-on-all-tabs"
+-'  44  15  ~/scripts/run-on-all-tabs
+|4,39,44,15,1692404807,"~/scripts/run-on-all-tabs"
+-'  38  0  ~/scripts/run-on-all-tabs
+|4,39,38,0,1692404807,"~/scripts/run-on-all-tabs"
+-'  44  15  ~/scripts/run-on-all-tabs
+|4,39,44,15,1692404807,"~/scripts/run-on-all-tabs"
+-'  38  0  ~/scripts/run-on-all-tabs
+|4,39,38,0,1692404807,"~/scripts/run-on-all-tabs"
+-'  44  15  ~/scripts/run-on-all-tabs
+|4,39,44,15,1692404807,"~/scripts/run-on-all-tabs"
+-'  38  0  ~/scripts/run-on-all-tabs
+|4,39,38,0,1692404807,"~/scripts/run-on-all-tabs"
+-'  44  15  ~/scripts/run-on-all-tabs
+|4,39,44,15,1692404807,"~/scripts/run-on-all-tabs"
+-'  38  0  ~/scripts/run-on-all-tabs
+|4,39,38,0,1692404807,"~/scripts/run-on-all-tabs"
+-'  44  15  ~/scripts/run-on-all-tabs
+|4,39,44,15,1692404807,"~/scripts/run-on-all-tabs"
+-'  38  0  ~/scripts/run-on-all-tabs
+|4,39,38,0,1692404807,"~/scripts/run-on-all-tabs"
 -'  44  15  ~/scripts/run-on-all-tabs
 |4,39,44,15,1692404807,"~/scripts/run-on-all-tabs"
 -'  38  0  ~/scripts/run-on-all-tabs
 |4,39,38,0,1692404807,"~/scripts/run-on-all-tabs"
 -'  45  17  ~/scripts/run-on-all-tabs
 |4,39,45,17,1692404775,"~/scripts/run-on-all-tabs"
+-'  45  17  ~/scripts/run-on-all-tabs
+|4,39,45,17,1692404775,"~/scripts/run-on-all-tabs"
+-'  45  17  ~/scripts/run-on-all-tabs
+|4,39,45,17,1692404775,"~/scripts/run-on-all-tabs"
+-'  45  17  ~/scripts/run-on-all-tabs
+|4,39,45,17,1692404775,"~/scripts/run-on-all-tabs"
+-'  45  17  ~/scripts/run-on-all-tabs
+|4,39,45,17,1692404775,"~/scripts/run-on-all-tabs"
+-'  45  17  ~/scripts/run-on-all-tabs
+|4,39,45,17,1692404775,"~/scripts/run-on-all-tabs"
+-'  45  17  ~/scripts/run-on-all-tabs
+|4,39,45,17,1692404775,"~/scripts/run-on-all-tabs"
+-'  45  17  ~/scripts/run-on-all-tabs
+|4,39,45,17,1692404775,"~/scripts/run-on-all-tabs"
+-'  64  23  ~/scripts/review-tabs
+|4,39,64,23,1692404774,"~/scripts/review-tabs"
+-'  64  23  ~/scripts/review-tabs
+|4,39,64,23,1692404774,"~/scripts/review-tabs"
+-'  64  23  ~/scripts/review-tabs
+|4,39,64,23,1692404774,"~/scripts/review-tabs"
+-'  64  23  ~/scripts/review-tabs
+|4,39,64,23,1692404774,"~/scripts/review-tabs"
+-'  64  23  ~/scripts/review-tabs
+|4,39,64,23,1692404774,"~/scripts/review-tabs"
+-'  64  23  ~/scripts/review-tabs
+|4,39,64,23,1692404774,"~/scripts/review-tabs"
+-'  64  23  ~/scripts/review-tabs
+|4,39,64,23,1692404774,"~/scripts/review-tabs"
+-'  64  23  ~/scripts/review-tabs
+|4,39,64,23,1692404774,"~/scripts/review-tabs"
+-'  64  23  ~/scripts/review-tabs
+|4,39,64,23,1692404774,"~/scripts/review-tabs"
+-'  64  23  ~/scripts/review-tabs
+|4,39,64,23,1692404774,"~/scripts/review-tabs"
+-'  64  23  ~/scripts/review-tabs
+|4,39,64,23,1692404774,"~/scripts/review-tabs"
+-'  64  23  ~/scripts/review-tabs
+|4,39,64,23,1692404774,"~/scripts/review-tabs"
+-'  64  23  ~/scripts/review-tabs
+|4,39,64,23,1692404774,"~/scripts/review-tabs"
+-'  64  23  ~/scripts/review-tabs
+|4,39,64,23,1692404774,"~/scripts/review-tabs"
 -'  64  23  ~/scripts/review-tabs
 |4,39,64,23,1692404774,"~/scripts/review-tabs"
 -'  64  23  ~/scripts/review-tabs
@@ -312,6 +416,62 @@ $
 |4,39,61,17,1692404771,"~/scripts/review-tabs"
 -'  61  17  ~/scripts/review-tabs
 |4,39,61,17,1692404771,"~/scripts/review-tabs"
+-'  61  17  ~/scripts/review-tabs
+|4,39,61,17,1692404771,"~/scripts/review-tabs"
+-'  61  17  ~/scripts/review-tabs
+|4,39,61,17,1692404771,"~/scripts/review-tabs"
+-'  61  17  ~/scripts/review-tabs
+|4,39,61,17,1692404771,"~/scripts/review-tabs"
+-'  61  17  ~/scripts/review-tabs
+|4,39,61,17,1692404771,"~/scripts/review-tabs"
+-'  61  17  ~/scripts/review-tabs
+|4,39,61,17,1692404771,"~/scripts/review-tabs"
+-'  61  17  ~/scripts/review-tabs
+|4,39,61,17,1692404771,"~/scripts/review-tabs"
+-'  61  17  ~/scripts/review-tabs
+|4,39,61,17,1692404771,"~/scripts/review-tabs"
+-'  61  17  ~/scripts/review-tabs
+|4,39,61,17,1692404771,"~/scripts/review-tabs"
+-'  61  17  ~/scripts/review-tabs
+|4,39,61,17,1692404771,"~/scripts/review-tabs"
+-'  61  17  ~/scripts/review-tabs
+|4,39,61,17,1692404771,"~/scripts/review-tabs"
+-'  61  17  ~/scripts/review-tabs
+|4,39,61,17,1692404771,"~/scripts/review-tabs"
+-'  61  17  ~/scripts/review-tabs
+|4,39,61,17,1692404771,"~/scripts/review-tabs"
+-'  61  17  ~/scripts/review-tabs
+|4,39,61,17,1692404771,"~/scripts/review-tabs"
+-'  61  17  ~/scripts/review-tabs
+|4,39,61,17,1692404771,"~/scripts/review-tabs"
+-'  43  32  ~/scripts/review-tabs
+|4,39,43,32,1692404769,"~/scripts/review-tabs"
+-'  43  32  ~/scripts/review-tabs
+|4,39,43,32,1692404769,"~/scripts/review-tabs"
+-'  43  32  ~/scripts/review-tabs
+|4,39,43,32,1692404769,"~/scripts/review-tabs"
+-'  43  32  ~/scripts/review-tabs
+|4,39,43,32,1692404769,"~/scripts/review-tabs"
+-'  43  32  ~/scripts/review-tabs
+|4,39,43,32,1692404769,"~/scripts/review-tabs"
+-'  43  32  ~/scripts/review-tabs
+|4,39,43,32,1692404769,"~/scripts/review-tabs"
+-'  43  32  ~/scripts/review-tabs
+|4,39,43,32,1692404769,"~/scripts/review-tabs"
+-'  43  32  ~/scripts/review-tabs
+|4,39,43,32,1692404769,"~/scripts/review-tabs"
+-'  43  32  ~/scripts/review-tabs
+|4,39,43,32,1692404769,"~/scripts/review-tabs"
+-'  43  32  ~/scripts/review-tabs
+|4,39,43,32,1692404769,"~/scripts/review-tabs"
+-'  43  32  ~/scripts/review-tabs
+|4,39,43,32,1692404769,"~/scripts/review-tabs"
+-'  43  32  ~/scripts/review-tabs
+|4,39,43,32,1692404769,"~/scripts/review-tabs"
+-'  43  32  ~/scripts/review-tabs
+|4,39,43,32,1692404769,"~/scripts/review-tabs"
+-'  43  32  ~/scripts/review-tabs
+|4,39,43,32,1692404769,"~/scripts/review-tabs"
 -'  43  32  ~/scripts/review-tabs
 |4,39,43,32,1692404769,"~/scripts/review-tabs"
 -'  43  32  ~/scripts/review-tabs
@@ -320,189 +480,53 @@ $
 |4,39,37,17,1692404763,"~/scripts/run-on-all-tabs"
 -'  37  17  ~/scripts/run-on-all-tabs
 |4,39,37,17,1692404763,"~/scripts/run-on-all-tabs"
--'  46  13  ~/scripts/run-on-all-tabs
-|4,39,46,13,1692404740,"~/scripts/run-on-all-tabs"
--'  40  13  ~/scripts/run-on-all-tabs
-|4,39,40,13,1692404740,"~/scripts/run-on-all-tabs"
--'  40  13  ~/scripts/run-on-all-tabs
-|4,39,40,13,1692404740,"~/scripts/run-on-all-tabs"
--'  39  13  ~/scripts/run-on-all-tabs
-|4,39,39,13,1692404711,"~/scripts/run-on-all-tabs"
--'  39  13  ~/scripts/run-on-all-tabs
-|4,39,39,13,1692404711,"~/scripts/run-on-all-tabs"
--'  39  13  ~/scripts/run-on-all-tabs
-|4,39,39,13,1692404694,"~/scripts/run-on-all-tabs"
--'  39  13  ~/scripts/run-on-all-tabs
-|4,39,39,13,1692404694,"~/scripts/run-on-all-tabs"
--'  37  302  ~/scripts/run-on-all-tabs
-|4,39,37,302,1692404690,"~/scripts/run-on-all-tabs"
--'  35  302  ~/scripts/run-on-all-tabs
-|4,39,35,302,1692404690,"~/scripts/run-on-all-tabs"
--'  35  302  ~/scripts/run-on-all-tabs
-|4,39,35,302,1692404690,"~/scripts/run-on-all-tabs"
--'  35  302  ~/scripts/run-on-all-tabs
-|4,39,35,302,1692404690,"~/scripts/run-on-all-tabs"
--'  35  302  ~/scripts/run-on-all-tabs
-|4,39,35,302,1692404690,"~/scripts/run-on-all-tabs"
--'  35  302  ~/scripts/run-on-all-tabs
-|4,39,35,302,1692404690,"~/scripts/run-on-all-tabs"
--'  35  302  ~/scripts/run-on-all-tabs
-|4,39,35,302,1692404690,"~/scripts/run-on-all-tabs"
--'  35  302  ~/scripts/run-on-all-tabs
-|4,39,35,302,1692404678,"~/scripts/run-on-all-tabs"
--'  35  302  ~/scripts/run-on-all-tabs
-|4,39,35,302,1692404678,"~/scripts/run-on-all-tabs"
--'  40  15  ~/scripts/run-on-all-tabs
-|4,39,40,15,1692404669,"~/scripts/run-on-all-tabs"
--'  36  15  ~/scripts/run-on-all-tabs
-|4,39,36,15,1692404669,"~/scripts/run-on-all-tabs"
--'  36  15  ~/scripts/run-on-all-tabs
-|4,39,36,15,1692404669,"~/scripts/run-on-all-tabs"
--'  36  15  ~/scripts/run-on-all-tabs
-|4,39,36,15,1692404669,"~/scripts/run-on-all-tabs"
--'  36  15  ~/scripts/run-on-all-tabs
-|4,39,36,15,1692404669,"~/scripts/run-on-all-tabs"
--'  36  15  ~/scripts/run-on-all-tabs
-|4,39,36,15,1692404669,"~/scripts/run-on-all-tabs"
--'  36  15  ~/scripts/run-on-all-tabs
-|4,39,36,15,1692404669,"~/scripts/run-on-all-tabs"
--'  36  15  ~/scripts/run-on-all-tabs
-|4,39,36,15,1692404669,"~/scripts/run-on-all-tabs"
--'  36  15  ~/scripts/run-on-all-tabs
-|4,39,36,15,1692404669,"~/scripts/run-on-all-tabs"
--'  36  15  ~/scripts/run-on-all-tabs
-|4,39,36,15,1692404649,"~/scripts/run-on-all-tabs"
--'  36  15  ~/scripts/run-on-all-tabs
-|4,39,36,15,1692404649,"~/scripts/run-on-all-tabs"
--'  31  16  ~/scripts/run-on-all-tabs
-|4,39,31,16,1692404639,"~/scripts/run-on-all-tabs"
--'  31  16  ~/scripts/run-on-all-tabs
-|4,39,31,16,1692404639,"~/scripts/run-on-all-tabs"
--'  31  16  ~/scripts/run-on-all-tabs
-|4,39,31,16,1692404639,"~/scripts/run-on-all-tabs"
--'  31  16  ~/scripts/run-on-all-tabs
-|4,39,31,16,1692404639,"~/scripts/run-on-all-tabs"
--'  31  16  ~/scripts/run-on-all-tabs
-|4,39,31,16,1692404639,"~/scripts/run-on-all-tabs"
--'  31  16  ~/scripts/run-on-all-tabs
-|4,39,31,16,1692404639,"~/scripts/run-on-all-tabs"
--'  31  16  ~/scripts/run-on-all-tabs
-|4,39,31,16,1692404639,"~/scripts/run-on-all-tabs"
--'  31  16  ~/scripts/run-on-all-tabs
-|4,39,31,16,1692404639,"~/scripts/run-on-all-tabs"
--'  31  16  ~/scripts/run-on-all-tabs
-|4,39,31,16,1692404639,"~/scripts/run-on-all-tabs"
--'  31  16  ~/scripts/run-on-all-tabs
-|4,39,31,16,1692404639,"~/scripts/run-on-all-tabs"
--'  31  16  ~/scripts/run-on-all-tabs
-|4,39,31,16,1692404639,"~/scripts/run-on-all-tabs"
--'  31  16  ~/scripts/run-on-all-tabs
-|4,39,31,16,1692404627,"~/scripts/run-on-all-tabs"
--'  31  16  ~/scripts/run-on-all-tabs
-|4,39,31,16,1692404627,"~/scripts/run-on-all-tabs"
--'  17  17  ~/scripts/run-on-all-tabs
-|4,39,17,17,1692404594,"~/scripts/run-on-all-tabs"
--'  17  17  ~/scripts/run-on-all-tabs
-|4,39,17,17,1692404594,"~/scripts/run-on-all-tabs"
--'  17  17  ~/scripts/run-on-all-tabs
-|4,39,17,17,1692404594,"~/scripts/run-on-all-tabs"
--'  17  17  ~/scripts/run-on-all-tabs
-|4,39,17,17,1692404594,"~/scripts/run-on-all-tabs"
--'  17  17  ~/scripts/run-on-all-tabs
-|4,39,17,17,1692404594,"~/scripts/run-on-all-tabs"
--'  17  17  ~/scripts/run-on-all-tabs
-|4,39,17,17,1692404594,"~/scripts/run-on-all-tabs"
--'  17  17  ~/scripts/run-on-all-tabs
-|4,39,17,17,1692404594,"~/scripts/run-on-all-tabs"
--'  17  17  ~/scripts/run-on-all-tabs
-|4,39,17,17,1692404594,"~/scripts/run-on-all-tabs"
--'  17  17  ~/scripts/run-on-all-tabs
-|4,39,17,17,1692404594,"~/scripts/run-on-all-tabs"
--'  17  17  ~/scripts/run-on-all-tabs
-|4,39,17,17,1692404594,"~/scripts/run-on-all-tabs"
--'  17  17  ~/scripts/run-on-all-tabs
-|4,39,17,17,1692404594,"~/scripts/run-on-all-tabs"
--'  17  17  ~/scripts/run-on-all-tabs
-|4,39,17,17,1692404594,"~/scripts/run-on-all-tabs"
--'  17  17  ~/scripts/run-on-all-tabs
-|4,39,17,17,1692404594,"~/scripts/run-on-all-tabs"
--'  17  17  ~/scripts/run-on-all-tabs
-|4,39,17,17,1692404575,"~/scripts/run-on-all-tabs"
--'  17  17  ~/scripts/run-on-all-tabs
-|4,39,17,17,1692404575,"~/scripts/run-on-all-tabs"
--'  36  18  ~/scripts/run-on-all-tabs
-|4,39,36,18,1692404533,"~/scripts/run-on-all-tabs"
--'  36  18  ~/scripts/run-on-all-tabs
-|4,39,36,18,1692404533,"~/scripts/run-on-all-tabs"
--'  36  18  ~/scripts/run-on-all-tabs
-|4,39,36,18,1692404533,"~/scripts/run-on-all-tabs"
--'  36  18  ~/scripts/run-on-all-tabs
-|4,39,36,18,1692404533,"~/scripts/run-on-all-tabs"
--'  34  18  ~/scripts/run-on-all-tabs
-|4,39,34,18,1692404471,"~/scripts/run-on-all-tabs"
--'  33  18  ~/scripts/run-on-all-tabs
-|4,39,33,18,1692404471,"~/scripts/run-on-all-tabs"
--'  33  18  ~/scripts/run-on-all-tabs
-|4,39,33,18,1692404471,"~/scripts/run-on-all-tabs"
--'  33  18  ~/scripts/run-on-all-tabs
-|4,39,33,18,1692404471,"~/scripts/run-on-all-tabs"
--'  33  18  ~/scripts/run-on-all-tabs
-|4,39,33,18,1692404471,"~/scripts/run-on-all-tabs"
--'  33  18  ~/scripts/run-on-all-tabs
-|4,39,33,18,1692404471,"~/scripts/run-on-all-tabs"
--'  33  18  ~/scripts/run-on-all-tabs
-|4,39,33,18,1692404471,"~/scripts/run-on-all-tabs"
--'  33  18  ~/scripts/run-on-all-tabs
-|4,39,33,18,1692404471,"~/scripts/run-on-all-tabs"
--'  33  18  ~/scripts/run-on-all-tabs
-|4,39,33,18,1692404471,"~/scripts/run-on-all-tabs"
--'  33  18  ~/scripts/run-on-all-tabs
-|4,39,33,18,1692404471,"~/scripts/run-on-all-tabs"
--'  33  18  ~/scripts/run-on-all-tabs
-|4,39,33,18,1692404471,"~/scripts/run-on-all-tabs"
--'  33  18  ~/scripts/run-on-all-tabs
-|4,39,33,18,1692404471,"~/scripts/run-on-all-tabs"
--'  33  18  ~/scripts/run-on-all-tabs
-|4,39,33,18,1692404471,"~/scripts/run-on-all-tabs"
--'  33  18  ~/scripts/run-on-all-tabs
-|4,39,33,18,1692404471,"~/scripts/run-on-all-tabs"
--'  33  18  ~/scripts/run-on-all-tabs
-|4,39,33,18,1692404471,"~/scripts/run-on-all-tabs"
--'  27  9  ~/scripts/run-on-all-tabs
-|4,39,27,9,1692404426,"~/scripts/run-on-all-tabs"
--'  27  9  ~/scripts/run-on-all-tabs
-|4,39,27,9,1692404426,"~/scripts/run-on-all-tabs"
--'  27  9  ~/scripts/run-on-all-tabs
-|4,39,27,9,1692404426,"~/scripts/run-on-all-tabs"
--'  27  9  ~/scripts/run-on-all-tabs
-|4,39,27,9,1692404426,"~/scripts/run-on-all-tabs"
--'  27  9  ~/scripts/run-on-all-tabs
-|4,39,27,9,1692404426,"~/scripts/run-on-all-tabs"
--'  27  9  ~/scripts/run-on-all-tabs
-|4,39,27,9,1692404426,"~/scripts/run-on-all-tabs"
--'  27  9  ~/scripts/run-on-all-tabs
-|4,39,27,9,1692404426,"~/scripts/run-on-all-tabs"
--'  27  9  ~/scripts/run-on-all-tabs
-|4,39,27,9,1692404426,"~/scripts/run-on-all-tabs"
--'  27  9  ~/scripts/run-on-all-tabs
-|4,39,27,9,1692404426,"~/scripts/run-on-all-tabs"
--'  27  9  ~/scripts/run-on-all-tabs
-|4,39,27,9,1692404426,"~/scripts/run-on-all-tabs"
--'  27  9  ~/scripts/run-on-all-tabs
-|4,39,27,9,1692404426,"~/scripts/run-on-all-tabs"
--'  27  9  ~/scripts/run-on-all-tabs
-|4,39,27,9,1692404426,"~/scripts/run-on-all-tabs"
--'  27  9  ~/scripts/run-on-all-tabs
-|4,39,27,9,1692404426,"~/scripts/run-on-all-tabs"
--'  27  9  ~/scripts/run-on-all-tabs
-|4,39,27,9,1692404426,"~/scripts/run-on-all-tabs"
--'  27  9  ~/scripts/run-on-all-tabs
-|4,39,27,9,1692404426,"~/scripts/run-on-all-tabs"
+-'  37  17  ~/scripts/run-on-all-tabs
+|4,39,37,17,1692404763,"~/scripts/run-on-all-tabs"
+-'  37  17  ~/scripts/run-on-all-tabs
+|4,39,37,17,1692404763,"~/scripts/run-on-all-tabs"
+-'  37  17  ~/scripts/run-on-all-tabs
+|4,39,37,17,1692404763,"~/scripts/run-on-all-tabs"
+-'  37  17  ~/scripts/run-on-all-tabs
+|4,39,37,17,1692404763,"~/scripts/run-on-all-tabs"
+-'  37  17  ~/scripts/run-on-all-tabs
+|4,39,37,17,1692404763,"~/scripts/run-on-all-tabs"
+-'  37  17  ~/scripts/run-on-all-tabs
+|4,39,37,17,1692404763,"~/scripts/run-on-all-tabs"
+-'  37  17  ~/scripts/run-on-all-tabs
+|4,39,37,17,1692404763,"~/scripts/run-on-all-tabs"
+-'  37  17  ~/scripts/run-on-all-tabs
+|4,39,37,17,1692404763,"~/scripts/run-on-all-tabs"
+-'  37  17  ~/scripts/run-on-all-tabs
+|4,39,37,17,1692404763,"~/scripts/run-on-all-tabs"
 
 # Buffer list:
-%~/scripts/run-on-all-tabs	44	15
+%~/.gitignore	78	12
 
 # History of marks within files (newest to oldest):
+
+> ~/.gitignore
+	*	1692624710	0
+	"	78	12
+	^	78	13
+	.	78	12
+	+	78	12
+	z	78	12
+
+> ~/Work/.gitignore
+	*	1692624699	0
+	"	1	0
+
+> ~/.git/COMMIT_EDITMSG
+	*	1692624686	0
+	"	6	14
+	^	6	16
+	.	3	0
+	+	8243	53
+	+	8243	0
+	+	2	0
+	+	6	15
+	+	3	0
+	z	6	15
 
 > ~/scripts/run-on-all-tabs
 	*	1692404806	0
@@ -2742,27 +2766,3 @@ $
 	.	11	31
 	+	11	31
 	z	11	30
-
-> ~/install.sh
-	*	1690466954	0
-	"	821	45
-
-> ~/Library/CloudStorage/WorkDocsDrive-Documents/Notes/ic_txn/queries.md
-	*	1690406134	0
-	"	11	0
-	^	11	0
-	.	4	0
-	+	10	50
-	+	4	0
-	z	11	0
-
-> ~/Library/CloudStorage/WorkDocsDrive-Documents/Notes/ty/07-24.md
-	*	1690398982	0
-	"	16	86
-	^	16	87
-	.	17	0
-	+	16	88
-	+	4	0
-	+	16	0
-	+	17	0
-	z	16	86
