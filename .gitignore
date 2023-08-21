@@ -83,6 +83,7 @@ Makefile
 !.scripts/*
 !.scripts/**
 !.task/
+!.taskwarrior/
 !.task/**
 !.taskrc
 !.timewarrior/
