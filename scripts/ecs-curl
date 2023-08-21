@@ -1,0 +1,19 @@
+
+ACCOUNT="969089588956";
+REGION="us-west-2";
+SERVICE="KindleReplacementInfoService";
+aws-credentials "$ACCOUNT";
+
+cluster=$(aws ecs list-clusters --region "$REGION" | jq -r '.clusterArns[]' | grep "$SERVICE");
+echo "CLUSTER: $cluster";
+service=$(aws ecs list-services --region "us-west-2" --cluster "$cluster" | jq -r '.serviceArns[0]');
+echo "SERVICE: $service";
+service_definition=$(aws ecs describe-services --region "us-west-2" --cluster "$cluster" --services "$service");
+load_balancer=$(echo "$service_definition" | jq -r '.services[0].loadBalancers[0].targetGroupArn');
+echo "LOAD BALANCER: $load_balancer";
+aws elb describe-load-balancers --region "$REGION";
+dns=$(aws elbv2 describe-load-balancers --region "$REGION" --load-balancer-arns "$load_balancer" | jq -r '.LoadBalancers[0].DNSName');
+task=$(aws ecs list-tasks --cluster="$cluster" --region "$REGION" | jq -r ".taskArns [0]")
+echo "TASK: $task";
+
+aws ecs execute-command --interactive --cluster="$cluster" --region "$REGION" --container="Application" --command="/bin/sh" --task="$task";

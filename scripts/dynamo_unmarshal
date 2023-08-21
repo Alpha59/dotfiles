@@ -1,1 +1,5 @@
-jq -f "$HOME/scripts/unmarshal_dynamo" "$@";
+#!/usr/bin/env bash
+
+value="$*";
+jq -f "$HOME/scripts/unmarshal_dynamo" $value;
+jq '.NextToken' $value > .unmarshal_dynamo_next_token;

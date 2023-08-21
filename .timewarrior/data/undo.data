@@ -1,0 +1,364 @@
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230426T133137Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230426T133137Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230426T133137Z","end":"20230426T133140Z"}
+txn:
+  type: config
+  before: 
+  after: verbose = yes
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230426T134558Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230426T134558Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230426T134558Z","end":"20230426T225301Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230427T135832Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230427T135832Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230427T135832Z","end":"20230501T223023Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230502T132755Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230502T132755Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230502T132755Z","end":"20230504T225630Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230505T131031Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230505T131031Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230505T131031Z","end":"20230505T211655Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230508T135231Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230508T135231Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230508T135231Z","end":"20230508T215324Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230509T132100Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230509T132100Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230509T132100Z","end":"20230509T222722Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230510T135308Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230510T135308Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230510T135308Z","end":"20230510T214114Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230511T131925Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230511T131925Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230511T131925Z","end":"20230512T001621Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230512T133904Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230512T133904Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230512T133904Z","end":"20230512T210551Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230515T133228Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230515T133228Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230515T133228Z","end":"20230515T214221Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230516T133450Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230516T133450Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230516T133450Z","end":"20230516T211830Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230517T130835Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230517T130835Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230517T130835Z","end":"20230517T224749Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230518T133329Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230518T133329Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230518T133329Z","end":"20230518T220942Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230523T143123Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230523T143123Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230523T143123Z","end":"20230523T222736Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230524T131527Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230524T131527Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230524T131527Z","end":"20230524T224118Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230525T133807Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230525T133807Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230525T133807Z","end":"20230525T214531Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230526T134624Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230526T134624Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230526T134624Z","end":"20230530T232407Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230531T144133Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230531T144133Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230531T144133Z","end":"20230531T231102Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230601T134337Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230601T134337Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230601T134337Z","end":"20230601T210457Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230605T131017Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230605T131017Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230605T131017Z","end":"20230605T212512Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230606T141735Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230606T141735Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230606T141735Z","end":"20230606T214540Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230607T130453Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230607T130453Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230607T130453Z","end":"20230607T223405Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230608T133042Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230608T133042Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230608T133042Z","end":"20230609T224450Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230612T142907Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230612T142907Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230612T142907Z","end":"20230612T205709Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230613T122729Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230614T131906Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230614T131906Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230614T131906Z","end":"20230614T214454Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230615T135550Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230615T135550Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230615T135550Z","end":"20230615T222439Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230616T132851Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230616T132851Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230616T132851Z","end":"20230620T000458Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230620T130912Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230620T130912Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230620T130912Z","end":"20230620T215028Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230621T132316Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230621T132316Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230621T132316Z","end":"20230621T215736Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230622T144617Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230622T144617Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230622T144617Z","end":"20230622T225810Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230623T140231Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230623T140231Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230623T140231Z","end":"20230710T235211Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230711T135310Z"}

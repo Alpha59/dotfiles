@@ -206,6 +206,7 @@ while true; do
         pass "No more messages Found $msg";
         debug "Waiting 2 minutes";
         sleep 120;
+        aws-credentials $1 $region;
         aws sqs get-queue-attributes --attribute-names All --queue-url $DLQ;
         aws sqs get-queue-attributes --attribute-names All --queue-url $Queue;
         if [[ "$PURGE" != "y" ]]; then
@@ -213,15 +214,18 @@ while true; do
             read PURGE;
         fi
         if [[ "$PURGE" == "y" ]]; then
+            aws-credentials $1 $region;
             aws sqs purge-queue --queue-url $DLQ;
             debug "Waiting 2 minutes";
             sleep 120;
+            aws-credentials $1 $region;
             aws sqs get-queue-attributes --attribute-names All --queue-url $DLQ;
             aws sqs get-queue-attributes --attribute-names All --queue-url $Queue;
         fi
         exit 0;
     fi
     echo "$msg" | jq;
+    aws-credentials $1 $region;
     aws sqs send-message --queue-url $Queue --message-body $msg;
     debug "Sent message $msg";
 done;

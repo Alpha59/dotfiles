@@ -1,0 +1,46 @@
+#!/bin/bash
+
+if [[ $1 -eq -1 ]]; then
+    tabs=$(chrome-cli list tabs | tac);
+elif [[ $1 -gt 0 ]]; then
+    tabs=$(chrome-cli list tabs -w $1);
+else
+    tabs=$(chrome-cli list tabs -w $(chrome-cli list windows | head -n1 | awk -F'[][]' '{print $2}'));
+fi
+
+echo "Chrome Version:";
+chrome-cli chrome version;
+#for tab in $tabs; do # Iterate tabs not working...?
+while read tab; do
+    tabId=$(echo "$tab" | awk -F'[][]' '{print $2}');
+    url=$(chrome-cli info -t "$tabId" | grep -o "^Url:.*" | cut -c 6-);
+    title=$(chrome-cli info -t "$tabId" | grep -o "^Title:.*" | cut -c 8-);
+    if [[ -z "$tabId" ]]; then # Ghost Tab
+        echo "Ghost Tab";
+        continue;
+    else #
+        info=$(chrome-cli info -t "$tabId");
+        if [[ -z "$info" ]]; then # Ghost Tab
+            continue;
+        else
+            echo "$info";
+        fi
+        chrome-cli activate -t "$tabId";
+        echo "activate";
+        sleep 1;
+
+        chrome-cli reload -t "$tabId";
+        echo "reload";
+        sleep 2;
+
+        echo "execute";
+        chrome-cli execute "document.querySelector('div.awsui-util-action-stripe-group > awsui-button:nth-child(3) > button').click(); setTimeout(() => { document.querySelector('#awsui-input-0').value = 'arn:aws:iam::856042963385:role/PicaPicaRole'; document.querySelector('#awsui-input-1').value = document.location.pathname.split('/')[2];}, 100);";
+
+        echo "wait";
+        sleep 20;
+
+        echo "close";
+        chrome-cli close -t "$tabId";
+        sleep 1;
+    fi #
+done <<< "$tabs";

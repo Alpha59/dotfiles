@@ -1,0 +1,14 @@
+#!/bin/bash
+vpc="$1"
+aws ec2 describe-internet-gateways --region us-west-2 --filters 'Name=attachment.vpc-id,Values='$vpc
+aws ec2 describe-subnets --region us-west-2 --filters 'Name=vpc-id,Values='$vpc
+aws ec2 describe-route-tables --region us-west-2 --filters 'Name=vpc-id,Values='$vpc
+aws ec2 describe-network-acls --region us-west-2 --filters 'Name=vpc-id,Values='$vpc
+aws ec2 describe-vpc-peering-connections --region us-west-2 --filters 'Name=requester-vpc-info.vpc-id,Values='$vpc
+aws ec2 describe-vpc-endpoints --region us-west-2 --filters 'Name=vpc-id,Values='$vpc
+aws ec2 describe-nat-gateways --filter 'Name=vpc-id,Values='$vpc
+aws ec2 describe-security-groups --region us-west-2 --filters 'Name=vpc-id,Values='$vpc
+aws ec2 describe-instances --region us-west-2 --filters 'Name=vpc-id,Values='$vpc
+aws ec2 describe-vpn-connections --region us-west-2 --filters 'Name=vpc-id,Values='$vpc
+aws ec2 describe-vpn-gateways --region us-west-2 --filters 'Name=attachment.vpc-id,Values='$vpc
+aws ec2 describe-network-interfaces --region us-west-2 --filters 'Name=vpc-id,Values='$vpc

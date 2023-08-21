@@ -1,0 +1,21 @@
+[cli "bin"]
+java19_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
+java18_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
+java17_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
+java16_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
+java15_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
+java14_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
+java13_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
+java12_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
+java11_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
+java10_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
+java9_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
+java7_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
+java6_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
+
+node20x = /opt/homebrew/bin/node
+node18x = /usr/local/n/versions/node/18.16.0/bin/node
+node16x = /usr/local/n/versions/node/16.20.0/bin/node
+node14x = /usr/local/n/versions/node/14.21.3/bin/node
+
+java20_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home

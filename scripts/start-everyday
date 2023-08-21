@@ -189,6 +189,11 @@ cd "$HOME" || return;
 /usr/bin/open /Applications/Alfred\ 5.app/;
 /usr/bin/open /Applications/Warp.app/;
 
+echo "Merch By Amazon"
+/usr/bin/open -a "/Applications/Google Chrome.app" 'https://merch.amazon.com/manage/designs';
+echo "Ads By Amazon"
+/usr/bin/open -a "/Applications/Google Chrome.app" 'https://advertising.amazon.com/cm/campaigns?entityId=ENTITY27FFDYKFP1CK2';
+
 # Check for Local updates
 clear;
 
