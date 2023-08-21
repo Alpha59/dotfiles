@@ -44,6 +44,54 @@
       "LocalPkgInfo": "/Users/ailor/CORTEX/packageInfo",
       "RemotePkgInfo": "/home/ailor/CORTEX/packageInfo",
       "Exclude": []
+    },
+    {
+      "LocalSync": "/Users/ailor/Work/KRIBS/src",
+      "RemoteHost": "dev-dsk-ailor-2c-087d1f22.us-west-2.amazon.com",
+      "RemoteSync": "/home/ailor/KRIBS/src",
+      "LocalPkgInfo": "/Users/ailor/Work/KRIBS/packageInfo",
+      "RemotePkgInfo": "/home/ailor/KRIBS/packageInfo",
+      "Exclude": []
+    },
+    {
+      "LocalSync": "/Users/ailor/Work/KRDS/src",
+      "RemoteHost": "dev-dsk-ailor-2c-087d1f22.us-west-2.amazon.com",
+      "RemoteSync": "/home/ailor/KRDS/src",
+      "LocalPkgInfo": "/Users/ailor/Work/KRDS/packageInfo",
+      "RemotePkgInfo": "/home/ailor/KRDS/packageInfo",
+      "Exclude": []
+    },
+    {
+      "LocalSync": "/Users/ailor/Dev/CACURL/src",
+      "RemoteHost": "dev-dsk-ailor-2c-087d1f22.us-west-2.amazon.com",
+      "RemoteSync": "/home/ailor/CACURL/src",
+      "LocalPkgInfo": "/Users/ailor/Dev/CACURL/packageInfo",
+      "RemotePkgInfo": "/home/ailor/CACURL/packageInfo",
+      "Exclude": []
+    },
+    {
+      "LocalSync": "/Users/ailor/Work/KRLPR/src",
+      "RemoteHost": "dev-dsk-ailor-2c-087d1f22.us-west-2.amazon.com",
+      "RemoteSync": "/home/ailor/KRLPR/src",
+      "LocalPkgInfo": "/Users/ailor/Work/KRLPR/packageInfo",
+      "RemotePkgInfo": "/home/ailor/KRLPR/packageInfo",
+      "Exclude": []
+    },
+    {
+      "LocalSync": "/Users/ailor/Work/DeviceReturnsAlertSystemCDK/src",
+      "RemoteHost": "dev-dsk-ailor-2c-087d1f22.us-west-2.amazon.com",
+      "RemoteSync": "/home/ailor/DeviceReturnsAlertSystemCDK/src",
+      "LocalPkgInfo": "/Users/ailor/Work/DeviceReturnsAlertSystemCDK/packageInfo",
+      "RemotePkgInfo": "/home/ailor/DeviceReturnsAlertSystemCDK/packageInfo",
+      "Exclude": []
+    },
+    {
+      "LocalSync": "/Users/ailor/Work/KDMS/src",
+      "RemoteHost": "dev-dsk-ailor-2c-087d1f22.us-west-2.amazon.com",
+      "RemoteSync": "/home/ailor/KDMS/src",
+      "LocalPkgInfo": "/Users/ailor/Work/KDMS/packageInfo",
+      "RemotePkgInfo": "/home/ailor/KDMS/packageInfo",
+      "Exclude": []
     }
   ]
 }

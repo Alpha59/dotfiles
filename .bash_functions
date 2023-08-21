@@ -406,12 +406,13 @@ git ()
     if [[ -n "$(type -t "git-$subcommand")" ]]; then
         git-${subcommand} $@;
         if [ $? = 127 ]; then
-            command git "$subcommand" $*;
+            command git "$subcommand" "$@";
         fi;
     else
-        command git "$subcommand" $*;
+        command git "$subcommand" "$@";
     fi
 }
+
 declare -fx git
 git-black ()
 {

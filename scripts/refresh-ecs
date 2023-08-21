@@ -1,0 +1,17 @@
+region="eu-west-1";
+aws-credentials 016953815887 "$region";
+clusters=$(aws ecs list-clusters --region "$region" | jq -r '.clusterArns[]');
+for cluster in $clusters
+do
+    services=$(aws ecs list-services --cluster "$cluster" --region "$region" | jq -r ".serviceArns[]");
+    for service in $services
+    do
+        tasks=$(aws ecs describe-services --cluster "$cluster" --services "$service" --region "$region" | jq -r ".services[].taskDefinition" | sed 's/.*\/\(.*\):.*/\1/');
+        #aws ecs describe-services --cluster "$cluster" --services "$service" --region "$region" | jq -r ".services[].taskDefinition";
+        for task in $tasks
+        do
+            echo "$task:12";
+            aws ecs update-service --service "$service" --cluster "$cluster" --task-definition "$task:12" --force-new-deployment --color on --region "$region";
+        done;
+    done;
+done;

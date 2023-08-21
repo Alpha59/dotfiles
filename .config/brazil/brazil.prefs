@@ -10,7 +10,6 @@ java12_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/
 java11_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
 java10_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
 java9_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
-java8_home = /Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home
 java7_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
 java6_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
 
@@ -18,3 +17,5 @@ node20x = /opt/homebrew/bin/node
 node18x = /usr/local/n/versions/node/18.16.0/bin/node
 node16x = /usr/local/n/versions/node/16.20.0/bin/node
 node14x = /usr/local/n/versions/node/14.21.3/bin/node
+
+java20_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home

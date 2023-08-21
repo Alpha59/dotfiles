@@ -8,7 +8,7 @@ export LSCOLORS="exfxcxdxbxegedabagacad";
 
 export PROMPT="\t:\w>Yes Jake? >> ";
 export PS1="$PROMPT";
-
+export LOOKATME_EXTS="terminal"
 #set -o vi
 
 PATH="$PATH:$(/opt/homebrew/bin/brew --prefix)/opt/python3/libexec/bin";

@@ -945,3 +945,13 @@ brew install dos2unix;
 
 brew install golang;
 go install github.com/paij0se/cligpt@latest;
+gem install csv2json;
+    
+npm install --global csv2json;
+    
+curl https://s3.amazonaws.com/session-manager-downloads/plugin/latest/mac/sessionmanager-bundle.zip -o sessionmanager-bundle.zip;
+    
+unzip sessionmanager-bundle.zip;
+    
+sudo ./sessionmanager-bundle/install -i /usr/local/sessionmanagerplugin -b /usr/local/bin/session-manager-plugin;
+    

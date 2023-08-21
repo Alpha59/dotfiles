@@ -1,0 +1,10 @@
+config.version: v0.37.1
+options: {}
+collection:
+  active.source: "@x"
+  active.group: ""
+  scratch: ""
+  sources:
+  - handle: "@x"
+    driver: csv
+    location: /Users/ailor/Work/x

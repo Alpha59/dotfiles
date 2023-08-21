@@ -150,4 +150,5 @@ map <C-t> :NERDTreeToggle<CR>
 map <C-p> :TableModeToggle<CR>
 
 com! FormatJSON .!python3 -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), indent=4)"
-
+com! Fixgpt :%s/\n\s*\([A-z]\)/ \1/g
+com! Sequalize :%s/.*`\(.*\)` \([^ ]*\).*|/      \1:{\r       type: Sequelize.\2\r      },/
