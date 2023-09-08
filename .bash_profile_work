@@ -1,6 +1,6 @@
 alias ndebugc='tmux kill-session -t debug-ssh; tmux new-session -d -s debug-ssh "ssh -N -L 5050:localhost:5050 dev-dsk-ailor-2c-02d19e46.us-west-2.amazon.com" '
 alias debugc='ssh -N -L 5050:localhost:5050 dev-dsk-ailor-2c-02d19e46.us-west-2.amazon.com '
-alias pull-request='git all branch -u origin/mainline; cr --all --parent origin/mainline --amend --open --reviewers team:kindle-rl-dev:2 '
+alias pull-request='git all branch -u origin/mainline; cr --all --parent origin/mainline --amend --open --description "$($HOME/crTemplate.md)" --reviewers team:kindle-rl-dev:2 '
 alias pr-tamper='cr --reviewers team:env-improvement-cr:0,ldap:ninja-bar-raisers:1 --parent origin/mainline --amend --open '
 alias ninja='tmux kill-session -t ninja; tmux new-session -d -s ninja "ninja-dev-sync" '
 alias credentials='tmux kill-session -t credentials; tmux new-session -d -s credentials "aws-credentials -r" '

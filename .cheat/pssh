@@ -5,7 +5,7 @@ version: 1.0.0
 default: true
 ---
 
-        
+
     EXAMPLES:
 # Prints version information
 pssh --version;
@@ -19,6 +19,6 @@ pssh -o file.txt;
 # Run the command against all hosts in the host file
 pssh host-file "command"
 
-# Grep the logs on all hosts 
+# Grep the logs on all hosts
 pssh host-file -g "search-term"
 
