@@ -5,7 +5,6 @@ version: 1.0.0
 default: true
 ---
 
-        
     EXAMPLES:
 # Prints version information
 get-return-order --version;
@@ -14,8 +13,12 @@ get-return-order -v;
 # Runs script in quiet mode
 get-return-order -q;
 # pipes output into a file
-get-return-order -o file.txt;
 
 # use the return order id
 get-return-order -r <return-order-id>
+# Run the command against all hosts in the host file
+pssh host-file "command"
+
+# Grep the logs on all hosts
+pssh host-file -g "search-term"
 

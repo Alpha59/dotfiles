@@ -1408,3 +1408,94 @@ time 1692110257
 old [description:"Remove RMA fields" entry:"1692027910" modified:"1692027910" status:"pending" uuid:"50d7c387-ec4c-4d79-a62f-19f979e42787"]
 new [description:"Remove RMA fields" end:"1692110257" entry:"1692027910" modified:"1692110257" status:"completed" uuid:"50d7c387-ec4c-4d79-a62f-19f979e42787"]
 ---
+time 1694021420
+new [description:"Write WBR Updates" due:"1693281600" entry:"1694021420" imask:"17" modified:"1692107885" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"4a54e56b-5dfa-4b39-b429-131112d7ed07"]
+---
+time 1694021420
+new [description:"Write WBR Updates" due:"1693886400" entry:"1694021420" imask:"18" modified:"1692107885" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"281c2980-82a1-4da1-9eae-e9363e03e7ae"]
+---
+time 1694021420
+new [description:"Write WBR Updates" due:"1694491200" entry:"1694021420" imask:"19" modified:"1692107885" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"cdaf4410-10eb-482d-ab99-4ad5aa77b2c1"]
+---
+time 1694021420
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"+++++++++++++++++" modified:"1692107885" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"+++++++++++++++++---" modified:"1694021420" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1694021420
+new [description:"Update MTR" due:"1696132800" entry:"1694021420" imask:"5" modified:"1691181632" parent:"ca5e2282-3b05-420e-973c-a8a368d06b26" recur:"monthly" rtype:"periodic" status:"pending" uuid:"f985af0e-4e79-4e30-b45e-921dfc6fe550"]
+---
+time 1694021420
+old [description:"Update MTR" due:"1682913600" entry:"1682432808" mask:"++++W" modified:"1691181632" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ca5e2282-3b05-420e-973c-a8a368d06b26"]
+new [description:"Update MTR" due:"1682913600" entry:"1682432808" mask:"++++W-" modified:"1694021420" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ca5e2282-3b05-420e-973c-a8a368d06b26"]
+---
+time 1694107956
+new [description:"OE Scorecard" due:"1696651200" entry:"1694107956" imask:"5" modified:"1691510697" parent:"ff19be3d-09c1-4566-bd56-a5fe380e7872" recur:"monthly" rtype:"periodic" status:"pending" uuid:"b8f7299a-e7af-4dd2-88a6-b58decb496f1"]
+---
+time 1694107956
+old [description:"OE Scorecard" due:"1683432000" entry:"1682432854" mask:"+++W-" modified:"1691510697" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+new [description:"OE Scorecard" due:"1683432000" entry:"1682432854" mask:"+++W--" modified:"1694107956" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+---
+time 1694108197
+old [description:"Update MTR" due:"1682913600" entry:"1682432808" mask:"++++W-" modified:"1694021420" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ca5e2282-3b05-420e-973c-a8a368d06b26"]
+new [description:"Update MTR" due:"1682913600" entry:"1682432808" mask:"++++W+" modified:"1694108197" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ca5e2282-3b05-420e-973c-a8a368d06b26"]
+---
+time 1694108197
+old [description:"Update MTR" due:"1696132800" entry:"1694021420" imask:"5" modified:"1691181632" parent:"ca5e2282-3b05-420e-973c-a8a368d06b26" recur:"monthly" rtype:"periodic" status:"pending" uuid:"f985af0e-4e79-4e30-b45e-921dfc6fe550"]
+new [description:"Update MTR" due:"1696132800" end:"1694108197" entry:"1694021420" imask:"5" modified:"1694108197" parent:"ca5e2282-3b05-420e-973c-a8a368d06b26" recur:"monthly" rtype:"periodic" status:"completed" uuid:"f985af0e-4e79-4e30-b45e-921dfc6fe550"]
+---
+time 1694108200
+old [description:"Update MTR" due:"1682913600" entry:"1682432808" mask:"++++W+" modified:"1694108197" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ca5e2282-3b05-420e-973c-a8a368d06b26"]
+new [description:"Update MTR" due:"1682913600" entry:"1682432808" mask:"++++++" modified:"1694108200" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ca5e2282-3b05-420e-973c-a8a368d06b26"]
+---
+time 1694108200
+old [description:"Update MTR" due:"1693454400" entry:"1691096003" imask:"4" modified:"1691181632" parent:"ca5e2282-3b05-420e-973c-a8a368d06b26" recur:"monthly" rtype:"periodic" status:"pending" uuid:"0e0b4236-0774-441e-80dd-1e016f94ba3f" wait:"1692391232"]
+new [description:"Update MTR" due:"1693454400" end:"1694108200" entry:"1691096003" imask:"4" modified:"1694108200" parent:"ca5e2282-3b05-420e-973c-a8a368d06b26" recur:"monthly" rtype:"periodic" status:"completed" uuid:"0e0b4236-0774-441e-80dd-1e016f94ba3f" wait:"1692391232"]
+---
+time 1694108202
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"+++++++++++++++++---" modified:"1694021420" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"+++++++++++++++++--+" modified:"1694108202" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1694108202
+old [description:"Write WBR Updates" due:"1694491200" entry:"1694021420" imask:"19" modified:"1692107885" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"cdaf4410-10eb-482d-ab99-4ad5aa77b2c1"]
+new [description:"Write WBR Updates" due:"1694491200" end:"1694108202" entry:"1694021420" imask:"19" modified:"1694108202" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"completed" uuid:"cdaf4410-10eb-482d-ab99-4ad5aa77b2c1"]
+---
+time 1694108203
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"+++++++++++++++++--+" modified:"1694108202" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"+++++++++++++++++-++" modified:"1694108203" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1694108203
+old [description:"Write WBR Updates" due:"1693886400" entry:"1694021420" imask:"18" modified:"1692107885" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"281c2980-82a1-4da1-9eae-e9363e03e7ae"]
+new [description:"Write WBR Updates" due:"1693886400" end:"1694108203" entry:"1694021420" imask:"18" modified:"1694108203" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"completed" uuid:"281c2980-82a1-4da1-9eae-e9363e03e7ae"]
+---
+time 1694108204
+old [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"+++++++++++++++++-++" modified:"1694108203" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+new [description:"Write WBR Updates" due:"1683000000" entry:"1682432741" mask:"++++++++++++++++++++" modified:"1694108204" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d3b47401-eca1-4499-bec5-6a543b901a2b"]
+---
+time 1694108204
+old [description:"Write WBR Updates" due:"1693281600" entry:"1694021420" imask:"17" modified:"1692107885" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"pending" uuid:"4a54e56b-5dfa-4b39-b429-131112d7ed07"]
+new [description:"Write WBR Updates" due:"1693281600" end:"1694108204" entry:"1694021420" imask:"17" modified:"1694108204" parent:"d3b47401-eca1-4499-bec5-6a543b901a2b" recur:"weekly" rtype:"periodic" status:"completed" uuid:"4a54e56b-5dfa-4b39-b429-131112d7ed07"]
+---
+time 1694108206
+old [description:"OE Scorecard" due:"1683432000" entry:"1682432854" mask:"+++W--" modified:"1694107956" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+new [description:"OE Scorecard" due:"1683432000" entry:"1682432854" mask:"+++W+-" modified:"1694108206" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+---
+time 1694108206
+old [description:"OE Scorecard" due:"1694059200" entry:"1691510697" imask:"4" modified:"1689088135" parent:"ff19be3d-09c1-4566-bd56-a5fe380e7872" recur:"monthly" rtype:"periodic" status:"pending" uuid:"8606bbeb-b716-48e4-b9e0-7af47d67a974"]
+new [description:"OE Scorecard" due:"1694059200" end:"1694108206" entry:"1691510697" imask:"4" modified:"1694108206" parent:"ff19be3d-09c1-4566-bd56-a5fe380e7872" recur:"monthly" rtype:"periodic" status:"completed" uuid:"8606bbeb-b716-48e4-b9e0-7af47d67a974"]
+---
+time 1694108209
+old [description:"OE Scorecard" due:"1683432000" entry:"1682432854" mask:"+++W+-" modified:"1694108206" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+new [description:"OE Scorecard" due:"1683432000" entry:"1682432854" mask:"+++W++" modified:"1694108209" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+---
+time 1694108209
+old [description:"OE Scorecard" due:"1696651200" entry:"1694107956" imask:"5" modified:"1691510697" parent:"ff19be3d-09c1-4566-bd56-a5fe380e7872" recur:"monthly" rtype:"periodic" status:"pending" uuid:"b8f7299a-e7af-4dd2-88a6-b58decb496f1"]
+new [description:"OE Scorecard" due:"1696651200" end:"1694108209" entry:"1694107956" imask:"5" modified:"1694108209" parent:"ff19be3d-09c1-4566-bd56-a5fe380e7872" recur:"monthly" rtype:"periodic" status:"completed" uuid:"b8f7299a-e7af-4dd2-88a6-b58decb496f1"]
+---
+time 1694108210
+old [description:"OE Scorecard" due:"1683432000" entry:"1682432854" mask:"+++W++" modified:"1694108209" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+new [description:"OE Scorecard" due:"1683432000" entry:"1682432854" mask:"++++++" modified:"1694108210" recur:"monthly" rtype:"periodic" status:"recurring" uuid:"ff19be3d-09c1-4566-bd56-a5fe380e7872"]
+---
+time 1694108210
+old [description:"OE Scorecard" due:"1691380800" entry:"1688999179" imask:"3" modified:"1690406998" parent:"ff19be3d-09c1-4566-bd56-a5fe380e7872" recur:"monthly" rtype:"periodic" status:"pending" uuid:"e18ce8f1-9aef-4af6-8a8c-4b7d2c9403a8" wait:"1691184598"]
+new [description:"OE Scorecard" due:"1691380800" end:"1694108210" entry:"1688999179" imask:"3" modified:"1694108210" parent:"ff19be3d-09c1-4566-bd56-a5fe380e7872" recur:"monthly" rtype:"periodic" status:"completed" uuid:"e18ce8f1-9aef-4af6-8a8c-4b7d2c9403a8" wait:"1691184598"]
+---
