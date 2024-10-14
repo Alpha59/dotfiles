@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+function assert_command {
+  local cmd=${1}
+  type "${cmd}" >/dev/null 2>&1 || echo "Cancelling because required command '${cmd}' is not available."
+}
+
+# Check from input list if the requirements are met
+while [[ $# -gt 0 ]]; do
+    if ! command -v "$1" >/dev/null 2>&1; then
+        echo "'$1' is not installed, please install and try again"
+    fi
+    assert_command "$1";
+    shift;
+done

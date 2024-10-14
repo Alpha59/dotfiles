@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+POSITIONAL_ARGS=()
+CLIPBOARD=$global_clipboard || false;
+CLIPBOARD_OUTPUT="";
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --clipboard)
+        CLIPBOARD=true;
+        ;;
+    *)
+        POSITIONAL_ARGS+=("$1") # save positional arg
+        shift # past argument
+        ;;
+  esac
+done
+
+set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
+
+interrupt_count=0
+on_interrupt() {
+    if [ $interrupt_count -lt 1 ]; then
+        echo "Aborting this operation can cause errors."
+        echo "Press Ctrl+C again if you are sure you want to cancel."
+        interrupt_count=$((interrupt_count + 1))
+    else
+        # Convention is to use the status code 130 for interrupted scripts.
+        echo "Aborting long operation"
+        exit 130
+    fi
+}
+
+
+function Main__interruptHandler() {
+    # @description signal handler for SIGINT
+    echo "SIGINT caught"
+    exit
+}
+function Main__terminationHandler() {
+    # @description signal handler for SIGTERM
+    echo "SIGTERM caught"
+    exit
+}
+function Main__exitHandler() {
+    # @description signal handler for end of the program (clean or unclean).
+
+    # ========== Copy to clipboard if on MacOS ==========
+    if [[ "$CLIPBOARD" == "true" ]]; then
+        if [[ $(uname -s) == *Darwin* ]] ; then
+            echo -n "$CLIPBOARD_OUTPUT" | pbcopy
+        fi
+    fi
+
+    exit
+}
+
+function assert_root {
+  if [[ ${EUID} -ne 0 ]]; then
+    cmn_die "This script must be run as root!"
+  fi
+}
+
+trap Main__interruptHandler INT
+trap Main__terminationHandler TERM
+trap Main__exitHandler EXIT
+
+# catch signals and exit
+trap exit INT TERM EXIT

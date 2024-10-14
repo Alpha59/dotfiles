@@ -1,1 +1,0 @@
-ssh $DESK -t 'cd ~/Poker/src/PokerApp; bash ./run; zsh -i '

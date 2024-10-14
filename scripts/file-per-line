@@ -1,0 +1,19 @@
+awk -F'","' '
+    function fixlines(a){
+        gsub(/"/,"",a)
+        gsub(/[ :-]+/,"-",a)
+        gsub(/[^\/0-9a-zA-Z_-]/,"_", a)
+        return a
+    }
+    function fixnewline(a){
+        gsub(/\\n/,"\n", a)
+        return a
+    }
+    function fixtitle(a){
+        gsub(/"/,"", a)
+        return a
+    }
+    {
+        filename = ""fixlines("ee-stories/"$3"/"$1)".md"
+        print "mkdir -p \"$(dirname \""filename"\")\" && touch " filename "; cat > " filename " << EOM" fixnewline("\\n\\n# "fixtitle($1)"\\n"$2"\\n")"EOM"
+    }' < eeStories-short-filtered.csv

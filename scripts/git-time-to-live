@@ -1,0 +1,68 @@
+#!/bin/bash
+
+months=12;
+
+# Calculate start and end dates for the last 12 months
+LAST_12_MONTHS_START=$(date -v -"$months"m '+%Y-%m-%d')
+LAST_12_MONTHS_END=$(date +%Y-%m-%d)
+
+# Get top 10 contributors in the last 12 months
+
+# Mainline branch
+MAINLINE_BRANCH="mainline"
+
+# Get all commits from the main branch including their merge date
+# Assuming the main branch is named 'main'
+git fetch --all
+git checkout "$MAINLINE_BRANCH"
+
+# List all commits, including their hash and commit date, from the last 12 months
+commits=$(git log --since "$LAST_12_MONTHS_START" --before "$LAST_12_MONTHS_END" --format="%H %at" "$MAINLINE_BRANCH")
+
+total_time=0
+count=0
+
+echo "Processing commits..."
+
+# Iterate through each commit and find its merge date
+while read -r commit_hash commit_time; do
+    # Get the author date of the commit (in Unix timestamp)
+    author_date=$(git show -s --format=%at "$commit_hash")
+
+    # Try to find when this commit was pushed to origin by looking at reflog for 'origin'
+    # We look for the earliest reflog entry that has this commit in its history post the author date
+    #push_date=$(git reflog show --date=unix origin | awk -v commit="$commit_hash" -v ad="$author_date" '$3 == "update" && $1 >= commit && $5 > ad {print $5; exit}')
+    push_date=$(git reflog show --date=unix origin "$commit_hash" | sed 's/.*@{\(.*\)}.*/\1/g');
+    diff=$((push_date - author_date));
+    echo "$push_date - $author_date = $diff";
+
+    # Find the merge commit if it exists
+    merge_hash=$(git log --ancestry-path --merges --format="%H" "$commit_hash".."$MAINLINE_BRANCH" | tail -1)
+    if [[ ! -z "$merge_hash" ]]; then
+        # Get the merge date of the first merge commit that contains this commit
+        merge_time=$(git show -s --format=%at "$merge_hash")
+
+        # Calculate the time difference from commit to merge
+        time_diff=$((merge_time - commit_time + diff)) # time in seconds
+
+        # Convert time_diff to days for readable output
+        days_diff=$((time_diff / 86400))
+        echo "Commit $commit_hash was merged after $days_diff days, $diff after being authored"
+    else
+        # Directly committed to main, consider the time as zero
+        time_diff=$((push_data - author_date))
+        echo "Commit $commit_hash was directly committed to $MAINLINE_BRANCH, $diff after being authored"
+    fi
+    total_time=$((total_time + time_diff))
+    count=$((count + 1))
+done <<< "$commits"
+
+# Calculate the average time in seconds
+if [ $count -gt 0 ]; then
+    average_time=$((total_time / count))
+    days_average=$((average_time / 86400))
+    echo "Average time from commit to being part of '$MAINLINE_BRANCH': $days_average days."
+else
+    echo "No commits were merged from other branches within the timeframe."
+fi
+

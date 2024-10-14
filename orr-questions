@@ -1,0 +1,741 @@
+-------------------------
+1. **Have you tested your ability to retrieve logs from the device?**
+2. **Is requestId included in all log entries?**
+3. **Is data encryption at-rest enabled?**
+4. **Does your operational dashboard contain a view with metrics for all customer experiences?**
+   - **Tasks**:
+5. **Is the system capable of handling a failover scenario?**
+6. **Are the backup procedures tested regularly?**
+7. **Is there a monitoring system in place for performance metrics?**
+8. **Are API rate limits enforced?**
+9. **Is there an incident response plan documented?**
+10. **Have security vulnerabilities been assessed and mitigated?**
+11. **Are user permissions regularly audited?**
+12. **Is multi-factor authentication enabled for all user accounts?**
+13. **Is data retention policy clearly defined and implemented?**
+14. **Are logs stored securely and accessible only to authorized personnel?**
+    - **Tasks**:
+15. **Is system downtime minimized during maintenance?**
+16. **Are regular performance tests conducted to ensure system stability?**
+17. **Is there a disaster recovery plan in place and tested?**
+    - **Tasks**:
+18. **Is sensitive data masked or encrypted during transmission?**
+19. **Are service-level agreements (SLAs) defined and adhered to?**
+20. **Is user feedback collected and analyzed for improvements?**
+    - **Tasks**:
+Here are the tasks converted from the provided questions:
+1. **Was the business need for new service/application/feature reviewed with your L7+ leadership (through channels like OP1 or Kingpin)?**
+2. **Are there any existing services that overlap with the new service/application/feature?**
+3. **Has the resource planning required for operating the service effectively (people, deployments, dashboards, etc.) been completed for the new service/application/feature?**
+4. **What’s the business impact if the system experiences an outage?**
+5. **What length of outage can your system experience before impacting clients/users?**
+6. **How many customers (or teams) will be impacted if you have an outage?**
+7. **Which of the following impact severities apply to your application?**
+8. **What is the business requested RTO (Recovery Time Objective)?**
+9. **Does your application have a Disaster Recovery (DR) plan?**
+10. **What is your application’s actual RTO and RPO?**
+11. **List all the upstream and downstream applications with anvil ID.**
+12. **What is your recovery strategy for data storage, application, and infrastructure? Please provide technical details of recovery steps or supporting document links.**
+13. **Have you tested recovering data from your backups and confirmed that you can meet your RPO and RTO objectives?**
+14. **Have you considered building your service with multi-region (e.g., us-east-1 and us-west-2) redundancy?**
+15. **Have you defined your critical path for your project and aligned the same with the stakeholders?**
+16. **Have the estimates been signed off by SDM? Does the schedule account for on-calls and known vacation plans?**
+17. **Do you have a particular experience or feature that cannot, should not be built, or cannot be delivered in time?**
+18. **Have you identified all your dependent teams and contacts and documented them?**
+19. **Have you defined which are the critical dependencies? (this is an opportunity to ask for help if you think it will be hard to get buy-in)**
+20. **Have you performed analysis of end-to-end process flows and internal/external dependencies?**
+21. **Do you have a working agreement (Away Team, Loaner, Funding, etc.) with all dependency teams?**
+22. **Do you have alignment on your project plan from all your dependency teams (internal and external) and any ongoing projects (within or outside the same team, but with dependencies)?**
+23. **Have you discussed attrition risk of individual contributors with your SDM? Do we have any risk we should plan around?**
+Here are the tasks converted from the provided questions:
+1. **Do you have a contingency plan? (Consider things like what is your buffer? How will you respond to new scope? Add resources? From where?)**
+2. **Have you thought about launching more incrementally in phases than a single big-bang launch?**
+3. **Are you getting any "free" work from any team? (This should be called out as a risk and mitigation plan.)**
+4. **Have you created an intake SIM for Partner Business Operations (PBO)?**
+5. **Have you engaged the CP Risk team for a Risk Review?**
+6. **Have you defined and reviewed the accessibility requirements?**
+7. **Have you reviewed CX with Accessibility Bar Raiser?**
+8. **Does your design differ for different channels like Desktop, Mobile, and Tablet? If yes, provide an overview of design and explain why it is different.**
+9. **Have you reviewed the mobile customer journey and design with the MShop team? If NO, is there any Customer impact and how is the risk mitigated?**
+10. **Do you have documented business requirements and UX mocks?**
+11. **Have you performed usability studies/testing before finalizing UX mocks?**
+12. **Have you engaged the business operations team to define a customer support plan?**
+13. **Have you planned adequate customer support mechanisms and/or documented an escalation path for critical customer complaints?**
+14. **Have you reviewed your CX with CXBR?**
+1. **Have you engaged AWS AppSec to begin your security review?**
+2. **Which compliance certifications (FedRAMP, GDPR, SOC, HIPAA, ISO, PCI, etc.) are you targeting for launch?**
+3. **Did you complete the Anvil/ASR certification?**
+4. **Did you complete a privacy review?**
+5. **What is the business requested RTO (Recovery Time Objective)?**
+6. **Does your application have a Disaster Recovery (DR) plan?**
+7. **What is your application’s actual RTO and RPO?**
+8. **What is your recovery strategy for data storage, application, and infrastructure? Please provide technical details of recovery steps or supporting document links.**
+Here are the tasks converted from the provided questions:
+1. **Does the service use pipelines to test and deploy changes for all software, config, and infrastructure components of your system (including your canary and operational tools)?**
+2. **Does your service's customer impacting deployments automatically rollback incorrect deployments before they breach your internal SLAs?**
+3. **Does your service's customer impacting pipelines have approval workflow steps that run integration tests against all gamma, preprod, one box production, and production stages and block promotion to the next stage if they fail (regardless of whether your pipelines are full or partial CD)?**
+4. **Are your DynamoDB tables and indices set to On Demand capacity?**
+5. **Is DNS validation enabled for all certificates hosted by ACM so that they will renew without human action?**
+6. **Do each of your service components have a minimum of 1 host per AZ in every region if it is a regional service, or 3 hosts per AZ if it is an AZI service?**
+7. **Can you deploy changes to your customer's API throttle limits without doing a full service deployment?**
+8. **Are all of your certificates stored in AWS Certificate Manager (for AWS services that support ACM) or Redfort (for everything else)?**
+9. **Does your team use Gordian Knot rule for your code reviews?**
+10. **Does your team use 150-150 CR rule for code reviews?**
+11. **Does your team use InclusiveTechScanner (CRUX Rule) for Code Reviews?**
+12. **Do all your Brazil packages have Coverlay CRUX rule enabled?**
+13. **Does your service pipeline have code review verification approval workflow?**
+14. **Does team get notified (alarms/ticket) if a pipeline is blocked?**
+15. **Does your service have auto rollback alarms in preprod, onebox, prod stage?**
+16. **Does your service have more than 80% unit testing coverage?**
+17. **Do your service's pipelines have integration tests for each Pipeline stage that test each dependent service at least once?**
+18. **Does your service's customer impacting deployments deploy to no more than one region on the first day, one region on the second day, three regions on the third day, and six regions per day for days four through n while deploying to no more than one region at a time?**
+19. **Does your service have canaries which run against gamma and other non-prod environments (examples preprod, onebox, prod)?**
+20. **Does your service create and update the alarms using CDK/LPT?**
+21. **Before doing fully automated deployments was the service team able to do the last 3 deployments successfully on the service's pipelines without any manual steps (other than clicking approve)?**
+22. **For service's Infrastructure pipelines, does it have ChangeSet approval as a workflow step before each production stage?**
+23. **Have you built and configured VIPs (or similar load balancing) to your standard in other regions?**
+24. **Have you issued certificates for all necessary components in the new region (through Redfort or ACM as applicable)?**
+25. **Have you tested/confirmed any allow listing that your service uses (ARS, Console)?**
+26. **Are metrics being generated by all system components?**
+27. **Are those metrics allow listed for 1-minute as appropriate?**
+28. **Have you added the new region to all dashboards? (ops dashboard, weekly dashboard, deep dive views)**
+29. **Have you added the new region to Pipelines (or equivalent deployment system), with blockers, meeting standards on timing and scheduling?**
+30. **Have you added a gamma environment for the new region to all pipelines serving customer traffic to validate regional config using integration tests before deploying to production environments?**
+31. **Have you added a one box environment for the new region to all pipelines serving customer traffic to validate changes on a fraction of customer-serving hardware before deploying to production?**
+32. **Have you explicitly set deployment preferences for the new region's environment?**
+33. **Have you deployed through your entire pipeline, with the new region included, at least once?**
+34. **Have you created a new set of your standard alarms for this region?**
+35. **Have you adjusted alarm thresholds to be appropriate for the region?**
+36. **Have you added critical service health metrics for your service to the internal AWS Dashboard (also known as Premonition)?**
+37. **If appropriate, have you submitted a request to add the new region to the Service Health Dashboard?**
+38. **Are logs from the new region being pushed to CloudWatch Logs?**
+39. **Have you tested that relevant people on your team can access hosts in the new region, if applicable? (e.g. Midway, ITAR)**
+40. **Do you have canaries calling from both prod and native AWS fabrics against the public endpoint in the new region (at parity with other regions)?**
+41. **Is your software in sync with other regions (ideally confirmed in AWS Spotlight), including your console (if appropriate)?**
+42. **Do all of your runbooks reference the new region (links, endpoints)?**
+Here are the tasks converted from the provided questions:
+1. **Have you confirmed that your new region does not have a runtime dependency on anything in a different region?**
+2. **If you were building this region from a branch different from your other regions, is it now running on the mainline code?**
+3. **Have you removed any other known manual hacks used to get this region functional?**
+4. **Does your service have appropriate capacity (hosts, DynamoDB, etc.) as compared to similarly-sized regions?**
+5. **Have service limits for your system accounts been set to appropriate levels with other teams?**
+6. **Do you have customer throttles in place at reasonable levels as compared to other regions?**
+7. **Have you performed a failure-inducing load test on the region to confirm capacity, dashboards, alarms, and canaries are properly configured?**
+8. **Have you used this opportunity to perform a dependency failure test? (If part of a New Region Build, TOS's AWS-wide gameday will suffice.)**
+9. **Have you deployed your standard set of operational tools in the region, and have you tested that they work as expected?**
+10. **If there are differences between the new region and other regions, are these differences documented in appropriate runbooks with appropriate alterations to mitigation and/or engagement steps?**
+11. **Is the process for restoring control and dataplane data from backups documented in your runbooks?**
+12. **Have you practiced restoring control and dataplane data from backups using the process documented in your runbooks?**
+13. **Have you created new AWS account(s) used exclusively by your service in this new region?**
+iHere are the tasks converted from the provided questions:
+1. **Have you confirmed that your new region does not have a runtime dependency on anything in a different region?**
+2. **If you were building this region from a branch different from your other regions, is it now running on the mainline code?**
+3. **Have you removed any other known manual hacks used to get this region functional?**
+4. **Does your service have appropriate capacity (hosts, DynamoDB, etc.) as compared to similarly-sized regions?**
+5. **Have service limits for your system accounts been set to appropriate levels with other teams?**
+6. **Do you have customer throttles in place at reasonable levels as compared to other regions?**
+7. **Have you performed a failure-inducing load test on the region to confirm capacity, dashboards, alarms, and canaries are properly configured?**
+8. **Have you used this opportunity to perform a dependency failure test? (If part of a New Region Build, TOS's AWS-wide gameday will suffice.)**
+9. **Have you deployed your standard set of operational tools in the region, and have you tested that they work as expected?**
+10. **If there are differences between the new region and other regions, are these differences documented in appropriate runbooks with appropriate alterations to mitigation and/or engagement steps?**
+11. **Is the process for restoring control and dataplane data from backups documented in your runbooks?**
+12. **Have you practiced restoring control and dataplane data from backups using the process documented in your runbooks?**
+13. **Have you created new AWS account(s) used exclusively by your service in this new region?**
+14. **Have you onboarded all your public APIs in this region with CloudTrail?**
+15. **Have you audited CloudWatch alarms linked to Carnaval to determine if they are in the same state?**
+16. **Describe your versioning strategy.**
+17. **Does your product version follow semantic versioning?**
+18. **Can you reproduce the build artifacts or have an archive of all build artifacts?**
+19. **Do you track your software usage by versions?**
+20. **What is your update strategy?**
+### SQS
+21. **Are only trusted accounts permitted for cross account access?**
+22. **Is the SQS queue configured for server-side encryption?**
+23. **Is a dead letter queue configured for each solution queue?**
+24. **Does it check if the data in transit is encrypted using HTTPS/TLS secure connection to transfer data?**
+### Elastic Load Balancer
+25. **Is the solution using ALB for HTTP/HTTPS?**
+26. **Are ELB/ALB access logs enabled?**
+27. **If using a Classic Load Balancer, is connection draining enabled?**
+28. **Is the ELB using at least two AZs with the Cross-Zone Load Balancing feature enabled?**
+29. **Are the ELB listeners configured for HTTPs or SSL protocols?**
+30. **Is the ELB associated with valid and secure security groups that restrict access?**
+### Lambda
+31. **Have you verified that the maximum concurrency allowed for your accounts matches the requirement of your service?**
+32. **Do you use a blue/green deployment strategy?**
+33. **What is your rollback mechanism in case of issues?**
+34. **Do Lambda cold starts impact your system?**
+35. **In your lambda code, did you separate your lambda handler logic from your core logic?**
+36. **Are you using keep-alive directives for the external calls made to services by your lambda function?**
+37. **Are you initializing all your SDK clients and DB connections outside of the function handler?**
+38. **Are you caching all your static assets within the /tmp folder of your deployed function?**
+39. **Do you periodically (at least quarterly) review the REPORT entries in the CloudWatch logs of your lambda to observe the actual memory usage of the function?**
+40. **Have you familiarized yourself and the team owning the service with the Lambda quotas?**
+41. **Do you use function versioning?**
+42. **Are you setting your timeout appropriately for your use-case (and not just using the max timeout)?**
+43. **Have you synchronized the maximum concurrency of SQS event trigger with the reserved concurrency of Lambda (Maximum Concurrency <= Reserved concurrency) to ensure messages are buffered at SQS end in case of high traffic and prevent Lambda getting throttled?**
+### Scaling
+44. **If your service can be affected by an AZ outage, have you documented steps to move away from an AZ?**
+45. **If your service can be affected by an AZ outage, are you scaled enough to handle AZ failure?**
+46. **Do each of your service components have a minimum of 3 hosts in each of 3 AZs in every region?**
+47. **Have you configured sufficiently deep DNS (PDNS or Route 53) health checks and tested single-AZ failure to ensure that automatic fail-over (flip) happens?**
+48. **Load testing is done to identify maximum supported TPS from the service. Document the scaling process if applicable.**
+Here are the tasks converted from the provided questions:
+1. **Include a list of all tables, hash and range keys used for each, and the allocated read/write IOPS capacity. Are you using any global or secondary indexes?**
+2. **Ensure that members of your team are familiar with DynamoDB best practices documentation.**
+3. **How do you keep track of DynamoDB limits over time? For example, DynamoDB has limits on read/write capacity, as well as additional corner cases with Local Secondary Indexes.**
+4. **Have you enabled Backups for worst scenario like DDB data loss, Elastic Search Cluster failure, etc.?**
+5. **Have you tested recovery from the backups? Document the steps in the run-book.**
+6. **Are all your certificates in ACM or Redfort?**
+7. **How would you know a given message has failed its processing? Do you send failed messages to a DLQ?**
+8. **Is the DLQ monitored? Would you know how and when to re-drive these messages?**
+9. **Is Checkstyle enabled in the package?**
+10. **Is Spotbug enabled in the package?**
+11. **Is code coverage check: JoCoCo enabled in the package?**
+12. **Is Coverlay Threshold Check enabled?**
+13. **Check for current branch coverage.**
+14. **Check for current line coverage.**
+15. **Do you intentionally set appropriate retry and socket timeout configuration for all SDK usage?**
+16. **Is your design able to handle failures from dependencies?**
+17. **Is Code Review Template used by the package?**
+18. **Are Code Reviews spread across developers?**
+19. **Average revisions per Code Review in the last week.**
+Here are the tasks converted from the provided questions:
+1. **Do you have unit tests for your system?**
+2. **Do you have code coverage checks enforced by your system?**
+3. **Do you have integration tests for your features?**
+4. **Do you perform end-to-end testing from the user's perspective as part of your release process?**
+5. **Is your integration test success rate greater than 95%?**
+Here are the tasks converted from the provided questions:
+1. **What is your foundationalness? To put it another way, do you expect other services to build on top of you? If so, which ones?**
+2. **Please construct a failure model listing soft and hard failure modes for each of your components and dependencies.**
+3. **Have you configured sufficiently deep DNS and load balancer health checks and tested single-AZ and single host failures to ensure that automatic fail-away happens?**
+4. **How are you terminating TLS?**
+5. **Is your service's compute capacity entirely in native AWS?**
+6. **What throttling techniques are you using to defensively protect your service from customers?**
+7. **If your service was temporarily deactivated or shut down, what is your RTO for restarting your service?**
+8. **How do you recover your data in the event of logical or physical corruption?**
+9. **How are you patching software/hosts/instances that your service owns?**
+10. **What customer usage are you metering?**
+11. **Do you have tests against dependency in long lasting outages that include error and high latency failure modes?**
+12. **Does this service have production hosts that contain customer data or security relevant metadata?**
+13. **For each interaction your software makes with a back-end service, describe its retry policy.**
+14. **How debug-able is your software?**
+15. **Does your team use feature gating service to control feature launch, or some other runtime configuration mechanism that lets you enable/disable a feature without deployment?**
+16. **Do your metrics in service dashboard clearly capture threshold annotations?**
+17. **Do you have alarms in place for your system?**
+18. **Do your APIs have SLAs around availability and latency?**
+19. **Does your service dashboard have alarms on Database Errors and Throttling?**
+20. **Does your service dashboard have alarms on APIs and AWS Service level throttling?**
+21. **Does your service dashboard track Pipeline Release Efficiency Metrics?**
+22. **Does your service dashboard track AWS or underlying infra hard limits/quotas?**
+23. **Do you monitor calls to all your Amazon dependencies failures and have alarms?**
+24. **Does your service dashboard track AWS cost and cost anomalies?**
+25. **Do you have one overall service health metric?**
+26. **Do you have one overall service availability percentage?**
+27. **Does each of your metrics in the service dashboard have an explanation section outlining description, impact, remediation runbooks?**
+28. **Are you metering your customer usage so that it can allow chargebacks when possible?**
+29. **Do you have availability monitoring set up for all dependency calls to track where overall availability issues are stemming from?**
+30. **Do you have latency monitoring set up for all dependency calls to track where overall latency issues are stemming from?**
+31. **For each of the primary calls to all dependencies, do you limit retries to at most 1?**
+32. **Do you implement continuous testing such as canaries to ensure availability of the service is continually monitored?**
+33. **Do you have dashboards to monitor the health of your system?**
+34. **Do you have an Ops review process for the system?**
+35. **Do your dashboard graphs display alarm thresholds?**
+36. **Do your critical alarms consider missing datapoints as breaching?**
+37. **Are your dashboard graphs presented in priority order?**
+38. **Do your dashboard graphs display units and descriptive labels?**
+39. **Have you tested recovering data from your backups and confirmed that you can meet your RPO and RTO objectives?**
+40. **Do your alarms link to a runbook?**
+41. **Have you reviewed your metrics and alarms with the team?**
+42. **Are alarms configured on critical service health metrics like API error rate, API latency, console error rate, and canary failure to engage your oncall in under 5 minutes?**
+Here are the tasks converted from the provided questions:
+1. **What is the business requested RTO (Recovery Time Objective)?**
+2. **Does your application have a Disaster Recovery(DR) plan?**
+3. **What is your application actual RTO and RPO?**
+4. **List all the upstream and downstream applications with anvil ID.**
+5. **What is your recovery strategy for data storage, application, and infrastructure? Please provide technical details of recovery steps or supporting document links.**
+6. **Have you tested recovering data from your backups and confirmed that you can meet your RPO and RTO objectives?**
+7. **Does your service guarantee an SLA, and do you have mechanisms and metrics to measure and alarm on SLA breach?**
+8. **Do you monitor (and alarm on) your application's JVM statistics (e.g., heap utilization and GC time)?**
+9. **Do your prod one-box stages have metrics and alarms separated from the rest of your hosts in the same region?**
+10. **Do you monitor (and alarm on) your hosts for CPU utilization?**
+11. **Do you monitor (and alarm on) your hosts for disk and inode utilization?**
+12. **Do you monitor (and alarm on) your hosts for memory utilization?**
+13. **Do you have expiration metrics, automatic renewal, and deployment of certificates (ACM or Redfort)?**
+14. **Does your operational dashboard contain a view with metrics for all customer experience?**
+15. **Does your operational dashboard contain a view with metrics for all dependencies?**
+16. **Does your operational dashboard contain a view with metrics for all scaling limits?**
+17. **Did you include required metrics from the service dashboard to the team dashboard?**
+18. **Have you defined steps to review your operational Dashboards?**
+19. **Have you created a common wiki to link all dashboards for each service and stage in the team?**
+20. **Do your service dashboards have canary alarms?**
+21. **Do your service dashboards have security canary alarms?**
+22. **Do your service dashboards track the success/failure of your service's customers and have alarms for them? [4xx, 5xx of your APIs; High latency, failures of any async workflows]**
+23. **Do all your customer-impacting alarms have Sev-2 alarms?**
+24. **Do your Sev-2 alarms capture failures within 5 minutes of customer impact?**
+25. **Do you monitor and alarm on service volume anomalies?**
+26. **Do you have a global dashboard for all the regions of your service?**
+27. **Do you have a customer dashboard that showcases service usage/adoption metrics?**
+28. **Do you have a customer dashboard that captures customer experience metrics? [latency, customer feedback loop metrics]**
+Here are the tasks converted from the provided questions:
+1. **For asynchronous systems, do you have SLAs/mechanisms to monitor end-to-end latency from the client's perspective?**
+2. **For systems that execute fallback paths to fail gracefully, do you test/monitor/alarm on the path?**
+3. **Do you have primary oncall rotation?**
+4. **Do your runbooks describe how/when to engage TOS or Security in the case of an incident?**
+5. **Are permissions to access and configure all prod components of your service (e.g., databases, sudo, Apollo environments, pipelines, AWS accounts) exclusively granted to members of your team who participate in your primary and secondary oncall rotations through a hand managed permission group?**
+6. **Have you configured ReadOnly roles for human access to production AWS accounts in Conduit and discouraged your team from using elevated access roles except when absolutely necessary?**
+7. **Have you created a document for on-call onboarding and best practices?**
+8. **Do you have escalation alarms that will directly page the manager oncall?**
+9. **Do you have a dashboard or rule set to help oncall define when to escalate about an event to L7s and L8s?**
+10. **Do you have a source-controlled, deployed tool or script to query logs and determine the number of customers impacted during an event?**
+Here are the tasks converted from the provided questions:
+1. **Is the service team well-versed with the lifecycle of customer requests across your components (console, control plane, data plane, etc.) and dependencies?**
+2. **Does your service have estimates of your customer demand for the next 1 year to help with service scalability and operational strategy?**
+3. **If the service is using identifiers (customer visible or internal), can the identifiers scale beyond the service's object counts?**
+4. **What is the business requested RTO (Recovery Time Objective)?**
+5. **Does your application have a Disaster Recovery(DR) plan?**
+6. **What is your application actual RTO and RPO?**
+7. **List all the upstream and downstream applications with anvil ID.**
+8. **What is your recovery strategy for data storage, application, and infrastructure? Please provide technical details of recovery steps or supporting document links.**
+9. **Have you tested recovering data from your backups and confirmed that you can meet your RPO and RTO objectives?**
+10. **Does your service appropriately handle client certificate renewals?**
+11. **Can your code be rolled back at runtime via configuration or Weblab?**
+12. **Do you conduct all configuration changes to Production under MCMs with appropriate review, in which all interested parties are notified, and following the 2-person rule?**
+13. **Does the team maintain a general policy of using a gradual mechanism (e.g., slowly ramped configuration change) when making significant changes to allow rapid dial-down in case of unanticipated consequences?**
+14. **Do you always limit configuration dial-ups and dial-downs to at most one region at a time?**
+15. **Is your merge schedule and target version set aligned with mShop policy?**
+16. **Does this feature emit metrics and alarms for fault rate and latency?**
+17. **Does this feature emit metrics for its dependencies?**
+18. **Does this feature emit specific business metrics? Please list if so.**
+19. **Has the business, weekly, and regional dashboards been updated to include these metrics?**
+20. **Have alarms been configured for this feature's dependencies?**
+21. **Please list all new monitors and alarms.**
+22. **Have you reviewed existing monitors and alarms for changes to accommodate expected changes in customer usage patterns?**
+23. **Is the process to recover the data documented in your team's runbook?**
+24. **Have you updated the runbook on when a configured alarm would trigger and what SOP has to be followed?**
+25. **Will the on-call know if the alarm is raised due to an internal service issue or a dependency issue by checking the dashboards and following the runbook?**
+26. **Is the service package README the latest with information needed for clients to use it?**
+27. **Are there any internal/external customers of this service or API? Have we created/updated onboarding wiki for the internal/external customers?**
+28. **Does the runbook link to the appropriate pages for: CoralDiver, Pipelines, ASR, Apollo, CTI, Dashboard, VIPs, Important dependencies?**
+29. **Has your team followed best practices for Exception Handling?**
+30. **Is your team providing correct error messages for failures?**
+31. **Is your team performing input data validation?**
+32. **Does your team have mechanisms to recover from permanent failures?**
+33. **Are you performing throttling on your downstream/upstream services?**
+34. **Can you fully recover from a worst-case scenario failure in less than a day?**
+35. **Does this functionality gracefully handle dependencies going down?**
+36. **Does this functionality have mechanisms to reduce the blast radius of failures?**
+37. **Do you have DLQs corresponding to your non-FIFO queues?**
+38. **Do you have alarms to track the age of the oldest message in your SQS/FIFO queue?**
+39. **Do you have a DLQ associated with all lambdas in your environment?**
+40. **Do you have a DLQ associated with all steps of the StepFunctions in your environment?**
+41. **Do you have an alarm for StepFunction execution failure?**
+42. **Do you have alarms associated with all the DLQs in your environment?**
+43. **Have you created a central document listing all the alarms present in your service?**
+44. **Have you added any retry strategies in/around the new functionality?**
+45. **Does your functionality avoid losing data in an unrecoverable manner?**
+46. **Do you have suitable logging enabled for your new functionality?**
+47. **Have you added necessary metrics around your dependencies in the new functionality?**
+48. **Have you added success, failure metrics around client calls?**
+49. **Have you added success, failure metrics around all lambda invocations?**
+50. **Have you added at least P90 latency metrics around client calls?**
+51. **Have you added at least P90 latency metrics around all lambda invocations?**
+52. **Have you tested an alarm from your new environment?**
+53. **Do you have a mechanism to trace a customer request at any point in your system ?**
+54. **Do you monitor your upstream datasets for timely availability to detect early and prevent potential SLA misses?**
+55. **Do you monitor and alert on profile anomalies for intermediate datasets at key points prior to publishing?**
+1. **Do you have detailed data quality checks on the data you consume and produce?**
+2. **Do you have documented thresholds on what is acceptable thresholds for changes in data?**
+3. **Do you benchmark model targets against authoritative datasets with each training run?**
+4. **Are critical input features benchmarked by respective businesses on a periodic basis?**
+5. **Have you benchmarked the datasets you produce against other data sources?**
+6. **Do you monitor the aggregate health of input and output datasets by means of a dashboard that summarizes metrics and alert status?**
+7. **Do you review your operational dashboards weekly?**
+8. **Do you periodically review and tune data profiling or benchmarking accuracy?**
+1. **Do you have an emergency engagement plan for contacting 3P service owners during incidents?**
+2. **Does your service have metrics and alarms that will help quickly isolate issues to 3P dependency?**
+3. **Do you have access to metrics of 3P services to empower your service team to operate your service effectively?**
+4. **Does your service have canaries that can identify issues with 3P dependency?**
+5. **Do you have a communication channel with the 3P dependency team where they notify your team about any customer-impacting changes/deployments that they do?**
+6. **List out all of your dependencies along with your APIs calling them; The data from this question will be used as a basis for all the questions in this section.**
+7. **For each dependency, what is your service's behavior when calls fail? If you are retrying, why are you retrying? Does your retry mechanism make sense for your clients? Does this help, or does it contribute to a retry storm?**
+8. **What are the limits (throttling and resources) imposed on your service by your dependencies? What limits are you imposing on your customers? How do you keep track of them over time?**
+9. **Are you overriding the default retry and socket timeout configuration values for all SDK usage? (Refer to your service's JVM configuration).**
+10. **Explain how your service will be impacted based on a failure of each of your dependencies, in the worst-case scenario. How does this vary based on the amount of time in failure?**
+11. **Is there any limit (throttling and resources) imposed on your service by your dependencies?**
+12. **Is there any limit you are imposing on your customers?**
+13. **Have you included any graceful degradation techniques (i.e., retry and back-off strategy for each of your dependencies, AZ redundancy, etc.)?**
+Here are the tasks converted from the provided questions:
+1. **Do you have a comprehensive test plan?**
+2. **Was UAT performed according to plan?**
+3. **Do your unit tests block deployment if coverage goes below a pre-defined threshold?**
+4. **Do you have a load test plan?**
+5. **What is the business requested RTO (Recovery Time Objective)?**
+6. **Does your application have a Disaster Recovery (DR) plan?**
+7. **What is your application actual RTO and RPO?**
+8. **List all the upstream and downstream applications with anvil ID.**
+9. **What is your recovery strategy for data storage, application, and infrastructure? Please provide technical details of recovery steps or supporting document links.**
+10. **Have you tested recovering data from your backups and confirmed that you can meet your RPO and RTO objectives?**
+11. **Is the alarming function as expected and your on-call engineers are engaged and able to rapidly diagnose and remediate failures?**
+12. **Did you create a canary?**
+13. **Does your service have a load test plan that has been reviewed and approved by your team?**
+14. **Does your service have a stress test plan that has been reviewed and approved by your team?**
+15. **Has the service been tested and validated as part of pre-prod or one-box style testing?**
+16. **Does your service have your MCM Templates ready and bar raised?**
+17. **Does the service have an oncall rotation setup for operationally supporting the same?**
+18. **Is there a documented plan for training and onboarding staff on the new service or application?**
+19. **Does your service have operational tools to operate your service effectively?**
+20. **Does your team look at service operational dashboards every week?**
+21. **Have you tested your application in all major browsers/versions covering at least 90% of internet traffic?**
+22. **Has the UI layout been tested on different devices such as smartphones, tablets, laptops, and desktops?**
+23. **Have all error messages been reviewed and approved by relevant stakeholders, such as business owners and legal teams, to ensure they are clear, accurate, and non-threatening?**
+24. **Have all URL routes and redirects been identified and documented, including all possible routes, query parameters, and path variables?**
+25. **Have all design elements been designed to match brand guidelines and other relevant design standards, including typography, color, layout, and imagery?**
+26. **Have all design elements been designed to be accessible and usable, including ensuring proper contrast, readable text, and appropriate touch targets?**
+27. **Have all design elements been designed to be user-friendly and intuitive, including providing clear and concise messaging, error handling, and feedback mechanisms?**
+28. **Provide a link to the design such as Figma or PDF.**
+29. **Does your application support Internationalization, i.e., date/time, currency of preference?**
+30. **Have all date and time formats been localized based on the user's location and language preference?**
+31. **Have all units of measure been localized based on the user's location and language preference?**
+32. **Have all text strings been translated and localized based on the user's language preference?**
+33. **Have all images and media files been localized based on the user's language preference?**
+34. **Have any right-to-left (RTL) or left-to-right (LTR) language issues been identified and resolved?**
+35. **Are any internationalization frameworks or libraries used in the application, and have they been tested for compatibility and effectiveness?**
+36. **Have all accessibility testing tools and frameworks been identified and set up? (Internal tool like AAE)**
+37. **Have all accessibility testing scenarios been designed to cover all aspects of the application, including color contrast, keyboard navigation, form labels, alternative text for images, and other important elements?**
+38. **Have all accessibility testing scenarios been designed to test all possible user inputs and error conditions, such as invalid input, missing data, or wrong selections?**
+39. **Have all accessibility testing scenarios been executed, and have all accessibility issues and defects been identified and documented?**
+40. **What tool has been chosen for conducting accessibility testing?**
+41. **Have all UI testing tools and frameworks been identified and set up, such as Selenium or Cypress?**
+Here are the tasks converted from the provided questions:
+1. **Have all UI testing scenarios been designed to test all UI components and interactions, such as buttons, forms, dropdowns, and modals?**
+2. **Have all UI testing scenarios been designed to test all possible user inputs and error conditions, such as invalid input, missing fields, or wrong selections?**
+3. **Have all E2E testing scenarios been designed to cover all possible user workflows and journeys, including all UI interactions and backend integrations?**
+4. **What tool has been chosen for conducting automated E2E testing?**
+5. **Have all UAT test cases and scenarios been reviewed and approved by relevant stakeholders such as PMs?**
+6. **Has the UAT environment been set up, and is it representative of the production environment?**
+7. **Have all UAT results been signed off and approved by relevant stakeholders, indicating the application is ready for production release?**
+8. **Have all input fields been validated to prevent any malicious data or code injections, such as cross-site scripting (XSS) attacks?**
+9. **Have all forms and requests been protected against cross-site request forgery (CSRF) attacks?**
+10. **Have you minimized any IDOR vulnerabilities? Make sure customers cannot access other customers' information by manipulating any GET or POST parameters if it isn't public.**
+11. **Have all error messages and feedback been designed and reviewed to provide clear and non-sensitive information to users?**
+12. **Are all password fields protected by strong encryption mechanisms?**
+13. **Are all session management mechanisms secure and protected against session hijacking and session fixation attacks?**
+14. **Have all third-party libraries and plugins been thoroughly evaluated for security vulnerabilities and compatibility with the application?**
+15. **Have all HTTP requests been made over a secure connection, such as HTTPS?**
+16. **Has the application been tested with penetration testing tools to identify any security vulnerabilities, and have these been addressed?**
+17. **Are there any configurations written and maintained in JavaScript?**
+18. **Does your application collect user engagement metrics?**
+19. **Have all relevant metrics been identified and documented, including analytics metrics, CSM/CSA metrics, RUM (Real User Monitoring) metrics, and Web Vitals metrics?**
+20. **Have all monitoring scenarios and thresholds been defined, including monitoring for response times, error rates, and Largest Contentful Paint (LCP), First Input Delay (FID), Cumulative Layout Shift (CLS)?**
+21. **Provide a link to the dashboard or a document such as Quip.**
+22. **Does your application involve image display?**
+23. **Have all images been designed to use progressive loading, lazy loading, or other techniques to improve loading speed and reduce latency?**
+24. **Have all images been designed to use a content delivery network (CDN) or other image hosting service to reduce server load and improve image loading speed?**
+25. **Have all images been designed to serve at the appropriate resolution and quality, based on the viewport size and device pixel ratio of the user?**
+26. **For your integration testing, do you have test cases for every API and critical user scenario?**
+27. **Is your integration test coverage greater than 70%?**
+28. **Have you ensured the build should fail if the unit testing coverage drops below 90%?**
+29. **For your DB queries, have you created DB unit tests?**
+30. **Do you have tests for all code where configurations are used? This is to capture configuration changes.**
+31. **Do you have automated end-to-end tests defined?**
+32. **Does your end-to-end test suite is triggered from the service pipeline?**
+33. **What scenarios in your service are you not able to test?**
+34. **Do you run security tests in your pipeline?**
+1. **Can your dependencies (including external partners) handle the projected load of your service/feature?**
+2. **Do you agree on, and enforce TPS limits with each of your callers?**
+3. **Do you have an auto circuit breaker for all of your dependencies?**
+4. **Do you collect metrics on call latencies, retries, timeouts, and throttling for all dependencies?**
+5. **Do you have alarms on dependency call latency and timeout rates for all dependencies?**
+6. **Did you test the impact on your service/product of reduced availability and increased latency of all of your dependencies?**
+7. **Do you know when your downstream dependencies indicate overload, and do you avoid retries in these cases (guidance)?**
+8. **Do you have a strategy to limit the aggregate number of retries per unit time or as a fraction of the primary call rate for each dependency?**
+9. **Are the timeouts the service applies to dependencies all strictly less than those used by clients and the service's own target latencies?**
+10. **On batch calls made to dependencies, is partial success properly treated?**
+11. **Have you verified if your dependencies (including partner) will throw exceptions when there is a data integrity failure?**
+Here are the tasks converted from the provided questions:
+1. **How are you handling situations when the partner is experiencing a full or partial outage? (if applicable) Recommendation is to degrade customer experience gracefully**
+2. **What are the possible errors that could occur from partner integration, and how are you addressing them? (if applicable)**
+3. **Is your service/feature auto-scaled to handle sudden spikes of traffic?**
+4. **Does your service/feature implement throttling to protect against traffic surges?**
+5. **Can your service/feature withstand an AZ outage at daily peak without customer impact (guidance)?**
+6. **Does your service/feature support degraded modes (e.g., default logic, shed non-critical dependencies, etc.)?**
+7. **Is customer impact mitigated when your service/feature is unavailable (404, visual defect, latency increase, order processing, etc.)?**
+8. **Is customer impact mitigated when your dependencies are unavailable?**
+9. **Do you have a strategy for duplicate ticket prevention (e.g., aggregate alarms, etc.)?**
+10. **Is it true that a single event/outage can only cause a single sev2?**
+11. **Does your service limit/check for maximum size of cache entries? If so, is the size being measured and monitored (reference COE)?**
+1. **Is your application producing free form text due to use of text box?**
+2. **How does your application prevent Cross Site Scripting (XSS) attacks? Have you enabled CSP to prevent XSS attacks?**
+3. **How does your application prevent Cross-site Request Forgery (CSRF) attacks? Are you using CSRF tokens to prevent CSRF attacks?**
+4. **Is the communication between your application server and client browser secure? Secure communication prevents attacks like session hijacking, man-in-the-middle attacks.**
+5. **Is the communication between API and client browser made using your front-end application secure? Secure communication prevents attacks like session hijacking, man-in-the-middle attacks.**
+6. **Are you using session management best practices? Enforcement of user authentication, minimum password lengths, multi-factor authentication, etc. Please provide the details.**
+7. **In general, is your front-end application secure against major web application attacks?**
+1. **What are the KPIs for your component?**
+2. **Are metrics emitted which measure each of the component's KPIs?**
+3. **Are metrics emitted in all error scenarios? This includes thrown exceptions, customer failures, or other unexpected cases.**
+4. **Are unit tests present to validate that KPI and error metrics are emitted when expected?**
+5. **Does the component make use of any unique metric dimensions or pivots?**
+6. **Are metrics from test/debug builds emitted to a separate bucket from those in production?**
+7. **What is the business requested RTO (Recovery Time Objective)?**
+8. **Does your application have a Disaster Recovery (DR) plan?**
+9. **What is your application actual RTO and RPO?**
+10. **List all the upstream and downstream applications with anvil ID.**
+11. **What is your recovery strategy for data storage, application, and infrastructure? Please provide technical details of recovery steps or supporting document links.**
+12. **Have you tested recovering data from your backups and confirmed that you can meet your RPO and RTO objectives?**
+13. **Are you monitoring metric volume/throttling?**
+1. **Is this a launch for a new process or a change to an existing process?**
+2. **Please provide the alias of the Product Manager, Engineering Manager, and Operations Manager who owns this process.**
+3. **Provide a link to the associate SOP wiki page.**
+4. **Who are the customers for this process?**
+5. **Did you perform end-to-end testing to detect the impact of the change?**
+6. **What are your goals for success?**
+7. **Is the sign-off from the Software Development Manager (SDM) obtained?**
+8. **Is the sign-off from the Sr. Software Development Manager (Sr. SDM) obtained?**
+9. **What level of intrusiveness does this application have to the rest of Amazon? Is this service considered Tier-1 (meaning it is able to cause a severity 1 impact)? Why?**
+10. **If the application is highly intrusive, has it undergone a Technical Risk Assessment (TRA) or TRA-Lite?**
+11. **What are your largest operational risks?**
+12. **What scalability concerns do you have with this launch? Do you know how your system reacts during scaling?**
+13. **What customer-facing and operational excellence features were cut to meet your deadline to ship?**
+14. **Enumerate all remaining action items on your team, to consider the service or feature "done, in ship shape".**
+1. **Does your operational dashboard contain a view with metrics for all customer experience?**
+2. **Does your operational dashboard contain a view with metrics for all dependencies?**
+3. **Does your operational dashboard contain a view with metrics for all scaling limits?**
+4. **Did you include required metrics from the service dashboard to the team dashboard?**
+5. **Have you created a common wiki to link all dashboards for each service and stage in the team?**
+6. **Provide URLs of new operational dashboards and a list of key customer-facing metrics that you plan to continuously monitor as a result of this launch.**
+7. **If you have added new dashboards as a result of your launch, does the FSx Weekly Ops Dashboard need to be updated?**
+8. **Does your launch require updates to the FSx Service Health Dashboard? Key customer experience metrics include availability and create resource latencies.**
+9. **Does your launch require updates to the AWS Dashboard? Key metrics include customer-facing component availability.**
+10. **Provide a list of each new alarm that has been created, a link to the runbook for the alarm, and the alias of a prod-trained operator who has reviewed the runbook.**
+11. **Have you confirmed that your runbooks will work in isolated regions?**
+12. **Does your feature incorporate a plan for capacity in the region(s) that you are launching in?**
+13. **If you introduced a new pipeline, does each new pipeline use the AWSSimbaBaseLpt or AWSSimbaBaseCDK package for wave generation and time blockers?**
+14. **If you introduced a new pipeline, does the pipeline have the correct permissions on the bindle?**
+15. **Describe the health of your software pipeline that was used in this project.**
+16. **Have you worked with your PM to ensure that there is a plan to track usage of your feature?**
+17. **Does your design require modifications to any existing MCMs?**
+18. **Does your design require the creation of any new MCMs?**
+19. **Do you have a rollback plan?**
+20. **Do you track the health of your Full CD pipeline and CDK-based infrastructure?**
+1. **Is Impact analysis and determining whether a mitigation action is needed automated?**
+2. **Is the definition of 'needs mitigation' documented and reviewed with stakeholders?**
+3. **Do you have detailed data quality checks on the data you consume and produce?**
+4. **Do you have documented thresholds on what is acceptable thresholds for changes in data?**
+5. **Do you stop publishing of your data if DQ checks fail?**
+6. **Do you review your operational dashboards weekly?**
+1. **Did you create a new or update an existing parent service dashboard?**
+2. **Is there any metric that shows CX impact by this feature?**
+3. **Is the dashboard reviewed as part of parent service on-call duty and also reviewed in the parent service weekly OE meeting?**
+4. **Did you include the interaction with dependencies in your dashboard monitors?**
+5. **Did you create new alarms or change existing parent service alarms and monitors based on new feature KPI, SLA, and/or goals?**
+6. **Did you create your own feature Runbook or update an existing parent service Runbook?**
+7. **Are there metrics to monitor the health of the new feature?**
+8. **Have you tested all of your alarms and monitors?**
+9. **What is the business requested RTO (Recovery Time Objective)?**
+10. **Does your application have a Disaster Recovery (DR) plan?**
+11. **What is your application actual RTO and RPO?**
+12. **List all the upstream and downstream applications with anvil ID.**
+13. **What is your recovery strategy for data storage, application, and infrastructure? Please provide technical details of recovery steps or supporting document links.**
+14. **Have you tested recovering data from your backups and confirmed that you can meet your RPO and RTO objectives?**
+15. **Are you alarming on metrics that directly impact customer experience, such as latency and page size?**
+16. **Have you set up alarms as part of your new feature?**
+1. **Is the developer documentation for setting up the service locally and to run integration tests successfully up to date and tested?**
+2. **Are on-calls (including follow-the-sun or first order support team) familiar with the architecture documentation, runbooks, and levers?**
+3. **Are all your dashboards and alarms (inclusive of Carnaval alarms) generated automatically through code?**
+4. **Do your alarms clearly link to the runbook?**
+5. **What is the business requested RTO (Recovery Time Objective)?**
+6. **Does your application have a Disaster Recovery (DR) plan?**
+7. **What is your application actual RTO and RPO?**
+8. **List all the upstream and downstream applications with anvil ID.**
+9. **What is your recovery strategy for data storage, application, and infrastructure? Please provide technical details of recovery steps or supporting document links.**
+10. **Have you tested recovering data from your backups and confirmed that you can meet your RPO and RTO objectives?**
+11. **Do you have mechanisms to understand and control the impact that your operations on the system under review can have on other systems?**
+12. **Are the metrics from potentially impacted systems all included in your dashboards?**
+13. **Does the service/component have a mechanism to log and trace a request across components or services?**
+14. **How do you trace a request/item at any point in your system? What operational scripts or tools do you have in place to debug issues across components or services to efficiently determine the root cause?**
+15. **Does the application's runbook document how to effectively use the relevant troubleshooting tools?**
+16. **Do you expect customer contacts to occur after launch?**
+1. **What hardware and or host level metrics do you monitor?**
+2. **Do your component(s) use load balancers?**
+3. **Do your component(s) use cache(s)?**
+4. **Do your component(s) use job schedulers?**
+5. **Do your component(s) use workflows?**
+6. **Do your component(s) use AWS EC2?**
+7. **Do your component(s) use AWS ECS?**
+8. **Do your component(s) use AWS Lambda?**
+9. **Do your component(s) use AWS S3?**
+10. **Do your component(s) use AWS DynamoDB?**
+11. **Do your component(s) use AWS Simple Queue Service (SQS)?**
+12. **Do your component(s) use AWS Simple Notification Service (SNS)?**
+13. **Do your component(s) use AWS Kinesis?**
+14. **Do your component(s) use AWS Step Functions?**
+15. **Do your component(s) have any other critical dependencies on internal and or AWS services not identified above?**
+16. **Do all of your DynamoDB tables have backup and recovery mechanisms in the event of a data loss or data corruption?**
+17. **Do your tables have autoscaling or on-demand scaling enabled?**
+18. **Do your tables have alarms for read and write throughput?**
+19. **Does your service rely on DynamoDB Streams for critical path logic?**
+20. **Are your relational databases hosted by an AWS service (RDS, Redshift, etc)?**
+21. **For each of your relational databases, does only one authoritative actor interact directly with the database?**
+22. **Does your service automatically reconnect to the RDBMS if its connections are severed?**
+23. **Do you have the ability to recover data if the RDBMS is lost or corrupted?**
+24. **Do you have any batch, DJS, scheduled lambdas, or similar jobs required to operate this service?**
+25. **Provide runbooks documenting support and escalation path for any third-party (non-Amazon) dependencies in your architecture.**
+26. **Provide a link to the section in your oncall runbook containing the steps and engagement information (CTI, link to on-call rotation) during a high severity issue for each of your dependencies.**
+27. **Provide links to runbooks to provide access or permissions (group membership, API resource policies, etc.) for consuming dependent services.**
+28. **Provide links to runbooks to provide access or permissions (group membership, API resource policies, etc.) for teams needing to consume your service.**
+29. **Provide links to oncall runbooks for handling high severity events.**
+1. **Do you make changes to your service through any means other than through automated code deployments?**
+2. **Who are your MCM bar raisers? List the specific group alias and individuals that you typically use and how you engage them.**
+3. **Are all of your MCM templates approved by an MCM Bar Raiser? (ensure that approval has not expired)**
+4. **How does your team approve and review off-script MCM execution?**
+5. **Do you plan to execute instances of any MCM templates during a restricted deployment window?**
+6. **Are you collecting automated telemetry data to help you understand the UX/usability of the product?**
+7. **Do you have 1-3 measurable UX/usability goals recorded in Kingpin with due dates?**
+8. **Does it involve any data load task pre/post deployment?**
+9. **Did we perform data load in Dev, INT, and UAT environment to mimic the steps on Production?**
+10. **How are we taking back up of existing data on production before upload?**
+11. **Does it involve any downstream events that impact other objects or integrated systems? How are we ensuring to avoid any downstream impact to objects or integrated systems?**
+12. **Does the data load trigger any notification to partner users? Is it intended to trigger the emails? If not, how are planning to block it?**
+13. **What are the actions or ways to reduce failure radius?**
+14. **What happens to the data load in case of rollback?**
+1. **Are the thresholds for your alarms more aggressive than the SLAs to warn of impending events before customer trust is breached?**
+2. **Have you clearly documented the key operational (tier-1) metrics that you plan to monitor at launch, along with the alarm thresholds, somewhere that is easily accessible to leadership, the team, and stakeholders?**
+3. **Have you verified the ability to disambiguate metrics captured by test apps (e.g., Beta releases, Gamma apps) from the production/released application(s)?**
+4. **What is the business requested RTO (Recovery Time Objective)?**
+5. **Does your application have a Disaster Recovery (DR) plan?**
+6. **What is your application's actual RTO and RPO?**
+7. **List all the upstream and downstream applications with anvil ID.**
+8. **What is your recovery strategy for data storage, application, and infrastructure? Please provide technical details of recovery steps or supporting document links.**
+9. **Have you tested recovering data from your backups and confirmed that you can meet your RPO and RTO objectives?**
+10. **Are you alarming on application crashes? Do you have a mechanism to investigate and track top offenders?**
+11. **Are you exporting metrics to Data Lake or a BI data store for providing business analytics, debugging, or investigation?**
+Here are the tasks converted from the provided questions:
+### Forensics
+1. **Is a RequestID included in all log entries?**
+2. **Are all logs archived, either in Timber or equivalent?**
+3. **Is enough information logged to answer queries from AWS Support?**
+4. **Do safe operational tools and scripts exist to debug customer issues, or does the team consistently rely on adhoc access to customer data?**
+### Healthtech - App - Logging
+5. **Have you tested your ability to retrieve logs (e.g., crash & application logs) from devices (phones & tablets) in the field?**
+6. **Have you reviewed your logs for sensitive, confidential, private or personally identifiable information/data that must not be logged or captured (e.g., DSN, Customer ID, Pseudonymous identifiers)?**
+7. **Have you audited the amount of disk-space consumed by your application/feature's logs on the phone/device?**
+### Healthtech - Backend Service - Release Management
+8. **Does your team use MCM templates for releases including deployments and feature dialup?**
+9. **Does your team use feature gating service to control feature launch, or some other runtime configuration mechanism that lets you enable/disable a feature without deployment?**
+### [ProServe-DSR] TS
+10. **Is data encryption at-rest enabled?**
+11. **Is data encryption in-transit enabled?**
+12. **Is data at rest encryption enabled using Customer Managed Key (CMK)?**
+13. **I confirm that a VPC endpoint has been created for secure communication.**
+14. **I confirm that the data retention has been customized for the use case.**
+15. **I confirm that this solution does not warrant the use of client-side encryption.**
+16. **I confirm that Amazon Timestream API calls are being logged via CloudTrail.**
+### Infrastructure Setup
+1. **Hardware Request (Hex)**
+2. **Team & Bindles**
+3. **CTIs Creation**
+4. **AWS Accounts Request (alpha, beta, gamma?, prod)**
+Here are the tasks converted from the provided infrastructure setup steps:
+### Infrastructure Setup
+1. **Infrastructure Pipeline (LPT + CloudFormation)**
+2. **Service/Website Pipeline (LPT)**
+3. **Test On Demand (TOD)**
+### Security
+4. **Application Classification & Review (Anvil)**
+5. **AAA Enablement**
+### Operational Excellence (OE)
+6. **Carnaval, CloudWatch Alarms, and Dashboards**
+Here are the tasks converted from the provided team coding guidelines setup steps:
+### Team Coding Guidelines
+1. **Generate Team Coding Guidelines**
+### Comments
+2. **C1: Avoid Inappropriate Information**
+3. **C2: Avoid Obsolete Comments**
+4. **C3: Avoid Redundant Comments**
+5. **C4: Avoid Poorly Written Comments**
+6. **C5: Avoid Commented-Out Code**
+7. **C6: Mark Sev-2 TT for Code Fixes**
+### Environment
+8. **E1: Avoid Builds that Require More Than One Step**
+9. **E2: Avoid Tests that Require More Than One Step**
+### Functions
+10. **F1: Avoid Too Many Arguments**
+11. **F2: Avoid Output Arguments Passed as Parameters**
+12. **F3: Avoid Flag Arguments**
+13. **F4: Avoid Dead Functions**
+14. **C-F5: Always Avoid Passing or Returning Null**
+15. **C-F6: Avoid Method Overloading**
+16. **F7: Avoid Side Effects; Write Pure Functions**
+17. **F8: Avoid Passing Mutable Objects to Third-Party APIs**
+18. **C-F7: Avoid Large Functions that Do Multiple Things**
+### General
+19. **Establish Coding Standards Categories and Importance Levels**
+Here are the tasks converted from the provided team coding guidelines:
+### General Guidelines
+1. **G1: Avoid Multiple Languages in One Source File**
+2. **G2: Obvious Behavior Is Unimplemented**
+3. **G3: Check for Incorrect Behavior at the Boundaries**
+4. **G4: Avoid Overriding Safeties**
+5. **G5: Avoid Duplication (Code + Config)**
+6. **G6: Avoid Code at Wrong Level of Abstraction**
+7. **G8: Avoid Too Much Information**
+8. **G9: Avoid Dead Code**
+9. **G10a: Avoid Vertical Separation - Variables**
+10. **G10b: Avoid Vertical Separation - Private Functions**
+11. **G11: Inconsistency**
+12. **G12: Remove Clutter**
+13. **G13: Avoid Artificial Coupling**
+14. **G14: Avoid Feature Envy**
+15. **G15: Don't Use Selector Arguments**
+16. **G16: Avoid Obscured Intent**
+17. **G17: Avoid Misplaced Responsibility**
+18. **G18: Avoid Inappropriate Static**
+19. **G19: Use Explanatory Variables**
+20. **G20: Function Names Should Say What They Do**
+21. **G23: Prefer Polymorphism to If/Else or Switch/Case**
+22. **G24: Follow Standard Conventions**
+23. **G25: Replace Magic Numbers with Named Constants**
+24. **G27: Structure over Convention**
+25. **G28: Encapsulate Conditionals**
+26. **G29: Avoid Negative Conditionals**
+27. **G30: Functions Should Do One Thing**
+28. **G31: Avoid Hidden Temporal Couplings**
+29. **G32: Don't Be Arbitrary**
+30. **G33: Encapsulate Boundary Conditions**
+Here are the tasks converted from the provided team coding guidelines:
+### General Guidelines
+1. **G38: One Type of Responsibility for a Function**
+### Java
+2. **J1: Avoid Long Import Lists by Using Wildcards**
+3. **J2: Don't Inherit Constants**
+4. **J3: Constants Versus Enums - Use Enums Always**
+5. **J4: Mark Variables as Final**
+6. **J5: Use Preconditions Instead of Asserts**
+### Names
+7. **N1: Choose Descriptive Names**
+8. **N2: Choose Names at the Appropriate Level of Abstraction**
+9. **N3: Use Standard Nomenclature Where Possible**
+10. **N4: Unambiguous Names**
+11. **N5: Use Long Names for Long Scopes**
+12. **N6: Avoid Encodings**
+13. **N7: Names Should Describe Side-Effects**
+### Tests
+14. **T1: Insufficient Tests**
+15. **T2: Use a Coverage Tool**
+16. **T3: Don't Skip Trivial Tests**
+17. **T4: Ignore a Test Case**
+18. **T5: Test Boundary Conditions**
+19. **T6: Exhaustively Test Near Bugs**
+20. **T7: Patterns of Failure Are Revealing**
+21. **T8: Test Coverage Patterns Can Be Revealing**
+22. **T9: Tests Should Be Fast**
+23. **C-T10: Single Concept per Test**
+### Guice Specific
+24. **D1: Use Constructor Injection**
+25. **D2: @ImplementedBy Should Not Be Used**
+26. **D3: @Singleton for Classes with Single Instance**
+27. **D4: @Named for Getting Values from Brazil Config**
+28. **D5: Avoid Large Modules that Contain Multiple Types of Bindings**

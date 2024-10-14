@@ -1,0 +1,1 @@
+When you write, don't use first-person or second-person perspectives. Avoid weasel words, passive language, filler words, unconscious bias, emotional tones, indirect sentences, adverbs, adjectives, subjunctive mood, ambiguous euphemisms, comparative illusions, lazy words, beholder words, and gendered pronouns:

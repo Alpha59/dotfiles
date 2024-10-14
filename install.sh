@@ -318,6 +318,7 @@ brew tap amzn/amzn;
     brew install --cask caffeine;
     brew install --cask firefox;
     brew install --cask google-chrome;
+    brew install google-chrome;
 
     # Terminal with slightly better UI
     brew install --cask hyper;
@@ -946,12 +947,188 @@ brew install dos2unix;
 brew install golang;
 go install github.com/paij0se/cligpt@latest;
 gem install csv2json;
-    
+
 npm install --global csv2json;
-    
+
 curl https://s3.amazonaws.com/session-manager-downloads/plugin/latest/mac/sessionmanager-bundle.zip -o sessionmanager-bundle.zip;
-    
+
 unzip sessionmanager-bundle.zip;
-    
+
 sudo ./sessionmanager-bundle/install -i /usr/local/sessionmanagerplugin -b /usr/local/bin/session-manager-plugin;
+brew;
+
+brew install httpie;
+
+npm install -g n;
+
+brew install terminal-notifier;
+
+brew install eureka;
+
+brew install hr;
+
+brew install spark;
+
+pip install --user glances;
+
+$ brew install glances;
+
+brew install jc;
+
+docker pull gueils/whales:latest;
+
+brew install spotify-tui;
+
+brew install molovo/revolver/revolver;
+
+brew install grex;
+
+brew install swas;
+
+brew install saws;
+
+brew install s3cmd;
+
+$ npm install --global @static/discharge;
+
+$ npm install --global @static/discharge;
+
+npm install --global @static/discharge;
+
+npm install --global @static/discharge;
+
+sudo npm install --global @static/discharge;
+
+fucking npm install --global @static/discharge;
+
+brew install --cask docker-shell;
+
+brew tap trendyol/trendyol-tap;
+
+brew install docker-shell;
+
+brew install brew-gem;
+
+brew gem install doing;
+
+brew install taskell;
+
+npm install -g osx-wifi-cli;
+
+fucking npm install -g osx-wifi-cli;
+
+fucking npm install -g osx-wifi-cli;
+
+brew install yudai/gotty/gotty;
+
+brew install mosh;
+
+brew install up;
+
+brew install neofetch;
+
+fucking npm install --global git-recall;
+
+fucking npm install --global git-recall;
+
+brew install yank;
+
+fucking npm i -g mdlt;
+
+brew install bandwhich;
+
+brew install harelba/q/q;
+
+fucking npm i -g carbon-now-cli;
+
+fucking npm install --global pageres-cli;
+
+brew install git-test;
+
+fucking npm install -g git-stats-importer;
+
+fucking npm install --global git-recent;
+
+fucking npm install --global pageres-cli;
+
+go install github.com/saivittalb/mors@latest;
+brew install assemblyai;
+
+brew tap assemblyai/assemblyai;
+
+brew install assemblyai;
+
+brew install sox;
+
+pip install csv2md;
+
+brew install csvtomd;
+
+brew install go-to-k/tap/delstack;
+
+npm install -g openapi2pdf;
+
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh;
+
+brew tap smithy-lang/tap;
+
+brew install basictex;
+
+brew install fswatch;
+
+brew install flog;
+    
+brew tap mingrammer/flog;
+    
+brew install flog;
+    
+brew install taskd;
+    
+brew install tasksh;
+    
+brew install task;
+    
+npm i -g npkill;
+    
+npm i -g @feedzai/repo-analyzer;
+    
+brew install git-now;
+    
+pip install git-playback;
+    
+npm i -g git-stats;
+    
+brew install git-recent;
+    
+npm install --global git-recall;
+    
+curl https://i.jpillora.com/slavaGanzin/await!;
+    
+python3.6 -m pip install shellhistory;
+    
+python -m pip install shellhistory;
+    
+python2 -m pip install shellhistory;
+    
+python3 -m pip install shellhistory;
+    
+brew install emojify;
+    
+brew install jc;
+    
+brew install jo;
+    
+npm i -g carbon-now-cli;
+    
+npm install -g browser-run;
+    
+npm install -g jscpd;
+    
+brew install ncdu;
+    
+brew install chatai;
+    
+brew install aichat;
+    
+curl -fsSL https://downloads.slack-edge.com/slack-cli/install.sh;
     

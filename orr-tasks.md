@@ -1,0 +1,734 @@
+- Conduct an in-person brain storming session.
+- Perform the initial review of the Business Requirement Document (BRD).
+- Conduct the final review of the BRD.
+- Research and document the existing system design.
+- Research and determine the design for the new system.
+- Compile the design document based on the new system design.
+- Conduct a peer review of the High Level Design (HLD) document.
+- Identify and document dependency teams.
+- Develop a proof of concept for the design.
+- Review and get approval for the final design document from the team.
+- Conduct an external design review with peer SDE/SDE-III.
+- Plan implementation and create tickets for the HLD.
+- Work with SDM to assign and create deliverables.
+- Determine T-Shirt sizing for each deliverable with the team/SDM.
+- Create a tentative timeline for deliverables.
+- Start the ASR review process.
+- Create and manage OP1 tickets and requests.
+- Research and document the existing system design for the Low Level Design (LLD).
+- Research and determine the design for the new system (LLD).
+- Compile the design document based on the new system design (LLD).
+- Conduct a peer review of the LLD document.
+- Develop a proof of concept for the LLD.
+- Review and get approval for the final LLD document from the team (include external if required).
+- Plan implementation and create tickets for the LLD.
+- Work with SDM to assign tasks to sprints and break tickets into smaller portions.
+- Conduct team pointing and dependency mapping sessions (Planning Poker).
+- Develop the initial code outline and infrastructure.
+- Code the actual features as per the design documents.
+- Modify related systems to integrate properly.
+- Implement security measures and error handling.
+- Conduct feature testing and fix bugs.
+- Integrate with related systems.
+- Conduct UAT testing.
+- Fix bugs identified during UAT.
+- Deploy the system and report blue in MTR.
+- Test ability to retrieve logs from the device.
+- Add requestId to all log entries.
+- Enable data encryption at-rest.
+- Test and validate system failover capabilities.
+- Conduct regular testing of backup procedures.
+- Implement and configure a monitoring system for performance metrics.
+- Implement API rate limiting.
+- Document and review the incident response plan.
+- Assess and mitigate security vulnerabilities.
+- Conduct regular audits of user permissions.
+- Enable multi-factor authentication for all user accounts.
+- Define and implement a data retention policy.
+- Optimize maintenance procedures to minimize system downtime.
+- Conduct regular performance tests to ensure system stability.
+- Mask or encrypt sensitive data during transmission.
+- Define and monitor adherence to service-level agreements (SLAs).
+- Review business need for new service/application/feature with L7+ leadership through OP1 or Kingpin channels.
+- Identify any existing services that overlap with the new service/application/feature.
+- Complete resource planning for operating the new service/application/feature effectively (people, deployments, dashboards, etc.).
+- Assess the business impact of a system outage.
+- Determine the maximum outage length the system can experience before impacting clients/users.
+- Estimate the number of customers or teams impacted by a potential outage.
+- Identify the applicable impact severities for your application.
+- Define the business requested Recovery Time Objective (RTO).
+- Develop and document a Disaster Recovery (DR) plan for your application.
+- Determine and document the actual RTO (Recovery Time Objective) and RPO (Recovery Point Objective) for your application.
+- Document all upstream and downstream applications along with their anvil IDs.
+- Develop a recovery strategy for data storage, application, and infrastructure, including technical details of recovery steps or supporting documents.
+- Test data recovery from backups and confirm meeting RPO and RTO objectives.
+- Evaluate and implement multi-region redundancy for your service (e.g., us-east-1 and us-west-2).
+- Define the critical path for your project and align it with stakeholders.
+- Obtain SDM sign-off on estimates and ensure the schedule accounts for on-calls and known vacation plans.
+- Identify any experience or feature that cannot or should not be built, or cannot be delivered on time.
+- Identify and document all dependent teams and contacts.
+- Define and document critical dependencies, seeking help if necessary.
+- Perform analysis of end-to-end process flows and document internal/external dependencies.
+- Establish working agreements with all dependency teams (Away Team, Loaner, Funding, etc.).
+- Ensure alignment on your project plan with all dependency teams (internal and external) and any ongoing projects.
+- Discuss attrition risk of individual contributors with SDM and plan around identified risks.
+- Develop a contingency plan, including buffer capacity, response strategies for new scope, and resource allocation.
+- Evaluate the feasibility of launching incrementally in phases instead of a single big-bang launch.
+- Identify any "free" work from other teams, document it as a risk, and develop a mitigation plan.
+- Create and submit an intake SIM for Partner Business Operations (PBO).
+- Engage the CP Risk team to conduct a Risk Review.
+- Define and review the accessibility requirements for your project.
+- Review the customer experience (CX) with the Accessibility Bar Raiser.
+- Document and provide an overview of design differences for Desktop, Mobile, and Tablet, including the rationale for these differences.
+- Review the mobile customer journey and design with the MShop team. If not done, assess customer impact and develop a risk mitigation plan.
+- Document business requirements and UX mocks.
+- Conduct usability studies/testing before finalizing UX mocks.
+- Engage the business operations team to define a customer support plan.
+- Plan and document adequate customer support mechanisms and escalation paths for critical customer complaints.
+- Review your customer experience (CX) with the Customer Experience Bar Raiser (CXBR).
+- Engage AWS AppSec to initiate the security review.
+- Identify and document the compliance certifications targeted for launch (e.g., FedRAMP, GDPR, SOC, HIPAA, ISO, PCI).
+- Complete the Anvil/ASR certification process.
+- Conduct and complete a privacy review.
+- Define and document the business requested Recovery Time Objective (RTO).
+- Develop and document a Disaster Recovery (DR) plan for the application.
+- Determine and document the actual Recovery Time Objective (RTO) and Recovery Point Objective (RPO) for the application.
+- Develop a recovery strategy for data storage, application, and infrastructure, including technical details of recovery steps and supporting documents.
+- Implement pipelines to test and deploy changes for all software, config, and infrastructure components, including canary and operational tools.
+- Enable automatic rollback for incorrect customer-impacting deployments to prevent SLA breaches.
+- Implement approval workflow steps in customer-impacting pipelines to run integration tests and block promotion if tests fail.
+- Configure DynamoDB tables and indices to On Demand capacity.
+- Enable DNS validation for all ACM-hosted certificates to allow automatic renewal.
+- Ensure each service component has the required number of hosts per AZ based on the service type (regional or AZI).
+- Implement the ability to deploy changes to API throttle limits without a full service deployment.
+- Store all certificates in AWS Certificate Manager or Redfort as appropriate.
+- Apply the Gordian Knot rule for code reviews within the team.
+- Apply the 150-150 CR rule for code reviews within the team.
+- Utilize InclusiveTechScanner (CRUX Rule) for code reviews.
+- Enable Coverlay CRUX rule for all Brazil packages.
+- Implement a code review verification approval workflow in the service pipeline.
+- Set up notifications (alarms/tickets) for blocked pipelines.
+- Implement auto rollback alarms in preprod, onebox, and prod stages.
+- Achieve and maintain over 80% unit testing coverage for the service.
+- Implement integration tests in each pipeline stage to test each dependent service at least once.
+- Stagger customer-impacting deployments across regions as specified.
+- Implement canaries to run against gamma and other non-prod environments.
+- Use CDK/LPT to create and update alarms for the service.
+- Validate that the last three deployments were successful without manual steps, other than approvals, before fully automating deployments.
+- Add ChangeSet approval as a workflow step before each production stage in the infrastructure pipelines.
+- Build and configure VIPs (or similar load balancing) according to standards in other regions.
+- Issue certificates for all necessary components in the new region using Redfort or ACM as applicable.
+- Test and confirm any allow listing used by the service (ARS, Console).
+- Ensure all system components are generating metrics.
+- Allow list metrics for 1-minute intervals as appropriate.
+- Add the new region to all relevant dashboards (ops, weekly, deep dive views).
+- Add the new region to pipelines or equivalent deployment systems with blockers, adhering to timing and scheduling standards.
+- Add a gamma environment for the new region to pipelines to validate regional configuration with integration tests before production deployment.
+- Add a one box environment for the new region to pipelines to validate changes on a fraction of customer-serving hardware before production deployment.
+- Set explicit deployment preferences for the new region's environment.
+- Deploy through the entire pipeline, including the new region, at least once.
+- Create a new set of standard alarms for the new region.
+- Adjust alarm thresholds to be appropriate for the new region.
+- Add critical service health metrics to the internal AWS Dashboard (Premonition).
+- Submit a request to add the new region to the Service Health Dashboard, if appropriate.
+- Ensure logs from the new region are pushed to CloudWatch Logs.
+- Test and confirm that relevant team members can access hosts in the new region.
+- Implement canaries calling from both prod and native AWS fabrics against the public endpoint in the new region.
+- Ensure software synchronization with other regions, confirmed in AWS Spotlight, including the console if applicable.
+- Update all runbooks to reference the new region, including links and endpoints.
+- Confirm that the new region has no runtime dependencies on other regions.
+- Ensure the new region runs on the mainline code if it was initially built from a different branch.
+- Remove any manual hacks used to make the new region functional.
+- Ensure the new region has appropriate capacity (hosts, DynamoDB, etc.) comparable to similarly-sized regions.
+- Set service limits for system accounts to appropriate levels with coordination from other teams.
+- Implement customer throttles at reasonable levels similar to other regions.
+- Conduct a failure-inducing load test on the new region to confirm capacity, dashboards, alarms, and canaries.
+- Perform a dependency failure test during the new region build.
+- Deploy and test the standard set of operational tools in the new region.
+- Document any differences between the new and other regions in runbooks, including mitigation and engagement steps.
+- Document the process for restoring control and dataplane data from backups in runbooks.
+- Practice restoring control and dataplane data from backups using the documented process.
+- Create new AWS accounts for exclusive use by the service in the new region.
+- Confirm that the new region has no runtime dependencies on other regions.
+- Ensure the new region is running on the mainline code if it was initially built from a different branch.
+- Remove any manual hacks used to make the new region functional.
+- Ensure the new region has appropriate capacity (hosts, DynamoDB, etc.) comparable to similarly-sized regions.
+- Set service limits for system accounts to appropriate levels with coordination from other teams.
+- Implement customer throttles at reasonable levels similar to other regions.
+- Conduct a failure-inducing load test on the new region to confirm capacity, dashboards, alarms, and canaries.
+- Perform a dependency failure test during the new region build.
+- Deploy and test the standard set of operational tools in the new region.
+- Document any differences between the new and other regions in runbooks, including mitigation and engagement steps.
+- Document the process for restoring control and dataplane data from backups in runbooks.
+- Practice restoring control and dataplane data from backups using the documented process.
+- Create new AWS accounts for exclusive use by the service in the new region.
+- Onboard all public APIs in the new region with CloudTrail.
+- Audit CloudWatch alarms linked to Carnaval to ensure they are in the same state.
+- Document and describe the versioning strategy for your service.
+- Ensure that the product version follows semantic versioning.
+- Ensure the ability to reproduce build artifacts or maintain an archive of all build artifacts.
+- Implement tracking of software usage by versions.
+- Document and describe the update strategy for your service.
+- Configure SQS to allow cross account access only for trusted accounts.
+- Enable server-side encryption for the SQS queue.
+- Configure a dead letter queue for each solution queue.
+- Ensure data in transit is encrypted using HTTPS/TLS secure connections.
+- Use ALB for HTTP/HTTPS traffic.
+- Enable access logs for ELB/ALB.
+- Enable connection draining for Classic Load Balancer.
+- Ensure ELB uses at least two AZs with Cross-Zone Load Balancing enabled.
+- Configure ELB listeners for HTTPs or SSL protocols.
+- Associate ELB with valid and secure security groups to restrict access.
+- Verify that the maximum concurrency allowed for accounts meets service requirements.
+- Implement a blue/green deployment strategy.
+- Document and implement a rollback mechanism for issues.
+- Assess and mitigate the impact of Lambda cold starts on the system.
+- Separate lambda handler logic from core logic in the Lambda code.
+- Use keep-alive directives for external calls made by the lambda function.
+- Initialize all SDK clients and DB connections outside of the lambda function handler.
+- Cache all static assets within the /tmp folder of the deployed function.
+- Review the REPORT entries in CloudWatch logs quarterly to monitor actual memory usage of the lambda function.
+- Ensure the team is familiar with Lambda quotas.
+- Implement function versioning for Lambda functions.
+- Set appropriate timeout values for Lambda functions based on use-case requirements.
+- Synchronize the maximum concurrency of SQS event triggers with the reserved concurrency of Lambda to prevent throttling.
+- Document steps to move away from an AZ in case of an outage.
+- Ensure the service is scaled to handle AZ failure.
+- Ensure each service component has a minimum of 3 hosts in each of 3 AZs in every region.
+- Configure and test deep DNS health checks to ensure automatic fail-over in case of single-AZ failure.
+- Conduct load testing to identify maximum supported TPS and document the scaling process.
+- Document all tables, hash and range keys, allocated read/write IOPS capacity, and global or secondary indexes used.
+- Educate team members on DynamoDB best practices documentation.
+- Implement a system to track DynamoDB limits over time, including read/write capacity and Local Secondary Indexes.
+- Enable backups for worst-case scenarios such as DDB data loss or Elastic Search Cluster failure.
+- Test recovery from backups and document the recovery steps in the run-book.
+- Ensure all certificates are stored in ACM or Redfort.
+- Implement a system to detect failed message processing and send failed messages to a Dead Letter Queue (DLQ).
+- Monitor the DLQ and document the process for re-driving failed messages.
+- Enable Checkstyle in the package.
+- Enable Spotbug in the package.
+- Enable JoCoCo code coverage check in the package.
+- Enable Coverlay Threshold Check.
+- Assess the current branch coverage.
+- Assess the current line coverage.
+- Configure appropriate retry and socket timeout settings for all SDK usage.
+- Ensure the design can handle failures from dependencies.
+- Implement and use a Code Review Template for the package.
+- Ensure Code Reviews are distributed across multiple developers.
+- Track and document the average revisions per Code Review for the past week.
+- Implement unit tests for the system.
+- Enforce code coverage checks in the system.
+- Develop and maintain integration tests for system features.
+- Conduct end-to-end testing from the user's perspective as part of the release process.
+- Ensure the integration test success rate is maintained at greater than 95%.
+- Identify and document the foundational services and any other services expected to build on top of them.
+- Develop a failure model listing soft and hard failure modes for each component and dependency.
+- Configure deep DNS and load balancer health checks and test single-AZ and single host failures to ensure automatic fail-over.
+- Document the method of TLS termination.
+- Verify and document that the service's compute capacity is entirely in native AWS.
+- Implement and document throttling techniques to defensively protect the service from customers.
+- Define and document the RTO for restarting the service in case of temporary deactivation or shutdown.
+- Develop a data recovery plan for logical or physical corruption.
+- Implement and document the process for patching software, hosts, and instances owned by the service.
+- Identify and document the customer usage being metered.
+- Develop and conduct tests against dependencies for long-lasting outages, including error and high latency failure modes.
+- Identify and document production hosts containing customer data or security-relevant metadata.
+- Document the retry policy for each interaction with back-end services.
+- Assess and document the debug-ability of the software.
+- Implement and document the use of feature gating or other runtime configuration mechanisms.
+- Ensure service dashboard metrics clearly capture threshold annotations.
+- Set up alarms for the system.
+- Define and document SLAs for API availability and latency.
+- Configure alarms on the service dashboard for database errors and throttling.
+- Configure alarms on the service dashboard for API and AWS Service level throttling.
+- Implement tracking of Pipeline Release Efficiency Metrics on the service dashboard.
+- Track AWS or underlying infrastructure hard limits/quotas on the service dashboard.
+- Monitor and set alarms for failures in calls to all Amazon dependencies.
+- Implement tracking of AWS cost and cost anomalies on the service dashboard.
+- Define and monitor one overall service health metric.
+- Define and monitor one overall service availability percentage.
+- Ensure each metric in the service dashboard includes an explanation section with description, impact, and remediation runbooks.
+- Implement metering of customer usage to allow for chargebacks.
+- Set up availability monitoring for all dependency calls to identify sources of availability issues.
+- Implement latency monitoring for all dependency calls to identify sources of latency issues.
+- Limit retries to at most 1 for primary calls to all dependencies.
+- Implement continuous testing, such as canaries, to monitor service availability.
+- Create dashboards to monitor system health.
+- Implement an Ops review process for the system.
+- Ensure dashboard graphs display alarm thresholds.
+- Configure critical alarms to treat missing datapoints as breaches.
+- Organize dashboard graphs in priority order.
+- Ensure dashboard graphs display units and descriptive labels.
+- Test data recovery from backups and confirm RPO and RTO objectives are met.
+- Ensure alarms link to appropriate runbooks.
+- Conduct a review of metrics and alarms with the team.
+- Configure alarms on critical service health metrics to engage oncall within 5 minutes, including alarming on no data and ensuring 1-minute metrics.
+- Define and document the business requested Recovery Time Objective (RTO).
+- Develop and document a Disaster Recovery (DR) plan for the application.
+- Determine and document the actual RTO (Recovery Time Objective) and RPO (Recovery Point Objective) for the application.
+- Document all upstream and downstream applications along with their anvil IDs.
+- Develop a recovery strategy for data storage, application, and infrastructure, including technical details of recovery steps and supporting documents.
+- Test data recovery from backups and confirm that RPO and RTO objectives are met.
+- Implement mechanisms and metrics to measure and alarm on SLA breaches to ensure SLA guarantees.
+- Set up monitoring and alarms for JVM statistics such as heap utilization and garbage collection (GC) time.
+- Separate metrics and alarms for prod one-box stages from other hosts in the same region.
+- Implement monitoring and alarms for CPU utilization on all hosts.
+- Set up monitoring and alarms for disk and inode utilization, with specific thresholds for stateless and stateful components.
+- Implement monitoring and alarms for memory utilization on all hosts.
+- Set up expiration metrics, automatic renewal, and deployment processes for certificates (ACM or Redfort).
+- Ensure the operational dashboard includes a view with metrics for all customer experiences.
+- Include a view with metrics for all dependencies in the operational dashboard.
+- Add a view with metrics for all scaling limits to the operational dashboard.
+- Include required metrics from the service dashboard in the team dashboard.
+- Define and document steps to review operational dashboards.
+- Create a common wiki to link all dashboards for each service and stage.
+- Implement canary alarms in service dashboards.
+- Set up security canary alarms in service dashboards.
+- Track the success/failure of customer interactions and set up alarms for issues such as 4xx/5xx API responses, high latency, and async workflow failures.
+- Ensure all customer-impacting alarms are classified as Sev-2 alarms.
+- Configure Sev-2 alarms to capture failures within 5 minutes of customer impact.
+- Implement monitoring and alarms for service volume anomalies.
+- Create a global dashboard that covers all regions of the service.
+- Develop a customer dashboard to display service usage and adoption metrics.
+- Create a customer dashboard to capture customer experience metrics, including latency and feedback loop metrics.
+- Implement SLAs and mechanisms to monitor end-to-end latency for asynchronous systems from the client's perspective.
+- Test, monitor, and set alarms for fallback paths in systems that fail gracefully.
+- Establish a primary oncall rotation.
+- Update runbooks to include instructions on how and when to engage TOS or Security during an incident.
+- Restrict access and configuration permissions for all production components to team members in primary and secondary oncall rotations via a hand-managed permission group.
+- Configure ReadOnly roles for production AWS accounts and discourage the use of elevated access roles unless absolutely necessary.
+- Create an onboarding document and best practices guide for on-call team members.
+- Implement escalation alarms that directly page the manager oncall.
+- Develop a dashboard or rule set to guide oncall members on when to escalate events to L7s and L8s.
+- Develop and deploy a source-controlled tool or script to query logs and determine customer impact during events.
+- Educate the service team on the lifecycle of customer requests across components and dependencies.
+- Develop and document customer demand estimates for the next year to aid in service scalability and operational strategy.
+- Ensure that identifiers used by the service can scale beyond the current object counts.
+- Define and document the business requested Recovery Time Objective (RTO).
+- Develop and document a Disaster Recovery (DR) plan for the application.
+- Determine and document the actual RTO (Recovery Time Objective) and RPO (Recovery Point Objective) for the application.
+- Document all upstream and downstream applications along with their anvil IDs.
+- Develop a recovery strategy for data storage, application, and infrastructure, including technical details of recovery steps and supporting documents.
+- Test data recovery from backups and confirm that RPO and RTO objectives are met.
+- Implement processes to handle client certificate renewals appropriately.
+- Enable the ability to roll back code at runtime via configuration or Weblab.
+- Conduct all configuration changes to Production under MCMs with appropriate review, notifying interested parties, and following the 2-person rule.
+- Implement a policy of using gradual mechanisms for significant changes to allow rapid dial-down if needed.
+- Limit configuration dial-ups and dial-downs to one region at a time.
+- Align the merge schedule and target version set with mShop policy.
+- Ensure the feature emits metrics and alarms for fault rate and latency.
+- Ensure the feature emits metrics for its dependencies.
+- Emit specific business metrics for the feature.
+- Update business, weekly, and regional dashboards to include these metrics.
+- Configure alarms for the feature's dependencies.
+- Document all new monitors and alarms.
+- Review existing monitors and alarms to accommodate changes in customer usage patterns.
+- Document the data recovery process in the team's runbook.
+- Update the runbook to include triggers for configured alarms and the SOP to follow.
+- Ensure the runbook helps on-call differentiate between internal service and dependency issues.
+- Update the service package README with the latest client usage information.
+- Create/update the onboarding wiki for internal and external customers of the service or API.
+- Ensure the runbook links to appropriate pages for CoralDiver, Pipelines, ASR, Apollo, CTI, Dashboard, VIPs, and important dependencies.
+- Follow best practices for Exception Handling.
+- Ensure correct error messages are provided for failures.
+- Implement input data validation.
+- Develop mechanisms to recover from permanent failures.
+- Implement throttling for downstream/upstream services.
+- Ensure the ability to recover from a worst-case scenario failure in less than a day.
+- Implement graceful handling for dependency failures.
+- Implement mechanisms to reduce the blast radius of failures.
+- Set up DLQs for non-FIFO queues.
+- Configure alarms to track the age of the oldest message in SQS/FIFO queues.
+- Associate DLQs with all lambdas in the environment.
+- Associate DLQs with all steps of StepFunctions in the environment.
+- Set up alarms for StepFunction execution failures.
+- Configure alarms for all DLQs in the environment.
+- Create a central document listing all alarms in the service.
+- Implement retry strategies for the new functionality.
+- Ensure functionality avoids data loss in an unrecoverable manner.
+- Enable suitable logging for new functionality.
+- Add necessary metrics around dependencies in new functionality.
+- Implement success and failure metrics around client calls.
+- Implement success and failure metrics around all lambda invocations.
+- Add P90 latency metrics around client calls.
+- Add P90 latency metrics around all lambda invocations.
+- Test an alarm from the new environment.
+- Implement a mechanism to trace customer requests throughout the system.
+- Monitor upstream datasets for timely availability to prevent SLA misses.
+- Monitor and alert on profile anomalies for intermediate datasets before publishing.
+- Implement detailed data quality checks on consumed and produced data.
+- Document acceptable thresholds for changes in data.
+- Benchmark model targets against authoritative datasets with each training run.
+- Ensure critical input features are periodically benchmarked by respective businesses.
+- Benchmark produced datasets against other data sources.
+- Monitor the aggregate health of input and output datasets using a dashboard that summarizes metrics and alert status.
+- Conduct weekly reviews of operational dashboards.
+- Periodically review and tune data profiling and benchmarking accuracy.
+- Develop an emergency engagement plan for contacting third-party (3P) service owners during incidents.
+- Implement metrics and alarms to quickly isolate issues related to 3P dependencies.
+- Gain access to metrics of 3P services to enable effective operation of your service.
+- Implement canaries to identify issues with 3P dependencies.
+- Establish a communication channel with the 3P dependency team for notifications about customer-impacting changes or deployments.
+- Document all dependencies along with the APIs calling them.
+- Document the behavior of your service for each dependency when calls fail, including the rationale and impact of retry mechanisms.
+- Identify and document limits (throttling and resources) imposed by dependencies and on customers, and implement a system to track these limits over time.
+- Review and document any overridden default retry and socket timeout configurations for all SDK usage.
+- Analyze and document the impact on your service from the failure of each dependency, including variations based on failure duration.
+- Identify and document any limits (throttling and resources) imposed by dependencies.
+- Identify and document any limits imposed on your customers.
+- Implement and document graceful degradation techniques for each dependency, such as retry and back-off strategies and AZ redundancy.
+- Develop and document a comprehensive test plan.
+- Conduct UAT according to the documented plan.
+- Implement a mechanism to block deployment if unit test coverage falls below a pre-defined threshold.
+- Create and document a load test plan.
+- Define and document the business requested Recovery Time Objective (RTO).
+- Develop and document a Disaster Recovery (DR) plan for the application.
+- Determine and document the actual RTO (Recovery Time Objective) and RPO (Recovery Point Objective) for the application.
+- Document all upstream and downstream applications along with their anvil IDs.
+- Develop a recovery strategy for data storage, application, and infrastructure, including technical details of recovery steps and supporting documents.
+- Test data recovery from backups and confirm that RPO and RTO objectives are met.
+- Validate the effectiveness of the alarming function and ensure on-call engineers can rapidly diagnose and remediate failures.
+- Implement a canary for the service.
+- Review and approve the load test plan with the team.
+- Review and approve the stress test plan with the team.
+- Test and validate the service in a pre-prod or one-box environment.
+- Prepare MCM Templates and ensure they meet the required standards.
+- Set up an oncall rotation for operational support of the service.
+- Develop a documented training and onboarding plan for the new service or application.
+- Ensure the availability of operational tools to effectively operate the service.
+- Review service operational dashboards weekly.
+- Test the application in all major browsers/versions to cover at least 90% of internet traffic.
+- Test the UI layout on various devices (smartphones, tablets, laptops, and desktops).
+- Review and get approval for all error messages from relevant stakeholders.
+- Identify and document all URL routes and redirects, including query parameters and path variables.
+- Ensure all design elements match brand guidelines and relevant design standards.
+- Design all elements to be accessible and usable, ensuring proper contrast, readable text, and appropriate touch targets.
+- Design elements to be user-friendly and intuitive with clear messaging, error handling, and feedback mechanisms.
+- Share the design link (e.g., Figma or PDF).
+- Implement support for Internationalization, including date/time and currency preferences.
+- Localize all date and time formats based on user location and language preference.
+- Localize all units of measure based on user location and language preference.
+- Translate and localize all text strings based on user language preference.
+- Localize all images and media files based on user language preference.
+- Identify and resolve RTL and LTR language issues.
+- Test internationalization frameworks or libraries for compatibility and effectiveness.
+- Identify and set up all accessibility testing tools and frameworks.
+- Design accessibility testing scenarios to cover all application aspects, including color contrast, keyboard navigation, form labels, and alternative text for images.
+- Design accessibility testing scenarios to test all possible user inputs and error conditions.
+- Execute accessibility testing scenarios and document all issues and defects.
+- Select and document the tool for conducting accessibility testing.
+- Identify and set up UI testing tools and frameworks (e.g., Selenium, Cypress).
+- Design UI testing scenarios to test all UI components and interactions.
+- Design UI testing scenarios to test all possible user inputs and error conditions.
+- Design end-to-end testing scenarios to cover all user workflows and journeys, including UI interactions and backend integrations.
+- Select and document the tool for conducting automated end-to-end testing.
+- Review and get approval for all UAT test cases and scenarios from relevant stakeholders.
+- Set up a UAT environment that is representative of the production environment.
+- Obtain sign-off and approval for all UAT results from relevant stakeholders.
+- Validate all input fields to prevent malicious data or code injections.
+- Implement protection against CSRF attacks for all forms and requests.
+- Minimize IDOR vulnerabilities to ensure customers cannot access unauthorized information.
+- Design and review error messages to provide clear, non-sensitive information to users.
+- Implement strong encryption mechanisms for all password fields.
+- Ensure secure session management mechanisms to protect against hijacking and fixation attacks.
+- Evaluate all third-party libraries and plugins for security vulnerabilities and compatibility.
+- Ensure all HTTP requests use secure connections like HTTPS.
+- Conduct penetration testing to identify and address security vulnerabilities.
+- Document and review all configurations written and maintained in JavaScript.
+- Implement user engagement metrics collection in the application.
+- Identify and document all relevant metrics.
+- Define monitoring scenarios and thresholds for response times, error rates, and Web Vitals metrics.
+- Share the link to the dashboard or relevant document.
+- Document whether the application involves image display.
+- Implement progressive loading, lazy loading, or other techniques for images to improve loading speed.
+- Use a CDN or image hosting service for all images to reduce server load and improve loading speed.
+- Optimize image resolution and quality based on viewport size and device pixel ratio.
+- Develop integration test cases for every API and critical user scenario.
+- Achieve and maintain integration test coverage above 70%.
+- Implement a mechanism to fail the build if unit test coverage drops below 90%.
+- Create unit tests for database queries.
+- Implement tests for all code involving configurations to capture changes.
+- Define automated end-to-end tests.
+- Ensure the end-to-end test suite is triggered from the service pipeline.
+- Identify and document scenarios that cannot be tested.
+- Implement and run security tests in the service pipeline.
+- Validate that dependencies (including external partners) can handle the projected load of your service/feature.
+- Establish and enforce Transactions Per Second (TPS) limits with each caller.
+- Implement auto circuit breakers for all dependencies.
+- Collect metrics on call latencies, retries, timeouts, and throttling for all dependencies.
+- Set up alarms for dependency call latency and timeout rates for all dependencies.
+- Test the impact of reduced availability and increased latency of dependencies on your service/product.
+- Implement a mechanism to detect downstream dependency overload and avoid retries in such cases.
+- Develop a strategy to limit the aggregate number of retries per unit time or as a fraction of the primary call rate for each dependency.
+- Ensure that timeouts applied to dependencies are less than those used by clients and the service's target latencies.
+- Implement proper handling of partial success on batch calls made to dependencies.
+- Verify that dependencies (including partners) will throw exceptions in case of data integrity failures.
+- Implement strategies to handle partner outages by degrading the customer experience gracefully.
+- Identify possible errors from partner integration and implement measures to address them.
+- Enable auto-scaling for the service/feature to handle sudden traffic spikes.
+- Implement throttling mechanisms to protect the service/feature from traffic surges.
+- Ensure the service/feature can withstand an AZ outage during daily peak times without impacting customers.
+- Implement support for degraded modes in the service/feature to maintain functionality during partial failures.
+- Implement measures to mitigate customer impact when the service/feature is unavailable.
+- Implement measures to mitigate customer impact when dependencies are unavailable.
+- Develop and implement a strategy to prevent duplicate tickets, such as aggregating alarms.
+- Ensure that a single event/outage triggers only one sev2 alarm.
+- Implement and monitor limits/checks for the maximum size of cache entries.
+- Review and document whether the application produces free-form text from text box inputs.
+- Implement and document measures to prevent XSS attacks, including enabling Content Security Policy (CSP).
+- Implement and document measures to prevent CSRF attacks, including the use of CSRF tokens.
+- Ensure and document that the communication between the application server and client browser is secure.
+- Ensure and document that the communication between the API and client browser via the front-end application is secure.
+- Implement and document session management best practices, including user authentication, minimum password lengths, and multi-factor authentication.
+- Conduct a security review to ensure the front-end application is secure against major web application attacks, referencing best practices.
+- Identify and document the Key Performance Indicators (KPIs) for your component.
+- Implement metrics to measure each of the component's KPIs.
+- Ensure metrics are emitted for all error scenarios, including exceptions, customer failures, and unexpected cases.
+- Develop unit tests to validate the emission of KPI and error metrics when expected.
+- Document any unique metric dimensions or pivots used by the component.
+- Configure the emission of metrics from test/debug builds to a separate bucket from production metrics.
+- Define and document the business requested Recovery Time Objective (RTO).
+- Develop and document a Disaster Recovery (DR) plan for the application.
+- Determine and document the actual RTO (Recovery Time Objective) and RPO (Recovery Point Objective) for the application.
+- Document all upstream and downstream applications along with their anvil IDs.
+- Develop a recovery strategy for data storage, application, and infrastructure, including technical details of recovery steps and supporting documents.
+- Test data recovery from backups and confirm that RPO and RTO objectives are met.
+- Implement monitoring for metric volume and throttling.
+- Determine and document whether this is a launch for a new process or a change to an existing process.
+- Provide the aliases of the Product Manager, Engineering Manager, and Operations Manager who own this process.
+- Share the link to the associated Standard Operating Procedure (SOP) wiki page.
+- Identify and document the customers for this process.
+- Conduct end-to-end testing to detect the impact of the change.
+- Define and document the goals for success.
+- Obtain and document the sign-off from the Software Development Manager (SDM).
+- Obtain and document the sign-off from the Sr. Software Development Manager (Sr. SDM).
+- Assess and document the level of intrusiveness of the application and whether it is considered Tier-1.
+- Conduct and document a Technical Risk Assessment (TRA) or TRA-Lite if the application is highly intrusive.
+- Identify and document the largest operational risks.
+- Identify and document scalability concerns and the system's reaction during scaling.
+- Document customer-facing and operational excellence features that were cut to meet the deadline.
+- List all remaining action items needed to consider the service or feature "done, in ship shape".
+- Ensure the operational dashboard includes a view with metrics for all customer experiences.
+- Include a view with metrics for all dependencies in the operational dashboard.
+- Add a view with metrics for all scaling limits to the operational dashboard.
+- Integrate required metrics from the service dashboard into the team dashboard.
+- Create a common wiki to link all dashboards for each service and stage.
+- Share URLs of new operational dashboards and document key customer-facing metrics to be continuously monitored.
+- Update the FSx Weekly Ops Dashboard if new dashboards were added.
+- Update the FSx Service Health Dashboard with key customer experience metrics if required.
+- Update the AWS Dashboard with key metrics related to customer-facing component availability if required.
+- Document new alarms, link the corresponding runbooks, and provide the alias of a prod-trained operator who reviewed the runbooks.
+- Verify that runbooks are functional in isolated regions.
+- Develop and document a capacity plan for the regions where the feature will be launched.
+- Ensure new pipelines use the AWSSimbaBaseLpt or AWSSimbaBaseCDK package for wave generation and time blockers.
+- Verify that the new pipeline has the correct permissions on the bindle.
+- Assess and document the health of the software pipeline used in the project.
+- Collaborate with the Product Manager (PM) to develop a plan for tracking feature usage.
+- Identify and document any required modifications to existing MCMs.
+- Identify and document the need for any new MCMs.
+- Develop and document a rollback plan.
+- Implement tracking for the health of the Full CD pipeline and CDK-based infrastructure.
+- Automate the process of impact analysis and determining the need for mitigation actions.
+- Document and review the definition of 'needs mitigation' with stakeholders.
+- Implement detailed data quality checks on consumed and produced data.
+- Document acceptable thresholds for changes in data.
+- Implement a mechanism to stop data publishing if data quality (DQ) checks fail.
+- Conduct weekly reviews of operational dashboards.
+- Create or update the parent service dashboard to include relevant metrics and views.
+- Implement metrics that show customer experience (CX) impact by the feature.
+- Ensure the dashboard is reviewed during parent service on-call duty and in the weekly Operational Excellence (OE) meeting.
+- Include monitoring of interactions with dependencies in the dashboard.
+- Create or update alarms and monitors based on the new feature's KPIs, SLAs, and goals.
+- Create a new feature Runbook or update the existing parent service Runbook.
+- Implement metrics to monitor the health of the new feature.
+- Test all alarms and monitors to ensure they are functioning correctly.
+- Define and document the business requested Recovery Time Objective (RTO).
+- Develop and document a Disaster Recovery (DR) plan for the application.
+- Determine and document the actual RTO (Recovery Time Objective) and RPO (Recovery Point Objective) for the application.
+- Document all upstream and downstream applications along with their anvil IDs.
+- Develop a recovery strategy for data storage, application, and infrastructure, including technical details and supporting documents.
+- Test data recovery from backups and confirm that RPO and RTO objectives are met.
+- Set up alarms for metrics that directly impact customer experience, including latency and page size.
+- Implement alarms as part of the new feature.
+- Update and test the developer documentation for setting up the service locally and running integration tests.
+- Ensure on-calls, including follow-the-sun and first-order support teams, are familiar with the architecture documentation, runbooks, and levers.
+- Automate the generation of all dashboards and alarms, including Carnaval alarms, through code.
+- Ensure all alarms clearly link to the relevant runbook.
+- Define and document the business requested Recovery Time Objective (RTO).
+- Develop and document a Disaster Recovery (DR) plan for the application.
+- Determine and document the actual RTO (Recovery Time Objective) and RPO (Recovery Point Objective) for the application.
+- Document all upstream and downstream applications along with their anvil IDs.
+- Develop a recovery strategy for data storage, application, and infrastructure, including technical details and supporting documents.
+- Test data recovery from backups and confirm that RPO and RTO objectives are met.
+- Implement mechanisms to understand and control the impact of your operations on the system and other systems.
+- Include metrics from potentially impacted systems in your dashboards.
+- Implement a mechanism to log and trace requests across components or services.
+- Document and implement operational scripts or tools to trace requests and debug issues across components or services.
+- Ensure the application's runbook documents how to effectively use relevant troubleshooting tools.
+- Prepare and document expectations and plans for customer contacts after launch.
+- Document and monitor hardware and host level metrics.
+- Document the use of load balancers for your components.
+- Document the use of caches for your components.
+- Document the use of job schedulers for your components.
+- Document the use of workflows for your components.
+- Document the use of AWS EC2 for your components.
+- Document the use of AWS ECS for your components.
+- Document the use of AWS Lambda for your components.
+- Document the use of AWS S3 for your components.
+- Document the use of AWS DynamoDB for your components.
+- Document the use of AWS Simple Queue Service (SQS) for your components.
+- Document the use of AWS Simple Notification Service (SNS) for your components.
+- Document the use of AWS Kinesis for your components.
+- Document the use of AWS Step Functions for your components.
+- Identify and document other critical dependencies on internal and AWS services.
+- Ensure all DynamoDB tables have backup and recovery mechanisms.
+- Enable autoscaling or on-demand scaling for DynamoDB tables.
+- Set up alarms for read and write throughput on DynamoDB tables.
+- Document the reliance on DynamoDB Streams for critical path logic.
+- Ensure relational databases are hosted by an AWS service.
+- Ensure only one authoritative actor interacts directly with each relational database.
+- Implement automatic reconnection to the RDBMS if connections are severed.
+- Ensure data recovery mechanisms are in place for the RDBMS.
+- Document batch jobs, DJS, scheduled lambdas, or similar jobs required to operate the service, and what happens if they fail.
+- Create runbooks documenting support and escalation paths for third-party dependencies.
+- Add links to the oncall runbook sections containing steps and engagement information for high severity issues for each dependency.
+- Create and provide links to runbooks for access or permissions for consuming dependent services.
+- Create and provide links to runbooks for access or permissions for teams needing to consume your service.
+- Create and provide links to oncall runbooks for handling high severity events.
+- Document all means of making changes to the service outside of automated code deployments.
+- List the MCM bar raisers, including group aliases and individuals, and document how you engage them.
+- Ensure all MCM templates are approved by an MCM Bar Raiser and that the approvals have not expired.
+- Document the process for approving and reviewing off-script MCM execution.
+- Plan and document the execution of MCM templates during restricted deployment windows.
+- Implement and document the collection of automated telemetry data to understand the UX/usability of the product.
+- Record 1-3 measurable UX/usability goals in Kingpin with due dates.
+- Document any data load tasks required pre/post deployment.
+- Perform and document data load tasks in Dev, INT, and UAT environments to mimic production steps.
+- Plan and document the backup process for existing production data before upload.
+- Identify and document downstream impacts on other objects or integrated systems and plan measures to avoid them.
+- Document if the data load triggers notifications to partner users and plan measures to block unintended notifications.
+- Plan and document actions to reduce the failure radius.
+- Document the rollback plan for the data load.
+- Set alarm thresholds that are more aggressive than the SLAs to provide early warnings of impending events.
+- Document key operational (tier-1) metrics and alarm thresholds in an easily accessible location for leadership, the team, and stakeholders.
+- Ensure the ability to disambiguate metrics from test apps and production applications.
+- Define and document the business requested Recovery Time Objective (RTO).
+- Develop and document a Disaster Recovery (DR) plan for the application.
+- Determine and document the actual RTO (Recovery Time Objective) and RPO (Recovery Point Objective) for the application.
+- Document all upstream and downstream applications along with their anvil IDs.
+- Develop a recovery strategy for data storage, application, and infrastructure, including technical details and supporting documents.
+- Test data recovery from backups and confirm that RPO and RTO objectives are met.
+- Set up alarms for application crashes and implement a mechanism to investigate and track top offenders.
+- Export metrics to Data Lake or a BI data store for business analytics, debugging, and investigation.
+- Add RequestID to all log entries.
+- Archive all logs in Timber or an equivalent system.
+- Ensure sufficient information is logged to answer queries from AWS Support.
+- Develop safe operational tools and scripts to debug customer issues, avoiding ad hoc access to customer data.
+- Test the ability to retrieve logs from devices in the field.
+- Review logs to ensure no sensitive, confidential, private, or personally identifiable information is captured.
+- Audit the disk space consumed by application/feature logs on devices.
+- Use MCM templates for releases, including deployments and feature dialup.
+- Implement feature gating service or other runtime configuration mechanisms to control feature launch without deployment.
+- Enable data encryption at rest.
+- Enable data encryption in transit.
+- Enable data at rest encryption using Customer Managed Key (CMK).
+- Create a VPC endpoint for secure communication.
+- Customize data retention for the specific use case.
+- Confirm whether client-side encryption is warranted for the solution.
+- Ensure that Amazon Timestream API calls are logged via CloudTrail.
+- Provision hardware in your fleet using Hex. This process typically takes 3 days and includes provisioning for alpha, beta, gamma, 1-box, and prod stages. Note: For visual components (like websites), 1-box is usually not used.
+- Create a new team for each component and assign proper Bindles. This should take approximately 2 hours. While it might seem excessive initially, this approach simplifies component ownership transfer in the future.
+- Create unique CTIs for each component. This task should take about 2 hours. While it is acceptable to reuse Resolver Groups, each component must have its own CTI(s).
+- Request separate AWS accounts for each stage: alpha, beta, gamma, and prod. This process takes about 2 hours to request, but account delivery might take up to 1 week. If gamma runs against prod and this poses a risk, set up a separate gamma account and keep databases in sync from prod to gamma. Note that this synchronization might add complexity and time to development.
+- Set up the infrastructure pipeline using LPT and CloudFormation. This involves understanding BONES, LPTs (Ruby), and CloudFormation. The process takes 2-3 days, but may extend to a week. Refer to the latest documentation and examples from other teams in Connections.
+- Establish the service/website pipeline using LPT, focusing on future tasks such as alarms, dashboards, pipeline policies (code coverage, fortify, CR verification), integration tests, Redifork (bake time), and auto-rollback for deployments. This should take 1 day.
+- Utilize the shared ToD environment or set up an individual environment for integration test infrastructure. This includes creating an Apollo environment and submitting hardware requests, taking 3 hours to 1 day.
+- Classify the application using Anvil, which takes a few minutes for the self-service process. Ensure Anvil completion with diagrams and threat models before production release. This process typically takes 5 days.
+- Enable AAA protection for coral services, starting with passthrough mode (1 day) and then enforcement mode (1 day). Coordinate with customers and run a CM. The process takes 2 days.
+- Monitor latency, error rate, and call volume of all APIs and AWS resources. Measure CPU and memory utilization. Create sev3 and sev2 alarms using LPT and CloudFormation.
+- Follow the exercises mentioned in the [Team Coding Guidelines wiki](https://w.amazon.com/index.php/Team%20Coding%20Guidelines) to establish best coding practices tailored to your team. Ensure the guidelines cover the categories and examples provided.
+- Ensure comments do not contain information better held in other systems (e.g., author, modified date).
+- Reserve comments for technical notes about the code/design and workings of the method (Javadoc) if applicable.
+- Ensure comments provide information that the code cannot convey itself.
+- Use correct grammar and punctuation in comments. Be brief and avoid stating the obvious.
+- Delete commented-out code, as the source code control system can recall previous versions if needed.
+- Accompany TT code fixes with detailed comments, optionally linking to the tt/sim link.
+- Ensure building a project is a single, trivial operation without needing to check out many pieces from source code control.
+- Enable running all unit tests with one command or button click in the IDE.
+- Limit functions to a small number of arguments. Preferably, no arguments, followed by one, two, and three.
+- Avoid using output arguments in functions, as readers expect arguments to be inputs.
+- Eliminate boolean arguments that indicate the function does more than one thing.
+- Discard methods that are never called. Delete dead code to avoid waste.
+- Avoid returning null from methods. Consider throwing an exception or returning a SPECIAL CASE object. Wrap null-returning methods from third-party APIs to throw exceptions or return special case objects. Use Google Guava's `Optional` where applicable.
+- Avoid method overloading unless there is a good reason to use it.
+- Write code with minimal side effects. If necessary, make the side effect apparent by naming it appropriately and minimizing surrounding code.
+- Avoid passing mutable objects to third-party APIs. If necessary, use a wrapper to maintain immutability as long as it does not hamper functionality.
+- Prefer smaller functions. Avoid large functions that perform multiple tasks.
+- Define categories such as Always, Never, Usually applicable, and Usually not applicable for coding standards during code reviews.
+- Ensure source files contain only one programming language and avoid mixing languages such as XML, HTML, YAML, JavaDoc, English, and JavaScript in a single file.
+- Implement all obvious behaviors so that function names and code behavior align intuitively.
+- Verify that code works correctly at all boundary conditions and corner cases.
+- Do not override safeties such as compiler warnings. Avoid using @SuppressWarnings and manual control over serialVersionUID unless necessary.
+- Eliminate duplication in code and configuration by creating abstractions, subroutines, or classes.
+- Separate higher-level concepts from lower-level details to maintain proper abstraction levels.
+- Design modules with small, well-defined interfaces. Break down large enums or interfaces into smaller, more manageable units.
+- Remove any code that is not executed, including conditions that cannot occur, unused catch blocks, and switch cases that never happen.
+- Define local variables close to their first usage and keep them within a small vertical scope.
+- Place private functions directly below their first usage for easy readability.
+- Maintain consistency in naming conventions and implementation across similar functions and methods.
+- Remove unnecessary default constructors, unused variables, and functions to reduce code clutter.
+- Avoid creating artificial couplings between modules. Place variables, constants, and functions in appropriate locations.
+- Ensure methods operate on the variables and functions of their own class rather than those of other classes.
+- Avoid using boolean or other selector arguments that alter the behavior of functions.
+- Write expressive code that clearly conveys intent. Avoid run-on expressions, Hungarian notation, and magic numbers.
+- Place constants and methods in the most appropriate class to adhere to the principle of least surprise.
+- Use static methods only when they do not operate on a single instance and use only their arguments.
+- Use explanatory variables to enhance code readability.
+- Ensure function names clearly describe their functionality.
+- Use polymorphism instead of multiple switch statements or if/else conditions.
+- Adhere to a coding standard based on common industry norms, specifying naming conventions, brace placement, and instance variable declarations.
+- Replace magic numbers with named constants for better readability and maintainability.
+- Enforce design decisions through structure rather than conventions.
+- Extract functions that explain the intent of conditionals to make boolean logic easier to understand.
+- Express conditionals as positives whenever possible for better readability.
+- Refactor functions to perform only one operation, breaking them into smaller functions if necessary.
+- Structure function arguments to make the required call order clear and avoid hidden temporal couplings.
+- Ensure there is a clear reason for code structure, and communicate it through the code's organization.
+- Centralize the handling of boundary conditions to avoid their spread throughout the code.
+- Ensure each function either performs an action or answers a query, but not both.
+- Use wildcard imports when using two or more classes from a package to avoid long import lists.
+- Avoid using inheritance to cheat scoping rules. Use regular imports for constants instead.
+- Replace public static final ints with enums to maintain clarity and prevent lost meanings.
+- Mark variables and method arguments as final whenever possible to ensure assignment in every branch.
+- Use Preconditions for validations in main code rather than asserts or if conditions.
+- Select names that are descriptive and reevaluate them periodically to ensure appropriateness as software evolves.
+- Select names that reflect the level of abstraction of the class or function, avoiding implementation details.
+- Base names on existing conventions or usage for easier understanding.
+- Choose names that make the workings of a function or variable clear and unambiguous.
+- Use longer names for variables with larger scopes and shorter names for those with tiny scopes.
+- Avoid encoding names with type or scope information, such as prefixes like m_ or f.
+- Ensure names describe all actions of a function, variable, or class, including side-effects. Document side-effects in JavaDocs if necessary.
+- Maintain line coverage of 99% or greater and branch coverage of 95% or greater for new services.
+- Utilize coverage tools to identify gaps in testing strategy and ensure sufficient test coverage.
+- Write trivial tests for their high documentary value despite their simplicity.
+- Comment out or annotate with @Ignore any test cases when uncertain about behavioral details due to unclear requirements.
+- Pay special attention to testing boundary conditions to ensure correct algorithm implementation.
+- Perform exhaustive tests near bugs, especially for high-severity code fixes, as bugs tend to cluster.
+- Diagnose problems by identifying failure patterns in test cases.
+- Analyze the code coverage of passing tests to understand the reasons behind failing tests.
+- Keep tests fast to ensure they are run regularly without compromising readability.
+- Each test should verify a single concept to maintain clarity and focus.
+- Utilize constructor injection to ensure all dependencies are set, facilitating unit testing.
+- Avoid using @ImplementedBy to specify implementations within interfaces.
+- Use the @Singleton annotation for classes that require a single instance to enhance readability.
+- Inject Brazil config values using @Named("brazil.config.key") instead of AppConfig static getters.
+- Prefer smaller modules and avoid large modules with multiple types of bindings to maintain clarity and manageability.
+- Identify customer experience flow and determine appropriate metrics.
+- Publish customer experience flow metrics.
+- Create dashboard widget to display customer experience flow metrics.
+- Ensure logs are stored securely.
+- Restrict log access to authorized personnel only.
+- Develop a disaster recovery plan.
+- Test the disaster recovery plan.
+- Implement a system to collect user feedback.
+- Analyze user feedback for potential improvements.

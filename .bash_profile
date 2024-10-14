@@ -19,16 +19,21 @@ PATH="$PATH:$HOME/.scripts/";
 PATH="$PATH:$HOME/git-extra-commands/bin/";
 PATH="$PATH:/usr/local/Cellar/node/11.6.0/bin/";
 PATH="$PATH:$HOME/.scarf/bin/";
+PATH="$PATH:/opt/homebrew/Cellar/node/21.7.1/bin/"
+PATH="$PATH:/opt/homebrew/Cellar/node/22.0.0/bin/"
+PATH="$PATH:/opt/homebrew/Cellar/node/22.1.0/bin/"
+PATH="$PATH:/opt/homebrew/Cellar/node/22.9.0/bin"
+PATH="$PATH:/opt/homebrew/Cellar/node/"
 #PATH="$PYENV_ROOT/bin:$PATH"
 export PATH;
 
+alias npm-watch='tmux new-session -s watcher "npm run test-watch" \; split-window -v "npm   run watch" \; split-window -h -d "npm run inspect"\; select-pane -t 0 \; split-window -h -d "fswatch ./dist/* -r -o | xargs -n4 -I{} bash -c \"sleep 3; curl -s localhost:8080/return-order/test | jq; echo; echo \"----\";\"" \;'
 # Pyenv
 #export PYENV_ROOT="$HOME/.pyenv"
 #eval "$(pyenv init -)"
 
 export NOTES_CLI_HOME="$HOME/Remote/notes";
 eval "$(notes --completion-script-bash)";
-
 export CHEAT_USE_FZF=true;
 
 eval "$(/opt/homebrew/bin/thefuck --alias)";
@@ -60,15 +65,5 @@ export OPENAI_API_KEY="$(cat "$HOME/.gogpt")"
 # eval "$(starship init bash)";
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
+alias timeout=gtimeout;
+alias shuf=gshuf;

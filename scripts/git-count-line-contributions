@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+function usage() {
+  echo "git-$0"
+  echo ""
+  echo "Usage: $0 [file]"
+  exit
+}
+
+case $1 in
+  -h) usage;;
+  --help) usage;;
+esac
+
+if [ -n "$1" ]; then
+    git blame --line-porcelain $1 | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
+else
+    git ls-files | xargs -n1 git blame --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
+fi
+

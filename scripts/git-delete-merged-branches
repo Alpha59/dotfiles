@@ -4,7 +4,7 @@
 # branch (defaults to master)
 
 if [[ $# != 1 ]]; then
-  mergedInto="master"
+  mergedInto="mainline"
 else
   mergedInto="$1"
 fi

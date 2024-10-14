@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+# Verify that there is an argument after the '--whatver
+check () {
+    { [ "$1" != "$EOL" ] && [ "$1" != '--' ]; } || exit2 "missing argument" "$2";
+}
+
+function parse_yaml {
+   local prefix=$2
+   local s='[[:space:]]*' w='[a-zA-Z0-9_]*' fs=$(echo @|tr @ '\034')
+   sed -ne "s|^\($s\):|\1|" \
+        -e "s|^\($s\)\($w\)$s:$s[\"']\(.*\)[\"']$s\$|\1$fs\2$fs\3|p" \
+        -e "s|^\($s\)\($w\)$s:$s\(.*\)$s\$|\1$fs\2$fs\3|p"  $1 |
+   awk -F$fs '{
+      indent = length($1)/2;
+      vname[indent] = $2;
+      for (i in vname) {if (i > indent) {delete vname[i]}}
+      if (length($3) > 0) {
+         vn=""; for (i=0; i<indent; i++) {vn=(vn)(vname[i])("_")}
+         printf("%s%s%s=\"%s\"\n", "'$prefix'",vn, $2, $3);
+      }
+   }'
+}
+
+POSITIONAL_ARGS=()
+if [[ -z "$CONFIG_FILE" ]]; then
+    CONFIG_FILE="$HOME/.config/$(basename "$0")/config.yml";
+fi
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -c|--config)
+        check "$1" "$2";
+        CONFIG_FILE="$2";
+        shift # past argument
+        shift # past value
+        ;;
+    *)
+        POSITIONAL_ARGS+=("$1") # save positional arg
+        shift # past argument
+        ;;
+  esac
+done
+
+set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
+if [[ -f $CONFIG_FILE ]]; then
+    TMP="$(mktemp)" || { echo "Failed to create temp file"; exit 1; }
+    parse_yaml "$CONFIG_FILE" > "$TMP"
+    source "$TMP";
+fi

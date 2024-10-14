@@ -1,0 +1,4 @@
+echo $1;
+#curl 54.240.196.186:5964 --tcp-fastopen --data "^XA^CF0,80^FO50,225^FD$1^FS^XZ"
+#curl 10.52.128.101:5964 --tcp-fastopen --data "^XA^CF0,80^FO50,225^FD$1^FS^XZ"
+curl 10.189.198.131:5555 --tcp-fastopen --data "^XA^CF0,80^FO50,225^FD$1^FS^XZ"

@@ -362,3 +362,91 @@ txn:
   type: interval
   before: 
   after: {"id":0,"start":"20230711T135310Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230711T135310Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230711T135310Z","end":"20230913T223019Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230914T141845Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230914T141845Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230914T141845Z","end":"20231016T210654Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20231017T135919Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20231017T135919Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20231017T135919Z","end":"20231017T212903Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20231018T130749Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20231018T130749Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20231018T130749Z","end":"20231018T223835Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20231019T130444Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20231019T130444Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20231019T130444Z","end":"20231019T214319Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20231020T131512Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20231020T131512Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20231020T131512Z","end":"20231023T221151Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20231024T142652Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20231024T142652Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20231024T142652Z","end":"20231024T220704Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20231025T130736Z"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20231025T130736Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20231025T130736Z","end":"20231026T223628Z"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20231027T121420Z"}
