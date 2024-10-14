@@ -1,0 +1,28 @@
+#!/bin/bash
+
+
+if [[ -z $3 ]]; then
+    location=$(ls -snew /Users/ailor/Remote/Downloads/Meeting*.mp4 | tail -n1 | sed 's/.*\/Users/\/Users/g');
+else
+    location="$3";
+fi
+
+title="$(echo "$location" | sed 's/.*Meeting Recording - //g' | sed 's/.mp4//g' | sed 's/ /-/g')";
+
+echo "Title:"
+echo "$title"
+if [[ -z "$title" ]]; then
+    echo "No current meetings, please enter title:"
+    read -r title;
+fi
+
+category="meeting";
+
+echo "Hit enter to open: $title"
+read -r CONFIRM
+if [[ -z "$CONFIRM" ]]; then
+    notes new "$category" "$title" --no-edit;
+fi
+echo "location: $location";
+ls "$location";
+echo "$location" | xargs -I{} assemblyai transcribe {} -l -m >> "$(notes-latest)"

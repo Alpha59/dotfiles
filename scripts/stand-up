@@ -190,55 +190,27 @@ debug "$(pwd)";
 toilet --filter border -t "$(date)";
 notify "Standup" "Standup is starting."
 
-git standup -m 5 -F -s -d 2;
-debug "task end.after:-3d completed";
-task end.after:-3d completed;
-debug "task calendar";
-task calendar;
+if [[ "$FACILITATOR" == "true" ]]; then
+    /usr/bin/osascript -e "tell application \"/Applications/Google Chrome.app\"" -e "make new window" -e "activate" -e "end tell";
+    #/usr/bin/osascript -e "tell application \"Stickies\" to activate"
+    #fullscreen "/Applications/Google Chrome.app"
 
-commits="$(git standup -F -m 5 -s -d 2 -a "$USER" | sed 's/^\/.*\/src\///g' | sed 's/^[^-]* //g' | sed 's/[(<].*[)>]//g' | sed 's/\\n//g')"
-echo "$commits";
-
-print_yellow "What did you accomplish yesterday for our milestones?";
-yesterday="$(gum input)";
-print_green "$yesterday";
-
-print_yellow "What do you plan to accomplish today for our milestones?";
-today="$(gum input)";
-print_green "$today";
-
-if [[ -n "$yesterday" || -n "$today" ]]; then
-    print_green "Printing standup update";
-    slack-standup-update "$yesterday" "$today";
-else
-    print_red "No Update posted";
-fi
-
-if [[ "$FACILITATOR" != "true" ]]; then
-    vit;
-    exit 0;
-fi
+    dim "Opening window";
+    window="$(chrome-cli list windows | head -n1 | awk -F'[][]' '{print $2}')";
+    dim "Opening On-call Queue";
+    /usr/bin/open -a "/Applications/Google Chrome.app" 'https://sim.amazon.com/issues/search?q=status%3A(Open)+containingFolder%3A(89d90969-5262-4d75-adf0-b0e852be7d99+OR+27b80177-973d-4e04-836e-7edcd7b0ff08)&sort=createDate+desc';
+    dim "Current Sprint";
+    /usr/bin/open -a "/Applications/Google Chrome.app" 'https://sim.amazon.com/sprints/current';
+    dim "CR On-call Schedule";
+    /usr/bin/open -a "/Applications/Google Chrome.app" 'https://oncall.corp.amazon.com/#/view/kindle-rl-dev-cr/schedule';
+    dim "Pipelines";
+    /usr/bin/open -a "/Applications/Google Chrome.app" 'https://pipelines.amazon.com/';
+    dim "SAS";
+    /usr/bin/open -a "/Applications/Google Chrome.app" 'https://sas.corp.amazon.com/v2/summary/all/rwdowne?campaignId=all';
 
 dim "Curling random question generator"
 echo "QOTD: $(curl -s https://story-shack-cdn-v2.glitch.me/generators/random-question-generator | jq '.data.name')";
 sleep 15;
-
-/usr/bin/osascript -e "tell application \"/Applications/Google Chrome.app\"" -e "make new window" -e "activate" -e "end tell";
-#/usr/bin/osascript -e "tell application \"Stickies\" to activate"
-#fullscreen "/Applications/Google Chrome.app"
-
-dim "Opening window";
-window="$(chrome-cli list windows | head -n1 | awk -F'[][]' '{print $2}')";
-dim "Opening On-call Queue";
-/usr/bin/open -a "/Applications/Google Chrome.app" 'https://sim.amazon.com/issues/search?q=status%3A(Open)+containingFolder%3A(89d90969-5262-4d75-adf0-b0e852be7d99+OR+27b80177-973d-4e04-836e-7edcd7b0ff08)&sort=createDate+desc';
-dim "Current Sprint";
-/usr/bin/open -a "/Applications/Google Chrome.app" 'https://sim.amazon.com/sprints/current';
-dim "CR On-call Schedule";
-/usr/bin/open -a "/Applications/Google Chrome.app" 'https://oncall.corp.amazon.com/#/view/kindle-rl-dev-cr/schedule';
-dim "Pipelines";
-/usr/bin/open -a "/Applications/Google Chrome.app" 'https://pipelines.amazon.com/';
-dim "SAS";
-/usr/bin/open -a "/Applications/Google Chrome.app" 'https://sas.corp.amazon.com/v2/summary/all/rwdowne?campaignId=all';
 
 tmpfile=$(mktemp /tmp/standup.XXXXXX);
 echo """
@@ -276,8 +248,37 @@ for member in team:
 """ > "$tmpfile";
 glow "$tmpfile";
 
-#sleep 10;
-#review-tabs;
+fi
+
+debug "task end.after:-3d completed";
+task end.after:-3d completed;
+debug "task calendar";
+task calendar;
+
+#commits="$(git standup -F -m 5 -s -d 2 -a "$USER" | sed 's/^\/.*\/src\///g' | sed 's/^[^-]* //g' | sed 's/[(<].*[)>]//g' | sed 's/\\n//g')"
+#echo "$commits";
+
+print_yellow "What did you accomplish yesterday for our milestones?";
+yesterday="$(gum input)";
+print_green "$yesterday";
+
+print_yellow "What do you plan to accomplish today for our milestones?";
+today="$(gum input)";
+print_green "$today";
+
+if [[ -n "$yesterday" || -n "$today" ]]; then
+    print_green "Printing standup update";
+    slack-standup-update "$yesterday" "$today";
+else
+    print_red "No Update posted";
+fi
+
+if [[ "$FACILITATOR" != "true" ]]; then
+    vit;
+    exit 0;
+fi
+
+
 echo "Hit enter to finish standup";
 read -r
 chrome-cli close -w "$window";

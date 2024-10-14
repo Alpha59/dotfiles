@@ -1,0 +1,43 @@
+#!/bin/bash
+
+git fetch --all;
+
+# Get the current date
+now=$(date +%s)
+
+# Get a list of all local branches
+branches=$(git branch -a)
+
+if [[ $# != 1 ]]; then
+  mergedInto="mainline"
+else
+  mergedInto="$1"
+fi
+
+currentBranch=$(git symbolic-ref --short HEAD)
+if [[ "${currentBranch}" != "${mergedInto}" ]]; then
+  echo "You have to be on the same git branch you're using as the merge target"
+  exit 1
+fi
+
+# Iterate over the branches and delete any that are older than 90 days
+for branch in $branches; do
+  # Get the last commit date for the branch
+  last_commit=$(git log -1 --format="%at" "$branch")
+
+  # Calculate the difference between the current date and the last commit date
+  diff=$((now - last_commit))
+
+  time=$((86400*180))
+  # If the difference is greater than 90 days, delete the branch
+  if [[ $diff -gt $time ]]; then
+    if [[ "$branch" != "$mergedInto" ]]; then
+        echo "Deleting $(($diff/86400)) day old branch '$branch'..."
+        git branch -d "$branch"
+        git push origin --delete "$branch"
+    fi
+  fi
+done
+
+git branch --merged "${mergedInto}" | grep -v "\* ${mergedInto}" | xargs -n 1 git push origin --delete
+git branch --merged "${mergedInto}" | grep -v "\* ${mergedInto}" | xargs -n 1 git branch -d

@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+
+# Verify that there is an argument after the '--whatver
+check () {
+    { [ "$1" != "$EOL" ] && [ "$1" != '--' ]; } || exit2 "missing argument" "$2";
+}
+
+STDIN="";
+if ! [ -t 0 ]; then
+    while read -r line ; do
+        STDIN+=$line;
+    done
+fi
+
+# Pre-process options to:
+# - expand -xyz into -x -y -z
+# - expand --longopt=arg into --longopt arg
+POSITIONAL_ARGS=();
+END_OF_OPT=;
+while [[ $# -gt 0 ]]; do
+  arg="$1"; shift
+  case "${END_OF_OPT}${arg}" in
+    --)
+        #POSITIONAL_ARGS+=("$arg");
+        #END_OF_OPT=1
+        STDIN=$(</dev/stdin);
+        ;;
+    --*=*)
+        POSITIONAL_ARGS+=("${arg%%=*}" "${arg#*=}");
+        ;;
+    --*)
+        POSITIONAL_ARGS+=("$arg");
+        ;;
+    -*)
+        for i in $(seq 2 ${#arg}); do
+            POSITIONAL_ARGS+=("-${arg:i-1:1}");
+        done
+        ;;
+    *)
+        POSITIONAL_ARGS+=("$arg");
+        ;;
+  esac
+done
+
+# Apply pre-processed options
+set -- "${POSITIONAL_ARGS[@]}";

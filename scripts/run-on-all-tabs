@@ -29,15 +29,17 @@ while read tab; do
         echo "activate";
         sleep 1;
 
-        chrome-cli reload -t "$tabId";
-        echo "reload";
-        sleep 2;
+        #chrome-cli reload -t "$tabId";
+        #echo "reload";
+        #sleep 10;
 
         echo "execute";
-        chrome-cli execute "document.querySelector('div.awsui-util-action-stripe-group > awsui-button:nth-child(3) > button').click(); setTimeout(() => { document.querySelector('#awsui-input-0').value = 'arn:aws:iam::856042963385:role/PicaPicaRole'; document.querySelector('#awsui-input-1').value = document.location.pathname.split('/')[2];}, 100);";
-
+        chrome-cli execute 'window.location="https://code.amazon.com/permissions/show-group?utf8=%E2%9C%93&type=Person&group="+window.location.search.split("user=").pop();'
+        echo "Loading new page from Query Selector";
+        sleep 35;
+        chrome-cli execute 'document.querySelector("body > div.container-fluid > div.row > div.col-lg-9.main > div.row > div:nth-child(1) > div:nth-child(1) > div.panel-body > ul").innerText' >> ~/all-creturns-packages.txt
         echo "wait";
-        sleep 20;
+        sleep 1;
 
         echo "close";
         chrome-cli close -t "$tabId";

@@ -1,0 +1,72 @@
+#!/bin/bash
+
+count=0;
+echo "Chrome Version:";
+chrome-cli chrome version;
+while read item; do
+    tab=$(chrome-cli open "https://code.amazon.com/reviews/$item");
+    #echo "Tab:";
+    #echo "$tab";
+    tabId=$(echo "$tab" | grep -o "^Id:.*" | cut -c 5-);
+    url=$(chrome-cli info -t "$tabId" | grep -o "^Url:.*" | cut -c 6-);
+    title=$(chrome-cli info -t "$tabId" | grep -o "^Title:.*" | cut -c 8-);
+    echo "tabId: $tabId";
+    #sleep 5;
+
+    if [[ -z "$tabId" ]]; then # Ghost Tab
+        #echo "Ghost Tab";
+        continue;
+    else #
+        chrome-cli activate -t "$tabId";
+        #echo "activate";
+        sleep 2;
+
+        #echo "execute";
+        chrome-cli execute "document.querySelector('#crux-content > div > crux_page > div > div.crux-app-layout > div > ng-transclude > content_region > crux-ui-nav-tabs > div > awsui-tabs > div > ul > li:nth-child(6) > a > span > span > div').click()";
+        sleep 2;
+        override=$(chrome-cli execute "document.querySelector('.awsui-alert-header').innerText.includes('override').toString()");
+        user=$(chrome-cli execute "document.querySelector('.awsui-alert-content div').innerText.replace('The CR was merged by ','').replace(' (USER) with an override','');");
+        dates=$(chrome-cli execute "dates = document.querySelectorAll('#crux-content > div > crux_page > div > div.crux-app-layout > div > ng-transclude > content_region > cr-events-log > awsui-table > div > div.awsui-table-container > table > tbody > tr > td:nth-child(4) > span > div > relative-time > button > time.ng-binding.absolute'); times = dates[0].innerText + ','+dates[dates.length - 1 ].innerText");
+        diff=$(chrome-cli execute "dates = document.querySelectorAll('#crux-content > div > crux_page > div > div.crux-app-layout > div > ng-transclude > content_region > cr-events-log > awsui-table > div > div.awsui-table-container > table > tbody > tr > td:nth-child(4) > span > div > relative-time > button > time.ng-binding.absolute'); diff = ((new Date(dates[0].innerText) - new Date(dates[dates.length - 1 ].innerText))/(1000*60*60)).toString()");
+        echo "Diff: $diff";
+        #if [[ "$override" == "true" ]]; then
+        echo "https://code.amazon.com/reviews/$item,$user,$dates,$override,$diff" >> "$1-filtered";
+        #fi
+        #validYear=$(chrome-cli execute 'led = document.querySelector("body > div.container-fluid > div.last_commit.panel.panel-default.top-buffer-small > div.panel-body > ul > button > span.absolute-time.hover_tooltip").innerText; validYear = led.startsWith('2021') || led.startsWith('2022') || led.startsWith('2023') || led.startsWith('2024'); validYear.toString()');
+        #if [[ "$validYear" == "true" ]]; then
+        #    echo "-- Valid Year";
+        #    hasSrc=$(chrome-cli execute 'led=document.querySelector("#tree_contents > table").innerText; hasSrc=led.includes("src/") || led.includes("source/"); hasSrc.toString()');
+        #    echo "$hasSrc";
+        #    if [[ "$hasSrc" == "true" ]]; then
+        #        echo "-- Has Src";
+
+        #        hasPipeline=$(chrome-cli execute 'document.querySelector("body > div.container-fluid > div.last_commit.panel.panel-default.top-buffer-small").innerText.includes("Track in pipelines").toString()');
+        #        if [[ "$hasPipeline" == "true" ]]; then
+        #            echo "-- Has Pipeline";
+        #            chrome-cli execute "window.location='https://code.amazon.com/packages/$package/logs'";
+        #            sleep 5;
+        #            hasCommits=$(chrome-cli execute '(document.querySelectorAll("td.commiter").length > 5).toString()');
+        #            if [[ "$hasCommits" == "true" ]]; then
+        #                echo "-- Has Commits"
+        #                echo "$package" >> "$1-filtered";
+        #            fi
+        #        fi
+        #    fi
+        #fi
+
+        #read -r -p "[$count] Override?: " answer < /dev/tty;
+
+        #if [ "$answer" != "${answer#[Nn]}" ]; then
+        #    echo "Accepted"
+        #else
+        #    echo "$package: $answer" >> "$1-filtered";
+        #fi
+        #count=$((count + 1))
+        echo "wait";
+        sleep 1;
+
+        echo "close";
+        chrome-cli close -t "$tabId";
+        sleep 1;
+    fi #
+done < $1;

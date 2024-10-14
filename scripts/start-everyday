@@ -201,12 +201,10 @@ clear;
 displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1512x982 hz:120 color_depth:8 scaling:on origin:(0,0) degree:0" "id:E05A7F94-084C-4894-AE2C-6F7AB2053B8A res:2560x1440 hz:60 color_depth:8 scaling:off origin:(1512,-361) degree:0" "id:F41D2BEA-BAE0-4EB6-8C3A-489979873DB5 res:2560x1080 hz:75 color_depth:8 scaling:off origin:(-2560,-239) degree:0"
 
 timew start;
+
 echo "Checking for software updates:";
-brew update;
-brew info;
-mprocs "bastet" "brew upgrade" "echo $(security find-generic-password -a "$USER" -s amzn_mac -w) | fucking softwareupdate --force --verbose --agree-to-license -R -i -a --stdinpass"
-#brew upgrade;
-#softwareupdate -i -r;
+mprocs "echo $(security find-generic-password -a "$USER" -s amzn_mac -w) | fucking -S softwareupdate --force --verbose --agree-to-license -R -i -a" "echo $(security find-generic-password -a "$USER" -s amzn_mac -w) | fucking -S n latest; fucking npm install npm@latest -g; fucking npm outdated -g --depth=0; fucking npm update -g;" "brew update; brew outdated; brew info; brew upgrade" "mas outdated; mas upgrade" "python3.11 -m pip install --upgrade pip; pip list --outdated; pip --disable-pip-version-check list --outdated --format=columns | tail -n+3 | awk '{print $1}' | xargs -n1 pip install --upgrade --force-reinstall" "acme --reload; acme --evaluate; acme --status; acme --network-status; acme --list-updates; acme --remediate; acmeguardiand --reload; acmeguardiand --status;" "bastet"
+
 sleep 2;
 activate-tab "minImpact";
 sl -a;
@@ -251,7 +249,13 @@ icalBuddy eventsToday;
 readesc INPUT "Hit enter/esc to continue to the stocks and news";
 ticker;
 clear;
-toilet --filter border -t --metal "$(date)";
+
+if grep -q "$(date +"%m/%d/%y")" ~/dollar-taco-night; then
+    toilet --filter border -t --gay "$(date) DOLLAR TACOS!!!";
+else
+    toilet --filter border -t --metal "$(date)";
+fi
+
 echo "aka: $(ddate)";
 echo "What happened yesterday?";
 curl us.getnews.tech/n=5;
@@ -262,7 +266,7 @@ clear;
 # Work from Yesterday
 echo "Display information on modified git Repos and Tasks:"
 cig;
-git standup -m 5 -s -d 2 -F;
+#git standup -m 5 -s -d 2 -F;
 timew week;
 activate-tab "Board";
 if [ "$(date +%u)" -eq 1 ]; then #
@@ -279,11 +283,14 @@ task list;
 # Burn down and Work Tasks
 readesc INPUT "Hit enter/esc to continue to burndown";
 task burndown;
-echo "Hit enter to continue to todays tasks";
+echo "Hit enter to continue to Stand-up";
 readesc INPUT "Remember to add any upcoming tasks. Check messages and email first.";
-vit;
+#vit;
+stand-up;
 review-tabs;
 gtop;
+mwinit -o;
+#redrive-all-sqs;
 genact --exit-after-modules 3;
 echo ":q will quite youtube";
 if [ "$(date +%u)" -eq 1 ]; then #
@@ -291,3 +298,4 @@ if [ "$(date +%u)" -eq 1 ]; then #
 else #
     youtube-viewer "(ColbertLateShow|LateNightSeth|TheDailyShow) -interview" --autoplay --min-seconds=60 --skip-watched --within=1d --get-captions --auto-captions -rp --best;
 fi #
+vit;

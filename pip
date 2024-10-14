@@ -1,0 +1,17 @@
+#brew install howdoi; # howdoi will answer all sorts of queries:
+#brew install black; # Python formatter Opinionated
+#brew install flake8; # Python Format Checker
+pip install howmanypeoplearearound; # A tshark wrapper to count the number of cellphones in the vicinity
+pip install PyUSB; # PyUSB offers easy USB devices communication in Python
+pip install python-yubico; # Python class for verifying Yubico One Time Passwords (OTPs) based on the validation protocol version 2.0.
+pip install pyusb; # PyUSB offers easy USB devices communication in Python
+pip install maybe; # See what a program does before deciding whether you really want it to happen.
+pip install xlsx2csv;
+pip install rebound-cli; # Command-line tool that automatically fetches Stack Overflow results after compiler errors.
+pip install ehh; # Store and run any command inside
+pip install lookatme; # lookatme is an interactive, extensible, terminal-based markdown presentation tool.
+pip install pyjokes; # tells a joke
+pip install matrix-webcam; #
+pip install classifier; # Classify the files in your Downloads folder into suitable destinations.
+#brew install glances; # Glances is an open-source system cross-platform monitoring tool.
+#brew install csv2md; # convery csv to md

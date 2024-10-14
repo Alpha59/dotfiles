@@ -1,0 +1,9 @@
+awk -F'[;,]' '$1 in a{print a[$1]; print} {a[$1]=$0}' $1
+awk -F'[;,]' '$1 in a{print a[$1]; print} {a[$2]=$0}' $1
+awk -F'[;,]' '$1 in a{print a[$1]; print} {a[$3]=$0}' $1
+awk -F'[;,]' '$1 in a{print a[$1]; print} {a[$4]=$0}' $1
+awk -F'[;,]' '$1 in a{print a[$1]; print} {a[$5]=$0}' $1
+awk -F'[;,]' '$1 in a{print a[$1]; print} {a[$6]=$0}' $1
+awk -F'[;,]' '$1 in a{print a[$1]; print} {a[$7]=$0}' $1
+awk -F'[;,]' '$1 in a{print a[$1]; print} {a[$8]=$0}' $1
+awk -F'[;,]' '$1 in a{print a[$1]; print} {a[$9]=$0}' $1

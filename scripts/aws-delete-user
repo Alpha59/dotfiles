@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+aws-credentials $1 $AWS_REGION;
+
+name="$2"
+user=$(aws iam get-user --user-name "$name" | jq -r '.User.UserName')
+role=$(aws iam get-role --role-name "$name" | jq -r '.Role.RoleName')
+
+if [[ "$user" == "$name" ]];then
+    pType="user";
+    access_keys=$(aws iam "list-access-keys" "--user-name" "$name" --query 'AccessKeyMetadata[*].AccessKeyId' --output text);
+    echo "$access_keys"
+    for arn in $access_keys ;
+    do
+        aws iam delete-access-key --user-name "$name" --access-key-id "$arn";
+    done
+
+    groups=$(aws iam "list-groups-for-user" "--user-name" "$name" --query 'Groups[*].GroupName' --output text);
+    echo "$groups"
+    for arn in $groups ;
+    do
+        aws iam remove-user-from-group --user-name "$name" --group-name "$arn";
+    done
+
+elif [[ "$role" == "$name" ]];then
+    pType="role";
+else
+    echo "No User or Role found with name: $name";
+    exit 0;
+fi
+
+
+echo "$pType: $name"
+attached_policies=$(aws iam "list-attached-$pType-policies" "--$pType-name" "$name" --query 'AttachedPolicies[*].PolicyArn' --output text);
+echo "$attached_policies"
+for arn in $attached_policies ;
+do
+    aws iam "detach-$pType-policy" "--$pType-name" "$name" --policy-arn "$arn";
+done
+
+inline_policies=$(aws iam "list-$pType-policies" "--$pType-name" "$name" --query 'PolicyNames' --output text);
+echo "$inline_policies"
+for policy_name in $inline_policies ;
+do
+    aws iam "delete-$pType-policy" "--$pType-name" "$name" --policy-name "$policy_name";
+done
+
+aws iam "delete-$pType" "--$pType-name" "$name";
+aws iam get-user --user-name "$name";
+aws iam get-role --role-name "$name";

@@ -1,0 +1,82 @@
+#!/usr/bin/env bash
+
+DEFAULT_OPTIONS="[-v][-v][--help][--version]"
+DEFAULT_VERSION="1.0.0"
+if [[ -z "$PROGRAM_NAME" ]]; then
+    PROGRAM_NAME="$(basename "$0")";
+fi
+DEFAULT_USAGE="
+$PROGRAM_NAME is a program designed to help.
+
+usage: $PROGRAM_NAME $DEFAULT_OPTIONS;
+
+    OPTIONS:
+        no known options
+";
+DEFAULT_EXAMPLE="
+    EXAMPLES:
+# Prints version information
+$PROGRAM_NAME --version;
+# Runs script in verbose mode
+$PROGRAM_NAME -v;
+# Runs script in quiet mode
+$PROGRAM_NAME -q;
+# pipes output into a file
+$PROGRAM_NAME -o file.txt;
+";
+
+USAGE_POST="
+    BASE OPTIONS:
+        -v,--verbose First -v will increase verbosity
+                     Second -v will increase verbosity more
+        -h,--help will print this menu and quit
+        -c,--config points to a config file
+            default config is $HOME/.config/$PROGRAM_NAME/config.yml
+        --version prints the version number
+        --clipboard will copy output to clipboard
+        -o,--output <file> output to specified file
+        -q,--quiet First -q will decrease output to only include warn,pass,error
+                   Second -q will decrease output to only include error
+"
+
+Help() {
+    if [[ -n $USAGE ]]; then
+        echo "$USAGE";
+        echo "$USAGE_POST";
+        echo "      EXAMPLES:"
+        if [[ -n $EXAMPLES ]]; then
+            echo "$EXAMPLES" | sed -e 's/^/          /';
+        fi
+        echo "$DEFAULT_EXAMPLE" | sed -e 's/^/          /';
+    else
+        warn "$DEFAULT_USAGE";
+        warn "$USAGE_POST";
+        warn "$DEFAULT_EXAMPLE";
+    fi
+}
+
+POSITIONAL_ARGS=()
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -h|--help)
+        Help;
+        exit 0;
+        ;;
+    --version)
+        if [[ -n $VERSION ]]; then
+            echo "$VERSION";
+        else
+            echo "$DEFAULT_VERSION";
+        fi
+        exit 0;
+        ;;
+    *)
+        POSITIONAL_ARGS+=("$1") # save positional arg
+        shift # past argument
+        ;;
+  esac
+done
+
+set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
+

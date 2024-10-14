@@ -1,0 +1,27 @@
+#!/bin/bash
+
+
+title="$3";
+if [[ -z "$title" ]]; then
+    title="$(icalBuddy -l1 1 -ea -nc -iep "title" eventsNow | sed 's/* //g' | sed 's/ /-/g' | tr '[:upper:]' '[:lower:]' | grep "\--[a-zA-Z]" | head -n1)";
+fi
+if [[ -z "$title" ]]; then
+    echo "No current meetings, please enter title:"
+    read -r title;
+fi
+echo "Title: $title";
+
+screencapture -x -g -v -D2 -R 360,60,1149,850 "/Users/ailor/Remote/Downloads/Meeting-$title.mp4";
+
+ls "/Users/ailor/Remote/Downloads/Meeting-$title.mp4";
+
+location=$(ls -snew /Users/ailor/Remote/Downloads/Meeting*.mp4 | tail -n1);
+
+category="meeting";
+
+echo "Hit enter to open: $title"
+read -r CONFIRM
+if [[ -z "$CONFIRM" ]]; then
+    notes new "$category" "$title" --no-edit;
+fi
+echo "$location" | sed 's/.*\/Users/\/Users/g' | xargs -I{} assemblyai transcribe {} -l -m >> "$(notes-latest)"

@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Set the AWS region and AWS profile (if needed)
+AWS_REGION="your_aws_region"
+AWS_PROFILE="your_aws_profile"
+
+# AWS CLI command to get temporary credentials
+# This assumes you have an IAM role with appropriate permissions
+# and have configured your AWS CLI with the necessary profile.
+aws configure set region $AWS_REGION --profile $AWS_PROFILE
+aws_credentials=$(aws sts assume-role --role-arn "arn:aws:iam::your_account_id:role/your_role_name" --role-session-name "mycli-session" --profile $AWS_PROFILE)
+
+# Extract the temporary credentials
+AWS_ACCESS_KEY_ID=$(echo $aws_credentials | jq -r .Credentials.AccessKeyId)
+AWS_SECRET_ACCESS_KEY=$(echo $aws_credentials | jq -r .Credentials.SecretAccessKey)
+AWS_SESSION_TOKEN=$(echo $aws_credentials | jq -r .Credentials.SessionToken)
+
+# AWS CLI command to retrieve the secret value from AWS Secrets Manager
+secret_name="your_secret_name"
+secret_value=$(aws secretsmanager get-secret-value --secret-id $secret_name --query SecretString --profile $AWS_PROFILE --output text)
+
+# Extract the database connection details from the secret value
+DB_HOST=$(echo $secret_value | jq -r .db_host)
+DB_USER=$(echo $secret_value | jq -r .db_user)
+DB_PASSWORD=$(echo $secret_value | jq -r .db_password)
+DB_NAME=$(echo $secret_value | jq -r .db_name)
+
+# Connect to mycli using the retrieved secrets
+mycli --host $DB_HOST --user $DB_USER --password $DB_PASSWORD --database $DB_NAME
+
+# Optionally, you can set AWS environment variables for your session
+export AWS_ACCESS_KEY_ID
+export AWS_SECRET_ACCESS_KEY
+export AWS_SESSION_TOKEN
+
+# Run mycli
+
+# Clean up AWS environment variables (optional, for security)
+unset AWS_ACCESS_KEY_ID
+unset AWS_SECRET_ACCESS_KEY
+unset AWS_SESSION_TOKEN

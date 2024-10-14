@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# Function to calculate average
+calculate_average() {
+    local total=$1
+    local count=$2
+    if [ "$count" -eq 0 ]; then
+        echo "0"
+    else
+        echo "$((total / count))"
+    fi
+}
+
+months=12;
+
+# Calculate start and end dates for the last 12 months
+LAST_12_MONTHS_START=$(date -v -"$months"m '+%Y-%m-%d')
+LAST_12_MONTHS_END=$(date +%Y-%m-%d)
+
+# Get top 10 contributors in the last 12 months
+TOP_CONTRIBUTORS=$(git shortlog -sne --since "$LAST_12_MONTHS_START" --before "$LAST_12_MONTHS_END" | head -10 |  head -10 | awk '{print $4}' | sed 's/@.*>//g' | sed 's/^<//g')
+
+# Compute averages
+total_commits=0
+total_insertions=0
+total_deletions=0
+total_freq=0
+total_files=0
+
+# Loop through each contributor to collect commit data
+declare -a commit_data
+    echo "commits insertions deletions files"
+for contributor in $TOP_CONTRIBUTORS; do
+    contributions=$(git log --author="$contributor" --since="$LAST_12_MONTHS_START" --before="$LAST_12_MONTHS_END" --pretty=tformat: --numstat | awk 'BEGIN { commits=0; insertions=0; deletions=0; files=0 } { files++; insertions+=$1; deletions+=$2 } END { print insertions, deletions, files }');
+    commits=$(git log --author="$contributor" --since="$LAST_12_MONTHS_START" --before="$LAST_12_MONTHS_END" --format=%H | wc -l);
+    commit_data[$contributor]="$contributions";
+    IFS=' ' read -r insertions deletions files <<< "$contributions"
+    IFS=' ' read -r insertions deletions files <<< "$contributions"
+    total_commits=$((total_commits + commits))
+    total_insertions=$((total_insertions + insertions))
+    total_deletions=$((total_deletions + deletions))
+    total_files=$((total_files + files))
+done
+
+average_commits=$(calculate_average "$total_commits" $months)
+average_insertions=$(calculate_average "$total_insertions" $months)
+average_deletions=$(calculate_average "$total_deletions" $months)
+average_files=$(calculate_average "$total_files" $months)
+
+# Display results
+echo "Average Number of Commits per Month: $average_commits"
+echo "Average Number of files per commit: $((average_files / average_commits))"
+echo "Average Insertions per Month: $average_insertions"
+echo "Average Deletions per Month: $average_deletions"
+echo "Average Percent Insertion vs Deletion: $((average_insertions / average_deletions))"
+echo "Average Files Modified per Commit: $average_files"

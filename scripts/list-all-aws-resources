@@ -7,7 +7,7 @@ fi
 
 accountId=$1;
 regions=(`aws ec2 describe-regions --query 'Regions[].RegionName' --output text`);
-regions=( "us-east-1" )
+#regions=( "us-east-1" )
 
 
 print_end="false";
@@ -47,60 +47,60 @@ do
         if [[ "$resource_type" == "cloudwatch" ]]; then
             #aws rds describe-db-instances --db-instance-identifier $resource \
                 #--query 'DBInstances[].{DBIC:DBInstanceClass}' \
-                #--output json --region $region --no-cli-pager --no-paginate;
+                #--output json --region $region  --no-paginate;
             if [[ "$resource_subtype" == "alarm" ]]; then
                 aws cloudwatch describe-alarms \
-                    --output json --region $region --no-cli-pager --no-paginate;
+                    --output json --region $region  --no-paginate;
             fi
         elif [[ "$resource_type" == "lambda" ]]; then
             if [[ "$resource_subtype" == "function" ]]; then
                 aws lambda get-function --function-name $resource \
-                    --output json --region $region --no-cli-pager --no-paginate;
+                    --output json --region $region  --no-paginate;
             fi
         elif [[ "$resource_type" == "iam" ]]; then
             if [[ "$resource_subtype" == "role" ]]; then
                 role=$(echo $resource | awk -F':' '{print $6}' | awk -F '/' '{print $2}');
                 aws iam get-role --role-name $role \
-                    --output json --region $region --no-cli-pager --no-paginate;
+                    --output json --region $region  --no-paginate;
                 aws iam list-attached-role-policies --role-name $role \
-                    --output json --region $region --no-cli-pager --no-paginate;
+                    --output json --region $region  --no-paginate;
             elif [[ "$resource_subtype" == "policy" ]]; then
                 aws iam get-policy --policy-arn $resource \
-                    --output json --region $region --no-cli-pager --no-paginate;
+                    --output json --region $region  --no-paginate;
             fi
         elif [[ "$resource_type" == "rds" ]]; then
             if [[ "$resource_subtype" == "cluster" ]]; then
                 aws rds describe-db-clusters --db-cluster-identifier $resource \
-                    --output json --region $region --no-cli-pager --no-paginate;
+                    --output json --region $region  --no-paginate;
             elif [[ "$resource_subtype" == "db" ]]; then
                 aws rds describe-db-instances --db-instance-identifier $resource \
-                    --output json --region $region --no-cli-pager --no-paginate;
+                    --output json --region $region  --no-paginate;
             fi
         elif [[ "$resource_type" == "ecs" ]]; then
             if [[ "$resource_subtype" == "cluster" ]]; then
-                aws ecs describe-cluster --cluster $resource \
-                    --include "ATTACHMENTS,CONFIGURATIONS,SETTINGS"
-                    --output json --region $region --no-cli-pager --no-paginate;
+                aws ecs describe-clusters --cluster $resource \
+                    --include "ATTACHMENTS,CONFIGURATIONS,SETTINGS" \
+                    --output json --region $region  --no-paginate;
             elif [[ "$resource_subtype" == "tasks" ]]; then
                 aws ecs describe-tasks --tasks $resource \
-                    --output json --region $region --no-cli-pager --no-paginate;
+                    --output json --region $region  --no-paginate;
             elif [[ "$resource_subtype" == "service" ]]; then
                 aws ecs describe-services --services $resource \
-                    --output json --region $region --no-cli-pager --no-paginate;
+                    --output json --region $region  --no-paginate;
             fi
         elif [[ "$resource_type" == "sqs" ]]; then
                 aws sqs get-queue-attributes --queue-url $resource \
                     --attribute-names All \
-                    --region $region --no-cli-pager;
+                    --region $region ;
         elif [[ "$resource_type" == "sns" ]]; then
                 aws sns get-topic-attributes --topic-arn $resource \
-                    --region $region --no-cli-pager;
+                    --region $region ;
         elif [[ "$resource_type" == "s3" ]]; then
                 aws s3api list-objects --bucket "$resource_subtype" \
                     --max-item 2 \
-                    --region $region --no-cli-pager;
+                    --region $region ;
         fi
-        echo "$resource_type $resource_subtype" >> ~/Dev/AuroraUpgrade/all-resource-types;
+        #echo "$resource_type $resource_subtype" >> ~/Dev/AuroraUpgrade/all-resource-types;
     done
 done
 

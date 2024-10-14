@@ -207,6 +207,8 @@ curl wttr.in/philadelphia?uF;
 curl wttr.in/moon?F;
 toilet -t --filter border --metal "$(date)";
 print_magenta "aka: $(ddate)";
+# Local Weather
+readesc INPUT "Hit enter/esc to continue to view Calendar";
 icalBuddy eventsToday+3
 
 readesc INPUT "Hit enter/esc to continue to the work information";

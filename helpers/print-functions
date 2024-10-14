@@ -1,0 +1,259 @@
+#!/usr/bin/env bash
+
+VERBOSE=$global_verbose || 0;
+SILENT=$global_quiet || 0;
+
+# Verify that there is an argument after the '--whatver
+check () {
+    { [ "$1" != "$EOL" ] && [ "$1" != '--' ]; } || exit "missing argument" "$2";
+}
+
+POSITIONAL_ARGS=()
+
+OUTPUT_FILE=$global_output || "";
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -v|--verbose)
+        ((VERBOSE+=1));
+        shift # past argument
+        ;;
+    -o | --output )
+        check "$1" "$2";
+        OUTPUT_FILE="$2";
+        shift # shift past argument
+        shift # shift past value
+        ;;
+    -q | --quiet )
+        ((SILENT+=1));
+        shift # shift past value
+        ;;
+    *)
+        POSITIONAL_ARGS+=("$1") # save positional arg
+        shift # past argument
+        ;;
+  esac
+done
+
+set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
+
+if [[ -n "$OUTPUT_FILE" ]]; then
+    echo "" > "$OUTPUT_FILE";
+fi
+
+reset=$(tput sgr0);
+
+## FUNCTIONS THAT ALWAYS PRINT UNLESS SILENCED
+warn() {
+    yellow=$(tput setaf 3);
+    if [[ $SILENT -lt 2 ]]; then
+        if [[ -n "$OUTPUT_FILE" && -f "$OUTPUT_FILE" ]]; then
+            echo "[WARN]: ${*}" >> "$OUTPUT_FILE";
+        else
+            echo "${yellow}${*}${reset}";
+        fi
+    fi
+}
+
+print() {
+    bold=$(tput bold);
+    if [[ $SILENT -lt 1 ]]; then
+        if [[ -n "$OUTPUT_FILE" && -f "$OUTPUT_FILE" ]]; then
+            echo "[PRINT]: ${*}" >> "$OUTPUT_FILE";
+        else
+            echo "${bold}${*}${reset}";
+        fi
+    fi
+}
+
+pass() {
+    green=$(tput setaf 2);
+    if [[ $SILENT -lt 2 ]]; then
+        if [[ -n "$OUTPUT_FILE" && -f "$OUTPUT_FILE" ]]; then
+            echo "[PASS]: ${*}" >> "$OUTPUT_FILE";
+        else
+            echo "${green}${*}${reset}";
+        fi
+    fi
+}
+
+error() {
+    red=$(tput setaf 1);
+    if [[ $SILENT -lt 3 ]]; then
+        if [[ -n "$OUTPUT_FILE" && -f "$OUTPUT_FILE" ]]; then
+            echo "[ERROR]: ${*}" >> "$OUTPUT_FILE";
+        else
+            echo "${red}${*}${reset}" 1>&2;
+        fi
+    fi
+}
+
+## FUNCTIONS THAT REQUIRE VERBOSITY TO PRINT
+info() {
+    blue=$(tput setaf 4);
+    if [[ $VERBOSE -gt 0 ]]; then
+        if [[ -n "$OUTPUT_FILE" && -f "$OUTPUT_FILE" ]]; then
+            echo "[INFO]: ${*}" >> "$OUTPUT_FILE";
+        else
+            echo "${blue}${*}${reset}";
+        fi
+    fi
+}
+
+## FUNCTIONS THAT REQUIRE DOUBLE VERBOSITY TO PRINT
+debug() {
+    magenta=$(tput setaf 5);
+    if [[ $VERBOSE -gt 1 ]]; then
+        if [[ -n "$OUTPUT_FILE" && -f "$OUTPUT_FILE" ]]; then
+            echo "[DEBUG]: ${*}" >> "$OUTPUT_FILE";
+        else
+            echo "${magenta}${*}${reset}";
+        fi
+    fi
+}
+
+## FUNCTIONS THAT REQUIRE TRIPLE VERBOSITY TO PRINT
+dim() {
+    dim=$(tput dim);
+    if [[ $VERBOSE -gt 2 ]]; then
+        if [[ -n "$OUTPUT_FILE" && -f "$OUTPUT_FILE" ]]; then
+            echo "[DIM]: ${*}" >> "$OUTPUT_FILE";
+        else
+            echo "${dim}${*}${reset}";
+        fi
+    fi
+}
+
+## COLOR PRINTING FUNCTIONS (SILENT IF -q)
+print_black() {
+    color=$(tput setaf 0);
+    if [[ $SILENT -lt 1 ]]; then
+        if [[ -n "$OUTPUT_FILE" && -f "$OUTPUT_FILE" ]]; then
+            echo "[PRINT]: ${*}" >> "$OUTPUT_FILE";
+        else
+            echo "${color}${*}${reset}";
+        fi
+    fi
+}
+
+print_red() {
+    color=$(tput setaf 1);
+    if [[ $SILENT -lt 1 ]]; then
+        if [[ -n "$OUTPUT_FILE" && -f "$OUTPUT_FILE" ]]; then
+            echo "[PRINT]: ${*}" >> "$OUTPUT_FILE";
+        else
+            echo "${color}${*}${reset}";
+        fi
+    fi
+}
+
+print_green() {
+    color=$(tput setaf 2);
+    if [[ $SILENT -lt 1 ]]; then
+        if [[ -n "$OUTPUT_FILE" && -f "$OUTPUT_FILE" ]]; then
+            echo "[PRINT]: ${*}" >> "$OUTPUT_FILE";
+        else
+            echo "${color}${*}${reset}";
+        fi
+    fi
+}
+
+print_yellow() {
+    color=$(tput setaf 3);
+    if [[ $SILENT -lt 1 ]]; then
+        if [[ -n "$OUTPUT_FILE" && -f "$OUTPUT_FILE" ]]; then
+            echo "[PRINT]: ${*}" >> "$OUTPUT_FILE";
+        else
+            echo "${color}${*}${reset}";
+        fi
+    fi
+}
+
+print_blue() {
+    color=$(tput setaf 4);
+    if [[ $SILENT -lt 1 ]]; then
+        if [[ -n "$OUTPUT_FILE" && -f "$OUTPUT_FILE" ]]; then
+            echo "[PRINT]: ${*}" >> "$OUTPUT_FILE";
+        else
+            echo "${color}${*}${reset}";
+        fi
+    fi
+}
+
+print_magenta() {
+    color=$(tput setaf 5);
+    if [[ $SILENT -lt 1 ]]; then
+        if [[ -n "$OUTPUT_FILE" && -f "$OUTPUT_FILE" ]]; then
+            echo "[PRINT]: ${*}" >> "$OUTPUT_FILE";
+        else
+            echo "${color}${*}${reset}";
+        fi
+    fi
+}
+
+print_cyan() {
+    color=$(tput setaf 6);
+    if [[ $SILENT -lt 1 ]]; then
+        if [[ -n "$OUTPUT_FILE" && -f "$OUTPUT_FILE" ]]; then
+            echo "[PRINT]: ${*}" >> "$OUTPUT_FILE";
+        else
+            echo "${color}${*}${reset}";
+        fi
+    fi
+}
+
+print_white() {
+    color=$(tput setaf 7);
+    if [[ $SILENT -lt 1 ]]; then
+        if [[ -n "$OUTPUT_FILE" && -f "$OUTPUT_FILE" ]]; then
+            echo "[PRINT]: ${*}" >> "$OUTPUT_FILE";
+        else
+            echo "${color}${*}${reset}";
+        fi
+    fi
+}
+
+echo () {
+    if [[ $SILENT -lt 1 ]]; then
+        if [[ -n "$OUTPUT_FILE" && -f "$OUTPUT_FILE" ]]; then
+            command echo "[ECHO]: ${*}" >> "$OUTPUT_FILE";
+        else
+            command echo "${*}";
+        fi
+    fi
+}
+
+if [[ $VERBOSE -gt 3 ]]; then
+    set -x;
+    if [[ $# -gt 0 ]]; then
+        debug "Positional arguments: $*"
+    fi
+    print "verbosity: $VERBOSE";
+    print "silence: $SILENT";
+    if [[ -n "$OUTPUT_FILE" ]]; then
+        echo "$OUTPUT_FILE is not blank";
+    fi
+    if [[ -f "$OUTPUT_FILE" ]]; then
+        echo "$OUTPUT_FILE exists";
+    fi
+    if [[ -n "$OUTPUT_FILE" && -f "$OUTPUT_FILE" ]]; then
+        echo "An output file $OUTPUT_FILE is being utilized";
+    else
+        echo "No Output file is set";
+    fi
+    echo "echo $DEFAULT $ARG_TEST";
+    print "print $DEFAULT $ARG_TEST";
+    warn "warn $DEFAULT $ARG_TEST";
+    info "info $DEFAULT $ARG_TEST";
+    debug "debug $DEFAULT $ARG_TEST";
+    dim "dim $DEFAULT $ARG_TEST";
+    pass "pass $DEFAULT $ARG_TEST";
+    error "error $DEFAULT $ARG_TEST"
+    print_black "black";
+    print_green "green";
+    print_red "red";
+    print_yellow "yellow";
+    print_blue "blue";
+    print_cyan "cyan";
+    print_white "white";
+    print_magenta "magenta";
+fi

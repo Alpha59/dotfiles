@@ -141,12 +141,6 @@ copyWithin ()
 }
 declare -fx copyWithin;
 
-credentials () {
-    tmux kill-session -t credentials;
-    tmux new-session -d -s credentials "aws-credentials -r" "$@"
-}
-declare -fx credentials;
-
 csv ()
 {
     gnumeric "$@"
@@ -160,6 +154,91 @@ csv2md ()
     echo "$csv" | jq '.[1:]' | jq -c '.[]' | sed 's/"//g' | sed 's/,/ | /g' | sed 's/]/ | /g' | sed 's/\[/ | /g'
 }
 declare -fx csv2md
+
+get-credentials ()
+{
+    #tmux kill-session -t credentials;
+    #tmux new-session -d -s credentials "aws-credentials -r" "$@"
+
+    if [[ -z "$1" ]]; then
+        account="856042963385";
+    else
+        account="$1";
+    fi
+    ada credentials update --account="$account" --provider=conduit --role="IibsAdminAccess-DO-NOT-DELETE" --profile="personal" --once;
+
+    export AWS_CREDENTIALS_SoT=$(date +%s);
+    export AWS_ACCESS_KEY_ID=$(aws configure get aws_access_key_id);
+    export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key);
+    export AWS_SESSION_TOKEN=$(aws configure get aws_session_token);
+
+}
+declare -fx get-credentials;
+
+get-credentials-cloudauth ()
+{
+    #tmux kill-session -t credentials;
+    #tmux new-session -d -s credentials "aws-credentials -r" "$@"
+    ada credentials update --account="856042963385" --provider=conduit --role="CloudAuthConnectionRole" --profile="cloudauth" --once;
+    #creds=$(aws sts assume-role --role-arn arn:aws:iam::856042963385:role/CloudAuthConnectionRole --role-session-name "CloudAuth");
+
+    #echo "$creds" | jq '.AssumedRoleUser';
+
+    #export AWS_CREDENTIALS_SoT=$(date +%s);
+    #export AWS_ACCESS_KEY_ID=$(echo "$creds" | jq '.Credentials.AccessKeyId');
+    #export AWS_SESSION_TOKEN=$(echo "$creds" | jq '.Credentials.SessionToken');
+    #export AWS_SECRET_ACCESS_KEY=$(echo "$creds" | jq '.Credentials.SecretAccessKey');
+}
+declare -fx get-credentials-cloudauth;
+
+get-credentials-cloudauth-2 ()
+{
+    #tmux kill-session -t credentials;
+    #tmux new-session -d -s credentials "aws-credentials -r" "$@"
+    ada credentials update --account="856042963385" --provider=conduit --role="IibsAdminAccess-DO-NOT-DELETE" --profile="personal" --once;
+    creds=$(aws sts assume-role --profile="personal" --role-arn arn:aws:iam::856042963385:role/CloudAuthConnectionRole --role-session-name "CloudAuth");
+
+    echo "$creds" | jq '.AssumedRoleUser';
+
+    export AWS_CREDENTIALS_SoT=$(date +%s);
+    export AWS_ACCESS_KEY_ID=$(echo "$creds" | jq -r '.Credentials.AccessKeyId');
+    export AWS_SESSION_TOKEN=$(echo "$creds" | jq -r '.Credentials.SessionToken');
+    export AWS_SECRET_ACCESS_KEY=$(echo "$creds" | jq -r '.Credentials.SecretAccessKey');
+}
+declare -fx get-credentials-cloudauth2;
+
+get-credentials-cloudauth-beta ()
+{
+    #tmux kill-session -t credentials;
+    #tmux new-session -d -s credentials "aws-credentials -r" "$@"
+    ada credentials update --account="145224550763" --provider=conduit --role="IibsAdminAccess-DO-NOT-DELETE" --profile="personal" --once;
+    creds=$(aws sts assume-role --profile="personal" --role-arn arn:aws:iam::145224550763:role/CloudAuthConnectionRole --role-session-name "CloudAuth");
+
+    echo "$creds" | jq '.AssumedRoleUser';
+
+    export AWS_CREDENTIALS_SoT=$(date +%s);
+    export AWS_ACCESS_KEY_ID=$(echo "$creds" | jq -r '.Credentials.AccessKeyId');
+    export AWS_SESSION_TOKEN=$(echo "$creds" | jq -r '.Credentials.SessionToken');
+    export AWS_SECRET_ACCESS_KEY=$(echo "$creds" | jq -r '.Credentials.SecretAccessKey');
+}
+declare -fx get-credentials-cloudauth-beta;
+
+get-credentials-cloudauth-prod ()
+{
+    #tmux kill-session -t credentials;
+    #tmux new-session -d -s credentials "aws-credentials -r" "$@"
+    ada credentials update --account="016953815887" --provider=conduit --role="IibsAdminAccess-DO-NOT-DELETE" --profile="personal" --once;
+    creds=$(aws sts assume-role --profile="personal" --role-arn arn:aws:iam::016953815887:role/CloudAuthConnectionRole --role-session-name "CloudAuth");
+
+    echo "$creds" | jq '.AssumedRoleUser';
+
+    export AWS_CREDENTIALS_SoT=$(date +%s);
+    export AWS_ACCESS_KEY_ID=$(echo "$creds" | jq -r '.Credentials.AccessKeyId');
+    export AWS_SESSION_TOKEN=$(echo "$creds" | jq -r '.Credentials.SessionToken');
+    export AWS_SECRET_ACCESS_KEY=$(echo "$creds" | jq -r '.Credentials.SecretAccessKey');
+}
+declare -fx get-credentials-cloudauth-prod;
+
 cvim ()
 {
     charm "$@"
@@ -225,9 +304,14 @@ diff-vim ()
 declare -fx diff-vim
 docker-inspect ()
 {
-    docker run --entrypoint "/bin/sh" -it "$1$*"
+    docker run --entrypoint "/bin/sh" -it "$1"
 }
 declare -fx docker-inspect
+docker-bash ()
+{
+    docker exec -it "$1" bash
+}
+declare -fx docker-bash
 docker-latest ()
 {
     docker images | awk '{print $3}' | awk 'NR==2'"$*"
@@ -514,7 +598,7 @@ git-undo-push ()
 declare -fx git-undo-push
 git-unlocal ()
 {
-    git update-index --no-assume-unchanged $ "$@"
+    git update-index --no-assume-unchanged "$@"
 }
 declare -fx git-unlocal
 glow ()
@@ -721,11 +805,11 @@ localize ()
 {
     grep "$1" $HOME/Dev/SlipStream/build/.cache/*-en-US.json - "$@"
 }
-declare -fx localize
-ls ()
-{
-    exa -l "$@"
-}
+#declare -fx localize
+#ls ()
+#{
+#    exa -l "$@"
+#}
 declare -fx ls
 lynx ()
 {
@@ -898,7 +982,7 @@ declare -fx print-zpl
 pull-request ()
 {
     git all branch -u origin/mainline;
-    cr --all --parent origin/mainline --amend --open --reviewers team:kindle-rl-dev:2 "$@"
+    cr --all --parent origin/mainline --amend --open --description "$($HOME/crTemplate.md)" --reviewers team:kindle-rl-dev:2 '
 }
 declare -fx pull-request
 python ()
@@ -1202,6 +1286,11 @@ declare -fx work-search
 
 fix-monitors-home (){
     displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1512x982 hz:120 color_depth:8 scaling:on origin:(0,0) degree:0" "id:E05A7F94-084C-4894-AE2C-6F7AB2053B8A res:2560x1440 hz:60 color_depth:8 scaling:off origin:(1512,-361) degree:0" "id:F41D2BEA-BAE0-4EB6-8C3A-489979873DB5 res:2560x1080 hz:75 color_depth:8 scaling:off origin:(-2560,-239) degree:0";
+}
+declare -fx fix-monitors-home;
+
+fix-monitors-dads (){
+    displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1512x982 hz:120 color_depth:8 enabled:true scaling:on origin:(0,0) degree:0" "id:7C429EA5-4730-4AE9-B372-68367F4AE311 res:2560x1080 hz:75 color_depth:8 enabled:true scaling:off origin:(1512,-358) degree:0" "id:06D51251-367F-4F4B-AB21-D8123A095F40 res:2560x1080 hz:75 color_depth:8 enabled:true scaling:off origin:(-2560,-375) degree:0";
 }
 declare -fx fix-monitors-home;
 

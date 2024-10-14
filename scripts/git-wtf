@@ -124,9 +124,9 @@ def purple s; $color ? "\033[35m#{s}\033[0m" : s end
 ## if empty, 'to' has been merged into 'from'.
 def commits_between from, to
   if $long
-    `git log --pretty=format:"- %s [#{yellow "%h"}] (#{purple "%ae"}; %ar)" #{from}..#{to}`
+    `git log --pretty=format:"- [#{yellow "%h"}] (#{purple "%ae"}; %ar)" #{from}..#{to}`
   else
-    `git log --pretty=format:"- %s [#{yellow "%h"}]" #{from}..#{to}`
+    `git log --pretty=format:"- [#{yellow "%h"}]" #{from}..#{to}`
   end.split(/[\r\n]+/)
 end
 
@@ -178,7 +178,7 @@ def show b
         puts "#{widget true} in sync with remote"
       else
         action = oosync ? "push after rebase / merge" : "push"
-        puts "#{widget false} NOT in sync with remote (you should #{action})"
+        puts "#{widget false} NOT in sync with remote (#{action})"
         show_commits pushc unless $short
       end
     end
@@ -192,7 +192,7 @@ def show b
         puts "#{widget true} in sync with local"
       else
         action = pushc.empty? ? "merge" : "rebase / merge"
-        puts "#{widget false} NOT in sync with local (you should #{action})"
+        puts "#{widget false} NOT in sync with local (#{action})"
         show_commits pullc unless $short
       end
     end

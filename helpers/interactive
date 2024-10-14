@@ -1,0 +1,95 @@
+#!/usr/bin/env bash
+
+function readesc(){
+    local -n output="$1"
+    shift
+    echo "$1";
+    local inputString;
+    inputString="";
+    while :; do
+        read -rN 1 char
+
+        case "$char" in
+            $'\e') # Esc (or arrow) key pressed
+                break
+                ;;
+            $'\n') # Enter key pressed
+                break
+                ;;
+            $'\177') # Backspace key pressed
+                [[ "${#inputString}" -gt 0 ]] &&
+                    inputString="${inputString::-1}"
+
+                ask
+                continue
+                ;;
+            *)
+                ;;
+        esac
+
+        [[ -n "$char" ]] &&
+            inputString+="$char"
+    done
+    echo "";
+    output="$(echo "$inputString")";
+}
+
+function interact_prompt() {
+    #usage: interact_prompt "Default" "Choose one of the following options:"
+    default="$1";
+    prompt="$2";
+    shift;
+    shift;
+    if [[ "$INTERACTIVE" == "true" ]]; then
+        print "$prompt";
+    elif [[ "$DEFAULT" == "true" ]]; then
+        warn "Default Value utilized: $default";
+    else
+        warn "Default Value utilized: $default";
+    fi
+}
+function interact() {
+    #usage: tst=$(interact choose "Default" "Default" "Test" "Test1" "Test2");
+    #pass "Test Result = $tst";
+    cmd="$1";
+    default="$2";
+    shift;
+    shift;
+    if [[ "$INTERACTIVE" == "true" ]]; then
+        echo "$(gum "$cmd" $@)";
+    elif [[ "$DEFAULT" == "true" ]]; then
+        echo "$default";
+    else
+        echo "$default";
+    fi
+}
+
+if [[ -z "$DEFAULT" ]]; then
+    DEFAULT="true";
+fi
+if [[ -z "$INTERACTIVE" ]]; then
+    INTERACTIVE="false";
+fi
+
+POSITIONAL_ARGS=()
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --default)
+        DEFAULT="true";
+        INTERACTIVE="false";
+        shift # past argument
+        ;;
+    --interactive)
+        DEFAULT="false";
+        INTERACTIVE="true";
+        shift # past argument
+        ;;
+    *)
+        POSITIONAL_ARGS+=("$1") # save positional arg
+        shift # past argument
+        ;;
+  esac
+done
+
+set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
+

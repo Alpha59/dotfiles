@@ -1,0 +1,7 @@
+pbpaste > temptable2md.tsv;
+cat temptable2md.tsv | sed 's/\t/,/g' > temptable2md.csv;
+cat temptable2md.csv;
+csvtomd temptable2md.csv > temptable2md.md;
+cat temptable2md.md;
+pbcopy < temptable2md.md;
+rm temptable2md*;

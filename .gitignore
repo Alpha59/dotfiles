@@ -11,6 +11,26 @@
 .tldrc/
 .tldrc/*
 .tldrc/**
+.config/eureka/**
+.aws-sam/**
+
+# Explicit Ignore:
+AmazonWorkDocsCompanion
+Applications
+Archives
+Desktop
+Documents
+Downloads
+Movies
+Music
+Pictures
+Public
+Remote
+Work
+WorkDocsDownloads
+node_modules
+workplace
+
 # Do not ignore these files
 !.gitignore
 !.vimrc
@@ -126,3 +146,18 @@ Makefile
 !scripts/
 !scripts/*
 !scripts/**
+!Event-Storming-Sourced-27Oct21.pdf
+!write-well.md
+!slides-tutorial.md
+!orr-questions
+!orr-tasks.md
+!pip
+!rules
+!Postman
+!dollar-taco-night
+!click.app
+!click.workflow
+!crTemplate.md
+!get-pip.py
+!ee-stories
+!ecs-runbook.md
