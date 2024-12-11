@@ -1,0 +1,47 @@
+---
+syntax: bash
+tags: [bash, personal, csv, markdown, conversion]
+version: 1.0.0
+---
+
+NAME
+    csvtomd - Convert CSV files to Markdown tables
+
+SYNOPSIS
+    csvtomd [options] [FILE]
+
+DESCRIPTION
+    csvtomd is a command-line tool that converts CSV (Comma-Separated Values) files to Markdown-formatted tables. It reads CSV data from a file or standard input and outputs a nicely formatted Markdown table.
+
+OPTIONS
+    -h, --help            Show this help message and exit
+    -v, --version         Show program's version number and exit
+    -i DELIMITER, --input-delimiter DELIMITER
+                          Input delimiter (default: ,)
+    -o DELIMITER, --output-delimiter DELIMITER
+                          Output delimiter (default: |)
+    -p, --padding         Pad the content of the cells (default: False)
+    -n, --no-header       Specify that the CSV doesn't contain a header row
+    --padding-width WIDTH
+                          Width of cell padding (default: 1)
+    --table-width WIDTH   Width of table (default: 0 for no maximum)
+    -q, --quoting         Enable quoting for CSV parsing (default: False)
+
+USAGE
+    csvtomd [options] input.csv > output.md
+    cat input.csv | csvtomd [options] > output.md
+
+EXAMPLES
+    csvtomd data.csv > table.md
+    csvtomd -i ';' -p data.csv > table.md
+    cat data.csv | csvtomd --no-header > table.md
+
+OUTPUT
+    The command outputs a Markdown-formatted table to stdout.
+
+BREAKDOWN
+csvtomd is a Python script. It:
+1. Reads CSV data from a file or stdin
+2. Parses the CSV data
+3. Formats the data into a Markdown table
+4. Outputs the Markdown table to stdout

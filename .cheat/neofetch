@@ -1,0 +1,53 @@
+---
+syntax: bash
+tags: [bash, personal, system-info, ascii-art]
+version: 1.0.0
+---
+
+NAME
+    neofetch - A command-line system information tool
+
+SYNOPSIS
+    neofetch [OPTION]...
+
+DESCRIPTION
+    neofetch is a CLI system information tool written in Bash. It displays information about your operating system, software and hardware in an aesthetic and visually pleasing way, typically alongside an ASCII logo of your OS.
+
+OPTIONS
+    --ascii_distro DISTRO   Which Distro's ascii art to display
+    --ascii_bold on/off     Whether or not to bold the ascii logo
+    --ascii FILE            Custom ascii art file
+    --backend BACKEND       Which image backend to use
+    --config FILE           Specify custom config file
+    --color_blocks on/off   Enable/Disable the color blocks
+    --disable FUNCTION      Disable specific functions
+    --distro DISTRO         Specify the distro to use
+    --gpu_type TYPE         Which GPU to display
+    --os_arch on/off        Enable/Disable OS architecture
+    --package_managers on/off   Enable/Disable showing package managers
+    --separator SEPARATOR   Change the separator character
+    --shell_path on/off     Enable/Disable showing $SHELL path
+    --shell_version on/off  Enable/Disable showing $SHELL version
+    --speed_type TYPE       Change the type of cpu speed to display
+    --uptime_shorthand on/off   Enable/Disable uptime shorthand
+    -v, --version           Print version number and exit
+    -h, --help              Print help and exit
+
+USAGE
+    neofetch [OPTIONS]
+
+EXAMPLES
+    neofetch
+    neofetch --ascii_distro Ubuntu
+    neofetch --config ~/.config/neofetch/config.conf
+
+OUTPUT
+    neofetch displays system information alongside an ASCII art logo of the OS.
+
+BREAKDOWN
+neofetch is a bash script that:
+1. Gathers system information (OS, kernel, uptime, packages, etc.)
+2. Retrieves hardware information (CPU, GPU, RAM)
+3. Collects software information (shell, terminal, etc.)
+4. Generates or retrieves ASCII art for the OS
+5. Formats and displays all information in a visually appealing manner

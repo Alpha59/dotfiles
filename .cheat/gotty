@@ -1,0 +1,47 @@
+---
+syntax: bash
+tags: [bash, personal, terminal, web, sharing]
+version: 1.0.0
+---
+
+NAME
+    gotty - Share your terminal as a web application
+
+SYNOPSIS
+    gotty [options] <command> [<arguments...>]
+
+DESCRIPTION
+    GoTTY is a simple command line tool that turns your CLI tools into web applications. It starts a web server that creates a browser-based terminal, allowing remote access to your local terminal session.
+
+OPTIONS
+    --address, -a           IP address to listen on (default: "0.0.0.0")
+    --port, -p              Port number to listen on (default: "8080")
+    --permit-write, -w      Permit clients to write to the TTY (default: false)
+    --credential, -c        Credential for Basic Authentication (ex: user:pass)
+    --random-url, -r        Add a random string to the URL (default: false)
+    --random-url-length     Random URL length (default: 8)
+    --tls, -t               Enable TLS/SSL (default: false)
+    --tls-crt               TLS/SSL certificate file path
+    --tls-key               TLS/SSL key file path
+    --index                 Custom index.html file
+    --title-format          Title format of browser window
+    --reconnect             Enable reconnection (default: false)
+    --reconnect-time        Time to reconnect (default: 10)
+    --once                  Accept only one client and exit on disconnection
+    --permit-arguments      Permit clients to send arguments to command
+    --width                 Static width of the terminal
+    --height                Static height of the terminal
+    --ws-origin             A regular expression that matches origin URLs to allow websocket access from
+    --term                  Terminal name to use on the browser side
+    -v, --version           Print the version
+
+USAGE
+    gotty [options] <command> [<arguments...>]
+
+EXAMPLES
+    gotty top
+    gotty -w bash
+    gotty -p 8080 -w ssh user@host
+
+OUTPUT
+    GoTTY starts a web server and provides a URL to access the terminal session.

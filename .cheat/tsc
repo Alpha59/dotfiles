@@ -1,0 +1,52 @@
+---
+syntax: bash
+tags: [bash, personal, typescript, compiler]
+version: 1.0.0
+---
+
+NAME
+    tsc - TypeScript compiler
+
+SYNOPSIS
+    tsc [options] [files...]
+
+DESCRIPTION
+    tsc is the command-line interface of the TypeScript compiler. It compiles TypeScript files (.ts, .tsx) into JavaScript files.
+
+OPTIONS
+    --help                     Print the compiler's help message
+    --project <file or directory>  Compile a project given a valid configuration file
+    --build <file or directory>    Build one or more projects and their dependencies
+    --init                     Initialize a TypeScript project and create a tsconfig.json file
+    --version                  Print the compiler's version
+    --watch                    Watch input files for changes and recompile automatically
+    --outFile <file>           Concatenate and emit output to single file
+    --outDir <directory>       Redirect output structure to the directory
+    --sourceMap                Generate source map files for emitted JavaScript files
+    --target <version>         Specify ECMAScript target version
+    --module <kind>            Specify module code generation
+    --strict                   Enable all strict type checking options
+
+USAGE
+    Run tsc in a directory with TypeScript files to compile them to JavaScript.
+
+EXAMPLES
+    tsc
+    tsc --project tsconfig.json
+    tsc app.ts
+    tsc --outFile app.js app.ts
+    tsc --watch
+
+OUTPUT
+    Compiled JavaScript files and potentially source map files.
+
+BREAKDOWN
+The tsc command is a simple invocation of the TypeScript compiler. It doesn't have a complex structure like a bash script. When run, it reads the TypeScript configuration (tsconfig.json if present) and compiles the TypeScript files according to the specified or default options.
+
+SUGGESTED ADDITIONS
+1. Create a bash wrapper script for tsc to add custom functionality:
+   - Add a --clean option to remove all compiled files
+   - Implement a --stats option to show compilation statistics
+   - Add a --lint option to run a linter along with compilation
+   - Create a --bundle option to compile and bundle the output
+   - Implement a --docker option to run tsc in a Docker container for consistent environments

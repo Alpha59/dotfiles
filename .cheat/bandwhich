@@ -1,0 +1,38 @@
+---
+syntax: bash
+tags: [bash, personal, network, monitoring, bandwidth]
+version: 1.0.0
+---
+
+NAME
+    bandwhich - Display current network utilization by process, connection and remote IP/hostname
+
+SYNOPSIS
+    bandwhich [OPTIONS]
+
+DESCRIPTION
+    bandwhich is a CLI utility for displaying current network utilization by process, connection and remote IP/hostname. It provides a real-time view of which processes are using the network, and how much bandwidth they're using.
+
+OPTIONS
+    -h, --help                   Prints help information
+    -V, --version                Prints version information
+    -i, --interface <interface>  The network interface to listen on
+    -n, --no-resolve             Do not attempt to resolve IPs to host names
+    -r, --raw                    Machine-friendly output (CSV)
+    -s, --show-dns               Show DNS queries
+    -t, --total-utilization      Show total network utilization
+    --no-cache                   Disable caching of resolved hostnames
+    -c, --connections            Show connections
+    -p, --processes              Show processes
+    -d, --dns                    Show DNS queries
+
+USAGE
+    sudo bandwhich [OPTIONS]
+
+EXAMPLES
+    sudo bandwhich
+    sudo bandwhich -i eth0
+    sudo bandwhich --raw
+
+OUTPUT
+    By default, bandwhich displays a real-time, formatted table showing network usage by process, connection, and remote IP/hostname.

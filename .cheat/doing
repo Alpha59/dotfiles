@@ -1,0 +1,53 @@
+---
+syntax: bash
+tags: [bash, personal, time-tracking, productivity]
+version: 1.0.0
+---
+
+NAME
+    doing - A command line tool for keeping track of what you're doing
+
+SYNOPSIS
+    doing [options] [command] [args]
+
+DESCRIPTION
+    doing is a command line tool that helps you keep track of your activities. It allows you to quickly log what you're doing, view your recent activities, and generate reports on how you spend your time.
+
+COMMANDS
+    now [task]              Log what you're doing right now
+    later [task]            Add a task to be done later
+    done [task]            Mark a task as completed
+    show [section]          Show entries from a specific section
+    today                   Show entries from today
+    recent [X]              Show recent entries (default last 7 days)
+    yesterday               Show entries from yesterday
+    last                    Show your last entry
+    grep <pattern>          Search for entries matching a pattern
+    list                    List all sections
+    choose                  Select a section to show
+    tag                     List all tags used
+    note [entry] [note]     Add a note to an entry
+    edit                    Edit the doing file in your default editor
+    archive                 Archive completed tasks
+
+OPTIONS
+    -h, --help              Show this help message and exit
+    -v, --version           Show program's version number and exit
+    -f FILE, --file FILE    Specify an alternate doing file
+    --editor EDITOR         Specify an alternate editor
+    --config FILE           Specify an alternate configuration file
+
+USAGE
+    doing now "Working on project X"
+    doing show @home
+    doing recent 5
+
+EXAMPLES
+    doing now "Writing documentation"
+    doing later "Call John about meeting"
+    doing done "Finish report"
+    doing show today
+    doing grep "project X"
+
+OUTPUT
+    The output varies depending on the command used, but generally includes formatted lists of activities or tasks.

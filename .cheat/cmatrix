@@ -1,0 +1,43 @@
+---
+syntax: bash
+tags: [bash, personal, animation, terminal]
+version: 1.0.0
+---
+
+NAME
+    cmatrix - Simulates the display from "The Matrix" in the terminal
+
+SYNOPSIS
+    cmatrix [-abBfhlsVx] [-u update] [-C color]
+
+DESCRIPTION
+    cmatrix creates a scrolling 'Matrix' like screen in the terminal, as seen in the movie "The Matrix". It creates scrolling lines of random characters that mimic the digital rain effect from the film.
+
+OPTIONS
+    -a      Asynchronous scroll
+    -b      Bold characters on
+    -B      All bold characters (overrides -b)
+    -f      Force the linux $TERM type to be on
+    -l      Linux mode (uses matrix console font)
+    -o      Use old-style scrolling
+    -h      Print usage and exit
+    -n      No bold characters (overrides -b and -B)
+    -s      "Screensaver" mode, exits on first keystroke
+    -x      X window mode, avoids ncurses initialization errors
+    -u delay    Screen update delay 0 - 9, default 4
+    -C color    Use this color for matrix (default green)
+    -r      Rainbow mode
+    -m      Lambda mode
+    -k      Keepalive mode, prevents screen saver from starting
+    -V      Print version information and exit
+
+USAGE
+    cmatrix [OPTIONS]
+
+EXAMPLES
+    cmatrix
+    cmatrix -b -C red
+    cmatrix -s -u 5
+
+OUTPUT
+    cmatrix produces an animated display in the terminal, simulating the digital rain effect from "The Matrix" movie.

@@ -1,0 +1,36 @@
+---
+syntax: bash
+tags: [bash, personal, clipboard, terminal]
+version: 1.0.0
+---
+
+NAME
+    yank - Copy terminal output to clipboard
+
+SYNOPSIS
+    yank [OPTIONS] [COMMAND]
+
+DESCRIPTION
+    yank is a command-line utility that allows you to quickly extract and copy parts of command output to the clipboard. It provides an interactive interface to select text from the terminal and copy it to the system clipboard.
+
+OPTIONS
+    -l, --line              Copy entire line
+    -f, --field <DELIM>     Copy certain fields from each line
+    -d, --delim <DELIM>     Use <DELIM> as the field delimiter
+    -i, --input <FILE>      Read input from <FILE>
+    -x, --yank <COMMAND>    Yank using <COMMAND> instead of clipboard
+    -v, --version           Print version information
+    -h, --help              Show this help message
+
+USAGE
+    command | yank [OPTIONS]
+    yank [OPTIONS] < file
+
+EXAMPLES
+    ls -l | yank
+    cat file.txt | yank -l
+    ps aux | yank -f 2
+    yank -d : -f 1 < /etc/passwd
+
+OUTPUT
+    yank doesn't produce direct output to the terminal. Instead, it copies the selected text to the system clipboard.

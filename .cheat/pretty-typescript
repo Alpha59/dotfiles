@@ -1,0 +1,57 @@
+---
+syntax: bash
+tags: [bash, personal]
+version: 1.0.0
+default: true
+---
+
+NAME
+    pretty-typescript - Format TypeScript files using Prettier
+
+SYNOPSIS
+    pretty-typescript [ADDITIONAL_OPTIONS...]
+
+DESCRIPTION
+    The pretty-typescript function runs Prettier on TypeScript and TSX files
+    in the current directory and its subdirectories. It applies specific
+    formatting rules and allows for additional Prettier options to be passed.
+
+OPTIONS
+    ADDITIONAL_OPTIONS
+        Any additional Prettier options can be passed as arguments to the function.
+
+PRETTIER OPTIONS (preset)
+    --write                 Modify files in-place
+    --tab-width 4           Use 4 spaces for indentation
+    --print-width 120       Set maximum line width to 120 characters
+    --quote-props consistent Use consistent quoting for object properties
+    --trailing-comma none   Remove trailing commas
+
+EXAMPLES
+    pretty-typescript
+    pretty-typescript --single-quote
+
+SEE ALSO
+    prettier(1), npx(1)
+
+NOTES
+    This function requires Node.js, npx, and Prettier to be installed.
+    Prettier can be installed via npm: npm install --save-dev prettier
+
+Breakdown:
+
+1. pretty-typescript () { ... }: Defines a function named pretty-typescript.
+
+2. npx prettier: Runs Prettier using npx, which allows execution of npm package binaries.
+
+3. --write "**/*.{ts,tsx}": Formats all .ts and .tsx files in the current directory and subdirectories.
+
+4. Formatting options:
+   - --tab-width 4: Sets indentation to 4 spaces
+   - --print-width 120: Sets maximum line length to 120 characters
+   - --quote-props consistent: Ensures consistent quoting of object properties
+   - --trailing-comma none: Removes trailing commas
+
+5. "$@": Allows passing additional Prettier options when calling the function.
+
+This function provides a convenient way to format TypeScript files with predefined Prettier settings, while still allowing flexibility for additional options.

@@ -1,6 +1,48 @@
+---
+syntax: bash
+tags: [bash, personal, git, branch-history]
+version: 1.0.0
+---
 
-Shows the most recently checked out branches
+NAME
+    git-recently-checkedout-branches - Show recently checked-out Git branches
 
-# Shows timestamp and name of recently checked-out branches in reverse
-# chronological order. This is powered by git-reflog, but excludes branches
-# that have since been deleted.
+SYNOPSIS
+    git recently-checkedout-branches [-h]
+
+DESCRIPTION
+    This script displays the timestamp and name of recently checked-out Git branches in reverse chronological order. It uses git-reflog to retrieve the information but excludes branches that have been deleted.
+
+OPTIONS
+    -h      Display help information
+
+USAGE
+    Run the script in a Git repository to see the list of recently checked-out branches.
+
+EXAMPLES
+    git recently-checkedout-branches
+
+OUTPUT
+    The script outputs a tab-separated list of dates and branch names, sorted by most recent first.
+
+AUTHOR
+    Mislav Marohnić
+
+BREAKDOWN
+1. Shebang and usage information in comments
+2. Set -e to exit on error
+3. Check for -h flag to display help
+4. Initialize variables (seen and git_dir)
+5. Use git reflog to get recent checkouts
+6. Process each line of the reflog output:
+   - Extract date and branch name
+   - Check if branch has been seen before
+   - Verify if branch still exists
+   - Print date and branch name if conditions are met
+
+SUGGESTED ADDITIONS
+1. Add a -n option to specify the number of entries to display
+2. Implement a --format option for custom output formatting
+3. Add a --since option to filter by date
+4. Include a --color option for colorized output
+5. Implement a --sort option to change sorting order (e.g., alphabetical)

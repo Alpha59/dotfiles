@@ -1,0 +1,35 @@
+---
+syntax: bash
+tags: [bash, personal, emoji, text-processing]
+version: 1.0.0
+---
+
+NAME
+    emojify - Convert emoji codes to Unicode emoji
+
+SYNOPSIS
+    emojify [options] [file ...]
+
+DESCRIPTION
+    emojify is a shell script that converts emoji codes in text to their corresponding Unicode emoji characters. It can process input from files or standard input.
+
+OPTIONS
+    -h, --help      Display help information
+    -v, --version   Display version information
+    -l, --list      List all available emoji and their codes
+    -s, --strict    Only replace emoji codes flanked by colons (:code:)
+    -t, --text      Treat input as pure text (ignore markdown syntax)
+
+USAGE
+    Pipe text containing emoji codes to emojify, or use it to process files directly.
+
+EXAMPLES
+    echo "I :heart: emoji" | emojify
+    emojify input.txt > output.txt
+    emojify --strict < input.txt > output.txt
+
+OUTPUT
+    Text with emoji codes replaced by Unicode emoji characters.
+
+BREAKDOWN
+emojify is a shell script that uses sed or awk to perform text substitutions. It likely contains a dictionary of emoji codes and their corresponding Unicode characters. The script reads input line by line, applies the substitutions, and outputs the result.

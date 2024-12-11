@@ -79,6 +79,11 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8'], 'java': 'checkstyle', 'typescript': ['eslint']}
 let g:syntastic_shell = "/bin/bash"
 let g:syntastic_debug = 0
@@ -101,14 +106,18 @@ let g:syntastic_html_tidy_quiet_messages = { "level" : "warnings" }
 let g:syntastic_enable_html_checker = 0
 let g:syntastic_enable_html_tidy_checker = 0
 
-let g:syntastic_typescript_checkers = ['eslint']
-let g:syntastic_typescript_eslint_exe = 'npm run lint --'
 let g:syntastic_enable_typescript_checker = 1
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
+
+" let g:syntastic_typescript_checkers = ['eslint']
+let g:syntastic_typescript_eslint_exe = 'npm run lint --'
+let g:syntastic_typescript_tsc_fname = ''
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = 'npm run eslint --'
-" let g:syntastic_javascript_eslint_exec = 'eslint_d'
+let g:syntastic_javascript_eslint_exec = 'eslint_d'
 let g:syntastic_enable_javascript_checker = 1
-" let g:syntastic_mode_map = { 'mode': 'passive' }
+let g:syntastic_mode_map = { 'mode': 'active' }
 highlight SyntasticError guibg=#2f0000
 
 let g:syntastic_always_populate_loc_list = 1
@@ -152,3 +161,5 @@ map <C-p> :TableModeToggle<CR>
 com! FormatJSON .!python3 -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), indent=4)"
 com! Fixgpt :%s/\n\s*\([A-z]\)/ \1/g
 com! Sequalize :%s/.*`\(.*\)` \([^ ]*\).*|/      \1:{\r       type: Sequelize.\2\r      },/
+noremap! <C-?> <C-h>
+

@@ -1,0 +1,51 @@
+---
+syntax: bash
+tags: [bash, personal, json, cli]
+version: 1.0.0
+---
+
+NAME
+    jo - JSON output from a shell
+
+SYNOPSIS
+    jo [-p] [-a] [-B] [-D] [-v] [-V] [--] [name=value ...]
+
+DESCRIPTION
+    jo is a small utility to create JSON objects or arrays from command-line arguments.
+
+OPTIONS
+    -p          Pretty-print the JSON output
+    -a          Create a JSON array instead of an object
+    -B          Don't encode binary data to base64
+    -D          Don't coerce non-string values
+    -v          Show version information
+    -V          Show version and compiled-in features
+    --          Specify end of options
+
+USAGE
+    Use jo to create JSON objects or arrays from command-line arguments.
+
+EXAMPLES
+    jo name=John age=42
+    jo -p name=John age=42
+    jo -a red green blue
+    jo -p date="$(date)" count=3 user="$USER"
+
+OUTPUT
+    JSON object or array based on the provided arguments.
+
+BREAKDOWN
+jo is a compiled C program. When invoked, it processes the command-line arguments and options to construct a JSON object or array. It handles various data types and can perform type coercion and base64 encoding for binary data.
+
+SUGGESTED ADDITIONS
+1. Create a bash wrapper script for jo to add custom functionality:
+   - Add a --validate option to check if the created JSON is valid
+   - Implement a --merge option to combine multiple JSON objects
+   - Add a --from-file option to read key-value pairs from a file
+   - Create a --template option to fill in a JSON template with provided values
+   - Implement a --query option to extract values from the created JSON using jq-like syntax
+   - Add a --csv option to convert CSV input to JSON
+   - Create a --yaml option to output YAML instead of JSON
+   - Implement a --schema option to validate the created JSON against a JSON schema
+   - Add a --pretty-color option for colorized pretty-printing of JSON output
+   - Create a --interactive mode for step-by-step JSON object creation
