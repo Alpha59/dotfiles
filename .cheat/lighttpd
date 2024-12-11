@@ -1,0 +1,49 @@
+---
+syntax: bash
+tags: [bash, personal, web-server, lighttpd]
+version: 1.0.0
+---
+
+NAME
+    lighttpd - Lightweight web server daemon
+
+SYNOPSIS
+    lighttpd [options] -f <configfile>
+
+DESCRIPTION
+    lighttpd is a secure, fast, compliant, and very flexible web server that has been optimized for high-performance environments. It has a very low memory footprint compared to other web servers and takes care of CPU load.
+
+OPTIONS
+    -f <configfile>    Specify a configuration file (mandatory)
+    -m <dir>           Specify module directory (default: /usr/lib/lighttpd)
+    -p                 Print the parsed configuration file
+    -t                 Test configuration file syntax and exit
+    -tt                Test configuration file syntax, load and initialize modules, then exit
+    -D                 Don't go to background (daemon mode)
+    -v                 Show version
+    -V                 Show compile-time features
+    -h                 Show this help
+
+USAGE
+    lighttpd must be run with a configuration file specified using the -f option.
+
+EXAMPLES
+    lighttpd -f /etc/lighttpd/lighttpd.conf
+    lighttpd -t -f /etc/lighttpd/lighttpd.conf
+    lighttpd -D -f /etc/lighttpd/lighttpd.conf
+
+OUTPUT
+    When run normally, lighttpd doesn't produce output to the console. It logs to files specified in the configuration.
+
+BREAKDOWN
+lighttpd is not a bash script but a compiled program. When invoked, it reads the specified configuration file, sets up the web server according to those configurations, and starts serving web content. The options allow for testing the configuration, running in the foreground, and displaying version information.
+
+SUGGESTED ADDITIONS
+1. Create a bash wrapper script for lighttpd to add custom functionality:
+   - Add a --start, --stop, --restart option for easier service management
+   - Implement a --config-check option that runs the -t test and provides more verbose output
+   - Add a --performance-test option that runs a quick benchmark
+   - Create a --secure-config option that checks for common security misconfigurations
+   - Implement a --docker option to run lighttpd in a Docker container
+   - Add a --log-tail option to show the last few lines of the error and access logs
+   - Create a --generate-config option to create a basic configuration file with common settings

@@ -1,0 +1,50 @@
+---
+syntax: bash
+tags: [bash, personal]
+version: 1.0.0
+default: true
+---
+
+NAME
+    announce - Announce a message using voice, notification, and ASCII art
+
+SYNOPSIS
+    announce [MESSAGE]
+
+DESCRIPTION
+    The announce function takes a message and announces it through multiple
+    channels: text-to-speech, system notification, and ASCII art. It uses the
+    'say' command for voice output, 'notify' for system notifications, and
+    'cowsay' for a fun ASCII art representation.
+
+OPTIONS
+    MESSAGE
+        The message to be announced. Can be multiple words.
+
+EXAMPLES
+    announce "Hello, world!"
+    announce "Your task is complete"
+
+SEE ALSO
+    say(1), notify(1), cowsay(1)
+
+NOTES
+    This function requires the 'say', 'notify', and 'cowsay' commands to be
+    installed and accessible in the system's PATH.
+
+Breakdown:
+
+1. announce () { ... }: Defines a function named announce.
+
+2. say "$@": Uses the 'say' command to convert the input message to speech. "$@" expands to all arguments passed to the function, preserving quotes and spaces.
+
+3. notify "$@": Calls a custom 'notify' function (or command) to display a system notification with the input message.
+
+4. cowsay "$@": Uses the 'cowsay' command to display the input message in an ASCII art speech bubble, typically with a cow character.
+
+The function relies on external tools:
+- say: A text-to-speech command (commonly available on macOS).
+- notify: A custom function or command for displaying system notifications.
+- cowsay: A program that generates ASCII art, usually a cow with a speech bubble.
+
+This function provides a multi-modal way to announce messages, combining auditory, visual, and fun elements to ensure the message is noticed and remembered.

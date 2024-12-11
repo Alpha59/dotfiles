@@ -1,0 +1,48 @@
+---
+syntax: bash
+tags: [bash, personal]
+version: 1.0.0
+default: true
+---
+
+NAME
+    autopep - Run autopep8 with predefined options
+
+SYNOPSIS
+    autopep [FILE_OR_DIRECTORY...]
+
+DESCRIPTION
+    The autopep function is a wrapper for the autopep8 Python code formatter.
+    It runs autopep8 with specific options to format Python code in-place,
+    recursively, and with an aggressive level of formatting.
+
+OPTIONS
+    FILE_OR_DIRECTORY
+        One or more Python files or directories containing Python files to be
+        formatted. If a directory is specified, all Python files within it will
+        be processed recursively.
+
+EXAMPLES
+    autopep myfile.py
+    autopep project_directory/
+
+SEE ALSO
+    autopep8(1), python(1)
+
+NOTES
+    This function requires autopep8 to be installed and accessible in the
+    system's PATH. It can be installed via pip: pip install autopep8
+
+Breakdown:
+
+1. autopep () { ... }: Defines a function named autopep.
+
+2. autopep8 -i -r -a -a "$@": Runs the autopep8 command with specific options and passes all arguments given to the autopep function.
+
+   Options used:
+   - -i: In-place formatting (modifies files directly)
+   - -r: Recursive (processes directories recursively)
+   - -a -a: Aggressive level 2 (applies more formatting fixes)
+   - "$@": Expands to all arguments passed to the function, preserving quotes and spaces
+
+The function simplifies the use of autopep8 by providing a preset configuration. This is useful for maintaining consistent code formatting across projects or for quickly formatting Python code without having to remember specific autopep8 options.

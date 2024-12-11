@@ -1,0 +1,39 @@
+---
+syntax: bash
+tags: [bash, personal, task-management, kanban]
+version: 1.0.0
+---
+
+NAME
+    taskell - Command-line Kanban board for task management
+
+SYNOPSIS
+    taskell [options] [file]
+
+DESCRIPTION
+    taskell is a command-line task management application that creates an interactive Kanban board in your terminal. It allows you to organize tasks into lists, move them between lists, and manage your workflow efficiently.
+
+OPTIONS
+    -h, --help              Show help message
+    -v, --version           Show version information
+    -n, --new               Create a new board
+    -t, --template <file>   Use a template file
+    -d, --dump              Dump board as JSON
+    -i, --import <file>     Import tasks from a JSON file
+    -e, --export <file>     Export tasks to a JSON file
+    --config <file>         Use a custom config file
+    --theme <theme>         Use a specific color theme
+
+USAGE
+    taskell [options] [file]
+
+EXAMPLES
+    taskell
+    taskell myboard.md
+    taskell -n newboard.md
+    taskell -t template.md myboard.md
+    taskell -d > board_backup.json
+    taskell -i imported_tasks.json myboard.md
+
+OUTPUT
+    taskell displays an interactive Kanban board in the terminal, showing tasks organized into lists.

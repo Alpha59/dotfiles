@@ -22,10 +22,11 @@ $(timeout 10 git show --stat --format="")
 ---
 
 $(git overwritten)
-\`\`\`
+
+---
 
 $(git neck)
----
+\`\`\`
 
 ## Branch Check
 
@@ -33,9 +34,7 @@ Current Branch: $(timeout 10 git current-branch);
 $(git worktree list)
 \`\`\`
 $(timeout 10 git push)
-
 $(timeout 10 git wtf -r -A -a)
-
 \`\`\`
 
 ## Test Cases
@@ -61,14 +60,6 @@ $(timeout 240 brazil-build coverage | tail -n50 | grep -v "report" | grep -v "ec
 \`\`\`
 
 ---
-
-Git Conflicts that exist: $(git conflicts);
-
-$(git divergance)
-
-\`\`\`
-$(git log-graph | head -n5)
-\`\`\`
 
 author: $(timeout 5 git whoami);
 

@@ -1,0 +1,51 @@
+---
+syntax: bash
+tags: [bash, personal]
+version: 1.0.0
+default: true
+---
+
+NAME
+    activate-tab - Activate a specific Chrome tab
+
+SYNOPSIS
+    activate-tab [TAB_IDENTIFIER]
+
+DESCRIPTION
+    The activate-tab function finds and activates a specific Chrome tab based
+    on the provided identifier. It uses the find-tab function to locate the
+    tab and then activates it using the chrome-cli tool.
+
+OPTIONS
+    TAB_IDENTIFIER
+        A string used to identify the desired Chrome tab. This is passed to the
+        find-tab function to locate the correct tab.
+
+EXAMPLES
+    activate-tab "Google Search"
+    activate-tab "localhost:3000"
+
+SEE ALSO
+    chrome-cli(1), find-tab(1), xargs(1)
+
+NOTES
+    This function requires the chrome-cli tool to be installed and accessible
+    in the system's PATH.
+
+Breakdown:
+
+1. activate-tab () { ... }: Defines a function named activate-tab.
+
+2. find-tab "$@": Calls the find-tab function with all arguments passed to activate-tab. The "$@" expands to all arguments while preserving any quotes or spaces.
+
+3. | xargs -n1 chrome-cli activate -t: Pipes the output of find-tab to xargs, which then executes chrome-cli activate -t for each line of input.
+
+   - xargs -n1: Processes one input line at a time.
+   - chrome-cli activate -t: Activates the Chrome tab with the specified ID.
+
+The function relies on external tools:
+- find-tab: A custom function to locate a Chrome tab based on given criteria.
+- chrome-cli: A command-line interface for Google Chrome.
+- xargs: A Unix utility for building and executing command lines from standard input.
+
+This function allows the user to quickly activate a specific Chrome tab by providing an identifier, which could be part of the tab's title or URL.

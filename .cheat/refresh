@@ -1,2 +1,57 @@
+---
+syntax: bash
+tags: [bash, personal]
+version: 1.0.0
+default: true
+---
 
-Refreshes a Chrome Page
+NAME
+    refresh - Reload Chrome tabs with local URLs
+
+SYNOPSIS
+    refresh
+
+DESCRIPTION
+    This AppleScript searches through all open Google Chrome windows and tabs,
+    identifying tabs with URLs containing "127.0.0.1" or "localhost". It then
+    reloads these tabs and prints their URLs. The script returns 0 if any local
+    tabs were found and reloaded, or 1 if no local tabs were found.
+
+OPTIONS
+    None
+
+EXIT STATUS
+    0   At least one local tab was found and reloaded
+    1   No local tabs were found
+
+EXAMPLES
+    ./refresh
+
+SEE ALSO
+    osascript(1), Google Chrome
+
+NOTES
+    This script is designed to run on macOS and requires Google Chrome to be installed.
+
+Breakdown:
+
+1. #!/usr/bin/osascript: Shebang indicating this is an AppleScript.
+
+2. on run argv: Defines the main function that runs when the script is executed.
+
+3. set done to 1: Initializes a flag to indicate if any local tabs were found (1 = no, 0 = yes).
+
+4. tell application "Google Chrome": Targets the Google Chrome application.
+
+5. set window_list to every window: Gets all Chrome windows.
+
+6. Nested loops to iterate through all windows and tabs.
+
+7. For each tab:
+   - Checks if the URL contains "127.0.0.1" or "localhost"
+   - If found, prints the URL, sets done to 0, and reloads the tab
+   - If not found, just prints the URL
+
+8. return done: Returns 0 if local tabs were found and reloaded, 1 otherwise.
+
+This script is useful for developers working on local web projects, allowing them to quickly refresh all local development tabs across multiple Chrome windows.

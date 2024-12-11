@@ -1,0 +1,46 @@
+---
+syntax: bash
+tags: [bash, personal, file-system, monitoring]
+version: 1.0.0
+---
+
+NAME
+    fswatch - Monitor file system changes
+
+SYNOPSIS
+    fswatch [options] [path...]
+
+DESCRIPTION
+    fswatch is a file change monitor that receives notifications when the contents of specified files or directories are modified. It can watch one or more files or directories and execute a command when they change.
+
+OPTIONS
+    -0, --print0             Use the ASCII NUL character (\0) as line separator
+    -1, --one-event          Exit after the first event is received
+    -e, --exclude=REGEX      Exclude paths matching REGEX
+    -E, --extended           Use extended regular expressions
+    -i, --include=REGEX      Include paths matching REGEX
+    -L, --follow-links       Follow symbolic links
+    -m, --monitor=NAME       Use the specified monitor (inotify, kqueue, etc.)
+    -o, --one-per-batch      Print a single message with the number of change events
+    -r, --recursive          Recurse subdirectories
+    -t, --timestamp          Print the event timestamp
+    -x, --event-flags        Print the event flags
+    --event-flag-separator=STRING  Use STRING to separate event flags
+    --format=FORMAT          Use the specified format string to print events
+    --batch-marker=STRING    Print STRING to mark the end of a batch of events
+    -v, --verbose            Print verbose output
+    -h, --help               Show help message
+    --version                Show version information
+
+USAGE
+    fswatch [options] [path...] | xargs -n 1 -I {} command {}
+
+EXAMPLES
+    fswatch -o /path/to/watch | xargs -n 1 -I {} echo {}
+    fswatch -or /path/to/watch | xargs -n 1 sh -c 'echo "$0 changed"'
+
+OUTPUT
+    By default, fswatch prints the path of each changed file or directory to stdout.
+
+BREAKDOWN
+fswatch is a separate utility. It's commonly used in bash scripts to trigger actions based on file system changes. The command monitors specified paths and can execute actions when changes occur.

@@ -1,0 +1,55 @@
+---
+syntax: bash
+tags: [bash, personal, git, branch-management]
+version: 1.0.0
+---
+
+NAME
+    git-recent - List local Git branches, sorted by last commit, with pretty formatting
+
+SYNOPSIS
+    git-recent [-n COUNT]
+
+DESCRIPTION
+    git-recent is a custom Git command that lists all local branches, sorted by the date of their last commit, with a formatted and colorized output. It provides a quick overview of recent branch activity in the repository.
+
+OPTIONS
+    -n COUNT    Limit the output to COUNT number of branches. Must be a positive integer.
+
+USAGE
+    Run git-recent in a Git repository to see a formatted list of recent branches.
+
+EXAMPLES
+    git-recent
+    git-recent -n 5
+
+OUTPUT
+    A colorized, formatted list of local Git branches, including:
+    - Branch name
+    - Short commit hash
+    - Relative commit date
+    - Author name
+    - Upstream tracking information
+    - Commit subject
+
+BREAKDOWN
+1. Shebang and comments explaining the script's purpose
+2. Detect Windows environment to adjust formatting
+3. Parse -n option to limit the number of branches shown
+4. Define the format string for git for-each-ref command
+5. Set less options for output paging
+6. Execute git for-each-ref with specified formatting and sorting
+7. Pipe the output through column for alignment
+8. Use less for paging if necessary
+
+SUGGESTED ADDITIONS
+1. Add a --all or -a option to include remote branches
+2. Implement a --format option to allow custom output formats
+3. Add a --no-color option to disable colorized output
+4. Create a --days N option to only show branches with commits in the last N days
+5. Implement a --exclude PATTERN option to exclude branches matching a pattern
+6. Add a --stats option to show commit statistics for each branch
+7. Create an --interactive or -i option for exploring and checking out branches
+8. Implement a --graph option to show a simple ASCII graph of branch relationships
+9. Add a --fetch option to fetch remote branches before showing the list
+10. Create a --clean option to suggest deleting old, merged branches

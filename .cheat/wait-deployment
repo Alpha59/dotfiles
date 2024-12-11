@@ -1,0 +1,50 @@
+---
+syntax: bash
+tags: [bash, personal]
+version: 1.0.0
+default: true
+---
+
+Monitors Chrome tab deployment
+
+NAME
+    wait-deployment - Monitor a Chrome tab for deployment changes
+
+SYNOPSIS
+    wait-deployment [TAB_IDENTIFIER]
+
+DESCRIPTION
+    The wait-deployment function monitors a specific Chrome tab for changes,
+    typically used to track the progress of a deployment. It uses the chrome-cli
+    tool to retrieve information about the specified tab and displays it
+    continuously using the watch command.
+
+OPTIONS
+    TAB_IDENTIFIER
+        A string used to identify the desired Chrome tab. This is passed to the
+        find-tab function to locate the correct tab.
+
+EXAMPLES
+    wait-deployment "My Deployment Page"
+
+SEE ALSO
+    chrome-cli(1), watch(1), find-tab(1)
+
+NOTES
+    This function requires the chrome-cli tool to be installed and accessible
+    in the system's PATH.
+
+Breakdown:
+
+1. wait-deployment () { ... }: Defines a function named wait-deployment.
+
+2. tab=$(find-tab "$*"): Calls the find-tab function with all arguments passed to wait-deployment, storing the result (presumably a tab ID) in the 'tab' variable.
+
+3. echo "$tab": Prints the tab ID or identifier.
+
+4. watch chrome-cli info -t "$tab": Uses the watch command to repeatedly run chrome-cli info with the -t option and the tab ID. This continuously displays information about the specified tab, allowing the user to monitor changes.
+
+The function relies on external tools:
+- find-tab: A custom function to locate a Chrome tab based on given criteria.
+- chrome-cli: A command-line interface for Google Chrome.
+- watch: A Unix command that runs a specified command periodically.

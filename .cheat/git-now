@@ -1,0 +1,36 @@
+30-character summary:
+Quick Git commit with timestamp
+
+---
+syntax: bash
+tags: [bash, personal, git, commit]
+version: 1.0.0
+---
+
+NAME
+    git-now - Quickly commit all changes with a timestamped message
+
+SYNOPSIS
+    git now [options] [<message>]
+
+DESCRIPTION
+    git-now is a custom Git command that allows users to quickly commit all changes in the working directory with a timestamped commit message. If no message is provided, it uses a default message.
+
+OPTIONS
+    -h, --help      Show help information
+    -v, --version   Show version information
+    -a, --all       Stage all changes, including untracked files
+    -f, --force     Commit even if there are no changes
+    -p, --push      Push the commit immediately after committing
+
+USAGE
+    Run git-now in a Git repository to quickly commit changes with a timestamped message.
+
+EXAMPLES
+    git now
+    git now "Quick fix"
+    git now -a "Add new feature"
+    git now -p "Update documentation"
+
+OUTPUT
+    Confirmation of the commit, including the commit hash and message.

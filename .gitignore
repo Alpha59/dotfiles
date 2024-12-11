@@ -30,6 +30,7 @@ Work
 WorkDocsDownloads
 node_modules
 workplace
+.vim/bundle/tsuquyomi
 
 # Do not ignore these files
 !.gitignore
@@ -119,7 +120,6 @@ Makefile
 !.vim/autoload/**
 !.vim/plugin/
 !.vim/plugin/**
-!.viminfo
 !.vit/
 !.vit/**
 !README.md
@@ -130,6 +130,11 @@ Makefile
 !ehh.yaml
 !grease-monkey/
 !helpers/
+!helpers/*
+!helpers/**
+!ee-stories/
+!ee-stories/*
+!ee-stories/**
 !package.json
 !ruleset/
 !ruleset/**

@@ -1,0 +1,47 @@
+---
+syntax: bash
+tags: [bash, personal, disk-usage, ncurses]
+version: 1.0.0
+---
+
+NAME
+    ncdu - NCurses Disk Usage
+
+SYNOPSIS
+    ncdu [options] [directory]
+
+DESCRIPTION
+    ncdu (NCurses Disk Usage) is a disk usage analyzer with an ncurses interface. It allows users to interactively browse directories and see which files and folders are using the most disk space.
+
+OPTIONS
+    -h                  Print help
+    -v                  Print version
+    -q                  Quiet mode, refresh interval 2 seconds
+    -x                  Don't cross filesystem boundaries
+    -e                  Enable extended information
+    -r                  Read only mode
+    -o FILE             Export scanned directory to FILE
+    -f FILE             Import scanned directory from FILE
+    -0                  End filenames with \0 instead of \n
+    -1                  Use SI units (powers of 1000 instead of 1024)
+    -2                  List file sizes using powers of 2
+    --exclude PATTERN   Exclude files that match PATTERN
+    --exclude-from FILE Read exclude patterns from FILE
+    --confirm-quit      Confirm quitting ncdu
+    --color SCHEME      Set color scheme (off/dark/dark-bg)
+
+USAGE
+    Run ncdu in a directory to analyze its disk usage interactively.
+
+EXAMPLES
+    ncdu
+    ncdu /home
+    ncdu -x /
+    ncdu -o usage.dat /var
+    ncdu -f usage.dat
+
+OUTPUT
+    An interactive ncurses interface showing directory structure and file sizes.
+
+BREAKDOWN
+ncdu is a compiled C program. When run, it scans the specified directory (or the current directory if none is specified), calculates disk usage, and presents an interactive interface for exploring the results.

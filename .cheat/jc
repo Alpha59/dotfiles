@@ -1,0 +1,42 @@
+---
+syntax: bash
+tags: [bash, personal, json, cli, parser]
+version: 1.0.0
+---
+
+NAME
+    jc - JSON Convert
+
+SYNOPSIS
+    jc [options] <parser> [input]
+
+DESCRIPTION
+    jc is a CLI tool and Python library that converts the output of popular command-line tools and file-types to JSON or YAML.
+
+OPTIONS
+    -a, --about         About jc
+    -h, --help          Show this help message and exit
+    -p, --pretty        Pretty print output
+    -q, --quiet         Suppress warnings and errors
+    -r, --raw           Raw output (no processing)
+    -y, --yaml          YAML output
+    -C, --color         Force color output
+    -d, --debug         Debug output
+    -m, --mono          Monochrome output
+    -P, --parse-only    Parse the input only (do not process)
+    -v, --version       Show version information and exit
+
+USAGE
+    Pipe the output of a command to jc with the appropriate parser, or use jc to parse a file.
+
+EXAMPLES
+    ls -l | jc --ls
+    jc --ini /etc/my.cnf
+    ps -ef | jc --ps
+    cat /etc/passwd | jc --passwd
+
+OUTPUT
+    JSON or YAML representation of the parsed input.
+
+BREAKDOWN
+jc is a Python-based tool. When invoked, it uses the specified parser to interpret the input (either from a file or piped from another command), and then outputs the data in JSON or YAML format. The various options allow for customization of the output format and behavior.

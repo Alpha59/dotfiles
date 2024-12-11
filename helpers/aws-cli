@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+if [[ "$#" -lt 1 || "$#" -gt 2 ]] ; then
+echo "Usage: $0 <account> <region>"
+exit 1
+fi
+
+accountId=$1
+
+if [[ -z $2 ]]; then
+    region=$REGION;
+else
+  region=$2;
+fi
+
+aws-credentials "$accountId" "$region";

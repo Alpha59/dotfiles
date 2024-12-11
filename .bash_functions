@@ -636,7 +636,7 @@ gvim ()
 declare -fx gvim
 hollywood ()
 {
-    docker run -it jess/hollywoo "$@"
+    docker run -it jess/hollywood "$@"
 }
 declare -fx hollywood
 howdoi ()
@@ -819,6 +819,7 @@ lynx ()
 declare -fx lynx
 man ()
 {
+    ehh "$@";
     tldr "$@";
     cheat "$@"
 }
@@ -1289,6 +1290,11 @@ echo-test () {
     echo "Test" "$@";
 }
 declare -fx echo-test;
+
+temp-vim () {
+    mktemp | xargs -o vim
+}
+declare -fx temp-vim;
 
 #pull-request () {
 #    git all branch -u origin/mainline;
