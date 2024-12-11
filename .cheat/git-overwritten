@@ -1,0 +1,14 @@
+
+# Usage: git overwritten [--[no-]color] [<head=HEAD>] [<base=origin>]
+#
+# Aggregates git blame information about original owners of lines changed or
+# removed in the '<base>...<head>' diff.
+#
+# Each line of output represents a past commit, and consists of:
+# - number of lines from the commit that this diff affects
+# - commit date
+# - commit sha
+# - author name
+# - commit subject message
+#
+# The commits are listed in the reverse chronological order.

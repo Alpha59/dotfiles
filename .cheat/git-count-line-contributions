@@ -1,0 +1,11 @@
+
+Counts and outputs the number of lines modified by all users in the package:
+
+38212 Jake Ailor
+15623 <Author 2>
+6048 <Author 3>
+3327 <Author 4>
+2123 <Author 5>
+...
+
+

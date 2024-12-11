@@ -1,0 +1,6 @@
+
+
+Prints the amount of effort that has been put into each file.
+(Commits and active-days).
+
+usage: git effort [--above <value>] [<path>...] [-- [<log options>...]]

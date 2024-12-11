@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+aws-credentials $1;
+aws dynamodb batch-execute-statement  --statements "[{\"Statement\": \"$2\"}]";
+
+#https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ql-reference.html

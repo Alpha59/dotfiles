@@ -1,0 +1,10 @@
+
+Shows a list of Authors and the number of contributions they made
+since a given change.
+# Usage: git-thanks <since>..<until>
+#
+# All commits on master, ever:
+#   git-thanks master
+#
+# All commits on master since the 0.9.0 tag:
+#   git-thanks 0.9.0..master

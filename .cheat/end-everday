@@ -4,8 +4,12 @@ tags: [bash, personal]
 version: 1.0.0
 default: true
 ---
+This is a program to be run at the end of the working
+day to clean-up any open work, and sign-off.
 
-        
+Requires a number of other scripts to exist before it can be
+used properly.
+
     EXAMPLES:
 # Prints version information
 end-everday --version;

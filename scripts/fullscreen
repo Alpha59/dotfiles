@@ -9,15 +9,15 @@ on run argv
     delay 2
     set isfullscreen to false
     tell application "System Events" to tell process theapp
-      set isfullscreen to value of attribute "AXFullScreen" of window (winNum as integer)
+        set isfullscreen to value of attribute "AXFullScreen" of window (winNum as integer)
     end tell
 
-	if not isfullscreen
-	  do shell script "echo " & "\"Trying to open Full screen " & winNum & "\""
-	  tell application "System Events" to keystroke "f" using { command down, control down }
-	  delay 2
-	  --do shell script "fullscreen \"" & (theapp) & "\" " winNum
-	end if
+    if not isfullscreen
+        do shell script "echo " & "\"Trying to open Full screen " & winNum & "\""
+        tell application "System Events" to keystroke "f" using { command down, control down }
+        delay 2
+        --do shell script "fullscreen \"" & (theapp) & "\" " winNum
+        end if
 
   end tell
   --do shell script "echo " & "\"Moving onto next window " & (((winNum as integer) +1) as string) & "\""

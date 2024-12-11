@@ -1,0 +1,2 @@
+
+Delete files from the repo that you've deleted with `rm` instead of `git rm`

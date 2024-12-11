@@ -1,0 +1,3 @@
+
+Switches to a new branch based on the first matching pattern
+instead of the entire branch name.

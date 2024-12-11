@@ -14,12 +14,6 @@ This runbook provides a comprehensive guide to managing and maintaining [Your So
 
 [Your Software Service] is deployed within an AWS Virtual Private Cloud (VPC) and utilizes AWS Fargate for container orchestration. The service includes networking components, load balancing, logging, IAM roles, and more to ensure a secure, scalable, and maintainable deployment.
 
-## Connecting to the Service via Coral Diver
-   - **Objective**: Establish a connection to the service for debugging and troubleshooting.
-   - **Example Command**:
-
-     https://coral.amazon.com/<service>/NA/Beta/explorer
-
 ## Viewing CloudWatch Information
    - **Objective**: Monitor service health and performance using CloudWatch metrics and logs.
 

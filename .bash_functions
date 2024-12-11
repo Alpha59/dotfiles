@@ -39,6 +39,11 @@ black ()
     flake8 ./ --exclude requirements.py,aws_lambda --ignore I003,I001 "$@"
 }
 declare -fx black
+pretty-typescript ()
+{
+    npx prettier --write "**/*.{ts,tsx}" --tab-width 4 --print-width 120 --quote-props consistent --trailing-comma none "$@"
+}
+declare -fx pretty-typescript
 brazil-version-set-list ()
 {
     brazil ws show | grep "Version" | awk '{print $3}' | xargs -n1 bash -c 'echo "${0//@[0-9]*/}"'
@@ -179,7 +184,7 @@ get-credentials-cloudauth ()
 {
     #tmux kill-session -t credentials;
     #tmux new-session -d -s credentials "aws-credentials -r" "$@"
-    ada credentials update --account="856042963385" --provider=conduit --role="CloudAuthConnectionRole" --profile="cloudauth" --once;
+    ada credentials update --account="856042963385" --provider=conduit --role="IibsAdminAccess-DO-NOT-DELETE" --profile="cloudauth" --once;
     #creds=$(aws sts assume-role --role-arn arn:aws:iam::856042963385:role/CloudAuthConnectionRole --role-session-name "CloudAuth");
 
     #echo "$creds" | jq '.AssumedRoleUser';
@@ -196,7 +201,7 @@ get-credentials-cloudauth-2 ()
     #tmux kill-session -t credentials;
     #tmux new-session -d -s credentials "aws-credentials -r" "$@"
     ada credentials update --account="856042963385" --provider=conduit --role="IibsAdminAccess-DO-NOT-DELETE" --profile="personal" --once;
-    creds=$(aws sts assume-role --profile="personal" --role-arn arn:aws:iam::856042963385:role/CloudAuthConnectionRole --role-session-name "CloudAuth");
+    creds=$(aws sts assume-role --profile="cloudauth" --role-arn arn:aws:iam::856042963385:role/CloudAuthConnectionRole --role-session-name "CloudAuth");
 
     echo "$creds" | jq '.AssumedRoleUser';
 
@@ -212,7 +217,7 @@ get-credentials-cloudauth-beta ()
     #tmux kill-session -t credentials;
     #tmux new-session -d -s credentials "aws-credentials -r" "$@"
     ada credentials update --account="145224550763" --provider=conduit --role="IibsAdminAccess-DO-NOT-DELETE" --profile="personal" --once;
-    creds=$(aws sts assume-role --profile="personal" --role-arn arn:aws:iam::145224550763:role/CloudAuthConnectionRole --role-session-name "CloudAuth");
+    creds=$(aws sts assume-role --profile="cloudauth" --role-arn arn:aws:iam::145224550763:role/CloudAuthConnectionRole --role-session-name "CloudAuth");
 
     echo "$creds" | jq '.AssumedRoleUser';
 
@@ -228,7 +233,7 @@ get-credentials-cloudauth-prod ()
     #tmux kill-session -t credentials;
     #tmux new-session -d -s credentials "aws-credentials -r" "$@"
     ada credentials update --account="016953815887" --provider=conduit --role="IibsAdminAccess-DO-NOT-DELETE" --profile="personal" --once;
-    creds=$(aws sts assume-role --profile="personal" --role-arn arn:aws:iam::016953815887:role/CloudAuthConnectionRole --role-session-name "CloudAuth");
+    creds=$(aws sts assume-role --profile="cloudauth" --role-arn arn:aws:iam::016953815887:role/CloudAuthConnectionRole --role-session-name "CloudAuth");
 
     echo "$creds" | jq '.AssumedRoleUser';
 
@@ -252,8 +257,8 @@ cws ()
     rm ./*/*/package-lock.json "$@"
 }
 declare -fx cws
-cwsa ()
-{
+
+cwsa () {
     git all clean -dfx;
     cd ../;
     rm package-lock.json;
@@ -262,17 +267,13 @@ cwsa ()
     rm ./*/*/*/package-lock.json "$@"
 }
 declare -fx cwsa
-dammit ()
-{
+
+dammit () {
     docker-compose down;
-    docker-compose up -d "$@"
+    docker-compose up -d "$@";
 }
 declare -fx dammit
-debugc ()
-{
-    ssh -N -L 5050:localhost:5050 dev-dsk-ailor-2c-02d19e46.us-west-2.amazon.com "$@"
-}
-declare -fx debugc
+
 dequote ()
 {
     eval echo "$1" 2> /dev/null
@@ -861,12 +862,7 @@ newsroom ()
     command newsroom -o ~/.newsroom.opml "$@"
 }
 declare -fx newsroom
-ninja ()
-{
-    tmux kill-session -t ninja;
-    tmux new-session -d -s ninja "ninja-dev-sync" "$@"
-}
-declare -fx ninja
+
 note ()
 {
     jrnl "$@"
@@ -883,11 +879,6 @@ notify-text ()
     /usr/bin/osascript -e "tell application \"Messages\" to send \"$1\" to buddy \"4843549199\"" "$@"
 }
 declare -fx notify-text
-odin ()
-{
-    ssh -f -N -L 2009:localhost:2009 dev-dsk-ailor-2c-02d19e46.us-west-2.amazon.com "$@"
-}
-declare -fx odin
 offset ()
 {
     local string=${1};
@@ -956,35 +947,28 @@ portable ()
     $@
 }
 declare -fx portable
-pr-tamper ()
-{
-    cr --reviewers team:env-improvement-cr:0,ldap:ninja-bar-raisers:1 --parent origin/mainline --amend --open "$@"
-}
-declare -fx pr-tamper
+
 print-bc ()
 {
     echo "$1";
     curl 10.52.128.101:5964 --tcp-fastopen --data "^XA^BY5,2,350^FO50,50^BC^FD$1^FS^XZ" "$@"
 }
 declare -fx print-bc
+
 print-text ()
 {
     echo "$1";
     curl 10.189.198.131:5555 --tcp-fastopen --data "^XA^CF0,80^FO50,225^FD$1^FS^XZ" "$@"
 }
 declare -fx print-text
+
 print-zpl ()
 {
     echo "$1";
     curl 10.52.128.101:5964 --tcp-fastopen --data "$1" "$@"
 }
 declare -fx print-zpl
-pull-request ()
-{
-    git all branch -u origin/mainline;
-    cr --all --parent origin/mainline --amend --open --description "$($HOME/crTemplate.md)" --reviewers team:kindle-rl-dev:2 '
-}
-declare -fx pull-request
+
 python ()
 {
     /usr/local/bin/python3 "$@"
@@ -1096,11 +1080,7 @@ sam-deploy ()
     sam validate && aws cloudformation delete-stack --stack-name "$1" && sam deploy --stack-name "$1" --resolve-s3 --capabilities CAPABILITY_IA "$@"
 }
 declare -fx sam-deploy
-scenario ()
-{
-    python ./tests/unit/engines/promotion/scenarios/promotion_scenarios_tests.py "$@"
-}
-declare -fx scenario
+
 screenshot ()
 {
     screencapture -ic "$@"
@@ -1303,3 +1283,20 @@ goimage() {
     openai api image.create -n 4 -p "$@" | jq -r '.data[].url' | xargs -n1 /usr/bin/open -a "/Applications/Google Chrome.app";
 }
 declare -fx goimage;
+
+# echo-test
+echo-test () {
+    echo "Test" "$@";
+}
+declare -fx echo-test;
+
+#pull-request () {
+#    git all branch -u origin/mainline;
+#    cr --all --parent origin/mainline --amend --open --description "$($HOME/crTemplate.md)" --reviewers team:kindle-rl-dev:2
+#}
+#declare -fx pull-request
+
+#scenario () {
+#    python ./tests/unit/engines/promotion/scenarios/promotion_scenarios_tests.py "$@"
+#}
+#declare -fx scenario

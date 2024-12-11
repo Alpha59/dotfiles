@@ -18,17 +18,24 @@ $(git show -s --format='* SHA: %H%n* Author: %an%n* Start Date: %ad%n* CRUX Open
 
 \`\`\`
 $(timeout 10 git show --stat --format="")
+
+---
+
+$(git overwritten)
 \`\`\`
+
+$(git neck)
 ---
 
 ## Branch Check
 
 Current Branch: $(timeout 10 git current-branch);
-
+$(git worktree list)
 \`\`\`
 $(timeout 10 git push)
 
 $(timeout 10 git wtf -r -A -a)
+
 \`\`\`
 
 ## Test Cases
@@ -37,7 +44,7 @@ How did you test your change?
 ### Gordian's Knot
 
 \`\`\`
-$(timeout 240 gk-analyze-all)
+$(timeout 480 gk-analyze-all)
 \`\`\`
 
 Some recommended actions:
@@ -54,6 +61,14 @@ $(timeout 240 brazil-build coverage | tail -n50 | grep -v "report" | grep -v "ec
 \`\`\`
 
 ---
+
+Git Conflicts that exist: $(git conflicts);
+
+$(git divergance)
+
+\`\`\`
+$(git log-graph | head -n5)
+\`\`\`
 
 author: $(timeout 5 git whoami);
 

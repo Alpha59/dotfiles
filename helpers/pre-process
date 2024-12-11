@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 # Verify that there is an argument after the '--whatver
 check () {
     { [ "$1" != "$EOL" ] && [ "$1" != '--' ]; } || exit2 "missing argument" "$2";

@@ -1,0 +1,13 @@
+---
+syntax: bash
+tags: [bash, personal]
+version: 1.0.0
+default: true
+---
+
+Takes a plain text file input and runs the file through
+a series of interpreters/formatters to verify the text
+is written in a professional manner.
+
+    EXAMPLE
+    doc-bar-raiser <file-name>

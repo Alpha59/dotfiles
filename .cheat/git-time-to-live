@@ -1,0 +1,3 @@
+
+Shows the amount of time that a given commit took to merge
+from after it's initial commit.

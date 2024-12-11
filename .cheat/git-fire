@@ -1,0 +1,6 @@
+
+Add, commit, and push to remote in case of a fire
+
+git fire
+git fire <message>
+    Execute git fire with <message> for commit messag

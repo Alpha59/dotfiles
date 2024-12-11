@@ -1,0 +1,23 @@
+
+Renames the branches matching a given pattern to
+be named after the new pattern. Replaces the existing
+pattern with the new pattern.
+
+  Batch renames branches with a matching prefix to another prefix
+
+  Options:
+  -h|--help     - show this page.
+  -v|--verbose  - print more details about what is being done.
+  -n|--dry-run  - do not actually renames the branches.
+
+  BRANCH_PREFIX - a prefix that matches the start of branch names
+  NEW_PREFIX    - the new prefix for the branch names
+
+  Examples:
+  $ git-rename-branches bug bugfix
+  bug/128  -> bugfix/128
+  bug_test -> bugfix_test
+
+  $ git-rename-branches ma backup/ma
+  master -> backup/master
+  main   -> backup/main

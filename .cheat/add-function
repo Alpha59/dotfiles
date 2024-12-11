@@ -1,0 +1,18 @@
+---
+syntax: bash
+tags: [bash, personal]
+version: 1.0.0
+default: true
+---
+
+        
+    EXAMPLES:
+# Prints version information
+add-function --version;
+# Runs script in verbose mode
+add-function -v;
+# Runs script in quiet mode
+add-function -q;
+# pipes output into a file
+add-function -o file.txt;
+

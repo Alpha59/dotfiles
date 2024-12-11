@@ -1,0 +1,20 @@
+---
+syntax: bash
+tags: [bash, personal]
+version: 1.0.0
+default: true
+---
+
+
+    EXAMPLES:
+# Prints version information
+compress-dir-json --version;
+# Runs script in verbose mode
+compress-dir-json -v;
+# Runs script in quiet mode
+compress-dir-json -q;
+# pipes output into a file
+compress-dir-json -o file.txt;
+# Decompress the file:
+compress-dir-json -d <file>
+compress-dir-json --decompress <file>

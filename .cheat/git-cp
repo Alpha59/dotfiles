@@ -1,0 +1,42 @@
+
+Copies a file and creates a series of commits that document copying
+that file. The Blame for the new file will match the blame for the previous
+file, so the file can still be viewed as a history of commits.
+
+$ git-cp src/app.ts src/app2.ts
+$ git log src/app2.ts
+commit f4593633d20be883334ae596b27beea6f89e271e
+Author: Jake Ailor <ailor@amazon.com>
+Date:   Wed Dec 11 14:51:11 2024 -0500
+
+    Copy src/app.ts into src/app2.ts
+14:51:35:~/Work/DROS-solo/src/DeviceReturnsOrderService>Yes Jake? >> git log
+commit 99c910c4e4960b204f503f98e706103b992947c3 (HEAD -> ailor/KRL-25461-timers)
+Author: Jake Ailor <ailor@amazon.com>
+Date:   Wed Dec 11 14:51:12 2024 -0500
+
+    Set back src/app.ts file
+
+commit 9b2d5ae40f9c1d37bde9a650d8614e40c7cfcfbc
+Merge: f459363 c32ccf3
+Author: Jake Ailor <ailor@amazon.com>
+Date:   Wed Dec 11 14:51:11 2024 -0500
+
+    Duplicate src/app.ts history.
+
+commit f4593633d20be883334ae596b27beea6f89e271e
+Author: Jake Ailor <ailor@amazon.com>
+Date:   Wed Dec 11 14:51:11 2024 -0500
+
+    Copy src/app.ts into src/app2.ts
+
+commit c32ccf333d0a13d25a71aaa406f5a24edb48bb92
+Author: Jake Ailor <ailor@amazon.com>
+Date:   Wed Dec 11 14:51:11 2024 -0500
+
+    Keep src/app.ts
+
+commit cbba7acfa8ce3a517676602036ee9aae6d3da22f
+Author: Jake Ailor <ailor@amazon.com>
+Date:   Tue Dec 10 13:42:20 2024 -0500
+ Previous Commit that already existed on the branch

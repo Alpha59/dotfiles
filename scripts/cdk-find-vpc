@@ -1,4 +1,5 @@
 #!/bin/bash
+
 vpc="$1"
 aws ec2 describe-internet-gateways --region us-west-2 --filters 'Name=attachment.vpc-id,Values='$vpc
 aws ec2 describe-subnets --region us-west-2 --filters 'Name=vpc-id,Values='$vpc

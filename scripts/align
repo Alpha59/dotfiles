@@ -20,4 +20,3 @@ try
         set bounds of window 1 to {(screenWidth - windowWidth) / 2.0, windowYt, (screenWidth + windowWidth) / 2.0, windowYb}
     end tell
 end try
-

@@ -1,0 +1,5 @@
+
+Gives a much more detailed output for git branch
+which includes:
+
+<date> <branch-name>                <remote> <last-sha> <Latest Commit message>

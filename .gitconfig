@@ -1,10 +1,10 @@
 [user]
-	email = ailor@amazon.com
+    email = ailor@amazon.com
     name = Jake Ailor
 [push]
     default = current
 [diff]
-    tool = icdiff
+    tool = git-icdiff
 [filter "lfs"]
     clean = git-lfs clean %f
     smudge = git-lfs smudge %f
@@ -12,10 +12,10 @@
 [core]
     editor = vim
     excludesfile = /Users/ailor/.gitignore_global
-	attributesfile = /Users/ailor/.config/git/attributes
-	pager = less
+    attributesfile = /Users/ailor/.config/git/attributes
+    pager = less
 [commit]
-	template = /Users/ailor/.gitmessage
+    template = /Users/ailor/.gitmessage
 [alias]
     tree = log --graph --oneline --decorate --all
     tree-long = log --graph --decorate --all
@@ -23,6 +23,8 @@
     search = !git log --oneline | grep
     uncommit = reset --soft HEAD~1
     cleanout = !git clean -df && git checkout -- .
-
+    diff = git diff -- . ':!package-lock.json'
 [color]
-	ui = auto
+    ui = auto
+[icdiff]
+    options = --report-identical-files

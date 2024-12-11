@@ -1,0 +1,203 @@
+#!/usr/bin/env bash
+
+if [[ "$#" -eq 3 ]] ; then
+  echo "Usage: $0 <cluster> <task_defintion>"
+  exit 1
+fi
+
+CLUSTER=$1;
+TASK_DEFINTION=$2;
+AWS_REGION='us-east-1'
+VPC_ID='vpc-368ae14b'
+PUBLIC_SUBNET='subnet-3e095758'
+BUCKET_NAME="ecs-exec-output-bucket-inspect"
+
+
+policy_assume_ecs=$(cat <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": [
+          "ecs-tasks.amazonaws.com"
+        ]
+      },
+      "Action": "sts:AssumeRole$CLUSTER"
+    }
+  ]
+}
+EOF
+)
+
+# Create a KMS Key
+KMS_KEY=$(aws kms create-key --region $AWS_REGION);
+KMS_KEY_ARN=$(echo $KMS_KEY | jq --raw-output .KeyMetadata.Arn);
+aws kms create-alias --alias-name alias/ecs-exec-demo-kms-key --target-key-id $KMS_KEY_ARN --region $AWS_REGION
+echo "The KMS Key ARN is: "$KMS_KEY_ARN;
+
+aws ecs create-cluster \
+    --cluster-name ecs-exec-demo-cluster \
+    --region $AWS_REGION \
+    --configuration executeCommandConfiguration="{logging=OVERRIDE,\
+                                                kmsKeyId=$KMS_KEY_ARN,\
+                                                logConfiguration={cloudWatchLogGroupName="/aws/ecs/ecs-exec-demo",\
+                                                                s3BucketName=$BUCKET_NAME,\
+                                                                s3KeyPrefix=exec-output}}";
+
+aws logs create-log-group --log-group-name /aws/ecs/ecs-exec-demo --region $AWS_REGION;
+
+aws s3api create-bucket --bucket $BUCKET_NAME --region $AWS_REGION;
+
+#ECS_EXEC_DEMO_SG=$(aws ec2 create-security-group --group-name ecs-exec-demo-SG --description "ECS exec demo SG" --vpc-id $VPC_ID --region $AWS_REGION);
+ECS_EXEC_DEMO_SG_ID="sg-075601109c233fb64" #$(echo $ECS_EXEC_DEMO_SG | jq --raw-output .GroupId)
+aws ec2 authorize-security-group-ingress --group-id $ECS_EXEC_DEMO_SG_ID --protocol tcp --port 80 --cidr 0.0.0.0/0 --region $AWS_REGION;
+
+aws iam create-role --role-name ecs-exec-demo-task-execution-role --assume-role-policy-document '$policy_assume_ecs' --region $AWS_REGION;
+aws iam create-role --role-name ecs-exec-demo-task-role --assume-role-policy-document '$policy_assume_ecs' --region $AWS_REGION;
+
+policy_task_role=$(cat <<EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssmmessages:CreateControlChannel",
+                "ssmmessages:CreateDataChannel",
+                "ssmmessages:OpenControlChannel",
+                "ssmmessages:OpenDataChannel"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:DescribeLogGroups"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "logs:DescribeLogStreams",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "arn:aws:logs:$AWS_REGION:$CDK_PERSONAL_ACCOUNT_ID:log-group:/aws/ecs/ecs-exec-demo:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject"
+            ],
+            "Resource": "arn:aws:s3:::$BUCKET_NAME/*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetEncryptionConfiguration"
+            ],
+            "Resource": "arn:aws:s3:::$BUCKET_NAME"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "kms:Decrypt"
+            ],
+            "Resource": "$KMS_KEY_ARN"
+        }
+    ]
+}
+EOF
+);
+
+aws iam attach-role-policy \
+    --role-name ecs-exec-demo-task-execution-role \
+    --policy-arn "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
+
+aws iam put-role-policy \
+    --role-name ecs-exec-demo-task-role \
+    --policy-name ecs-exec-demo-task-role-policy \
+    --policy-document '$policy_task_role';
+
+task_defintion=$(cat <<EOF
+{"family": "ecs-exec-demo",
+    "networkMode": "awsvpc",
+    "executionRoleArn": "arn:aws:iam::$CDK_PERSONAL_ACCOUNT_ID:role/ecs-exec-demo-task-execution-role",
+    "taskRoleArn": "arn:aws:iam::$CDK_PERSONAL_ACCOUNT_ID:role/ecs-exec-demo-task-role",
+    "containerDefinitions": [
+        {"name": "nginx",
+            "image": "nginx",
+            "linuxParameters": {
+                "initProcessEnabled": true
+            },
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                    "options": {
+                       "awslogs-group": "/aws/ecs/ecs-exec-demo",
+                       "awslogs-region": "$AWS_REGION",
+                       "awslogs-stream-prefix": "container-stdout"
+                    }
+            }
+        }
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512"
+}
+EOF
+);
+
+
+aws ecs register-task-definition --cli-input-json '$task_defintion' --region $AWS_REGION;
+
+task=$(aws ecs run-task \
+    --cluster $CLUSTER  \
+    --task-definition $TASK_DEFINTION \
+    --network-configuration awsvpcConfiguration="{subnets=[$PUBLIC_SUBNET],securityGroups=[$ECS_EXEC_DEMO_SG_ID],assignPublicIp=ENABLED}" \
+    --enable-execute-command \
+    --launch-type FARGATE \
+    --tags key=environment,value=production \
+    --platform-version '1.4.0' \
+    --region $AWS_REGION | jq -r '.tasks[0].attachments[0].id')
+
+echo "Enter Task ID: ($task)";
+read TASK
+
+if [[ -z $TASK ]]; then
+    TASK=$task
+fi
+
+aws ecs describe-tasks --cluster $CLUSTER  --region $AWS_REGION --tasks $TASK
+
+aws ecs execute-command  \
+    --region $AWS_REGION \
+    --cluster $CLUSTER
+    --task $TASK \
+    --container nginx \
+    --command "/bin/bash" \
+    --interactive;
+
+# TEAR_DOWN
+echo "PROCEED WITH TEARDOWN";
+read TEARDOWN
+
+aws logs delete-log-group --log-group-name /aws/ecs/ecs-exec-demo --region $AWS_REGION
+
+# Be careful running this command. This will delete the bucket we previously created
+aws s3 rm s3://$BUCKET_NAME --recursive
+aws s3api delete-bucket --bucket $BUCKET_NAME
+
+aws iam detach-role-policy --role-name ecs-exec-demo-task-execution-role --policy-arn "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
+aws iam delete-role --role-name ecs-exec-demo-task-execution-role
+
+aws iam delete-role-policy --role-name ecs-exec-demo-task-role --policy-name ecs-exec-demo-task-role-policy
+aws iam delete-role --role-name ecs-exec-demo-task-role
+
+aws kms schedule-key-deletion --key-id $KMS_KEY_ARN --region $AWS_REGION
+
+aws ec2 delete-security-group --group-id $ECS_EXEC_DEMO_SG_ID --region $AWS_REGION

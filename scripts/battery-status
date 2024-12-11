@@ -176,9 +176,11 @@ time_left="$(echo $battstat |
 
 if [[ $(pmset -g ac) == *"No adapter attached."* ]]
 then
+    debug "There is no Power Source attached";
     warn "$battstat"
     emoji='🔋'
 else
+    debug "A Power Source attached";
     print_green "$battstat"
     emoji='🔌'
 fi

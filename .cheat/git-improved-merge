@@ -1,0 +1,12 @@
+
+# Usage: improved-merge [<BRANCH>]
+#
+# Sophisticated git merge with integrated CI check and automatic cleanup upon
+# completion.
+#
+# - Fast-forwards BRANCH to latest version (if applicable)
+# - Checks if BRANCH passed CI
+# - Fast-forwards master to latest version
+# - Merges BRANCH into master
+# - Pushes master upstream
+# - Deletes BRANCH both locally and on its remote.

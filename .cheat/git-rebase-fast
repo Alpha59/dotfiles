@@ -1,0 +1,5 @@
+
+Pulls from the remote branch on mainline and
+then rebases the existing branch on top of the
+new Mainline
+

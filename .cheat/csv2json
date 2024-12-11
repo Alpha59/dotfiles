@@ -1,0 +1,27 @@
+---
+syntax: jq
+tags: [jq, personal]
+version: 1.0.0
+default: true
+---
+
+This will convert a CSV file into a JSON array.
+Converts numeric values to numbers, and packages
+the results into an object# with keys specified by
+the "headers" array.
+
+    EXAMPLE:
+        csv2json <file>
+
+Converts:
+
+year,code,code2
+2019,9105,12958
+2019,9154,211
+
+to:
+
+[
+{"year":"2019","code":"9105","code2":"12958"},
+{"year":"2019","code":"9154","code2":"211"}
+]

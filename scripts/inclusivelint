@@ -42,7 +42,7 @@ function add_word_to_dict() {
 
 function do_operation() {
     OP="$1"
-    
+
     if [[ $OP == "ADD" ]]; then
         add_word_to_dict $2 $3 $4
     fi
@@ -194,7 +194,7 @@ do
     r)
         REPLACEMENT_WORD=${OPTARG}
         ;;
-    *) 
+    *)
         echo "Invalid argument. Use for example -v for version"
         exit 1
         ;;
@@ -215,7 +215,7 @@ else
     find_contraventions
 fi
 
-if $contraventionFound ; then 
+if $contraventionFound ; then
     exit 1
 else
     printInfo "No non-inclusive terminologies found"

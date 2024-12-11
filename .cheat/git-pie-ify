@@ -1,0 +1,4 @@
+
+Usage: git pie-ify pattern replacement
+
+Replaces a pattern in the existing files tracked by git

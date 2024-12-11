@@ -1,0 +1,2 @@
+# Usage: git-pruneall [<remote>...]
+# Prune branches from specified remotes, or all remotes when

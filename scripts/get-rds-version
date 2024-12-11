@@ -14,6 +14,7 @@ else
 fi
 
 aws-credentials "$accountId" "$region";
+
 # Get Cluster Name
 cluster_names=($(aws rds describe-db-clusters --region "$region" | jq -r ".DBClusters[].DBClusterIdentifier"));
 if [ -z "$cluster_names" ]
@@ -56,4 +57,3 @@ pending_maints=($(aws rds describe-pending-maintenance-actions | jq -r ".Pending
 for pending_maint in "${pending_maints[@]}"; do
     echo "Pending Maintenance: $pending_maint";
 done;
-

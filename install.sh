@@ -208,6 +208,24 @@ brew tap amzn/amzn;
     pip install black;
     pip install flake8;
 
+#brew install howdoi; # howdoi will answer all sorts of queries:
+#brew install black; # Python formatter Opinionated
+#brew install flake8; # Python Format Checker
+pip install howmanypeoplearearound; # A tshark wrapper to count the number of cellphones in the vicinity
+pip install PyUSB; # PyUSB offers easy USB devices communication in Python
+pip install python-yubico; # Python class for verifying Yubico One Time Passwords (OTPs) based on the validation protocol version 2.0.
+pip install pyusb; # PyUSB offers easy USB devices communication in Python
+pip install maybe; # See what a program does before deciding whether you really want it to happen.
+pip install xlsx2csv;
+pip install rebound-cli; # Command-line tool that automatically fetches Stack Overflow results after compiler errors.
+pip install ehh; # Store and run any command inside
+pip install lookatme; # lookatme is an interactive, extensible, terminal-based markdown presentation tool.
+pip install pyjokes; # tells a joke
+pip install matrix-webcam; #
+pip install classifier; # Classify the files in your Downloads folder into suitable destinations.
+#brew install glances; # Glances is an open-source system cross-platform monitoring tool.
+#brew install csv2md; # convery csv to md
+
 # Informational tools
     # Script to display System information
     brew install archey4;
@@ -1077,58 +1095,62 @@ brew install basictex;
 brew install fswatch;
 
 brew install flog;
-    
+
 brew tap mingrammer/flog;
-    
+
 brew install flog;
-    
+
 brew install taskd;
-    
+
 brew install tasksh;
-    
+
 brew install task;
-    
+
 npm i -g npkill;
-    
+
 npm i -g @feedzai/repo-analyzer;
-    
+
 brew install git-now;
-    
+
 pip install git-playback;
-    
+
 npm i -g git-stats;
-    
+
 brew install git-recent;
-    
+
 npm install --global git-recall;
-    
+
 curl https://i.jpillora.com/slavaGanzin/await!;
-    
+
 python3.6 -m pip install shellhistory;
-    
+
 python -m pip install shellhistory;
-    
+
 python2 -m pip install shellhistory;
-    
+
 python3 -m pip install shellhistory;
-    
+
 brew install emojify;
-    
+
 brew install jc;
-    
+
 brew install jo;
-    
+
 npm i -g carbon-now-cli;
-    
+
 npm install -g browser-run;
-    
+
 npm install -g jscpd;
-    
+
 brew install ncdu;
-    
+
 brew install chatai;
-    
+
 brew install aichat;
-    
+
 curl -fsSL https://downloads.slack-edge.com/slack-cli/install.sh;
+
+brew install pipx;
+
+brew install lighttpd;
     

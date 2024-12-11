@@ -1,0 +1,4 @@
+
+Show the last committed change in a given file.
+
+e.g: git diff-last <filename>

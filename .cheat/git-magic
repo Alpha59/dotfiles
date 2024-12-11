@@ -1,0 +1,9 @@
+
+Creates a commit that just lists the files that were
+added or changed.
+
+git-magic [-a] [-m msg] [-e] [-p] [-f]
+
+p Push
+m message
+a Add all files

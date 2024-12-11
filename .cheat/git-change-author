@@ -1,0 +1,7 @@
+
+Changes the email address for an author, so that their commits
+can still be tracked through the repository. This impacts all
+commits from that author
+
+usage: git change-author <old_email> <new_author> <new_email>
+example: git change-author [-f] user@old.server.com \"User Name\" user2@new.server.com
