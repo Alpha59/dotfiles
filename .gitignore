@@ -73,6 +73,13 @@ secrets
 !.vim/*
 !.cheat/
 !.cheat/*
+!.aws-sam/**
+.aws-sam/aws-sam-cli-app-templates
+!.cheat/
+!.cheat/**
+!.config/
+!.config/**
+.config/cheat/cheatsheets/community
 /.blackbox/pubring.gpg~
 /.blackbox/pubring.kbx~
 /.blackbox/secring.gpg
@@ -159,5 +166,7 @@ Makefile
 !click.workflow
 !crTemplate.md
 !get-pip.py
+!notes/*
+!notes/**
 !ee-stories
 !ecs-runbook.md

@@ -1,0 +1,7 @@
+
+global:
+  verbose: 0
+  quiet: 0
+  clipboard: false
+  output: 
+

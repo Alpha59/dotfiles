@@ -1,0 +1,6 @@
+
+Checkout a new branch and bring the latest commit with you from that branch
+This is useful if you have committed something to an existing branch and need
+to move it to new branch.
+
+Useful on mainline right now - but can be extended to work on any branch

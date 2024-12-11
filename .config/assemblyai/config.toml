@@ -1,0 +1,7 @@
+[config]
+distinct_id = '255056'
+new = 'false'
+token = 'c3da2fe9a24b4516a7f6d7b4a2f0fb86'
+
+[features]
+telemetry = 'true'

@@ -1,0 +1,55 @@
+---
+syntax: bash
+tags: [bash, personal]
+version: 1.0.0
+default: true
+---
+
+This appends bash headers to the file, including headers that:
+
+* Verify that installs are completed
+* Pre-processes headers so that POSITIONAL_ARGS are formatted properly
+
+    # Pre-process options to:
+    # - expand -xyz into -x -y -z
+    # - expand --longopt=arg into --longopt arg
+* Creates config file at $HOME/.config/<file-name>/config.yml
+    * Points CONFIG_FILE to the file
+    * Adds -c|--config option to script
+* Pre-process Config file
+    * **Add Example of Config FILE**
+* Creates the ".cheat/<file-name>" file easy documentation
+* Adds USAGE for Help message (Needs to be updated after running this script)
+    * Add default usage for to the --help option and --version options
+    * Adds options to the Help message:
+        * -v|--verbose
+        * -q|--quiet
+        * -o|--output <file>
+        * --clipboard
+* Adds functions for interactivity (enabled by --interactive):
+    * tst=$(interact choose "Default" "Default" "Test" "Test1" "Test2");
+    * 'interact_prompt "Default" "Choose one of the following options:"'
+    * interactivity provided by https://github.com/charmbracelet/gum
+    * Adds --default for overriding interactivity
+* Adds traps to prevent cancelling the program pre-emptively
+* Adds functions for:
+    * warn (removed with -q -q)
+    * print  (removed with -q)
+    * pass (removed with -q -q)
+    * error (removed with -q -q -q)
+    * info (-v)
+    * debug (-v -v)
+    * dim (-v -v -v)
+    * print_black (removed with -q)
+    * print_red (removed with -q)
+    * print_green (removed with -q)
+    * print_yellow (removed with -q)
+    * print_blue (removed with -q)
+    * print_magenta (removed with -q)
+    * print_cyan (removed with -q)
+    * print_white (removed with -q)
+    * echo (removed with -q)
+
+
+    EXAMPLES:
+add-bash-header file.txt # Appends the bash headers to the file

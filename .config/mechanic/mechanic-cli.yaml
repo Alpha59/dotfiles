@@ -1,0 +1,5 @@
+execution:
+  inferred_frontend_region_name:
+    "": us-east-2
+    amazon: us-east-2
+stack: amazon

@@ -1,0 +1,14 @@
+
+## Usage: github-open FILE [LINE]
+## Open GitHub file/blob page for FILE on LINE. FILE is the path to the
+## file on disk; it must exist and be tracked with the current HEAD
+## revision. LINE is the line number or line number range (e.g., 10-50).
+##
+## Open foo/bar.rb in browser:
+##   $ github-open foo/bar.rb
+##
+## Open foo/bar in browser w/ lines 50-57 highlighted:
+##   $ github-open foo/bar.rb 50-57
+##
+## Open current file in vim on line 20:
+##   :!github-open % 20

@@ -1,0 +1,14 @@
+
+Shows a summary of the repo:
+
+ project     : ProjectName
+ repo age    : 10 months
+ branch:     : mainline
+ last active : 26 hours ago
+ active on   : 136 days
+ commits     : 273
+ files       : 217
+ uncommitted :        1
+ authors     :
+    33  Jake Ailor                 12.1%
+    ...

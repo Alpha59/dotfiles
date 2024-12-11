@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+reset=$(tput sgr0);
+
+## FUNCTIONS THAT ALWAYS PRINT UNLESS SILENCED
+warn() {
+    yellow=$(tput setaf 3);
+    if [[ $SILENT -lt 2 ]]; then
+        if [[ -n "$OUTPUT_FILE" && -f "$OUTPUT_FILE" ]]; then
+            echo "[WARN]: ${*}" >> "$OUTPUT_FILE";
+        else
+            echo "${yellow}${*}${reset}";
+        fi
+    fi
+}
+HOST="$1";
+echo "Updating: $HOST";
+warn "Starting";
+ssh  "$DESK" -t "yes | ssh  \"$HOST\" -t -t \"exit;\"";
+warn "yum update; apollo-update-rpm";
+ssh  "$DESK" -t "ssh  \"$HOST\" -t \"yes | sudo yum update; sudo /apollo/bin/apollo-update-rpm;\"";
+warn "yum update kernel";
+ssh  "$DESK" -t "ssh  \"$HOST\" -t \"yes | sudo yum update kernel;\"";
+warn "yum update other";
+ssh  "$DESK" -t "ssh  \"$HOST\" -t \"yes | sudo yum update libfastjson babel systemd cpio vim sudo libxml2 libdb nss glib2 perl krb5 freetype libtasn1 libpng;\"";
+warn "Force s3 update 1";
+ssh  "$DESK" -t "ssh  \"$HOST\" -t \"yes | sudo rpm -Uvh --force https://s3.amazonaws.com/amazon-vm-agent/vm-agent-publicaws-0.1-0.x86_64.rpm;\"";
+warn "Security update 1";
+ssh  "$DESK" -t "ssh  \"$HOST\" -t \"yes | sudo yum update -y --security --releasever=latest;\"";
+warn "Security update 2";
+ssh  "$DESK" -t "ssh  \"$HOST\" -t \"yes | sudo yum update -y --security --releasever=latest --cve CVE-2018-12126 --cve CVE-2018-20483 --cve CVE-2018-16509 --cve CVE-2017-16844 --cve CVE-2019-0232 --cve CVE-2019-12735 --cve CVE-2019-14287;\"";
+
+warn "Attempting Ubuntu Update"
+ssh  "$DESK" -t "ssh  \"$HOST\" -t \"wget -q https://s3.amazonaws.com/amazon-vm-agent/vm-agent-publicaws-0.1-0.x86_64.deb && sudo dpkg --force-all -i vm-agent-publicaws-0.1-0.x86_64.deb && rm -f vm-agent-publicaws-0.1-0.x86_64.deb; sudo apt-get -y update; sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::=\"--force-confdef\" -o Dpkg::Options::=\"--force-confold\" upgrade;\"";
+
+
+warn "Restarting host";
+ssh  "$DESK" -t "ssh  \"$HOST\" -t -o ServerAliveInterval=1 -o ServerAliveCountMax=1 \"export PATH=\"$PATH:/usr/sbin\"; echo \"shutdown\"; sudo shutdown -r now; echo \"rebooting\"; sudo reboot;\"";
+
+warn "Sleeping off the update";
+sleep 240;
+warn "Done Sleeping on the job";
+ssh  "$DESK" -t "ssh \"$HOST\" -o ConnectTimeout=5 true";
+while test $? -gt 0
+do
+    ssh  "$DESK" -t "ssh \"$HOST\" -o ConnectTimeout=5 true";
+    sleep 60;
+done
+sleep 240;
+warn "Finished napping";

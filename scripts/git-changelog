@@ -71,9 +71,9 @@ for commit in repo.iter_commits(ref, paths=path):
     log_text = fp.stdout.read()
     del fp
 
-    print "%s  %s  <%s>\n" % \
+    print("%s  %s  <%s>\n" % \
         (time.strftime("%Y-%m-%d", time.gmtime(date)),
-         author.name, author.email)
+         author.name, author.email))
 
     if path:
         log_text = re.sub(' ' + path + '/', ' ', log_text)
@@ -83,10 +83,10 @@ for commit in repo.iter_commits(ref, paths=path):
     # changelog text.
     if re.match('\s+\* ', log_text_remainder):
         if log_text_remainder[0] == '\n':
-            print log_text_remainder[1:]
+            print(log_text_remainder[1:])
         else:
-            print log_text_remainder
+            print(log_text_remainder)
     else:
-        print "%s%s" % (log_text, log_text_remainder)
+        print("%s%s" % (log_text, log_text_remainder))
 
 # git-changelog ends here

@@ -1,0 +1,4 @@
+
+The job of git-flush is to recompactify your repository to be as small
+as possible, by dropping all reflogs, stashes, and other cruft that may
+be bloating your pack files.

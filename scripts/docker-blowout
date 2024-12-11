@@ -1,23 +1,248 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC1091
+#
+# Copyright 2023 Jake Ailor
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#==============================================================================
+#title           :
+#description     :
+#author          : AILOR, JAKE
+#email           : jakeailor@gmail.com
+#date            :
+#version         : 1.0.0
+#notes           :
+#==============================================================================
+
+set -e
+set -o pipefail
+
+############################################################
+# CHECK INSTALLED PROGRAMS                                 #
+############################################################
+# TODO: List the required Programs as strings:
+# Get the print functions that we need
+if [[ -e $HOME/helpers/check-installs ]]; then
+    # shellcheck source=$HOME/helpers/check-installs
+    $HOME/helpers/check-installs gum; # list of required programs as strings
+fi
+############################################################
+# PRE-PROCESS ARGS                                         #
+############################################################
+# Pre-process the args to split them
+# from -xyz to -x -y -z
+# and --output=file.txt to --output file.txt
+# TODO: MAKES $STDIN available
+if [[ -e $HOME/helpers/pre-process ]]; then
+    # shellcheck source=$HOME/helpers/pre-process
+    source "$HOME/helpers/pre-process";
+fi
+
+if [[ $0 =~ "add-bash-header" ]]; then
+    PROGRAM_NAME="$(basename "$1")";
+else
+    PROGRAM_NAME="$(basename "$0")";
+fi
+############################################################
+# GET CONFIG FILE (yaml)                                         #
+############################################################
+# Pre-process the args to split them
+# from -xyz to -x -y -z
+# and --output=file.txt to --output file.txt
+if [[ -e $HOME/helpers/config ]]; then
+    # shellcheck source=$HOME/helpers/config
+    source "$HOME/helpers/config";
+fi
+############################################################
+# CREATES ALL OF THE PRINT FUNCTIONS                       #
+############################################################
+# Get the print functions that we need
+if [[ -e $HOME/helpers/print-functions ]]; then
+    # shellcheck source="$HOME/helpers/print-functions"
+    source "$HOME/helpers/print-functions";
+fi
+############################################################
+# Help SET VERSION AND USAGE Vars HERE                     #
+############################################################
+if [[ -f "$HOME/.cheat/$PROGRAM_NAME" ]]; then
+    EXAMPLES="$(cat "$HOME/.cheat/$PROGRAM_NAME")";
+else
+    EXAMPLES="";
+fi
+############################################################
+
+# TODO: Variables that need to be set should be added here:
+VERSION="1.0.0"
+USAGE="
+There are currently no parameters available for this function.
+
+This file will remove all running docker instances and remove
+and images or containers on the local machine. This can be used
+to either free-up space on the local machine, or to fix issues
+
+usage: $PROGRAM_NAME [-v][-v][--help][--version]
+
+    OPTIONS:
+        no known options
+";
+
+POSITIONAL_NUMBER_MIN=1;
+if [[ -e $HOME/helpers/help ]]; then
+    source "$HOME/helpers/help";
+fi
+
+############################################################
+# Add interactive functionality (default)                  #
+############################################################
+DEFAULT="true";
+INTERACTIVE="false";
+if [[ -e $HOME/helpers/interactive ]]; then
+    # shellcheck source=$HOME/helpers/traps
+    source "$HOME/helpers/interactive";
+fi
+
+# interact accepts all gum options with the difference of "default" being the second option.
+#
+#usage: interact_prompt "Default" "Choose one of the following options:"
+#usage: tst=$(interact choose "Default" "Default" "Test" "Test1" "Test2");
+#pass "Test Result = $tst";
+
+############################################################
+# Catch interuptions and request abortion                  #
+############################################################
+if [[ -e $HOME/helpers/traps ]]; then
+    # shellcheck source=$HOME/helpers/traps
+    source "$HOME/helpers/traps";
+fi
+# Uncomment to force a double Ctrl-C on exit
+#trap on_interrupt INT
+# Uncomment to force root
+#assert_root
+# TODO: CLIPBOARD_OUTPUT should be set when appropraite
+############################################################
+# Process the input options. Add options as needed.        #
+############################################################
+# Get the options
+
+POSITIONAL_ARGS=()
+
+# TODO: Variables that need to be set are here:
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --arg-test)
+        ARG_TEST="$2"
+        shift # past argument
+        shift # past value
+        ;;
+     \?) # Invaid option
+        error "Error: Invalid option"
+        Help;
+        exit 1;
+        ;;
+    -*)
+        error "Unknown option $1"
+        exit 1
+        ;;
+    *)
+        POSITIONAL_ARGS+=("$1") # save positional arg
+        shift # past argument
+        ;;
+  esac
+done
+
+set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
+
+if [ $# -lt $POSITIONAL_NUMBER_MIN ]; then
+    error "Please specify $POSITIONAL_NUMBER_MIN positional argument ($# were specified)";
+    exit 1;
+fi
+
+if [[ -n "$ARG_TEST" ]]; then
+    echo "ARGUMENT TEST: $ARG_TEST";
+    echo "DEFAULT: $DEFAULT";
+    echo "INTERACTIVE: $INTERACTIVE";
+    echo "VERSION: $VERSION";
+    echo "USAGE: $USAGE";
+    echo "EXAMPLES: $EXAMPLES";
+fi
+
+############################################################
+############################################################
+# Main program                                             #
+############################################################
+        echo "Starting with a system prune";
+docker system prune --all --force --volumes;
+
+echo "Killing all running instances";
+
 test -z "$(docker ps -q 2>/dev/null)" && osascript -e 'quit app "Docker"'
 docker ps -q | xargs -L1 docker stop
 killall com.docker.osx.hyperkit.linux
+docker stop $(docker ps -q);
+killall Docker;
+killall docker;
+ps ax|grep -i docker|egrep -iv 'grep|com.docker.vmnetd' | awk '{print $1}' | xargs kill;
+ps ax|grep -i docker|egrep -iv 'grep|com.docker.vmnetd' | awk '{print $1}' | xargs kill;
+echo "Done killing";
+
+sleep 5;
+
+echo "Starting Docker";
+open /Applications/Docker.app;
+echo "Docker Started";
+
+sleep 5;
 
 # Re-open docker
-open --background -a Docker &&
-    while ! docker system info > /dev/null 2>&1; do sleep 1; done
+#open --background -a Docker &&
+#    while ! docker system info > /dev/null 2>&1; do sleep 1; done
 
+echo "Removing Libraries";
 rm ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
+
+echo "Stopping containers and removing images"
 docker-compose down;
 docker rm -f $(docker ps -aq);
 docker rmi -f $(docker images -q);
 docker rmi $(docker images -q -f dangling=true);
 docker ps -q -a -f status=exited | xargs -n 100 docker rm -v
 docker images -q --filter "dangling=true" | xargs -n 100 docker rmi
+
+echo "Cleanup docker volumes";
 docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes
 docker-compose rm -fva;
 docker-compose pull;
-#docker-compose up --force-recreate --build --remove-orphans -d;
+
+echo "Forcing recreate to remove compose"
+docker-compose up --force-recreate --build --remove-orphans -d;
+
+echo "Killing all running instances";
+
+test -z "$(docker ps -q 2>/dev/null)" && osascript -e 'quit app "Docker"'
+docker ps -q | xargs -L1 docker stop
+killall com.docker.osx.hyperkit.linux
 docker stop $(docker ps -q);
 killall Docker;
 killall docker;
-open /Applications/Docker.app/;
+ps ax|grep -i docker|egrep -iv 'grep|com.docker.vmnetd' | awk '{print $1}' | xargs kill;
+ps ax|grep -i docker|egrep -iv 'grep|com.docker.vmnetd' | awk '{print $1}' | xargs kill;
+echo "Done killing";
+
+sleep 5;
+
+echo "Starting Docker";
+open /Applications/Docker.app;
+echo "Docker Started";
+
+sleep 5;

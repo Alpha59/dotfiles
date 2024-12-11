@@ -189,18 +189,18 @@ global:
   output: ""
 ";
 # Config will output as
-#       global_verbose=0
-#       global_quiet=0
-#       global_clipboard=false
-#       global_output=./file-name
+#   global_verbose=0
+#   global_quiet=0
+#   global_clipboard=false
+#   global_output=./file-name
 if [[ $0 =~ "add-bash-header" ]]; then
     echo "This is a run of the add bash header script";
     if [[ -f "$1" ]]; then
         warn "We will add the bash header to $1";
         echo "Here is the existing file: $(bat "$1")";
         echo "Please add some usage examples for the cheatsheet (ctr-d)"
-        EXAMPLES=$(gum write --width=120 --height="7" --char-limit 0 --value "$EXAMPLES
-        $DEFAULT_EXAMPLE");
+        EXAMPLES=$(gum write --width=120 --height="7" --char-limit 0) #--value "$EXAMPLES
+        #$DEFAULT_EXAMPLE");
 cheat_sheet="---
 syntax: bash
 tags: [bash, personal]

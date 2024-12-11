@@ -1,0 +1,10 @@
+---
+syntax: bash
+tags: [bash, personal]
+version: 1.0.0
+default: true
+---
+
+Opens the jdb (Java Debugger) and outputs the port that will be used
+Prints out instructions on how to use the debugger, and formats the
+debugger output.

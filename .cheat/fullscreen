@@ -1,0 +1,12 @@
+Makes a program fullscreen.
+
+The Program needs to be specified by the name in
+the "/Applications/" folder, without the ".app".
+
+This is useful for programatically making something fullscreen,
+even if the current process is running in the background
+
+    EXAMPLES:
+    fullscreen Warp 0
+    fullscreen "Google Chrome" 0
+    fullscreen "Google Chrome" 1

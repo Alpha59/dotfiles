@@ -1,0 +1,10 @@
+## git-rank-contributors: a simple script to trace through the logs and
+## rank contributors by the total size of the diffs they're responsible for.
+## A change counts twice as much as a plain addition or deletion.
+##
+## Output may or may not be suitable for inclusion in a CREDITS file.
+## Probably not without some editing, because people often commit from more
+## than one address.
+#
+#Outputs just the name and email of the contributors
+#Adding -v will output the number of changes made by the user

@@ -172,8 +172,10 @@ shift;
 
 if [[ -f "$1" ]]; then
     output="$(cat "$1") $STDIN";
+    pass "Using file $1";
 else
     output="$(echo "$*") $STDIN";
+    warn "Using file $1";
 fi
 
 new_text="$output

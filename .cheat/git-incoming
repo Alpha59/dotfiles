@@ -1,0 +1,3 @@
+
+Shows what changes on the remote branch would be pulled
+during a git fetch or a git pull

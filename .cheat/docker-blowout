@@ -1,0 +1,11 @@
+---
+syntax: bash
+tags: [bash, personal]
+version: 1.0.0
+default: true
+---
+There are currently no parameters available for this function.
+
+This file will remove all running docker instances and remove
+and images or containers on the local machine. This can be used
+to either free-up space on the local machine, or to fix issues

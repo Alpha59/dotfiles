@@ -1,0 +1,5 @@
+
+Usage: git blame-someone-else <author> <commit>
+
+Changes the commit author for a commit, this can then be
+pushed to a remote repository. This is just for fun.

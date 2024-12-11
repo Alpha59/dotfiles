@@ -1,0 +1,15 @@
+
+
+Usage: git-clone-subset [options] <repository> <destination-dir> <pattern>
+USAGE
+
+Clones a <repository> into a <destination-dir> and runs on the clone
+git filter-branch --prune-empty --tree-filter 'git rm ...' -- --all
+to prune from history all files except the ones matching <pattern>,
+effectively creating a clone with a subset of files (and history) of the
+original repository.
+
+Useful for creating a new repository out of a set of files from another
+repository, migrating (only) their associated history. Very similar to
+what git filter-branch --subdirectory-filter does, but for a file
+pattern instead of just a single directory.

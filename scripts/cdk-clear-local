@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+DIR="$(pwd)/../..";
+if [[ -n $1 ]]; then
+    DIR=$1;
+fi
+echo $DIR;
+
+rm -vr $DIR/src/*/node_modules/;
+rm -vr $DIR/src/*/build/;
+rm -vr $DIR/src/*/dist/;
+rm -vr $DIR/env/;
+rm -vr $DIR/build/;
+rm -vr $DIR/dist/;
+rm -v $DIR/src/*/package-lock.json;
+echo "Complete";

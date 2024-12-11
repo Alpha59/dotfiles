@@ -1,0 +1,13 @@
+
+Outputs the number of changes that have occurred to a file.
+
+# Show churn for whole repo:
+#   $ git churn
+#
+# Show churn for specific directories:
+#   $ git churn app lib
+#
+# Show churn for a time range:
+#   $ git churn --since='1 month ago'
+#
+# (These are all standard arguments to `git log`.)

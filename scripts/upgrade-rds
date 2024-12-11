@@ -1,0 +1,125 @@
+#!/bin/bash
+
+if [[ "$#" -lt 1 || "$#" -gt 2 ]] ; then
+  echo "Usage: $0 <account> <region>"
+  exit 1
+fi
+
+accountId=$1
+
+if [[ -z $2 ]]; then
+    region=$REGION;
+else
+    region=$2;
+fi
+
+# Wait till Instance Is Available
+wait() {
+    sleep 60;
+
+    for cluster_instance_name in "${cluster_instances[@]}"
+    do
+        # Check to make sure we are in Upgrade mode
+        aws rds describe-db-instances --db-instance-identifier $cluster_instance_name --region "$region" \
+          --query '*[].{DBInstanceIdentifier:DBInstanceIdentifier,DBInstanceStatus:DBInstanceStatus} | [0]';
+
+        echo "Wait for Upgrade to complete";
+        # Wait till upgrade completes
+        aws rds wait db-instance-available --db-instance-identifier $cluster_instance_name --region $region;
+
+        sleep 30;
+
+        # Verify the new version is correct
+        echo "New version";
+        aws rds describe-db-clusters --region $region --db-cluster-identifier $cluster_instance_name \
+          --query '*[].[EngineVersion]' --output text;
+        echo "Requested Version $upgrade_version";
+    done
+}
+
+aws-credentials "$accountId" "$region";
+# Get Cluster Name
+cluster_names=($(aws rds describe-db-clusters --region "$region" | jq -r ".DBClusters[].DBClusterIdentifier"));
+if [ -z "$cluster_names" ]
+then
+    echo "Unable To find cluster, checking for instances";
+    instances=($(aws rds describe-db-instances --region "$region" | jq -r '.DBInstances[].DBInstanceIdentifier'));
+    instances_version=$(aws rds describe-db-instances --region "$region" | jq -r '.DBInstances[].EngineVersion');
+    echo "Instance Version $instances_version";
+
+    echo "Pending Maintenance";
+    aws rds describe-pending-maintenance-actions --region "$region";
+    pending_maint=($(aws rds describe-pending-maintenance-actions --region "$region" | jq -r ".PendingMaintenanceActions[].ResourceIdentifier"));
+
+    # Apply Upgrades to Instance Only
+    for pending_main_arn in "${pending_maint[@]}"
+    do
+        aws rds apply-pending-maintenance-action --resource-identifier "$pending_main_arn" --opt-in-type "immediate" --apply-action "system-update" --region "$region"
+        echo "Maintance Applied";
+    done
+
+    upgrade_version=$(aws rds describe-db-instances --region "$region" | jq '.DBInstances[].EngineVersion' | xargs -n1 aws rds describe-db-engine-versions --engine-version | jq -r ".DBEngineVersions[].ValidUpgradeTarget | last | .EngineVersion" | sort -u | head -n1);
+    for instance in "${instances[@]}"; do
+        echo "Upgrading $instance to $upgrade_version";
+        aws rds modify-db-instance \
+                  --db-instance-identifier $instance \
+                  --engine "aurora-mysql" \
+                  --region $region \
+                  --engine-version $upgrade_version \
+                  --allow-major-version-upgrade \
+                  --apply-immediately;
+        echo "Upgrade Applied";
+    done
+    exit 1;
+fi
+for cluster_name in "${cluster_names[@]}"; do
+    echo "Cluster Name: $cluster_name";
+done
+
+# Get Cluster ARN
+cluster_arns=($(aws rds describe-db-clusters --region "$region" | jq -r ".DBClusters[].DBClusterArn"));
+for cluster_arn in "${cluster_arns[@]}"; do
+    echo "Cluster ARN: $cluster_arn";
+done
+
+# Get Cluster Instances (Array)
+cluster_instances=($(aws rds describe-db-clusters --region "$region" | jq -r ".DBClusters[].DBClusterMembers[].DBInstanceIdentifier"));
+for cluster_instance in "${cluster_instances[@]}"; do
+    echo "Cluster Instances: $cluster_instance";
+done
+
+# Get Current Engine Type
+engine_types=($(aws rds describe-db-clusters --region "$region" | jq -r ".DBClusters[].EngineVersion"));
+for engine_type in "${engine_types[@]}"; do
+    echo "Engine Type: $engine_type";
+done
+
+# Get Highest Available Engine
+upgrade_version=$(aws rds describe-db-clusters --region "$region" | jq ".DBClusters[].EngineVersion" | xargs -n1 aws rds describe-db-engine-versions --engine-version | jq -r ".DBEngineVersions[].ValidUpgradeTarget | last | .EngineVersion" | sort -u | head -n1);
+echo "Upgrade version $upgrade_version";
+
+echo "Pending Maintenance";
+aws rds describe-pending-maintenance-actions;
+pending_maint=($(aws rds describe-pending-maintenance-actions --region "$region" | jq -r ".PendingMaintenanceActions[].ResourceIdentifier"));
+
+# Apply Upgrades to Clusters
+for pending_main_arn in "${pending_maint[@]}"
+do
+    aws rds apply-pending-maintenance-action --resource-identifier "$pending_main_arn" --opt-in-type "immediate" --apply-action "system-update" --region "$region"
+    wait;
+    echo "Maintance Applied";
+done
+
+for cluster_name in "${cluster_names[@]}"; do
+    echo "Upgrading $cluster_name to $upgrade_version";
+    aws rds modify-db-cluster \
+              --db-cluster-identifier $cluster_name \
+              --engine "aurora-mysql" \
+              --region $region \
+              --engine-version $upgrade_version \
+              --allow-major-version-upgrade \
+              --apply-immediately;
+    echo "Upgrade Applied";
+done
+
+

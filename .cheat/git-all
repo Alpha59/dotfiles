@@ -1,0 +1,8 @@
+
+
+Run a git command in all subdirectories that are (likely) git repositories
+if we are not in a .git repo, then move up 1 directory.
+
+e.g:
+    - git all status
+    - git all fetch origin

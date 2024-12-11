@@ -1,59 +1,162 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC1091
+#
+# Copyright 2023 Jake Ailor
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#==============================================================================
+#title           :
+#description     :
+#author          : AILOR, JAKE
+#email           : jakeailor@gmail.com
+#date            :
+#version         : 1.0.0
+#notes           :
+#==============================================================================
 
-show_help(){
-  echo "";
-  echo "";
-  echo "usage: $0 [dir] [string]";
-  echo "";
-  echo "    dir The directory to be compressed";
-  echo "    string The string to be decompressed";
-  echo "    -d,--decompress Decompress instead of Compressing";
-  echo "    -o,--output directory to send output";
-  echo "    -h,--help Brings up this menu";
-  echo "    -v,--verbose increases verbosity";
-  echo "";
-  echo "";
+set -e
+set -o pipefail
 
-  echo "e.g.";
-  echo "";
-  echo "    compress-dir-json .";
-  echo "        Compresses the current directory to stdout";
-  echo "    compress-dir-json . -o out/";
-  echo "        Compresses the current directory to out/output.json";
-  echo "    echo {} | compress-dir-json -d -o .";
-  echo "        Decompresses the input to the current directory";
-  echo "    compress-dir-json {} -d -o .";
-  echo "        Decompresses the input to the current directory";
-  echo "    echo {} | compress-dir-json -d";
-  echo "        Decompresses the input to stdout";
-  echo "    compress-dir-json -d {}";
-  echo "        Decompresses the input to stdout";
-  echo "";
-  echo "";
-  exit 1;
-}
-
-source ~/scripts/print-functions;
-
-debug() {
-    if [[ $verbose -gt 1 ]]; then
-        magenta=`tput setaf 5`
-        reset=`tput sgr0`
-        echo "${magenta}${*}${reset}"
-    fi
-}
-
-OUTPUT_DIR="."
-DECOMPRESS="false"
-POSITIONAL=()
-if test ! -t 0; then
-    debug "Reading from stdin"
-    PIPED_IN=$(cat)
+############################################################
+# CHECK INSTALLED PROGRAMS                                 #
+############################################################
+# TODO: List the required Programs as strings:
+# Get the print functions that we need
+if [[ -e $HOME/helpers/check-installs ]]; then
+    # shellcheck source=$HOME/helpers/check-installs
+    $HOME/helpers/check-installs gum; # list of required programs as strings
 fi
-while [[ $# -gt 0 ]]; do
-  key="$1"
+############################################################
+# PRE-PROCESS ARGS                                         #
+############################################################
+# Pre-process the args to split them
+# from -xyz to -x -y -z
+# and --output=file.txt to --output file.txt
+# TODO: MAKES $STDIN available
+if [[ -e $HOME/helpers/pre-process ]]; then
+    # shellcheck source=$HOME/helpers/pre-process
+    source "$HOME/helpers/pre-process";
+fi
 
-  case $key in
+if [[ $0 =~ "add-bash-header" ]]; then
+    PROGRAM_NAME="$(basename "$1")";
+else
+    PROGRAM_NAME="$(basename "$0")";
+fi
+############################################################
+# GET CONFIG FILE (yaml)                                         #
+############################################################
+# Pre-process the args to split them
+# from -xyz to -x -y -z
+# and --output=file.txt to --output file.txt
+if [[ -e $HOME/helpers/config ]]; then
+    # shellcheck source=$HOME/helpers/config
+    source "$HOME/helpers/config";
+fi
+############################################################
+# CREATES ALL OF THE PRINT FUNCTIONS                       #
+############################################################
+# Get the print functions that we need
+if [[ -e $HOME/helpers/print-functions ]]; then
+    # shellcheck source="$HOME/helpers/print-functions"
+    source "$HOME/helpers/print-functions";
+fi
+############################################################
+# Help SET VERSION AND USAGE Vars HERE                     #
+############################################################
+if [[ -f "$HOME/.cheat/$PROGRAM_NAME" ]]; then
+    EXAMPLES="$(cat "$HOME/.cheat/$PROGRAM_NAME")";
+else
+    EXAMPLES="";
+fi
+############################################################
+
+# TODO: Variables that need to be set should be added here:
+VERSION="1.0.0"
+USAGE="
+$PROGRAM_NAME is a program designed to compress and decompress folder
+structures into a JSON file, this is useful for creating a transportable
+json file of the structure that can be decompressed later
+
+usage: $PROGRAM_NAME [-v][-v][--help][--version]
+usage: $0 [dir] [string]
+
+    dir The directory to be compressed
+    string The string to be decompressed
+        -d,--decompress Decompress instead of Compressing
+        -o,--output directory to send output
+        -h,--help Brings up this menu
+        -v,--verbose increases verbosity
+
+    OPTIONS:
+        compress-dir-json .
+            Compresses the current directory to stdout
+        compress-dir-json . -o out/
+            Compresses the current directory to out/output.json
+        echo {} | compress-dir-json -d -o .
+            Decompresses the input to the current directory
+        compress-dir-json {} -d -o .
+            Decompresses the input to the current directory
+        echo {} | compress-dir-json -d
+            Decompresses the input to stdout
+        compress-dir-json -d {}
+            Decompresses the input to stdout
+";
+
+POSITIONAL_NUMBER_MIN=1;
+if [[ -e $HOME/helpers/help ]]; then
+    source "$HOME/helpers/help";
+fi
+
+############################################################
+# Add interactive functionality (default)                  #
+############################################################
+DEFAULT="true";
+INTERACTIVE="false";
+if [[ -e $HOME/helpers/interactive ]]; then
+    # shellcheck source=$HOME/helpers/traps
+    source "$HOME/helpers/interactive";
+fi
+
+# interact accepts all gum options with the difference of "default" being the second option.
+#
+#usage: interact_prompt "Default" "Choose one of the following options:"
+#usage: tst=$(interact choose "Default" "Default" "Test" "Test1" "Test2");
+#pass "Test Result = $tst";
+
+############################################################
+# Catch interuptions and request abortion                  #
+############################################################
+if [[ -e $HOME/helpers/traps ]]; then
+    # shellcheck source=$HOME/helpers/traps
+    source "$HOME/helpers/traps";
+fi
+# Uncomment to force a double Ctrl-C on exit
+#trap on_interrupt INT
+# Uncomment to force root
+#assert_root
+# TODO: CLIPBOARD_OUTPUT should be set when appropraite
+############################################################
+# Process the input options. Add options as needed.        #
+############################################################
+# Get the options
+
+POSITIONAL_ARGS=()
+
+# TODO: Variables that need to be set are here:
+while [[ $# -gt 0 ]]; do
+  case $1 in
     -d|--decompress)
       DECOMPRESS=true
       shift # past argument
@@ -63,25 +166,61 @@ while [[ $# -gt 0 ]]; do
       shift # past argument
       shift # past value
       ;;
-    -v|--verbose)
-      verbose+=1;
-      shift
-      ;;
-    -h|--help)
-        show_help;
-      ;;
-    *)    # unknown option
-      POSITIONAL+=("$1") # save it in an array for later
-      shift # past argument
-      ;;
+    --arg-test)
+        ARG_TEST="$2"
+        shift # past argument
+        shift # past value
+        ;;
+     \?) # Invaid option
+        error "Error: Invalid option"
+        Help;
+        exit 1;
+        ;;
+    -*)
+        error "Unknown option $1"
+        exit 1
+        ;;
+    *)
+        POSITIONAL_ARGS+=("$1") # save positional arg
+        shift # past argument
+        ;;
   esac
 done
 
-debug "Number of positional arguments: ${POSITIONAL[*]}"
+set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
+
+if [ $# -lt $POSITIONAL_NUMBER_MIN ]; then
+    error "Please specify $POSITIONAL_NUMBER_MIN positional argument ($# were specified)";
+    exit 1;
+fi
+
+if [[ -n "$ARG_TEST" ]]; then
+    echo "ARGUMENT TEST: $ARG_TEST";
+    echo "DEFAULT: $DEFAULT";
+    echo "INTERACTIVE: $INTERACTIVE";
+    echo "VERSION: $VERSION";
+    echo "USAGE: $USAGE";
+    echo "EXAMPLES: $EXAMPLES";
+fi
+
+############################################################
+############################################################
+# Main program                                             #
+############################################################
+
+OUTPUT_DIR="."
+DECOMPRESS="false"
+#POSITIONAL_ARGS=()
+if test ! -t 0; then
+    debug "Reading from stdin"
+    PIPED_IN=$(cat)
+fi
+
+debug "Number of positional arguments: ${POSITIONAL_ARGS[*]}"
 debug "Should Decompress: $DECOMPRESS"
-debug "Positional ${POSITIONAL[*]}";
-if [[ "${#POSITIONAL[*]}" -lt 2  &&  "$DECOMPRESS" != "true" ]]; then
-    INPUT_DIR="${POSITIONAL[0]}";
+debug "Positional ${POSITIONAL_ARGS[*]}";
+if [[ "${#POSITIONAL_ARGS[*]}" -lt 2  &&  "$DECOMPRESS" != "true" ]]; then
+    INPUT_DIR="${POSITIONAL_ARGS[0]}";
     FILES=""
     if [[ $INPUT_DIR != "" ]]; then
         debug "Looking for files..."
@@ -110,10 +249,10 @@ if [[ "${#POSITIONAL[*]}" -lt 2  &&  "$DECOMPRESS" != "true" ]]; then
         mkdir -p "$(dirname "$OUTPUT_DIR/output.json")";
         echo $json | jq > $OUTPUT_DIR/output.json
     fi
-elif [[ "${#POSITIONAL[*]}" -lt 2 && "$DECOMPRESS" == "true" ]]; then
-    if [[ "${#POSITIONAL[*]}" -eq 1 ]]; then
+elif [[ "${#POSITIONAL_ARGS[*]}" -lt 2 && "$DECOMPRESS" == "true" ]]; then
+    if [[ "${#POSITIONAL_ARGS[*]}" -eq 1 ]]; then
         debug "Using Positional Argument";
-        INPUT=$(cat "${POSITIONAL[0]}");
+        INPUT=$(cat "${POSITIONAL_ARGS[0]}");
     else
         debug "Using Piped Input";
         INPUT=$PIPED_IN;
@@ -140,4 +279,3 @@ elif [[ "${#POSITIONAL[*]}" -lt 2 && "$DECOMPRESS" == "true" ]]; then
 else
     show_help;
 fi;
-
