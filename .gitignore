@@ -30,7 +30,9 @@ Work
 WorkDocsDownloads
 node_modules
 workplace
-.vim/bundle/tsuquyomi
+.vim/bundle/tsuquyomi/
+.vim/bundle/tsuquyomi/*
+.vim/bundle/tsuquyomi/**
 
 # Do not ignore these files
 !.gitignore
