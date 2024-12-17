@@ -180,3 +180,7 @@ Makefile
 !notes/**
 !ee-stories
 !ecs-runbook.md
+capital-one-1
+tiktok-creator/
+tiktok-creator/*
+tiktok-creator/**

@@ -69,3 +69,5 @@ alias timeout=gtimeout;
 alias shuf=gshuf;
 source gtm-plugin.sh
 #source ~/codechecker/venv/bin/activate
+
+. "$HOME/.grit/bin/env"
