@@ -1112,16 +1112,16 @@ simpleserver ()
     Python -m SimpleHTTPServer "$@"
 }
 declare -fx simpleserver
-slack-adrl-chatter ()
+slack-chatter ()
 {
     curl -X POST "https://hooks.slack.com/workflows/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" -H "Content-Type:application/json" --data "{\"message\": \"$1\"}"
 }
-declare -fx slack-adrl-chatter
-slack-adrl-tech ()
+declare -fx slack-chatter
+slack-tech ()
 {
     curl -X POST "https://hooks.slack.com/workflows/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" -H "Content-Type:application/json" --data "{\"message\": \"$1\"}"
 }
-declare -fx slack-adrl-tech
+declare -fx slack-tech
 slack-ailor ()
 {
     curl -X POST "https://hooks.slack.com/workflows/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" -H "Content-Type:application/json" --data "{\"message\": \"$1\"}"

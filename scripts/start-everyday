@@ -189,23 +189,73 @@ cd "$HOME" || return;
 /usr/bin/open /Applications/Alfred\ 5.app/;
 /usr/bin/open /Applications/Warp.app/;
 
-echo "Merch By Amazon"
-/usr/bin/open -a "/Applications/Google Chrome.app" 'https://merch.amazon.com/manage/designs';
-echo "Ads By Amazon"
-/usr/bin/open -a "/Applications/Google Chrome.app" 'https://advertising.amazon.com/cm/campaigns?entityId=ENTITY27FFDYKFP1CK2';
+# Needs to be started as a bash program in order to execute bash scripts:
+tmux kill-session -t mtmr; tmux new-session -d -s mtmr "/Applications/MTMR.app/Contents/MacOS/MTMR";
+tmux kill-session -t credentials; tmux new-session -d -s credentials "aws-credentials -r";
+tmux kill-session -t ninja; tmux new-session -d -s ninja "ninja-dev-sync";
+
+if [ $(date +%u) -eq 6  ] || [ $(date +%u) -eq 7  ]; then
+    pass "Have a good weekend, don't work too hard!!";
+    exit 0;
+fi
+
+#debug "Creating new Chrome window";
+#/usr/bin/osascript -e "tell application \"/Applications/Google Chrome.app\"" -e "make new window" -e "activate" -e "end tell";
+#debug "Using Existing Chrome Window";
+
+## Monday Only
+if [[ $(date +%u) -eq 1 ]]; then
+    pass "Starting Monday Workflow";
+fi
+## Tuesday Only
+if [[ $(date +%u) -eq 2 ]]; then
+    pass "Starting Tuesday Workflow";
+fi
+## Wednesday Only
+if [[ $(date +%u) -eq 3 ]]; then
+    pass "Starting Wednesday Workflow";
+fi
+## Thursday Only
+if [[ $(date +%u) -eq 4 ]]; then
+    pass "Starting Thursday Workflow";
+fi
+## Friday Only
+if [[ $(date +%u) -eq 5 ]]; then
+    pass "Starting Friday Workflow";
+fi
+
+#fullscreen "Google Chrome" 0
+sleep 2;
 
 # Check for Local updates
 clear;
+
 
 # Place displays in order:
 displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1512x982 hz:120 color_depth:8 scaling:on origin:(0,0) degree:0" "id:E05A7F94-084C-4894-AE2C-6F7AB2053B8A res:2560x1440 hz:60 color_depth:8 scaling:off origin:(1512,-361) degree:0" "id:F41D2BEA-BAE0-4EB6-8C3A-489979873DB5 res:2560x1080 hz:75 color_depth:8 scaling:off origin:(-2560,-239) degree:0"
 
 timew start;
 
-echo "Checking for software updates:";
-mprocs "echo $(security find-generic-password -a "$USER" -s amzn_mac -w) | fucking -S softwareupdate --force --verbose --agree-to-license -R -i -a" "echo $(security find-generic-password -a "$USER" -s amzn_mac -w) | fucking -S n latest; fucking npm install npm@latest -g; fucking npm outdated -g --depth=0; fucking npm update -g;" "brew update; brew outdated; brew info; brew upgrade" "mas outdated; mas upgrade" "python3.11 -m pip install --upgrade pip; pip list --outdated; pip --disable-pip-version-check list --outdated --format=columns | tail -n+3 | awk '{print $1}' | xargs -n1 pip install --upgrade --force-reinstall" "acme --reload; acme --evaluate; acme --status; acme --network-status; acme --list-updates; acme --remediate; acmeguardiand --reload; acmeguardiand --status;" "bastet"
+debug "Checking for software updates:";
+# Update Mac Software \
+# Update Scripts \
+# Update brew \
+# Update App Store Apps \
+# Update Pip \
+# Update Security Soft \
+# Open Tetris \
+mprocs \
+    "echo $(security find-generic-password -a "$USER" -s amzn_mac -w) | fucking -S softwareupdate --force --verbose --agree-to-license -R -i -a" \
+    "echo $(security find-generic-password -a "$USER" -s amzn_mac -w) | fucking -S n latest; fucking npm install npm@latest -g; fucking npm outdated -g --depth=0; fucking npm update -g;" \
+    "brew update; brew outdated; brew info; brew upgrade" \
+    "mas outdated; mas upgrade" \
+    "python3.11 -m pip install --upgrade pip; pip list --outdated; pip --disable-pip-version-check list --outdated --format=columns | tail -n+3 | awk '{print $1}' | xargs -n1 pip install --upgrade --force-reinstall" \
+    "acme --reload; acme --evaluate; acme --status; acme --network-status; acme --list-updates; acme --remediate; acmeguardiand --reload; acmeguardiand --status;" \
+    "bastet";
 
 sleep 2;
+
+# Jump to Highest Priority Ticket queue
 activate-tab "minImpact";
 sl -a;
 review-tabs -1;
@@ -213,25 +263,25 @@ review-tabs -1;
 toilet --filter border --filter crop --metal -t " Good Morning, Jake ";
 # Display System information
 archey;
-echo "Connected to Wifi: $(wifi-name)";
+pass "Connected to Wifi: $(wifi-name)";
 
 pmset -g stats;
 pmset -g therm;
 pmset -g sched;
 pmset -g adapter;
 battery-status;
-echo "";
+dim "";
 cowsay -f "$(cowsay -l | shuf -n1 | head -n1 | cut -d " " -f1)" "Hello Jake,$(fortune)";
 BluetoothConnector 2> >(awk '/[0-9]+-.*/{printf ""$0" ---- ",system("timeout 2s BluetoothConnector --status "$1)}';)
 sleep 2;
-echo "";
-echo "Completed looking up BluetoothConnectors";
+dim "";
+pass "Completed looking up BluetoothConnectors";
 
 # Local Weather
 readesc INPUT "Hit enter/esc to continue to view Weather Reports";
 clear;
 
-echo "Testing Internet Speed:"
+warn "Testing Internet Speed:"
 timeout 10s fast --upload;
 curl wttr.in/philadelphia?uF;
 curl wttr.in/moon?F;
@@ -256,15 +306,15 @@ else
     toilet --filter border -t --metal "$(date)";
 fi
 
-echo "aka: $(ddate)";
-echo "What happened yesterday?";
+print_blue "aka: $(ddate)";
+print_blue "What happened yesterday?";
 curl us.getnews.tech/n=5;
 readesc INPUT "Hit enter/esc to continue to the newsroom";
 command newsroom -o ~/.newsroom.opml "$(grep -o "title=\"[^\"]*" ~/.newsroom.opml | cut -c 8- | shuf -n1)" 15;
 
 clear;
 # Work from Yesterday
-echo "Display information on modified git Repos and Tasks:"
+pass "Display information on modified git Repos and Tasks:"
 cig;
 #git standup -m 5 -s -d 2 -F;
 timew week;
@@ -275,15 +325,15 @@ else
     task end:-1d completed
 fi
 
-echo "-------------------------------------------------------------------------------------------";
-echo "What do you need to do today?";
+print_blue "-------------------------------------------------------------------------------------------";
+print_green "What do you need to do today?";
 task calendar;
 task list;
 
 # Burn down and Work Tasks
 readesc INPUT "Hit enter/esc to continue to burndown";
 task burndown;
-echo "Hit enter to continue to Stand-up";
+print_green "Hit enter to continue to Stand-up";
 readesc INPUT "Remember to add any upcoming tasks. Check messages and email first.";
 #vit;
 stand-up;
@@ -292,7 +342,7 @@ gtop;
 mwinit -o;
 #redrive-all-sqs;
 genact --exit-after-modules 3;
-echo ":q will quite youtube";
+print_red ":q will quite youtube";
 if [ "$(date +%u)" -eq 1 ]; then #
     youtube-viewer "(ColbertLateShow|LateNightSeth|TheDailyShow) -interview" --autoplay --min-seconds=60 --skip-watched --within=5d --get-captions --auto-captions -rp --best;
 else #
