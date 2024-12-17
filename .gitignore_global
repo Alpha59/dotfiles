@@ -1,0 +1,10 @@
+*~
+.*.swp
+*.iml
+.DS_Store
+/.gtm/
+.idea/
+build/
+build
+$*
+dist/

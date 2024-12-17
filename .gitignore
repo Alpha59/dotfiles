@@ -58,6 +58,7 @@ workplace
 !install.sh
 !items.json
 !git-extra-commands/
+<<<<<<< HEAD
 !git-extra-commands/*/
 !git-extra-commands/*/*/
 !git-extra-commands/bin/*
@@ -67,18 +68,23 @@ workplace
 !scripts/*/*
 !scripts/*/*/
 !scripts/*/*/*
+!git-extra-commands/**
 scripts/work/*
 secrets
 !*/*/MTMR/items.json
 !MTMR/*
-!MTMR/*/*
-!MTMR/*/*/*
+!MTMR/**
 !.vim/
 !.aws-sam/
 !.aws-sam/*
 !.vim/*
 !.cheat/
 !.cheat/*
+!.aws-sam/**
+.aws-sam/aws-sam-cli-app-templates
+!.cheat/
+!.vim/**
+!.aws-sam/
 !.aws-sam/**
 .aws-sam/aws-sam-cli-app-templates
 !.cheat/
@@ -90,6 +96,7 @@ secrets
 /.blackbox/pubring.kbx~
 /.blackbox/secring.gpg
 Makefile
+<<<<<<< HEAD
 
 !.aspell.en.prepl
 !.aspell.en.pws

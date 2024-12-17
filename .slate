@@ -1,0 +1,137 @@
+# Configs
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+config secondsBetweenRepeat 0.1
+config checkDefaultsOnLoad true
+config focusCheckWidthMax 3000
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+#config windowHintsDuration 5
+config windowHintsSpread true
+#config windowHintsOrder persist
+
+# Misc Aliases
+alias showHintsLeftHand hint AOEUIYQJKX
+alias showNormalHint hint AOEUIDHTNSYXFBPKGMCW
+alias browser 'Google Chrome'
+alias mail 'Microsoft Outlook'
+alias pm 'Ora'
+alias chat 'Slack' #Amazon Chime
+alias chime 'Amazon Chime'
+alias music 'Spotify'
+alias pm 'Ora'
+alias term 'Hyper'
+alias editor 'Vim'
+alias video 'Safari'
+alias notes 'MacDown'
+
+# Abstract positions
+alias full          move screenOriginX;screenOriginY                  screenSizeX;screenSizeY
+alias left        move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias lefthalf      move screenOriginX;screenOriginY                  screenSizeX/2;screenSizeY
+alias righthalf     move screenOriginX+screenSizeX/2;screenOriginY    screenSizeX/2;screenSizeY
+
+alias leftthird     move screenOriginX;screenOriginY  screenSizeX*.333;screenSizeY
+alias centerthird     move screenOriginX+screenSizeX*.333;screenOriginY  screenSizeX*.333;screenSizeY
+alias rightthird     move screenOriginX+screenSizeX*.666;screenOriginY  screenSizeX*.333;screenSizeY
+
+alias rightmost     move screenOriginX+screenSizeX*0.4;screenOriginY  screenSizeX*0.6;screenSizeY
+alias rightless     move screenOriginX+screenSizeX*0.6;screenOriginY  screenSizeX*0.4;screenSizeY
+alias leftmost      move screenOriginX;screenOriginY                  screenSizeX*0.6;screenSizeY
+alias leftless      move screenOriginX;screenOriginY                  screenSizeX*0.4;screenSizeY
+alias right       move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias leftbottom move screenOriginX/2;screenOriginY+screenSizeY/2    screenSizeX/2;screenSizeY/2
+alias lefttop    move screenOriginX/2;screenOriginY screenSizeX/2;screenSizeY/2
+alias rightbottom move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2    screenSizeX/2;screenSizeY/2
+alias righttop    move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY/2
+
+layout communicate ${chat}:MAIN_FIRST             ${left}
+layout communicate ${mail}:MAIN_FIRST           ${right}
+
+
+layout code ${term}:MAIN_FIRST                    ${full}
+layout codeAndBrowse ${term}:MAIN_FIRST           ${leftmost}
+layout codeAndBrowse ${browser}:MAIN_FIRST   ${rightless}
+layout codeAndRead ${term}:MAIN_FIRST             ${leftmost}
+layout codeAndMusic ${term}:MAIN_FIRST            ${leftmost}
+
+layout browse ${browser}:MAIN_FIRST          ${full}
+layout browseAndMusic ${browser}:MAIN_FIRST  ${leftmost}
+layout browseAndCommunicate ${browser}:MAIN_FIRST      ${left}
+layout browseAndCommunicate ${chat}:MAIN_FIRST      ${righttop}
+layout browseAndCommunicate ${mail}:MAIN_FIRST    ${rightbottom}
+
+# ======================================
+# The HYPER key
+# ======================================
+
+alias hyper shift,cmd
+
+bind .:${hyper} ${showHintsLeftHand}
+
+layout dashboard3 ${term} ${righthalf} 0
+layout dashboard3 'MySQLWorkbench' ${lefthalf} 0
+layout dashboard3 'Warp' ${lefthalf} 0
+layout dashboard3 ${chat} ${full} 1
+layout dashboard3 'Messages' ${lefthalf} 1
+layout dashboard3 ${browser}:MAIN_FIRST ${righthalf} 2
+layout dashboard3 ${browser}:MAIN_FIRST ${lefthalf} 0
+layout dashboard3 ${browser}:MAIN_FIRST ${full} 2
+layout dashboard3 ${mail}:SORT_TITLE ${centerthird} 2
+layout dashboard3 ${mail}:SORT_TITLE ${leftthird} 2
+layout dashboard3 ${chime}:MAIN_LAST ${full} 1
+layout dashboard3 ${chime}:MAIN_LAST ${full} 1
+layout dashboard3 ${chime}:MAIN_LAST ${rightthird} 2
+
+default dashboard3 count:3
+
+layout dashboard2 ${term} ${full} 0
+layout dashboard2 ${chat} ${full} 0
+layout dashboard2 ${browser}:MAIN_FIRST ${full} 1
+layout dashboard2 ${mail}:SORT_TITLE ${centerthird} 1
+layout dashboard2 ${mail}:SORT_TITLE ${leftthird} 1
+layout dashboard2 ${chime}:MAIN_LAST ${full} 1
+layout dashboard2 ${chime}:MAIN_LAST ${full} 1
+layout dashboard2 ${chime}:MAIN_LAST ${rightthird} 1
+
+default dashboard2 count:2
+
+# Layout bindings
+bind 1:${hyper} sequence layout dashboard3 | show all | show ${browser},${term},${mail},${chime},${chat}
+bind 1:${hyper} sequence layout dashboard2 | show all | show ${browser},${term},${mail},${chime},${chat}
+#bind 1:${hyper} sequence layout communicate | hide all | show ${chat},${mail}
+#bind 2:${hyper} sequence layout code | hide all | show ${term}
+#bind 3:${hyper} sequence layout codeAndBrowse | hide all | show ${browser},${term}
+#bind 4:${hyper} sequence layout browse | hide all | show ${browser}
+#bind 5:${hyper} sequence layout dashboard3 | show all
+
+# Location bindings
+bind a:${hyper} ${lefthalf}
+bind w:${hyper} ${full}
+bind d:${hyper} ${righthalf}
+bind s:${hyper} throw next
+
+bind q:${hyper} ${leftthird}
+bind e:${hyper} ${centerthird}
+bind r:${hyper} ${rightthird}
+
+# Resize Bindings
+#bind r:${hyper} ${leftmost}
+#bind g:${hyper} ${rightmost}
+
+# Focus Bindings
+bind right:${hyper}    focus right
+bind left:${hyper}     focus left
+bind up:${hyper}       focus up
+bind down:${hyper}     focus down
+
+# App bindings
+bind b:${hyper} focus ${browser}
+bind m:${hyper} focus ${mail}
+bind c:${hyper} focus ${chat}
+bind h:${hyper} focus ${term}
+#bind p:${hyper} focus ${music}
+bind o:${hyper} focus ${pm}
+bind v:${hyper} focus ${video}
+bind k:${hyper} focus ${notes}
