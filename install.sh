@@ -1153,6 +1153,6 @@ curl -fsSL https://downloads.slack-edge.com/slack-cli/install.sh;
 brew install pipx;
 
 brew install lighttpd;
-    
+
 brew install tsc;
-    
+
