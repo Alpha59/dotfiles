@@ -33,6 +33,9 @@ workplace
 .vim/bundle/tsuquyomi/
 .vim/bundle/tsuquyomi/*
 .vim/bundle/tsuquyomi/**
+.config/youtube-viewer/api.json
+.config/homebrew/credentials
+.gogpt
 
 # Do not ignore these files
 !.gitignore
