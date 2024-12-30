@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Fetch a random question from the Open Trivia Database
+response=$(curl -s 'https://opentdb.com/api.php?amount=1&type=multiple')
+
+# Extract the question and answer using jq
+question=$(echo "$response" | jq -r '.results[0].question')
+correct_answer=$(echo "$response" | jq -r '.results[0].correct_answer')
+incorrect_answers=$(echo "$response" | jq -r '.results[0].incorrect_answers[]')
+
+echo "Question of the Day: $question"
+echo "Options:"
+echo "- $correct_answer"
+echo "- $incorrect_answers"

@@ -97,7 +97,7 @@ usage: $PROGRAM_NAME [-v][-v][--help][--version]
         no known options
 ";
 
-POSITIONAL_NUMBER_MIN=1;
+POSITIONAL_NUMBER_MIN=0;
 if [[ -e $HOME/helpers/help ]]; then
     source "$HOME/helpers/help";
 fi

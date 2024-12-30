@@ -1156,3 +1156,7 @@ brew install lighttpd;
     
 brew install tsc;
     
+brew install fish;
+    
+brew install calcurse;
+    

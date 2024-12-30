@@ -110,7 +110,7 @@ let g:syntastic_enable_typescript_checker = 1
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 
-" let g:syntastic_typescript_checkers = ['eslint']
+let g:syntastic_typescript_checkers = ['eslint']
 let g:syntastic_typescript_eslint_exe = 'npm run lint --'
 let g:syntastic_typescript_tsc_fname = ''
 let g:syntastic_javascript_checkers = ['eslint']
