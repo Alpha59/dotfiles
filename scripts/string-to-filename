@@ -1,0 +1,19 @@
+echo "$*" | awk '
+    function fixlines(a){
+        gsub(/"/,"",a)
+        gsub(/[ :-]+/,"-",a)
+        gsub(/[^\/0-9a-zA-Z_-]/,"_", a)
+        return a
+    }
+    function fixnewline(a){
+        gsub(/\\n/,"\n", a)
+        return a
+    }
+    function fixtitle(a){
+        gsub(/"/,"", a)
+        return a
+    }
+    {
+        filename = ""fixlines(""$0)".md"
+        print filename
+    }'
