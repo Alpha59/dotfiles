@@ -1,0 +1,1 @@
+git --no-pager log --oneline --no-merges $1 ^origin/mainline --format="%w(270,20,4)* [%h]($CODE_BASE_URL/$2/commits/%H) [%as] %s (%an)"

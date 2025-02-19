@@ -87,10 +87,12 @@ VERSION="1.0.0"
 USAGE="
 $PROGRAM_NAME re-runs the DLQ messages into the main queue. The DLQ and Queue names are required.
 
-usage: $PROGRAM_NAME [-v][-v][--help][--version] <account> <DLQ> <queue> [-r][-p]
+usage: $PROGRAM_NAME [-v][-v][--help][--version] <account> <DLQ> <queue> [-r][-p][-y]
 
     OPTIONS:
         -p,--purge force purge of the DLQ
+        -y,--auto-continue continue without further prompt
+        --peak just show the ApproximateNumberOfMessages and then exit
         -r,--region defaults to us-east-1
 ";
 
@@ -139,6 +141,14 @@ while [[ $# -gt 0 ]]; do
   case $1 in
     -p|--purge)
         PURGE="y"
+        shift
+        ;;
+    -y|--auto-continue)
+        CONT="y"
+        shift
+        ;;
+    --peak)
+        PEAK="y"
         shift
         ;;
     -r|--region)
@@ -202,15 +212,34 @@ src="$(aws sqs get-queue-attributes --region $region --queue-url $DLQ --attribut
 dest="$(aws sqs get-queue-attributes --region $region --queue-url $Queue --attribute-names "QueueArn" | jq -r '.Attributes.QueueArn')";
 
 starting=$(aws sqs get-queue-attributes --attribute-names All --queue-url $DLQ --region "$region" | jq -r '.Attributes.ApproximateNumberOfMessages');
+pass "DQL: $src";
+pass "Queue: $dest";
+warn "DLQ Size: $starting";
+
+if [[ "$PEAK" == "y" ]]; then
+    ending=$(aws sqs get-queue-attributes --attribute-names All --queue-url $Queue --region "$region" | jq -r '.Attributes.ApproximateNumberOfMessages');
+    error "Queue Size: $ending";
+    exit 0;
+fi
+
+if [[ "$CONT" != "y" ]]; then
+    print "Should this script continue to re-run this queue? (y/n)";
+    read CONT;
+fi
+if [[ "$CONT" != "y" ]]; then
+    exit 0;
+fi
 if [[ $starting != "0" ]]; then
     echo "Found $starting message in $DLQ";
     aws sqs start-message-move-task --source-arn "$src" --destination-arn "$dest" --region "$region";
     sleep 120;
+    aws-credentials $1 $region;
     ending=$(aws sqs get-queue-attributes --attribute-names All --queue-url $DLQ --region "$region" | jq -r '.Attributes.ApproximateNumberOfMessages');
     echo "Approximate Number of Messages on $DLQ: $ending"
 
     # If there are still messages, look and see what they are before asking about a purge:
     if [[ $ending != "0" ]]; then
+        aws-credentials $1 $region;
         msg_raw="$(aws sqs receive-message --queue-url $DLQ --region "$region" --max-number-of-messages 1 --wait-time-seconds 19 --attribute-names All --message-attribute-names All)";
         debug "Found message Raw: $msg_raw";
         msg="$(echo "$msg_raw" | jq '.Messages[].Body' | sed 's/\\*"/"/g' | sed 's/\\n//g' | sed 's/"{/{/g' | sed 's/}"/}/g')";
@@ -245,6 +274,7 @@ if [[ $starting != "0" ]]; then
 
 else
     echo "No Messages on $DLQ"
+    exit 0;
 fi
 echo "----------------------------------------------------------------------"
 echo "----------------------------------------------------------------------"

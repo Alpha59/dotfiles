@@ -1,0 +1,4 @@
+chrome-cli execute '
+row = [...document.querySelectorAll("tr")].filter((e) => e.innerHTML.includes(">'$1'<")).pop();
+"'$1': " + "[" + row.querySelector("td:nth-child(4)").innerText + "]("+row.querySelector("td:nth-child(4) a").href + ") " + row.querySelector("td:nth-child(6)").innerText;
+'

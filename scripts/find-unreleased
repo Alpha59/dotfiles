@@ -1,0 +1,27 @@
+git remote remove origin;
+git remote add origin "ssh://git.amazon.com:2222/pkg/$1";
+git fetch;
+
+m0=$(git --no-pager rev-list --no-merges $2...origin/HEAD --format="%w(270,20,4)* [%h](https://code.amazon.com/packages/$1/commits/%H) [%as] %s (%an)")
+if [ -n "${m0}" ]; then
+    echo "                * Commits not currently Released from Branch:$(echo "$m0" | grep -v '^$' | wc -l)";
+    echo "$m0";
+fi
+
+m1=$(git not-on-mainline $1 | sed "s/\(\[$2.*\)/**\1** - Last Released Commit/");
+if [ -n "${m1}" ]; then
+    echo "                * Commits not currently on Mainline:$(echo "$m1" | grep -v '^$' | wc -l)";
+    echo "$m1";
+fi
+
+m2=$(git not-on-branch-from-mainline origin/$3 $1 | sed "s/\(\[$2.*\)/**\1** - Last Released Commit/");
+if [ -n "${m2}" ]; then
+    echo "                * Commits on Mainline not on current release branch:$(echo "$m2" | grep -v '^$' | wc -l)";
+    echo "$m2";
+fi
+
+m3=$(git not-on-mainline-from-branch origin/$3 $1 | sed "s/\(\[$2.*\)/**\1** - Last Released Commit/");
+if [ -n "${m3}" ]; then
+    echo "                * Commits on the current release branch not on Mainline:$(echo "$m3" | grep -v '^$' | wc -l)";
+    echo "$m3";
+fi

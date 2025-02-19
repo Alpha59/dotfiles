@@ -1,0 +1,11 @@
+export STAGE='BETA';
+
+export PROFILE='';
+export AWS_PROFILE='';
+
+export CDK_DEFAULT_ACCOUNT='';
+export CDK_PERSONAL_ACCOUNT_ID='';
+
+export REGION='us-west-2';
+export AWS_REGION='us-west-2';
+export CDK_DEFAULT_REGION='us-west-2';
