@@ -21,3 +21,7 @@ node14x = /usr/local/n/versions/node/14.21.3/bin/node
 java20_home = /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
 
 java8_home = /Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home
+
+java23_home = /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home
+java22_home = /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home
+java21_home = /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home

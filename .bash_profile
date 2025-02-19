@@ -28,6 +28,7 @@ PATH="$PATH:/opt/homebrew/Cellar/node/"
 export PATH;
 
 alias npm-watch='tmux new-session -s watcher "npm run test-watch" \; split-window -v "npm   run watch" \; split-window -h -d "npm run inspect"\; select-pane -t 0 \; split-window -h -d "fswatch ./dist/* -r -o | xargs -n4 -I{} bash -c \"sleep 3; curl -s localhost:8080/return-order/test | jq; echo; echo \"----\";\"" \;'
+
 # Pyenv
 #export PYENV_ROOT="$HOME/.pyenv"
 #eval "$(pyenv init -)"

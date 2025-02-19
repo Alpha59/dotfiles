@@ -1160,3 +1160,5 @@ brew install fish;
     
 brew install calcurse;
     
+go install github.com/simeji/jid/cmd/jid@latest;
+    

@@ -108,17 +108,20 @@ let g:syntastic_enable_html_tidy_checker = 0
 
 let g:syntastic_enable_typescript_checker = 1
 let g:tsuquyomi_disable_quickfix = 1
+let g:tsuquyomi_use_vimproc=1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 
-let g:syntastic_typescript_checkers = ['eslint']
-let g:syntastic_typescript_eslint_exe = 'npm run lint --'
-let g:syntastic_typescript_tsc_fname = ''
+"let g:syntastic_typescript_checkers = ['eslint']
+"let g:syntastic_typescript_eslint_exe = 'npm run lint --'
+"let g:syntastic_typescript_tsc_fname = ''
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = 'npm run eslint --'
 let g:syntastic_javascript_eslint_exec = 'eslint_d'
 let g:syntastic_enable_javascript_checker = 1
 let g:syntastic_mode_map = { 'mode': 'active' }
 highlight SyntasticError guibg=#2f0000
+
+" let g:syntastic_debug=3
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -162,4 +165,3 @@ com! FormatJSON .!python3 -c "import json, sys, collections; print json.dumps(js
 com! Fixgpt :%s/\n\s*\([A-z]\)/ \1/g
 com! Sequalize :%s/.*`\(.*\)` \([^ ]*\).*|/      \1:{\r       type: Sequelize.\2\r      },/
 noremap! <C-?> <C-h>
-

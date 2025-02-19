@@ -774,7 +774,7 @@ isInteger ()
 declare -fx isInteger
 jiq ()
 {
-    "$@" | jid -q
+    cat "$@" | jid -q
 }
 declare -fx jiq
 kcurl ()
